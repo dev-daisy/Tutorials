@@ -1,0 +1,601 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Using Basic SELECT statements</h1><div class="section_text"><p>Explore how to retrieve data using SQL SELECT statements including arithmetic expressions, NULL values, column aliases, and literal strings. You will also learn how to deal with duplicate rows.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: The Basic SELECT Statement (it_dfosfd_03_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Writing SQL Statements (it_dfosfd_03_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Arithmetic Expressions (it_dfosfd_03_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Operator Precedence in Arithmetic Expressions (it_dfosfd_03_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: NULL Values (it_dfosfd_03_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Column Aliases (it_dfosfd_03_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Concatenation Operator (it_dfosfd_03_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Literal Character Strings (it_dfosfd_03_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: WHERE Clause (it_dfosfd_03_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Duplicate Rows (it_dfosfd_03_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Displaying Table Structure (it_dfosfd_03_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Exercise: Retrieving Data Using SQL Statements (it_dfosfd_03_enus_12)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: The Basic SELECT Statement (it_dfosfd_03_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/f024d62c-bbb1-41f0-bdc1-30f329b4ee17/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f024d62c-bbb1-41f0-bdc1-30f329b4ee17/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use basic SELECT statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the basic SELECT statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: The Basic SELECT Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll introduce the basic components of a SELECT statement. Which is perhaps one of the most common statements that you will issue against just about any database, as it&#39;s used to simply retrieve the records from a table or tables. Now, we&#39;ll come to multitable statements a little bit later on. But for the time being, the basic structure is,</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The window is divided into two parts: navigation pane and content pane. The navigation pane is divided into three sections. The first section is named as Connections, which includes refresh, filter, and plus icons. The second section contains the Connections directory, which includes the HR database. The HR database includes the Tables and Views folders. The Tables folder is expanded. It includes the COUNTRIES, DEPARTMENTS, and EMPLOYEES tables. The third section is named as Reports. It includes the All Reports folder directory. It includes the Data Dictionary Reports and OLAP Reports sub folders. The content pane includes two tabs and Execute, font change, and settings icons. The two tabs are Start Page and HR. The HR tab is selected. The HR tab has two subtabs Worksheet and Query Builder. The Worksheet tab is selected. It includes three statements and each statement has its comment.</em> [Video description ends]</p>
+<p>as indicated in my commented section here. You SELECT, then the list of columns that you want,</p>
+<p>[Video description begins] <em> He highlights the Basic structure of the SELECT statement; and SELECT Column list FROM Table(s) WHERE Filter condition ORDER BY Desired column(s) comments.</em> [Video description ends]</p>
+<p>with each column separated by a comma, FROM the Table or tables. And, again, we&#39;ll come to the multitable statements later. Then you use the WHERE clause and then supply a filter condition if you don&#39;t want to see every row. And we&#39;ll see several examples of WHERE clauses. And then you can ORDER BY to sort the results using, again, your desired column or columns. You can sort by more than one column. Now, I do want to point out that is not a complete SELECT statement. There are other components that can be used, but for the time being, we are just focusing on the basics. So here is perhaps the simplest SELECT statement.</p>
+<p>[Video description begins] <em> He highlights the SELECT * FROM EMPLOYEES; statement and the Use a basic SELECT statement to retrieve all records from a table comment.</em> [Video description ends]</p>
+<p>SELECT * FROM a single table. This retrieves all of the records, every column, every row. So no filtering, no sorting, just show me all of the records, okay? So we can execute this statement, and there they are.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMPLOYEES; statement and clicks the Execute icon. Another subsection gets added in the content pane, which includes the Query Result tab. The Query Result tab includes the EMPLOYEES table. The table includes EMPLOYEE_ID, FIRST_NAME, LAST_NAME, PHONE_NUMBER, HIRE DATE, and JOB_ID.</em> [Video description ends]</p>
+<p>Now, this would equate to, essentially, opening the table. Imagine if this was just a spreadsheet and you just double-clicked on it to see all of the values. That is effectively what you are doing with the SELECT * statement. But in some cases you aren&#39;t concerned with every column. Maybe you aren&#39;t interested in the PHONE_NUMBER or the HIRE_DATE or the JOB_ID. So you can be selective, of course, in your SELECT statements.</p>
+<p>[Video description begins] <em> He points to the columns in the EMPLOYEES table displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>So in this case, we will select only the desired columns.</p>
+<p>[Video description begins] <em> He highlights the Select only the desired columns comment.</em> [Video description ends]</p>
+<p>So it&#39;s still SELECT, but then it&#39;s each column that you want separated by a comma, and it does not matter in terms of the sequence or the order.</p>
+<p>[Video description begins] <em> He highlights the SELECT Employee_ID, First_Name, Last_Name FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>I happen to be going in the correct order here, with EMPLOYEE_ID, FIRST_NAME, and LAST_NAME. But you could list them in any order, and it doesn&#39;t matter which ones you want.</p>
+<p>[Video description begins] <em> He highlights the columns in the EMPLOYEES table displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>So just specify the columns and, again, separate them using a comma. And you can see that they aren&#39;t case sensitive either. But we still have to specify from which table, so we can execute this one.</p>
+<p>[Video description begins] <em> He highlights the SELECT Employee_ID, First_Name, Last_Name FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>And I just get those three columns back.</p>
+<p>[Video description begins] <em> He executes the SELECT Employee_ID, First_Name, Last_Name FROM EMPLOYEES; statement. The Query Result tab shows the EMPLOYEES table, which includes three columns: EMPLOYEE_ID, FIRST_NAME, and LAST_NAME.</em> [Video description ends]</p>
+<p>Now, I&#39;m getting every record, every row, because I&#39;m not filtering. So, in both cases, every employee was returned, but I don&#39;t necessarily have to see every column every time. Okay, so again we&#39;ll see many more examples of a SELECT statement, but those are some of the basic elements. And, again, you use the SELECT statement to simply retrieve records from your tables.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Writing SQL Statements (it_dfosfd_03_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/6f0c8f48-5daa-4d66-bf87-4305af8a49a2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/6f0c8f48-5daa-4d66-bf87-4305af8a49a2/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to recognize the rules and guidelines for constructing valid SQL statements in SQL Developer and SQL*Plus.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">recognize the rules and guidelines for constructing valid SQL statements in SQL Developer and SQL*Plus</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Writing SQL Statements. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll continue with the basic structure of a SELECT statement. But we&#39;ll take a closer look at some of the rules, some of the conventions. And even some alternate methods you can use to assemble your SELECT statements. Now, it does begin with the keyword of select.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The Worksheet tab is open. In the navigation pane, under the HR database, the EMPLOYEES table is expanded. It includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, SALARY, and COMMISSION_PCT column names.</em> [Video description ends]</p>
+<p>And in terms of the rules, one of the first options is that it is not case sensitive.</p>
+<p>[Video description begins] <em> He types the select keyword and the autocomplete suggestion box appears. The autocomplete suggestion box includes the SELECT, SELECT * FROM, and SELECT * FROM table suggestions.</em> [Video description ends]</p>
+<p>You may have noticed in the previous demonstrations that the word SELECT, and the word FROM, and WHERE, and ORDER BY have all been in upper case. That&#39;s common, but it is not necessary, okay? And you might also notice that when you are using the Oracle SQL Developer application, that these autocomplete suggestions will appear. They can just save you a little bit of time. If I do want to enter in, for example, SELECT * FROM. I can just choose that from the list and it will complete it for me, avoiding typos and saving a little bit of time. If you don&#39;t want to choose those, that&#39;s fine, just continue typing. I&#39;m just going to hit my Spacebar, you can see that disappears. So then it wants the columns. Again, I can just type them in, and they are not case sensitive here either, nor do they have to be entered in any kind of sequence. Using my EMPLOYEES table for example, the EMPLOYEE_ID column appears first, but I do not have to specify that one first.</p>
+<p>[Video description begins] <em> He points to the EMPLOYEE_ID column in the EMPLOYEES table in the navigation pane.</em> [Video description ends]</p>
+<p>So let&#39;s go with something like first_name. And again, you can see that some autocomplete options will appear, but none of those are what I&#39;m looking for, so I&#39;ll just continue typing.</p>
+<p>[Video description begins] <em> He types first and the autocomplete suggestion box appears. The autocomplete suggestion box includes the FIRST and FIRST_VALUE suggestions.</em> [Video description ends]</p>
+<p>And then let&#39;s go with maybe, last_name.</p>
+<p>[Video description begins] <em> He types first_name, last_name after the select keyword. He points to the first_name and last_name columns in the statement.</em> [Video description ends]</p>
+<p>And each column is, again, separated by a comma. Now you can also avoid typos, and maybe save a little bit of time by simply dragging and dropping. So if I do want, let&#39;s say the EMPLOYEE_ID, I can just drag it from my browser, and drop it into the statement.</p>
+<p>[Video description begins] <em> He selects the EMPLOYEE_ID column name in the navigation pane. Then he drags and drops the column name next to the last_name column name in the statement.</em> [Video description ends]</p>
+<p>And in it goes, and you can see that went in in upper case but it doesn&#39;t matter, okay? And that ensures that I don&#39;t misspell it. Okay, so then I can go to the next line, for my FROM clause, but that also is not necessary. I could specify the FROM clause on the same line, up here, that&#39;s perfectly fine, okay? But again, it&#39;s just common to see all of your keywords separated on their own lines. So FROM, and then again, this is the name of the table. And as soon as I hit my Spacebar here, you can see that the SQL Developer application is presenting me with a list.</p>
+<p>[Video description begins] <em> He types the FROM keyword in the next line and presses spacebar. The autocomplete suggestion box appears with different table names including EMPLOYEES and JOBS.</em> [Video description ends]</p>
+<p>So, that makes it easy. I can just choose EMPLOYEES by double-clicking, okay? That statement is ready to go. Now, again, you might have seen a semicolon at the end of every statement so far. That’s perfectly fine and not a bad habit to get into at all, but it actually isn’t necessary if this is the only statement that is appearing on this worksheet. Okay, so I can absolutely execute this code as is. And I see my results.</p>
+<p>[Video description begins] <em> He executes the select first_name, last_name, EMPLOYEE_ID FROM EMPLOYEES statement. Its output appears in the Query Result tab. The tab includes three columns of the EMPLOYEES table that are First_NAME, LAST_NAME, and EMPLOYEE_ID .</em> [Video description ends]</p>
+<p>Okay, no errors, but I can put the semicolon in and re-execute, same results.</p>
+<p>[Video description begins] <em> He puts the semicolon at the end of the statement and re-executes the statement.</em> [Video description ends]</p>
+<p>The semicolon is essentially noting the end of this statement. So that if I now want to create another statement in this same worksheet, Oracle can delineate between the two, okay? You also may have noticed that in most cases, I would highlight the code before executing it.</p>
+<p>[Video description begins] <em> He highlights the select first_name, last_name, EMPLOYEE_ID FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>Again, if this is the only statement, that is not necessary. But if I had two statements on the same worksheet, and I did not highlight, it would attempt to execute both of them. Now that&#39;s fine. In many cases, you can execute more than one statement at a time. But if you only want one of them to execute, you do have to highlight it, then execute so that it does not execute all statements.</p>
+<p>[Video description begins] <em> He highlights and executes the statement.</em> [Video description ends]</p>
+<p>So at this point, with only one statement, it really doesn&#39;t matter. Okay, so, those are some of the basic rules but I mentioned some alternate methods. And you may have noticed that I do have this Worksheet here where I&#39;m</p>
+<p>[Video description begins] <em> He points to the Worksheet tab.</em> [Video description ends]</p>
+<p>entering this code, but there is also this tab that says Query Builder. And if you select that tab, you see a much more graphic representation of what this query looks like.</p>
+<p>[Video description begins] <em> He opens the Query Builder tab. The result displayed in the Query Result tab remains same. The Query Builder tab is divided into two sections. The first section includes the Main tab. The Main tab shows the EMPLOYEES table, which includes column names and each column name has a checkbox. Some of the column names are EMPLOYEE_ID, FIRST_NAME, LAST_NAME, and EMAIL. The checkbox of the EMPLOYEE_ID, FIRST_NAME, and LAST_NAME column names are selected. The second section displays a table, which includes the Output, Expression, and Alias column headers.</em> [Video description ends]</p>
+<p>And you can work in either one. So on my Worksheet, I specified first_name, last_name, and EMPLOYEE_ID.</p>
+<p>[Video description begins] <em> He switches to the Worksheet tab and points to the column names in the statement.</em> [Video description ends]</p>
+<p>Therefore the Query Builder is indicating those three columns are included. I specified FROM the EMPLOYEES table, so</p>
+<p>[Video description begins] <em> He switches to the Query Builder tab and points to the checkboxes of the EMPLOYEE_ID, FIRST_NAME, and LAST_NAME column names in the EMPLOYEES table in the first section.</em> [Video description ends]</p>
+<p>clearly it knows which table I&#39;m working with.</p>
+<p>[Video description begins] <em> He switches to the Worksheet tab and highlights the FROM EMPLOYEES; clause in the statement. Then he switches to the Query Builder tab and points to the EMPLOYEES table .</em> [Video description ends]</p>
+<p>So to make a change, let&#39;s say I now want to include the e-mail address, I certainly could go back to the Worksheet and enter it into my list here. But I can also just enable the checkbox next to that column.</p>
+<p>[Video description begins] <em> He switches to the Worksheet tab and points to the first line of the statement.</em> [Video description ends]</p>
+<p>And I can re-execute from here. And I see the additional column up here, okay?</p>
+<p>[Video description begins] <em> He switches to the Query Builder tab and selects the check box of the EMAIL column name in the EMPLOYEES table. He clicks the Execute button and the EMAIL column name gets added next to the EMPLOYEE_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>And if I go back down to my Worksheet, you can see what&#39;s happened with the code. Everything has been reorganized.</p>
+<p>[Video description begins] <em> He switches to the Worksheet tab and the statement has been modified as follows: SELECT EMPLOYEES.FIRST_NAME, EMPLOYEES.LAST_NAME, EMPLOYEES.EMPLOYEE_ID, EMPLOYEES.EMAIL FROM EMPLOYEES.</em> [Video description ends]</p>
+<p>Now again, there&#39;s really no functional difference here, but you can see that the SELECT and the FROM are indented compared to the column list. And the column list has been updated to qualify each column</p>
+<p>[Video description begins] <em> He highlights the column names in the statement.</em> [Video description ends]</p>
+<p>name with the name of the table.</p>
+<p>[Video description begins] <em> He highlights the EMPLOYEES keyword in front of the FIRST_NAME column name in the statement.</em> [Video description ends]</p>
+<p>And that can help to avoid ambiguity errors if you&#39;re working with multiple tables. Because you could have duplicate column names appearing in multiple tables. If for example, I had a customers table in this same statement,</p>
+<p>[Video description begins] <em> He highlights the FIRST_NAME column name in the statement.</em> [Video description ends]</p>
+<p>there might also be a first name and a last name. So this qualifies which one you&#39;re working with. So again, the code has been reorganized, but functionally, no difference. Everything still retrieves my records. So you can work in either one.</p>
+<p>[Video description begins] <em> He switches to the Query Builder tab.</em> [Video description ends]</p>
+<p>We&#39;ll do a lot more using this Query Builder because it does make it a little bit easier to assemble more advanced queries. But for the time being, I just wanted to indicate that it is there. And that you can work with either the Worksheet or the Query Builder to assemble your SELECT statement.</p>
+<p>[Video description begins] <em> He switches to the Worksheet tab.</em> [Video description ends]</p>
+<p>So we&#39;ll see some more advanced statements a little bit later on. But for the time being, those are some of the rules, some of the guidelines. And some of the conventions that you can use to assemble your SELECT statements.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Arithmetic Expressions (it_dfosfd_03_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/0b38d1a8-ded8-4121-a29f-117c14a7752b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/0b38d1a8-ded8-4121-a29f-117c14a7752b/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe and use arithmetic expressions in SQL.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe and use the arithmetic expressions in SQL</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Arithmetic Expressions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at using arithmetic operations in a SELECT statement. And, of course, this is particularly useful when you have a numeric column to deal with. Now, we&#39;ll begin with the four basic arithmetic operations of multiply, divide, add, and subtract. But we will see some functions later on in the course where you can ascertain greater detail when dealing with numeric columns. But to get started, we&#39;ll take a look at the EMPLOYEES table, which contains a SALARY column. Now, the value of the SALARY column in this table is monthly.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. It includes four statements and each statement has its comment.</em> [Video description ends]</p>
+<p>So what we can do with our first statement here is to Multiply the salary column by 12 to get an annual salary. So I&#39;m just selecting out some other columns, the ID, the FIRST_NAME, and the LAST_NAME, and the original SALARY, as it is. But then you can see, I have an additional column, SALARY * 12. Now, that simply says take the existing SALARY column and multiply its value by 12. And that all get selected from the EMPLOYEES table.</p>
+<p>[Video description begins] <em> He highlights the first statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY * 12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So this is what&#39;s known as a calculated field, or also a derived column. Because it does not exist in the table,</p>
+<p>[Video description begins] <em> He highlights the SALARY * 12 clause in the statement.</em> [Video description ends]</p>
+<p>I&#39;m telling it to use the existing column, but then to perform some math against that column.</p>
+<p>[Video description begins] <em> He highlights the SALARY * 12 clause in the statement.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute, and we can see that we get our result.</p>
+<p>[Video description begins] <em> He executes the first statement and the Query Result tab appears with the EMPLOYEES table. The table includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY*12 columns.</em> [Video description ends]</p>
+<p>So there is the monthly salary as it is normally in the table. And then, of course, we see SALARY * 12 and the appropriate value there.</p>
+<p>[Video description begins] <em> He highlights the SALARY and SALARY*12 columns in the Query Result tab.</em> [Video description ends]</p>
+<p>So similarly, we can issue the exact same statement with just a different operation. And, in this case, I&#39;m dividing it by 4 to essentially get a weekly salary.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY/4 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>And I do also want to point out that you can see here, and I&#39;ve done this intentionally, in this case it&#39;s SALARY/4, with no spaces.</p>
+<p>[Video description begins] <em> He highlights the SALARY/4 clause in the second statement.</em> [Video description ends]</p>
+<p>Above, it was SALARY * 12, with spaces.</p>
+<p>[Video description begins] <em> He highlights the SALARY * 12 clause in the first statement.</em> [Video description ends]</p>
+<p>Okay, I just wanted to do that so you could see that. In fact, it doesn&#39;t really matter, all right? So let&#39;s go ahead and select or execute this statement, and there we see is essentially our weekly salary.</p>
+<p>[Video description begins] <em> He highlights and executes the second statement. The result displays in the Query Result tab. The result includes the SALARY and SALARY/4 columns from the EMPLOYEES table. He points to the first row values of the SALARY and SALARY/4 columns that are 24000 and 6000 respectively.</em> [Video description ends]</p>
+<p>And then we can just do some addition and subtraction. And, again, note that I intentionally left spaces here.</p>
+<p>[Video description begins] <em> He highlights the SALARY &#43; 500 clause in the third statement. The third statement reads as follows: EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY &#43; 500 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>I did not leave a space here.</p>
+<p>[Video description begins] <em> He highlights the SALARY-500 clause in the fourth statement. The fourth statement reads as follows: EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY-500 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>Again, it doesn&#39;t matter. But I could add a value to this or subtract a value from it,</p>
+<p>[Video description begins] <em> He points to the third statement.</em> [Video description ends]</p>
+<p>just to estimate what it might look like if I were to give raises or reductions.</p>
+<p>[Video description begins] <em> He points to the fourth statement.</em> [Video description ends]</p>
+<p>So purely what-if scenarios here. So I can execute this, and I see what those values look like with 500 added, and then, of course, 500 subtracted, okay?</p>
+<p>[Video description begins] <em> He highlights and executes the third statement. The Query Result tab includes the SALARY and SALARY&#43;500 columns from the EMPLOYEES table. He points to the first row value of the SALARY&#43;500 column that is 24500. Then he highlights and executes the fourth statement. The Query Result tab includes the SALARY and SALARY-500 columns from the EMPLOYEES table. He points to the first row value of the SALARY-500 column that is 23500.</em> [Video description ends]</p>
+<p>So, again, those are the basic arithmetic operations that you can perform with any numeric value. And you can always refer to the original column. And then you can simply perform whichever operation you want against that column. Now, we&#39;ll see some more advanced operations that can be done later on. But for the time being, that&#39;s how you can get started with performing arithmetic calculations in your SELECT statements.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Operator Precedence in Arithmetic Expressions (it_dfosfd_03_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/bc9b842b-3ef1-4064-a8b2-b4c16ba3d1dd/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/bc9b842b-3ef1-4064-a8b2-b4c16ba3d1dd/image001.jpg')();" /><div class="section_text">To apply the standard order of precedence in SQL arithmetic expressions, find out how to do so.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">apply the standard order of precedence in SQL arithmetic expressions</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Operator Precedence in Arithmetic Expressions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, one thing to be mindful of when performing mathematical operations in a SELECT statement is the default precedence or the order of operations when you combine your calculations. So we all need to think back to our grade school math classes to remember that the default order of operations is multiply, divide, add, subtract. So if you are combining operations, you need to take note of that or you need to alter the default order of operations by using parentheses. So, in this demonstration, I have several statements here, and, you can see that the first one demonstrates the default order of operations. So there&#39;s no parentheses yet, and I have the SALARY</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. The tab includes four statements and each statement has its own comment. He highlights the first statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY * 12 &#43; 500 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>column here multiply by 12, then adding 500. So, since multiplication happens first, this one should come out as expected. In other words, what I&#39;m looking to see is an annual salary, then essentially a bonus of 500 on top of that, okay?</p>
+<p>[Video description begins] <em> He highlights the SALARY * 12 &#43; 500 clause in the first statement.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute without any parentheses, and we can see that the total here comes out to 288500, okay?</p>
+<p>[Video description begins] <em> He executes the first statement. The Query Result tab includes columns from the EMPLOYEES table: SALARY and SALARY *12&#43;500. He highlights the first row value of the SALARY*12&#43;500 column.</em> [Video description ends]</p>
+<p>Just for that first record. So this second example is in fact functionally equivalent to the statement above, but it does clarify the order.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads as follows: EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, (SALARY * 12) &#43; 500 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So you can see now I have the SALARY column along with the times 12 in parentheses. So this should yield the same result, because again this really is the same.</p>
+<p>[Video description begins] <em> He executes the second statement and the Query Result tab includes the SALARY and (SALARY*12)&#43;500 columns from the EMPLOYEES table.</em> [Video description ends]</p>
+<p>The default order of operations is to multiply first then to add. So, in fact, I do see 288500.</p>
+<p>[Video description begins] <em> He highlights the first row value of the (SALARY*12)&#43;500 column in the EMPLOYEES table shown in the Query Result tab.</em> [Video description ends]</p>
+<p>But you really should get in the habit of using the parentheses to ensure that that operation is being performed first, okay?</p>
+<p>[Video description begins] <em> He highlights the (SALARY * 12) clause in the second statement.</em> [Video description ends]</p>
+<p>So if we look at the next example here, maybe you&#39;re just making an error with the logic, we see SALARY plus 500 then times 12. Remembering that the default order of operations is to do</p>
+<p>[Video description begins] <em> He points to the third statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY &#43; 500 * 12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>the multiplication first, this one does exactly that. It multiplies 500 * 12 first, then adds it to the salary, so that equals 6000, which is then added to the salary.</p>
+<p>[Video description begins] <em> He highlights the comment of the third statement that reads as follows: This statement performs the calculation of 500 *12 first (equals 6000), then adds 6000 to the salary.</em> [Video description ends]</p>
+<p>So let&#39;s take a look to see what this one looks like, and we do see that monthly value here of 24000 with 6000 added to it. So now I see 30000, okay?</p>
+<p>[Video description begins] <em> He executes the third statement. The Query Result tab includes the SALARY and SALARY&#43;500*12 columns from the EMPLOYEES table. He points to the first row value of the SALARY and SALARY&#43;500*12 columns that are 24000 and 30000 respectively.</em> [Video description ends]</p>
+<p>So, again, it depends what you&#39;re trying to do. In the last example, maybe that is the logic. But what I wanted to do was to add 500, in other words, a monthly increase to the salary, then multiply that by 12. So, again, by using the parentheses, we alter the default order of operations when we tell Oracle to do this first.</p>
+<p>[Video description begins] <em> He points to the fourth statement that reads as follows: EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, (SALARY &#43; 500) * 12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>Okay, so again recall that this answer was 30000. If we use the parentheses, now we see 294000.</p>
+<p>[Video description begins] <em> He points to the first row value of the SALARY&#43;500*12 column in the EMPLOYEES table in the Query Result tab. Then he executes the fourth statement. The result displayed in the Query Result tab changes. It includes the (SALARY &#43; 500)*12 column with different values.</em> [Video description ends]</p>
+<p>So clearly a huge difference in the answer here, purely because of the parentheses.</p>
+<p>[Video description begins] <em> He points to the (SALARY &#43; 500) clause in the fourth statement.</em> [Video description ends]</p>
+<p>So you always want to ensure that you are performing the correct operation first regardless of your logic. And parentheses, of course, can always help to control that. Because whatever is in the parentheses will override the default and it will perform that operation first, okay? So, again, those are just some examples. But if you do need to alter the default order of operations when doing mathematical calculations, ensure that you always use parentheses. And, again, it&#39;s not a bad habit to get into even if it does yield the correct answer. As mentioned, our very first one did give the correct answer,</p>
+<p>[Video description begins] <em> He highlights the first statement.</em> [Video description ends]</p>
+<p>but it&#39;s a little more readable. It&#39;s a little more clarified, for lack of a better word, if you use the parentheses.</p>
+<p>[Video description begins] <em> He highlights the (SALARY * 12) &#43; 500 clause in the second statement.</em> [Video description ends]</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: NULL Values (it_dfosfd_03_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/d3bf31b9-bdff-4a5f-9538-446f4bb7afb4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d3bf31b9-bdff-4a5f-9538-446f4bb7afb4/image001.jpg')();" /><div class="section_text">In this video, you will learn how NULL values are defined in SQL and how they affect arithmetic expression outcomes.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">identify how NULL values are defined in SQL and how they affect arithmetic expression outcomes</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: NULL Values. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Another consideration to be mindful of when performing arithmetic operations is the presence of nulls. Now a null is essentially nothing. It does not indicate that a value was entered, and was then deleted. It also does not equate to zero numerically. It quite literally is nothing, there was no value ever entered, it does not equate to anything else nor can it be compared to anything else. It quite simply is nothing. So if you try to compare nothing to something, it&#39;s just not a valid comparison, including any other null. In other words, a null does not equal another null, it&#39;s just nothing. So this tends to lead us to think mathematically that it might equal zero, but it doesn&#39;t equal anything. So when you perform calculations and a null is present, essentially, don&#39;t expect to see a zero. So to demonstrate, in our EMPLOYEES table, there is a commission percentage column. So I&#39;m not performing any calculations yet, let&#39;s just retrieve the values.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. It includes two statements. Each statement has its comment. He highlights the first statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, COMMISSION_PCT FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>And we can see that we do have the salary,</p>
+<p>[Video description begins] <em> He executes the statement and the Query Result tab appears. The tab includes the SALARY and COMMISSION_PCT columns from the EMPLOYEES table.</em> [Video description ends]</p>
+<p>and then we have the commission percentage. And you can see clearly, there are many nulls present in the results here.</p>
+<p>[Video description begins] <em> In the Query Result tab, he points to the first row value of the SALARY and COMMISSION_PCT columns that are 24000 and (null) respectively. He then scrolls down through the COMMISSION_PCT column to show other values stored in its rows.</em> [Video description ends]</p>
+<p>So we do start to see some values down below. So they certainly can be calculated when there is a value, but when there is a null, you will not see zero as the result, okay? So that&#39;s what I&#39;m doing in my next statement here.</p>
+<p>[Video description begins] <em> He points to the second statement that reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, COMMISSION_PCT, SALARY * COMMISSION_PCT FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>I&#39;m multiplying the SALARY*COMMISSION_PCT. Now, that wouldn&#39;t be accurate in the production scenario, you don&#39;t earn commission on your salary. This is just to indicate what happens when you try to multiply the two together. So let&#39;s go ahead and execute with that calculation in place, and you can see that we have a value times a null equals a null, okay?</p>
+<p>[Video description begins] <em> He executes the second statement and the Query Result tab shows the SALARY, COMMISSION_PCT, and SALARY*COMMISSION_PCT columns. He points to the first row values of the SALARY, COMMISSION_PCT, and SALARY*COMMISSION_PCT columns in the Query Result tab. The respective values of the columns are 24000, (null), and (null).</em> [Video description ends]</p>
+<p>So again, it&#39;s not zero, it&#39;s simply null. Anything times a null is null, anything compared to a null is simply null. So we do certainly see answers when there is a value, that&#39;s perfectly fine. So you should expect to see some kind of answer come back.</p>
+<p>[Video description begins] <em> He scrolls down the table where the row values of the COMMISSION_PCT are not null. He points to the row value, where the SALARY is 13500, the COMMISSION_PCT is 0.3, and the SALARY*COMMISSION_PCT is 4050.</em> [Video description ends]</p>
+<p>But any kind of a null will always yield a null result when calculated or compared.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Column Aliases (it_dfosfd_03_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/f1921831-dcae-40fe-a4d0-092fbd5a5369/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f1921831-dcae-40fe-a4d0-092fbd5a5369/image001.jpg')();" /><div class="section_text">In this video, learn how to define column aliases in the SELECT statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define column aliases in the SELECT list</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Column Aliases. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at using column aliases to make your results a little more meaningful, at least in terms of presenting that information to an end user, either through perhaps a report or maybe a saved view. But the name of any given column in any given table is set when the table is designed. And while you can change the name, it&#39;s generally not recommended. But in terms of just presenting the data, you don&#39;t really have to worry about what the name of the column is because of aliases. In views or in reports, you can always change the name of a column. So to demonstrate, let&#39;s just run a standard SELECT statement with a calculation with no aliases.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. Two statements are displayed. Each statement has its comment. He highlights the first statement that reads as follows: SELECT EMPLOYEE_ID, LAST_NAME, SALARY, SALARY*12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>And we can see that I have a SALARY*12 column here to essentially show me what the annual salary is. But when we execute, you can see that the name of the column is essentially the calculation itself, SALARY*12.</p>
+<p>[Video description begins] <em> He executes the selected statement. The Query Result tab appears. The tab includes the EMPLOYEE_ID, LAST_NAME, SALARY, and SALARY*12 columns from the EMPLOYEES table. He points to the first statement in the Worksheet tab and the SALARY*12 column header in the EMPLOYEES table displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>Now, obviously I can look at that and understand that this is a yearly salary, but it&#39;s not all that presentable. And in fact I don&#39;t really know that the original salary column is monthly, it just says SALARY.</p>
+<p>[Video description begins] <em> He selects the SALARY column in the Query Result tab.</em> [Video description ends]</p>
+<p>So I can use aliases to present this information in a more meaningful manner. So in my commented section here you can see that you can use aliases to present the results in a more user-friendly manner, again, just presenting it to someone else. And you use double quotes to define the alias, and the use of the AS keyword is in fact optional. So let&#39;s look at the code.</p>
+<p>[Video description begins] <em> He points to the second statement that reads as follows: SELECT EMPLOYEE_ID, LAST_NAME AS &#34;Name&#34;, SALARY &#34;Monthly Salary&#34;, SALARY*12 &#34;Annual Salary&#34; FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>I&#39;m still selecting the exact same columns, the EMPLOYEE_ID, then the LAST_NAME. But again, the name of the column is LAST_NAME. Well, let&#39;s just call it something else, okay? So there is the AS keyword, and there is the alias in double quotes. So LAST_NAME AS &#34;Name&#34; gives me name as the result, okay? Now again, the AS keyword is optional. So look at the next one, it&#39;s the SALARY column. Then simply immediately after that in double quotes &#34;Monthly Salary&#34;. Then my calculation, SALARY*12 with &#34;Annual Salary&#34; in double quotes after that. Let&#39;s execute, and we see our results in a much more presentable format, okay?</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab includes the Name, Monthly Salary, and Annual Salary columns of the EMPLOYEES table.</em> [Video description ends]</p>
+<p>So you can alias a column however you like. So here we see Name instead of LAST_NAME, we see Monthly Salary, and we see Annual Salary, okay?</p>
+<p>[Video description begins] <em> He points to the column names in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, whatever you want to call the column is entirely up to you. Now, this does not persist, it does not rename the column, okay, it&#39;s just in terms of presenting these results. So maybe I&#39;m just printing this or maybe I&#39;m just showing it to someone, it really doesn&#39;t matter, it will not stay that way. If I go back and execute the original statement, we can see that everything is as it was.</p>
+<p>[Video description begins] <em> He executes the first statement. The Query Result tab includes the LAST_NAME, SALARY, and SALARY*12 columns from the EMPLOYEES table.</em> [Video description ends]</p>
+<p>So again, this does not permanently rename anything. But it certainly makes the results a little more presentable, a little more user friendly, and in many cases, a little more meaningful. Because sometimes the name of the column might not make sense to an end user at all, it could be an abbreviation or some kind of code.</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab includes the Name, Monthly Salary, and Annual Salary columns.</em> [Video description ends]</p>
+<p>So by using the alias, you give the user the ability to simply more easily understand what that value is.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Concatenation Operator (it_dfosfd_03_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/5de45324-f5b4-4015-81a9-212ad91af87d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5de45324-f5b4-4015-81a9-212ad91af87d/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the concatenation operator to create a character expression in the SQL statement output.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">"use the concatenation operator to create a character expression in the SQL statement output"</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Concatenation Operator. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration we&#39;ll take a look at another method that can be used to create more readable or more presentable results. And it&#39;s known as concatenation. Now, typically, you&#39;ll find concatenation used a little more commonly with text-based or character-based columns. But it certainly can be used with numeric as well. Again, just a little more common with character-based information. But it is essentially taking one column and attaching it, if you will, to another column. And the character that&#39;s used to perform that operation is right here in between the two columns. It&#39;s these double vertical bars or sometimes referred to as the pipe character.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. There are two statements displayed. Each statement has its comment. He highlights the || character in the first statement that reads as follows: SELECT EMPLOYEE_ID, LAST_NAME || JOB_ID AS &#34;Employee Position&#34; FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So, in this example, I&#39;m selecting out the EMPLOYEE_ID, then the LAST_NAME concatenated together with the JOB_ID. And then I&#39;m aliasing that as Employee Position. And I strongly recommend that you use aliases when you are concatenating. Because if you don&#39;t, the name of the column is exactly as it&#39;s referenced in the SELECT statement. So this is what you would see as the column header in your results, okay?</p>
+<p>[Video description begins] <em> He highlights the LAST_NAME || JOB_ID clause in the first statement.</em> [Video description ends]</p>
+<p>So this will still pull out just the ID, but then it will create a single value of the LAST_NAME and the JOB_ID together.</p>
+<p>[Video description begins] <em> He highlights the EMPLOYEE_ID column name in the first statement.</em> [Video description ends]</p>
+<p>Okay, and again, present it as Employee Position. So let&#39;s execute this code and have a look.</p>
+<p>[Video description begins] <em> He executes the first statement. The Query Result tab appears. It includes two columns that are EMPLOYEE_ID and Employee Position.</em> [Video description ends]</p>
+<p>So there we see the ID, and there we see is the title, Employee Position, so that&#39;s my alias. And then we see the last name concatenated together with their title.</p>
+<p>[Video description begins] <em> In the Query Result tab, he points to the first row value of the EMPLOYEE_ID and Employee Position columns that are 100 and KingAD_PRES respectively.</em> [Video description ends]</p>
+<p>Okay, so it takes the two values and puts them together. Now, it does not have to be just two. You can concatenate multiple columns together to produce a new value. And, in fact, this example does use numeric columns.</p>
+<p>[Video description begins] <em> He points to the second statement that reads as follows: SELECT EMPLOYEE_ID || MANAGER_ID || DEPARTMENT_ID AS &#34;Employee Code&#34; FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So I&#39;m selecting the EMPLOYEE_ID, concatenated with the MANAGER_ID, concatenated with the DEPARTMENT_ID. And I&#39;m just calling that something like Employee Code. Maybe they can use this to access certain information. Of course, this is just an example, but if we execute this, we see that it takes all of those values and puts them together to create this new value.</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab includes the Employee Code column. He points to the second row value of the column that is 10110090.</em> [Video description ends]</p>
+<p>Okay, so again, concatenation itself is to simply take this value and attach it to another one. Now, quickly, you may have noticed, if we go back to the first example, that the results are directly attached to each other, if you will.</p>
+<p>[Video description begins] <em> He executes the first statement.</em> [Video description ends]</p>
+<p>In other words, it creates a single value with no spaces, okay?</p>
+<p>[Video description begins] <em> He points to the first three row values of the Employee Position column in the Query Result tab that are as follows: KingAD_PRES, KochharAD_VP, and De HaanAD_VP.</em> [Video description ends]</p>
+<p>Now, I will address that in the very next presentation. That&#39;s what&#39;s known as using literal characters. But for the time being, you can use concatenation whenever you need to put two or more values together into a single result.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Literal Character Strings (it_dfosfd_03_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/efdaef8e-ddf8-47a2-ace2-b5d03337680b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/efdaef8e-ddf8-47a2-ace2-b5d03337680b/image001.jpg')();" /><div class="section_text">Learn how to use literal character strings in a SELECT statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use literal character strings in a SELECT statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Literal Character Strings. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see how you can further enhance the results of your queries, particularly when using concatenation, by using what&#39;s known as literal characters. And as their name indicates, they are literally characters that you want to include in the result set. So earlier, we saw how you could concatenate two columns together, but the result did not include any spaces. It was just the value of column one attached to the value of column two. So that might be fine in some cases, but if we think about something like a FIRST_NAME, and a LAST_NAME.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. Three statements are displayed. Each statement has comment.</em> [Video description ends]</p>
+<p>Well, I generally would not want to see a FULL_NAME that did not include a space between those two names.</p>
+<p>[Video description begins] <em> He highlights the first statement which reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME || &#39; &#39; || LAST_NAME AS &#34;Full Name&#34; FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So that&#39;s exactly what the literal characters are. So they&#39;re defined in single quotes and used along with the concatenation to enhance the formatting.</p>
+<p>[Video description begins] <em> He highlights the comment of the first statement that reads as follows: Use literal characters in single quotes (along with concatenation) to enhance formatting.</em> [Video description ends]</p>
+<p>Now, I know this isn&#39;t very easy to see, it&#39;s kind of small. But in between my concatenation characters here, my two double bars, I have quote space quote. So that tells Oracle to include the literal character of the space. So FIRST_NAME is concatenated with the space, which is then concatenated with the LAST_NAME. And again, this is aliased AS Full Name, okay? So let&#39;s go ahead and execute. And we can see now, we have a much more readable full name.</p>
+<p>[Video description begins] <em> He executes the first statement. The Query Result tab appears. It includes the EMPLOYEE_ID and Full Name columns from the EMPLOYEES table. It fetches 50 rows.</em> [Video description ends]</p>
+<p>First name separated from the last name by the space.</p>
+<p>[Video description begins] <em> In the Query Result tab, he points to the first row value of the Full Name column that is Steven King.</em> [Video description ends]</p>
+<p>Now, we can change this up a little bit if we want to. It&#39;s not uncommon to see names listed by last name first. And this is typically done so that we can sort the results by the last name. So in this case, the LAST_NAME is first. Then it&#39;s concatenated together with a comma and then a space. Again, I know that&#39;s kind of small, but that&#39;s a comma and a space. Then the FIRST_NAME, and again, aliased AS Full Name, and then we can order by the alias.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads as follows: SELECT EMPLOYEE_ID, LAST_NAME || &#39; &#39; || FIRST_NAME AS &#34;Full Name&#34; FROM EMPLOYEES ORDER BY &#34;Full Name&#34;;.</em> [Video description ends]</p>
+<p>So let&#39;s execute this statement, and we see the results now are last name comma, space, first name.</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result Tab includes the EMPLOYEE_ID and Full Name columns.</em> [Video description ends]</p>
+<p>And this is sorted alphabetically by the last name, okay?</p>
+<p>[Video description begins] <em> He points to the first row value of the Full Name column that is Abel, Ellen.</em> [Video description ends]</p>
+<p>But of course, I called this column Full Name. So since I used that as the alias, that&#39;s what I can reference when I ORDER BY. And finally,</p>
+<p>[Video description begins] <em> He highlights the ORDER BY clause in the second statement.</em> [Video description ends]</p>
+<p>you can also include literal characters at the very beginning of the statement. In other words, you don&#39;t necessarily have to concatenate before you include your literal characters. So in this case I select out the literal characters of the word Employee, followed by a colon, followed by a space. And then I concatenate that with the LAST_NAME. Then I do comma, space, FIRST_NAME, the exact same as I did in the last example. Then that is concatenated with the word Position. And that has a space, a dash, another space, then a colon, and then finally another space concatenated with the JOB_ID, okay? Now, that&#39;s probably not very easy to visualize, but we&#39;ll see the results in a moment. That&#39;s aliased as Employee Details. And let&#39;s go ahead and execute. And this is what it looks like, okay?</p>
+<p>[Video description begins] <em> He executes the third statement that reads as follows: SELECT &#39;Employee: &#39; || LAST_NAME || &#39;, &#39; || FIRST_NAME || &#39; - Position: &#39; || JOB_ID AS &#39;Employee Details&#39; FROM EMPLOYEES;. The Query Result tab includes the Employee Details column.</em> [Video description ends]</p>
+<p>So the word Employee, colon, space, then LAST_NAME, comma, space, FIRST_NAME, space, dash, space, Position, then a colon, then another space, and then the actual value of their position.</p>
+<p>[Video description begins] <em> He points to the first row value of the Employee Details column that reads as follows: Employee: Gietz, William - Position: AC_ACCOUNT.</em> [Video description ends]</p>
+<p>So again, that&#39;s just to give you an idea of what you can do with literal characters. You could put any characters in there, so that your results come back a little more readable, a little more presentable, at least from the perspective of the end users, who will most likely be viewing or requesting this data. So you can really present it however you want by including literal characters.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: WHERE Clause (it_dfosfd_03_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/1f63c72f-cb1f-4932-9a5c-7c9045f80dac/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1f63c72f-cb1f-4932-9a5c-7c9045f80dac/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe when to use the WHERE clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe when to use the WHERE clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: WHERE Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration we&#39;ll take a look at perhaps one of the most common operators in a SELECT statement. And that is the WHERE clause, and quite simply, this is used as a filter to restrict the records that are returned. Because without a WHERE clause, Oracle will always default to return every record from any given table, or collection of tables, against which you are querying. So I can just quickly demonstrate that by just issuing</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. It includes five statements and each statement has its comment. He highlights the SELECT * FROM EMPLOYEES clause from the first statement. The first statement reads as follows: SELECT * FROM EMPLOYEES WHERE SALARY &gt; 10000.</em> [Video description ends]</p>
+<p>this SELECT * FROM EMPLOYEES, the star refers to every column, okay? So let&#39;s just go ahead and execute, and I do see every column coming back, but what you also see is every row.</p>
+<p>[Video description begins] <em> He executes the highlighted clause. The Query Result tab appears. It displays all the rows and columns present in the EMPLOYEES table. The information displayed in the Query Result tab reads as follows: Fetched 50 rows in 0.002 seconds. The columns include EMPLOYEE_ID and EMAIL.</em> [Video description ends]</p>
+<p>In other words, I did not restrict the results at all, and we can see right here that it fetched 50 rows.</p>
+<p>[Video description begins] <em> He selects the first three rows consecutively.</em> [Video description ends]</p>
+<p>So there are 50 employees in this table, well, that&#39;s fine.</p>
+<p>[Video description begins] <em> In the Query Result tab, he points to the information, Fetched 50 rows in 0.02 seconds.</em> [Video description ends]</p>
+<p>In many cases, that&#39;s exactly what you want, show me every record, but in many cases you will want to filter those results. And you can filter by just about anything. So I have several examples here, and we&#39;ll see many others as we move through the course. But typically, you specify the column to use as a filter, and then some kind of condition that has to be satisfied for any given record to be returned. So in my first example if we look at the entire statement, I&#39;m saying that I only want to find the employees with a salary greater than $10,000. Well, that&#39;s the WHERE clause, so WHERE the SALARY column and then since it&#39;s a numeric value, I can use a standard comparison operator of greater than. And in this case, $10,000, okay so let&#39;s execute this statement,</p>
+<p>[Video description begins] <em> He highlights the WHERE SALARY &gt; 10000 clause in the first statement.</em> [Video description ends]</p>
+<p>and we see only those who match the criteria.</p>
+<p>[Video description begins] <em> He executes the first statement. The Query Result tab includes the EMPLOYEE_ID and SALARY columns from the EMPLOYEES table. It also shows 15 rows are fetched in 0.003 seconds.</em> [Video description ends]</p>
+<p>If we look at the SALARY column and we scroll through, we should not find anything that is exactly 10,000 or less and in fact, we don&#39;t. Now to that point, exactly 10,000 would have been</p>
+<p>[Video description begins] <em> He selects the SALARY column in the Query Result tab.</em> [Video description ends]</p>
+<p>filtered out because I said greater than 10,000.</p>
+<p>[Video description begins] <em> He points to the greater than sign in the first statement.</em> [Video description ends]</p>
+<p>If I did want to include 10,000, I certainly could, but that would be greater than or equal to. Okay, so let&#39;s re-execute and see if the number changes, so I got 15 previously, now, I got 20. So I should expect to see some that are exactly 10,000 in this case,</p>
+<p>[Video description begins] <em> In the first statement, he modifies the WHERE SALARY &gt; 10000 clause to the WHERE SALARY &gt;&#61;10000 clause and executes the statement. The Query Result tab displays 20 rows from the EMPLOYEES table in 0.003 seconds.</em> [Video description ends]</p>
+<p>and there&#39;s one there, okay, there&#39;s another one.</p>
+<p>[Video description begins] <em> The Query Result tab includes the same columns but lesser number of rows. He selects the SALARY column and scrolls down to show that the SALARY equivalent to 10000 are also included in the rows. In the Query Result tab, he points to the row values where the SALARY is 10000 in the SALARY column.</em> [Video description ends]</p>
+<p>So clearly, that makes a difference in the results, so you need to be careful with the operators that you are using. Next example, I&#39;m finding all employees with a salary of greater than or equal to 10,000, so there&#39;s both of them together. But also, less than or equal to 20,000, okay, and in this case, it&#39;s still just selecting star. I&#39;m not concerned with the columns, I&#39;m saying it&#39;s fine to show me every column. But my WHERE clause says WHERE the SALARY is greater than or equal to 10,000 AND the SALARY is less than or equal to 20,000.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads as follows: SELECT * FROM EMPLOYEES WHERE SALARY &gt;&#61; 10000 AND SALARY &lt;&#61; 20000. This statement is followed by a comment that says it could be re-written as BETWEEN 10000 AND 20000.</em> [Video description ends]</p>
+<p>And you do have to include the column name twice if you are writing it in this manner. Let&#39;s just quickly see the results, and then I&#39;ll show you what happens if you don&#39;t include it.</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab includes the same columns but the number of rows has reduced to 19.</em> [Video description ends]</p>
+<p>So here are the results, and 19 came back that are falling within that range. But if I just maybe made a mistake and did this, WHERE SALARY greater than or equal to 10000 AND less than or equal to 20000, this in fact throws an error.</p>
+<p>[Video description begins] <em> He modifies the WHERE SALARY &gt;&#61; 10000 AND SALARY &lt;&#61; 20000 clause to the WHERE SALARY &gt;&#61; 10000 AND &lt;&#61; 20000 clause in the second statement and executes it to show its result.</em> [Video description ends]</p>
+<p>Let&#39;s see what the error looks like, and we can see it says it&#39;s missing an expression. So if you are going to do it this way,</p>
+<p>[Video description begins] <em> The Query Result tab shows an error. He points to the missing expression text in the error.</em> [Video description ends]</p>
+<p>you do need to reference the name of the column for both conditions. It must satisfy this condition, SALARY being greater than or equal to 10,000, and SALARY being less than or equal to 20,000. Okay, now note my comment here this could be</p>
+<p>[Video description begins] <em> He modifies and corrects the second statement by adding SALARY keyword before the &lt;&#61;20000 clause.</em> [Video description ends]</p>
+<p>re-written as BETWEEN 10000 AND 20000. In which case, you do not have to reference the column name twice. And in fact, here&#39;s an example of that using dates, BETWEEN 07-01-01 and 07-12-31.</p>
+<p>[Video description begins] <em> He highlights the BETWEEN clause in the fourth statement. The fourth statement reads as follows: SELECT * FROM EMPLOYEES WHERE HIRE_DATE BETWEEN &#39;07-01-01&#39; AND &#39;07-12-31&#39;.</em> [Video description ends]</p>
+<p>Okay, so I&#39;ll just quickly show you that one here, I&#39;ll rewrite that exactly as this. In fact, I can just copy this and paste it in here,</p>
+<p>[Video description begins] <em> He modifies the WHERE SALARY &gt;&#61; 10000 AND SALARY &lt;&#61; 20000 clause of the second statement to WHERE SALARY BETWEEN 10000 AND 20000 clause.</em> [Video description ends]</p>
+<p>And re-execute, and this should work just fine, okay?</p>
+<p>[Video description begins] <em> He executes the modified statement and it returns the same result. It also returned 19 rows.</em> [Video description ends]</p>
+<p>And there they are, the same 19 records, so personally I tend to prefer that, it&#39;s a little simpler and it&#39;s fairly sensible and easy to understand. And I don&#39;t have to reference the column name twice. In the next example, I am simply finding employees with a specific last name. So again, I&#39;m selecting all columns in every case, but WHERE the LAST_NAME column is equal to a value that I&#39;m looking for. So let&#39;s execute here and we find two employees with that last name.</p>
+<p>[Video description begins] <em> He highlights and executes the third statement that reads as follows: SELECT * FROM EMPLOYEES WHERE LAST_NAME &#61; &#39;King&#39;. The Query Result tab contains two rows.</em> [Video description ends]</p>
+<p>Now since this is character based, you can see that the example that I&#39;m providing is in single quotes, okay?</p>
+<p>[Video description begins] <em> In the third statement, he points to the King text within the single quotes.</em> [Video description ends]</p>
+<p>Numbers do not need the single quotes, it defaults if you will to treat a value as a number when you enter it as such, so you don&#39;t need the quotes. But characters have to be delimited using the single quotation mark. The next option is finding employees who were hired in</p>
+<p>[Video description begins] <em> He highlights the 1000 number in the second statement and the King text in the third statement.</em> [Video description ends]</p>
+<p>the year 2007, so here&#39;s my BETWEEN again. So for the WHERE clause, I&#39;m comparing the higher date and I want it to be between these two dates. So that&#39;s year, month, day in this particular format. So that&#39;s 2007, January 1st, and 2007, December 31st, and BETWEEN is inclusive of the values that you specify. So in other words, it includes the 1st and the 31st, so let&#39;s go ahead and execute here, and we see our results.</p>
+<p>[Video description begins] <em> He executes the fourth statement that reads as follows: SELECT * FROM EMPLOYEES WHERE HIRE_DATE BETWEEN &#39;07-01-01&#39; AND &#39;07-12-31&#39;. The Query Result tab includes 19 rows.</em> [Video description ends]</p>
+<p>19 rows came back, and then our final example is finding employees who were hired any time on or after January 1st, 2008. So since it&#39;s on or after, I want the first to be included, so that&#39;s greater than or equal to, then the date value.</p>
+<p>[Video description begins] <em> He highlights the fifth statement that reads as follows: SELECT * FROM EMPLOYEES WHERE HIRE_DATE &gt;&#61; &#39;08-01-01&#39;.</em> [Video description ends]</p>
+<p>And it is able to use what we might think of as a numeric operator, against what appears to be a character based column, okay? Oracle can figure that out, for lack of a better word. In fact, you could even say greater than King, and you would find everything that is alphabetically later than the letter k.</p>
+<p>[Video description begins] <em> He highlights the &#61; King clause in the third statement.</em> [Video description ends]</p>
+<p>So again, you can use those numeric comparison operators against character based data. Let&#39;s go ahead and execute this statement, and we see all of those who were hired on or after 2008 January 1st, 2008, okay?</p>
+<p>[Video description begins] <em> He highlights and executes the fifth statement. The Query Result tab includes the HIRE_DATE column. He points to the first three values of the column that are 08-03-08, 08-02-06, and 08-01-29.</em> [Video description ends]</p>
+<p>Now, we&#39;ll see several more examples of using a WHERE clause and some more complicated criteria statements whereby you can issue multiple statements of criteria. It must meet this, and this and this, or that, or that, but those will come along in later demonstrations. But the WHERE clause, its entire purpose is to restrict the results to be used as a filter so that you don&#39;t always see every record.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Duplicate Rows (it_dfosfd_03_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/ea312ae2-c2de-4d2c-9a18-ad1c33a0a9f8/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ea312ae2-c2de-4d2c-9a18-ad1c33a0a9f8/image001.jpg')();" /><div class="section_text">In this video, you will learn how to eliminate duplicate rows from SQL statement output using the DISTINCT keyword.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">eliminate duplicate rows from SQL statement output using the DISTINCT qualifier</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Duplicate Rows. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In many cases when you issue a SELECT statement, you might see the same value come back multiple times. And that&#39;s perfectly fine. But there are scenarios where seeing the same value over and over again really does not enhance your understanding of the results. Now, what I mean by that is that in this particular case, I&#39;m selecting just the DEPARTMENT_ID from the EMPLOYEES table, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. A statement is displayed with a comment. The statement reads as follows: SELECT DEPARTMENT_ID FROM EMPLOYEES ORDER BY DEPARTMENT_ID;.</em> [Video description ends]</p>
+<p>So let&#39;s take a look at the results here. And you can see that the DEPARTMENT_ID is being returned multiple times for</p>
+<p>[Video description begins] <em> He highlights and executes the statement. The Query Result tab appears. It includes the DEPARTMENT_ID column. He points to the multiple 20, 30, and 50 values in the column.</em> [Video description ends]</p>
+<p>department 20, multiple times for 30. And if you just keep going you see the same value over and over again. Now, with respect to what I have asked for in the statement, I&#39;m trying to determine is there simply anyone in this department, okay?</p>
+<p>[Video description begins] <em> He highlights the DEPARTMENT_ID column in the statement.</em> [Video description ends]</p>
+<p>I have not selected out the person&#39;s name, their EMPLOYEE_ID, their salary. Nothing else, only the DEPARTMENT_ID. So I am seeing the records for each employee. But since I&#39;ve only retrieved the DEPARTMENT_ID, the way that I should translate these results is that yes, there is someone in department 20. There is someone in department 30. So if that&#39;s all I&#39;m interested in, I do not need to see that value come back several times.</p>
+<p>[Video description begins] <em> He points to the 20 and 30 row values in the DEPARTMENT_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>This is where the DISTINCT keyword comes into play. Okay, so essentially, this query says,</p>
+<p>[Video description begins] <em> He highlights the DISTINCT keyword in the comment that reads as follows: Remove duplicate values from your results by using the DISTINCT keyword.</em> [Video description ends]</p>
+<p>are all of my departments populated? Is there anyone?</p>
+<p>[Video description begins] <em> He points to the statement.</em> [Video description ends]</p>
+<p>So essentially, this query asks, are all of my departments populated? Is there anyone in the department? I don&#39;t care who they are, just is there anyone there? Now, this might not be the most practical real world example. But imagine if you were trying to determine, do I have customers in all of my sales regions? Or, maybe, did I sell products in every region? I don&#39;t care which ones. I don&#39;t care who those customers are. Simply, do they exist at all? And in that case, seeing the same value come back several times really doesn&#39;t help. Okay, so this is where the DISTINCT keyword comes into play.</p>
+<p>[Video description begins] <em> He highlights the DISTINCT keyword in the comment.</em> [Video description ends]</p>
+<p>It removes the duplicate values. And I still get the answer to my question. Okay, so let&#39;s just add in the word DISTINCT. And it goes immediately after the SELECT statement. So we just add in that word, DISTINCT, right after the SELECT statement. And let&#39;s re-execute.</p>
+<p>[Video description begins] <em> He highlights and executes the modified statement.</em> [Video description ends]</p>
+<p>And now you can see we only get 12 rows back. And we get a single entry for each department. So I get the same answer at the end of the day.</p>
+<p>[Video description begins] <em> The Query Result tab includes the DEPARTMENT_ID column, and an information that says 12 rows are fetched in 0.001 seconds. He points to the first five row values of the DEPARTMENT_ID column that are 10, 20, 30, 40, and 50.</em> [Video description ends]</p>
+<p>There is someone in department 20. I don&#39;t need to see it come back ten times. There is someone in department 30, there is someone in department 40, and 50. And essentially, I&#39;ve gotten my answer, okay? So that&#39;s the idea behind the DISTINCT keyword. Depending on what you are looking for. Depending on the logic of your query. SELECT DISTINCT will remove those duplicates when they simply do not enhance the results at all.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Displaying Table Structure (it_dfosfd_03_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/a846b4d2-ba99-4103-9b99-cc73eb1128b7/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a846b4d2-ba99-4103-9b99-cc73eb1128b7/image001.jpg')();" /><div class="section_text">Learn how to display the structure of a table using the SQL*Plus DESCRIBE command.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">display the structure of a table using the SQL*Plus DESCRIBE command</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Displaying Table Structure. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In some cases, when you are assembling SELECT statements, you may not have all that much familiarity with the structure or the design of the table. So in this demonstration, we&#39;ll take a look at the DESCRIBE keyword, whereby you can ascertain the properties of a table before you start assembling your SELECT statement. Now, it is a very simple syntax. You can see, I already have it written here. It is simply DESCRIBE and then the name of the table.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The Worksheet tab is selected. A statement is displayed that reads as follows: DESCRIBE EMPLOYEES.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute, and we&#39;ll see the results.</p>
+<p>[Video description begins] <em> He clicks the Execute icon button and the Script Output tab appears with the query result.</em> [Video description ends]</p>
+<p>And you see now that I get a better idea of what this table looks like structurally. I see the column names. I see whether or not they can contain null values. And perhaps most notably, I see the data type.</p>
+<p>[Video description begins] <em> The Script Output tab includes multiple rows. The first row value reads as follows: EMPLOYEE_ID NOT NULL NUMBER(6). The second row value reads as follows: FIRST_NAME VARCHAR2(20).</em> [Video description ends]</p>
+<p>And that&#39;s very useful when I go to assemble a WHERE clause. So that I know what kind of information I need to pass in to the WHERE clause, particularly with respect to the comparison operators. Should I use the numeric comparisons versus maybe some of the character-based ones? And when we get into functions later on, again, this is certainly very useful information. Now, you can also just expand the table from the browser here. And, of course, you can see the column names. And if you just actually click on the table itself,</p>
+<p>[Video description begins] <em> He expands the EMPLOYEES table in the HR database shown in the navigation pane. The table includes the JOB_ID and SALARY column names.</em> [Video description ends]</p>
+<p>the Oracle SQL Developer application will present you with essentially the same information, and in fact, in greater detail. But now I&#39;m in a separate window, and I have to go back to my other</p>
+<p>[Video description begins] <em> He clicks the EMPLOYEES table name in the navigation pane and the EMPLOYEES tab gets added next to the HR tab in the content pane. The EMPLOYEES tab includes the COLUMN_NAME, DATA_TYPE, NULLABLE, DATA_DEFAULT, COLUMN_ID, and COMMENTS columns. The first row values in the columns are EMPLOYEE_ID, NUMBER(6,0), No, (null), 1, and Primary key of employees table respectively.</em> [Video description ends]</p>
+<p>tab to essentially start implementing the statement itself. So this presents me with my results right here in the same window.</p>
+<p>[Video description begins] <em> He returns to the HR tab. He points to the result displayed in the Script Output tab.</em> [Video description ends]</p>
+<p>I can leave that code there. I can leave the window open. And, of course, now just start assembling my SELECT statement, whatever that&#39;s going to be.</p>
+<p>[Video description begins] <em> He types the SELECT keyword in the Worksheet tab.</em> [Video description ends]</p>
+<p>Okay, so again, it&#39;s just to get a basic idea of what the properties of a table are so that you have a better idea of what your SELECT statement should look like.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Exercise: Retrieving Data Using SQL Statements (it_dfosfd_03_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/1a273988-153e-4376-aae3-7e288550ca0e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1a273988-153e-4376-aae3-7e288550ca0e/image001.jpg')();" /><div class="section_text">In this video, you will learn how to select data from different tables, describe tables, perform arithmetic calculations, and specify column names using aliases.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">select data from different tables, describe tables, perform arithmetic calculations, and specify column names using aliases</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Retrieving Data Using SQL Statements. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, for our exercises this time, we&#39;ll ask you to describe and use the basic SELECT statement. Then to apply the standard order of precedence in a SQL arithmetic expression. Then to use literal character strings in a SELECT statement. Then to describe when to use the WHERE clause. And finally, to eliminate duplicate rows from a SQL statement output using the DISTINCT qualifier. So again, we&#39;d like you to take a few minutes and try these exercises on your own. Then we&#39;ll come back to review some solutions to see how you made out, so we&#39;ll see you shortly. Okay, so let&#39;s take a look now at some solutions for the tasks we asked you to perform, beginning with the basic structure of a SELECT statement.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It includes HR, HR-1, HR-2, HR-3, and HR-4 tabs in the content pane. The Worksheet tab underneath HR tab is selected by default. It includes comments and two statements.</em> [Video description ends]</p>
+<p>Now again, there is more to it than what is listed here, but for very basic statements, the structure is SELECT a list of columns FROM the table or tables. WHERE, then a filter condition, and then ORDER BY at the end, if you want to sort by the desired columns.</p>
+<p>[Video description begins] <em> He highlights the first comment that reads as follows: Basic structure of the SELECT statement; SELECT Column list FROM Table(s) WHERE Filter condition ORDER BY Desired column(s).</em> [Video description ends]</p>
+<p>So perhaps one of the most basic SELECT statements is to retrieve all records from a table, so just SELECT *, every column, FROM which table, and every row gets returned as well.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads as follows: SELECT * FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>But you don&#39;t have to select every column, you can select just the desired columns, so just these four, FROM the same table.</p>
+<p>[Video description begins] <em> He highlights the third statement that reads as follows: SELECT Employee_ID, First_Name, Last_Name, Hire_Date FROM EMPLOYEES WHERE HIRE_DATE &gt;&#61; &#39;08-01-01&#39; ORDER BY HIRE_DATE DESC;.</em> [Video description ends]</p>
+<p>Then a filter condition WHERE, and in this case I&#39;m operating against the HIRE_DATE column looking for a HIRE_DATE value that is greater than or equal to January 1, 2008. Then sorting that by the HIRE_DATE in descending order, so that I see essentially my most recent hirees, and there they are.</p>
+<p>[Video description begins] <em> He highlights and executes the third statement. The Query Result tab appears. The tab includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, and HIRE_DATE columns.</em> [Video description ends]</p>
+<p>Okay, so whatever you want to use as a filter condition is entirely up to you, but that is the basic structure of a SELECT statement.</p>
+<p>[Video description begins] <em> He points to the third statement in the Worksheet tab.</em> [Video description ends]</p>
+<p>Then we asked about using arithmetic operations in a SELECT statement involving the correct order of operations.</p>
+<p>[Video description begins] <em> He selects the HR-1 tab and the window name changes to Oracle SQL Developer : HR-1. The Worksheet tab underneath this tab contains two statements and comments.</em> [Video description ends]</p>
+<p>So we can see in the first example this statement performs the calculation of 500 times 12 first, which equals 6,000. Then adds that to the salary, because the default order of operations is to perform multiplication first, then to add the SALARY column.</p>
+<p>[Video description begins] <em> He highlights the 500 * 12 arithmetic expression in the first statement. The first statement reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, SALARY &#43; 500 * 12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So syntactically we see the same sequence here, SALARY plus 500 times 12, but what I was meaning to do was to add 500 to the salary first, then to multiply it by 12.</p>
+<p>[Video description begins] <em> He points to the (SALARY &#43; 500) arithmetic expression in the second statement. The second statement reads as follows: SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, (SALARY &#43; 500) * 12 FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So that is exactly what happens here, you can see the SALARY &#43; 500 is enclosed in parentheses. That will then be performed first, then it will multiply by 12. So you can get significantly different answers or results back by failing to put your parentheses in the correct place.</p>
+<p>[Video description begins] <em> He highlights the (SALARY &#43; 500) * 12 arithmetic expression in the second statement.</em> [Video description ends]</p>
+<p>Then we asked about using literal characters, they are enclosed in single quotes and typically used along with concatenation,</p>
+<p>[Video description begins] <em> He selects the HR-2 tab and the window name changes to Oracle SQL Developer : HR-2. The Worksheet tab underneath this tab contains a statement and some comments.</em> [Video description ends]</p>
+<p>the double pipe symbol here, although that&#39;s not necessary. But this can enhance your formatting.</p>
+<p>[Video description begins] <em> He highlights the keywords and symbols in the statement one by one. The statement reads as follows: SELECT &#39;Employee: &#39; || LAST_NAME || &#39;, &#39; || FIRST_NAME || &#39; - Position: &#39; || JOB_ID AS &#34;Employee Details&#34; FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>So I can SELECT, then actually the word Employee will appear here with a colon and a space after it. That will then be concatenated together with the LAST_NAME. Which is then concatenated along with a comma and a space, again in single quotes, which is concatenated together with the FIRST_NAME. Then the word Position. And again, there is a space, a dash, another space, and a colon here, and then a trailing space, then the JOB_ID and this is all aliased as Employee Details. And we can see what this looks like when we SELECT. So we can create this entirely new result from all of those characters</p>
+<p>[Video description begins] <em> He executes the statement. The Query Result tab appears with the Employee Details column.</em> [Video description ends]</p>
+<p>being concatenated together with values from the table.</p>
+<p>[Video description begins] <em> He points to the first row value in the Employee Details column that reads as follows: Employee: Gietz, William - Position: AC_ACCOUNT.</em> [Video description ends]</p>
+<p>Then we asked about using various cases of a WHERE clause. And again, the idea behind the WHERE clause is to simply filter out which records you are interested in.</p>
+<p>[Video description begins] <em> He closes the Query Result tab and selects the HR-3 tab. The window name changes to Oracle SQL Developer : HR-3 . The Worksheet tab underneath this tab contains five statements and each statement has a comment.</em> [Video description ends]</p>
+<p>If you don&#39;t include a WHERE clause, every record is returned. So when you are only interested in a certain subset of records, this is when you use the WHERE clause. So there are several examples in here, but the idea is to just focus in on the desired records. So WHERE SALARY is greater than a certain amount, or WHERE it&#39;s greater than or</p>
+<p>[Video description begins] <em> He highlights the WHERE SALARY &gt; 10000 clause in the first statement. The first statement reads as follows: SELECT * FROM EMPLOYEES WHERE SALARY &gt; 10000.</em> [Video description ends]</p>
+<p>less than, or in other words, BETWEEN a certain amount.</p>
+<p>[Video description begins] <em> He highlights the WHERE SALARY &gt;&#61; 10000 AND SALARY &lt;&#61; 20000 clause in the second statement. The second statement reads as follows: SELECT * FROM EMPLOYEES WHERE SALARY &gt;&#61; 10000 AND SALARY &lt;&#61; 20000. It is followed by a comment that reads as follows: Could be re-written as BETWEEN 10000 AND 20000.</em> [Video description ends]</p>
+<p>Or when looking for a particular LAST_NAME,</p>
+<p>[Video description begins] <em> He highlights the WHERE LAST_NAME &#61; &#39;King&#39;; clause in the third statement. The third statement reads as follows: SELECT * FROM EMPLOYEES WHERE LAST_NAME &#61; &#39;King&#39;;.</em> [Video description ends]</p>
+<p>or a range of hire dates, or later than a particular HIRE_DATE.</p>
+<p>[Video description begins] <em> He highlights the WHERE HIRE_DATE BETWEEN &#39;07-01-01&#39; AND &#39;07-12-31&#39;; clause in the fourth statement. The fourth statement reads as follows: SELECT * FROM EMPLOYEES WHERE HIRE_DATE BETWEEN &#39;07-01-01&#39; AND &#39;07-12-31&#39;;.</em> [Video description ends]</p>
+<p>But in all cases, I&#39;m only going to get a subset of</p>
+<p>[Video description begins] <em> He highlights the WHERE HIRE_DATE &gt;&#61; &#39;08-01-01&#39;; clause in the fifth statement. The fifth statement reads as follows: SELECT * FROM EMPLOYEES WHERE HIRE_DATE &gt;&#61; &#39;08-01-01&#39;;.</em> [Video description ends]</p>
+<p>the records back, those that meet this criteria. That is when you use the WHERE clause. And finally, we asked about removing duplicate values by using the DISTINCT keyword.</p>
+<p>[Video description begins] <em> He selects the HR-4 tab. The window name changes to Oracle SQL Developer : HR-4. The Worksheet tab underneath this tab contains a statement and a comment. The statement reads as follows: SELECT DISTINCT DEPARTMENT_ID FROM EMPLOYEES ORDER BY DEPARTMENT_ID;.</em> [Video description ends]</p>
+<p>If I were to just select the DEPARTMENT_ID from the EMPLOYEES table without the DISTINCT, I see duplicate values.</p>
+<p>[Video description begins] <em> He removes the DISTINCT keyword from the statement. Now the statement reads as follows: SELECT DEPARTMENT_ID FROM EMPLOYEES ORDER BY DEPARTMENT_ID;. He executes the modified statement. The Query Result tab appears. It includes the DEPARTMENT_ID column with duplicate values.</em> [Video description ends]</p>
+<p>20 appears twice, 30 several times, so I&#39;m just wanting to know, is there anyone in this department?</p>
+<p>[Video description begins] <em> He points to the duplicate values in the DEPARTMENT_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>So I don&#39;t need to see the value come back multiple times just to get that answer. So if we put the keyword of DISTINCT back in, and reselect the exact same statement, no duplicates are returned.</p>
+<p>[Video description begins] <em> He adds the DISTINCT keyword in the statement. The statement reads as follows: SELECT DISTINCT DEPARTMENT_ID FROM EMPLOYEES ORDER BY DEPARTMENT_ID;. He executes the statement. The Query Result tab includes the DEPARTMENT_ID column with no duplicate values.</em> [Video description ends]</p>
+<p>So again, all I&#39;m looking for is, does anyone work in this department? And this does give me my answer, there is someone there, okay?</p>
+<p>[Video description begins] <em> He points to the DEPARTMENT_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>So when those duplicate values don&#39;t enhance the results, the DISTINCT will remove them. So hopefully you made out all right with those exercises, and if so, we&#39;ll move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

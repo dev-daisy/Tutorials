@@ -1,0 +1,536 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Data Definition Language (DDL)</h1><div class="section_text"><p>Explore how to create a table and work with the various constraints associated with a table in Oracle Database 12c.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Database Objects and their Naming Rules (it_dfosfd_09_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Creating Tables (it_dfosfd_09_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Data Types (it_dfosfd_09_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Specify the DEFAULT Option for Columns in a Table (it_dfosfd_09_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Overview of Constraints (it_dfosfd_09_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Working with Constraints (it_dfosfd_09_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Creating Tables Using Subqueries (it_dfosfd_09_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: ALTER TABLE Statement (it_dfosfd_09_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Marking Columns as Unused (it_dfosfd_09_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Removing Unused Columns (it_dfosfd_09_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: DROP TABLE Statement (it_dfosfd_09_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Exercise: Create and Work with Tables Using DDL (it_dfosfd_09_enus_12)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Database Objects and their Naming Rules (it_dfosfd_09_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/94dfda6a-7e55-4fa2-8df3-225d4a2c77d3/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/94dfda6a-7e55-4fa2-8df3-225d4a2c77d3/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to provide an overview of DLL, and describe the DDL database objects and the associated naming rules.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">provide an overview of DLL, and describe the DDL database objects and the associated naming rules</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Database Objects and their Naming Rules. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce several of the database objects that can exist within any given database. So starting there, the database is essentially the largest container. It is then made up of these smaller sub-units if you will. And beginning with the table, this is of course the basic unit of storage.</p>
+<p>[Video description begins] <em> Database Objects.</em> [Video description ends]</p>
+<p>Data resides within tables. And they are composed of rows, and a complete row represents a single record in that table. And there can be any number of records, so there&#39;s no set size for a table, it really can be any size. It is entirely dependent on the number of rows and how large each row is. Now, a view logically represents subsets of data from one or more tables. Now, really that&#39;s a fancy way to say it is a query. But a view, in and of itself, does not store any data, it simply presents data to you. So that when I want to see a certain number of customers or a certain number of orders and the products that were on those orders, I retrieve them from the tables.</p>
+<p>Once that data has been presented to me and I exit out of that query, the data is essentially just gone from the query. It, of course, remains in the original tables, but the results that you get back are only available to you for as long as you have that interface open. A sequence is anything that can generate a numeric value in some kind of sequence, and it typically goes in an order such as 1, 2, 3, 4, 5, and so on. But it really can be any kind of sequence, and you can specify what the seed value is or where it starts and how it increments. So it doesn&#39;t necessarily have to just be 1, 2, 3, 4, 5, it could be 10, 20, 30, 40, 50, or really anything that you want. An index is an object that is placed on a table, and perhaps more specifically, on a column or columns of a table, to help improve the performance of some queries.</p>
+<p>Typically, this is when you frequently retrieve values based on a particular sort order or searching for a specific value within that column. The index quite literally records where the values can be found so that Oracle does not have to read every single record to find that value. So it helps the query to navigate through and find the data much more rapidly. And finally, a synonym gives an alternate name to an object. And while these aren&#39;t necessary, sometimes table names, for example, might use abbreviations or some sort of naming convention that really doesn&#39;t make all that much sense to an end user. So you can just give it a synonym, and that allows someone to refer to that object with a much friendlier name.</p>
+<p>Now, as far as some naming rules for tables and columns go, you should ensure that they begin with a letter and that they are between 1 and 30 characters long. That they contain only A to Z in both upper and lowercase, zero through nine, underscores, dollar signs, and/or pound signs. But generally you want the table name to be fairly simple and certainly indicative of what it stores. So a table that stores customer information, of course, could simply be called customers. It&#39;s not uncommon to see it in singular form, so customer instead of customers, but that is certainly up to you.</p>
+<p>[Video description begins] <em> Do not duplicate the name of another object owned by the same user.</em> [Video description ends]</p>
+<p>And they also cannot include any Oracle server-reserved words, so try to avoid anything like the word select, for example. I can&#39;t imagine too many table names that would include that. But any kind of keyword that is used by Oracle should not be used for the name of a table. Now, I should also add that when you are naming objects, as mentioned, table names tend to be fairly simplistic, you know, customers. But view names really should be a little more descriptive.</p>
+<p>Now, of course, that&#39;s not mentioned here. But just as a side note, a view that returns sales for a specific time period for a particular region actually should be fairly descriptive in its name. So that I can determine what results are coming back just by looking at the name. So if I execute this particular view, I know that I&#39;m seeing sales for last quarter in region one, as opposed to just calling it view1 or my view. That way you have no idea really what the records are. So feel free to be a little more descriptive in the name of a view, so that users simply understand what is being presented to them.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Creating Tables (it_dfosfd_09_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/df1ae317-27eb-467c-a1a7-f48c5569ca40/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/df1ae317-27eb-467c-a1a7-f48c5569ca40/image001.jpg')();" /><div class="section_text">In this video, learn how to use the CREATE TABLE SQL command to create new tables in a database.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the CREATE TABLE SQL command to create new tables in the database</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Creating Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, let&#39;s take a look now at creating a simple table using the CREATE TABLE statement.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The window is divided into two parts: navigation pane and content pane. The navigation pane is divided into two sections. The first section is named as Connections which contains the Connections directory, which further contains the HR database. The HR database contains the Tables (Filtered) folder. The Tables (Filtered) folder is expanded. It includes the COUNTRIES, DEPARTMENTS, and EMPLOYEES tables. The second section is named as Reports. It contains the All Reports folder, which further includes the Data Dictionary Reports and OLAP Reports folders. The content pane includes an execute icon and two tabs, Start Page and HR. The HR tab is selected and it displays two statements.</em>[Video description ends]</p>
+<p>Now, the syntax is fairly simple, it is just CREATE TABLE, then the name of the table.</p>
+<p>[Video description begins]<em> He highlights the CREATE TABLE Customers line in the first statement.</em> [Video description ends]</p>
+<p>And that can be whatever you want. So in this case, I&#39;m just creating a Customers table. Then you define all of the columns, and do take note that these are all contained within a set of parentheses, okay?</p>
+<p>[Video description begins] <em> He highlights the lines in the first statement that reads, cust_id NUMBER(4), first_name VARCHAR2(25), last_name VARCHAR2(30), street VARCHAR2(30), city VARCHAR2(25), state_prov CHAR(2), create_date DATE.</em> [Video description ends]</p>
+<p>So it doesn&#39;t really matter where you place them. You can see you can just open a parentheses here on a single line, then define all the columns. As long as you ultimately close off that set of parentheses, that&#39;s fine. So you can place them anywhere. So these then are the individual columns. So you begin with just the name. And again, you can call that whatever you want. And then the data type for that column. So for my cust_id, that&#39;s going to be a number with a maximum of four digits. Then do take note, there is a comma there, so every column has to be separated from the others using a comma. The only exception, of course, is the last one because you just close off your parentheses.</p>
+<p>[Video description begins] <em> He points to the line in the statement that reads, create_date DATE.</em> [Video description ends]</p>
+<p>So our next column is first_name, using the VARCHAR2 data type, a maximum size of 25. A last_name column of VARCHAR2, maximum size 30. Street, VARCHAR2, maximum 30. City, VARCHAR2, maximum size 25. But for state and province, state or province, I should say, I can go with CHAR2 here. Because the post office does define two letter abbreviations for every state and every province, at least in North America. So that, again, helps for consistency and integrity. It will not allow anyone to enter in three or four characters, it must be only two. And then the create_date, simply using the DATE data type. And again, close off the parentheses. And we can go ahead and execute, and we have our table.</p>
+<p>[Video description begins] <em> He highlights the first statement that reads, CREATE TABLE Customers ( cust_id NUMBER(4), first_name VARCHAR2(25), last_name VARCHAR2(30), street VARCHAR2(30), city VARCHAR2(25), state_prov CHAR(2), create_date DATE ); and clicks the execute icon. The content pane divides into two sections. The HR tab is open in the first section and the Script Output tab opens in the second section. The output returned in the Script Output tab shows a message that reads, Table CUSTOMERS created.</em> [Video description ends]</p>
+<p>Now, you can just confirm that by issuing DESCRIBE Customers, and we should see all of the columns and their data types.</p>
+<p>[Video description begins] <em> He closes the Script Output tab. Then he highlights and executes the second statement that reads, DESCRIBE Customers. The Script Output tab opens with a three column table. The table contains the Name, Null, and Type column headers.</em> [Video description ends]</p>
+<p>And of course, you can also just go to your table browser here,</p>
+<p>[Video description begins] <em> He closes the Script Output tab and points to the Tables (Filtered) folder in the navigation pane.</em> [Video description ends]</p>
+<p>or your database browser, I should say. Let&#39;s just refresh. And under Tables, there is the CUSTOMERS table,</p>
+<p>[Video description begins] <em> He clicks the Refresh icon in the Connections section in the navigation pane. Then he selects the CUSTOMERS table and the CUSTOMERS tab opens in the content pane.</em> [Video description ends]</p>
+<p>there is all of the information, and we can also see the columns here as well.</p>
+<p>[Video description begins] <em> He points to the table displayed in the CUSTOMERS tab. The column headers of the table include COLUMN_NAME and DATA_TYPE. Then he expands the CUSTOMERS table in the navigation pane, which includes the CUST_ID and FIRST_NAME column names.</em> [Video description ends]</p>
+<p>So again, that&#39;s just a simple CREATE TABLE statement. There certainly are other properties that we&#39;ll look at in a little bit. But I do also want to mention that you do have a graphic table builder in the Oracle SQL Developer application.</p>
+<p>[Video description begins] <em> He closes the CUSTOMERS tab.</em> [Video description ends]</p>
+<p>So if you just right-click on Tables, you can choose New Table, and you can just plug in the values here.</p>
+<p>[Video description begins] <em> He right-clicks the Tables (Filtered) folder in the navigation pane and a shortcut menu opens, which includes the New Table and Open options. He selects the New Table option and the Create Table dialog box opens. This dialog box includes the Schema drop-down list box with HR value, Name text box with TABLE1 value, and two tabs, Table and DDL. The Table tab is selected that displays a single row table. The column headers of the table are PK, Name, Data Type, Size, Not Null, Default, and Comment. The values in the column Name, Data Type, and Size are COLUMN1, VARCHAR2, and 20 respectively in the first row.</em> [Video description ends]</p>
+<p>So let&#39;s just give it a Name of New_Table.</p>
+<p>[Video description begins] <em> He types New_Table in the Name text box.</em> [Video description ends]</p>
+<p>And for each column, just give it any column name. So I&#39;ll just go with Col1.</p>
+<p>[Video description begins] <em> In the Table tab, he types Col1 in the first row in the Name column.</em> [Video description ends]</p>
+<p>Choose the Data Type from the drop-down, and here you do see the complete list of data types, so quite a few.</p>
+<p>[Video description begins] <em> He expands the Data Type drop-down list box, which includes NUMBER and DATE.</em> [Video description ends]</p>
+<p>Specify your Size, its nullability, a Default value, Comment. Even the primary key can be set here.</p>
+<p>[Video description begins] <em> He points to the Size column which has 20 value, Not Null column which has an empty checkbox, Default and Comment column which are empty. He clicks the PK column and the key and star icons appear. Along with this, the Not Null checkbox gets checked.</em> [Video description ends]</p>
+<p>Then just click the green plus sign to get your next column. So again, call it whatever you want, choose whatever data type, and just keep going. And not only does this allow you to create it graphically, but it actually constructs the code for you as well.</p>
+<p>[Video description begins] <em> He clicks the plus icon above the table and the second row adds in the table.</em> [Video description ends]</p>
+<p>You can see that there is a DDL tab here, that&#39;s the data definition language. In other words, there is the code.</p>
+<p>[Video description begins] <em> He selects the DDL tab that includes the Create radio button, which is selected, a field, which includes a statement, and the OK and Cancel buttons.</em> [Video description ends]</p>
+<p>So essentially, this is a code assembler, if you will. So you can just execute this straight from in here, if you just click on OK. But you could also just highlight this, copy it and paste it into a saved script, for example.</p>
+<p>[Video description begins] <em> He highlights the statement in the field which reads, CREATE TABLE NEW_TABLE ( COL1 VARCHAR2(20) NOT NULL , COL2 VARCHAR2(20) , CONSTRAINT NEW_TABLE_PK PRIMARY KEY ( COL1 ) ENABLE );.</em> [Video description ends]</p>
+<p>Either option is fine. I do certainly recommend that you learn the syntax. But once you start building many tables, it&#39;s probably a little faster. And of course, this also avoids typos in many cases. So it&#39;s clearly fine to use whichever method you prefer in terms of defining your tables.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Data Types (it_dfosfd_09_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/38010384-c508-47ec-9895-0dbfbe0448bd/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/38010384-c508-47ec-9895-0dbfbe0448bd/image001.jpg')();" /><div class="section_text">In this video, you will learn how to identify the different Oracle database data types used when creating a table.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">identify the different Oracle database data types used when creating a table</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Data Types. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at some of the available data types in Oracle. And this is a fairly important aspect of designing your tables because every column in every table needs a data type. And this determines not only what kind of information is stored in that column, but also how large the overall table, and, of course, then, the overall database will be.</p>
+<p>[Video description begins] <em> Data Types.</em> [Video description ends]</p>
+<p>Now, I should also mention that this is a fairly short list. These are certainly common data types but there are a lot. So I do recommend a little extra research with respect to some of the other data types. They tend to be a little more specific than these ones, but there&#39;s a lot of data types available. But certainly, the first few here are usually sufficient in most cases. So beginning with VARCHAR2, this stands for variable-length character data. And this is useful, of course, for when you don&#39;t really know how many characters exactly will be entered. So you can come up with a size which represents the maximum, but you want to be a little bit cautious here.</p>
+<p>So if, for example, we think about a last name column, everyone has a different number of characters in their last name. But no one would have, let&#39;s say, 100 characters in their last name. So come up with a value that you feel is appropriate in that regard. Now, the fact that it&#39;s VARCHAR2, I should mention is essentially just a newer version of VARCHAR. And you can still use VARCHAR, but Oracle does recommend that, going forward, you should use VARCHAR2. The main difference is how it treats a null versus an empty string. And an empty string can occur if you did have a value in a column but then it was deleted, now it&#39;s an empty string. If there was nothing ever entered, that&#39;s a null and VARCHAR2 handles that a little bit differently than VARCHAR. Now, that&#39;s not critical.</p>
+<p>You can still use either but, again, Oracle recommends going with VARCHAR2, moving forward. Now, CHAR is fixed-length character data. And in this case, you know exactly how many characters will be entered. So if for example, you have, let&#39;s say a serial number, and you know that every serial number for every product is always ten characters, then you can go with exactly ten. And it will always allocate ten characters for every single entry.</p>
+<p>So it&#39;s useful when you do have that consistency. NUMBER can, of course, be just about any numeric value, and the p indicates the precision, and the s, the scale. So precision refers to the total number of digits. And scale is the number of decimal places.</p>
+<p>[Video description begins] <em> It stands for variable-length numeric data.</em> [Video description ends]</p>
+<p>DATE absolutely should be used for storing any kind of date and time value. Particularly in terms of being able to calculate. If you were to store date values as, let&#39;s say, a VARCHAR, that would work, but you couldn&#39;t calculate, and you would also get a tremendous amount of inconsistency in terms of the format. So, again, when storing date or time values, I strongly recommend you use the DATE data type.</p>
+<p>LONG is still variable-length character data, but typically this is when it&#39;s much larger than what VARCHAR2 can accommodate. So up to 2 gigabytes, or LONG. C-L-O-B, or CLOB, is Character Large Object, and this goes all the way up to 4 gigabytes. RAW and LONG RAW is flat out binary data. Ones and zeros, and again, it&#39;s just the size that varies. RAW goes up to 8,000 bytes, excuse me, whereas LONG RAW is 2 gigabytes. And then BLOB, or Binary Large Object, is a maximum size of 4 gigabytes. BFILE is binary data stored in an external file, so it&#39;s actually not in the database itself, but it can be up to 4 gigabytes. And ROWID is a base-64 number that simply represents the unique address of a row in its table.</p>
+<p>So that quite literally just says it&#39;s row number 1, 2, 3, 4, 5, and so on. Now, looking at some other examples of datetime data types, there are several other options, and a fairly common one is the TIMESTAMP. This is a date that goes all the way down to fractional seconds, but is more so concerned with just indicating when something was created, or perhaps last modified. So if you simply want to know when was this record created, you can store a timestamp column, and it simply tells you, created on this date at this time.</p>
+<p>Then you might also might have a last modified column, and you can update the timestamp. Interval of year to month or day to second is just useful when you have certain intervals in your business. So year to month would be x number of years, x number of months. For example, a bank might have several different repayment schedules. So let&#39;s say 50 months or something like that. That would be x number of years and x number of months, and that really can be anything.</p>
+<p>And then the same thing goes for day to second, you can have any number of days, hours, minutes, and seconds that simply creates some kind of interval that is meaningful to you. So it&#39;s just a combination of those values and, really, it can be anything. So again, if you do something like performance evaluations every 18 months, that would be an interval of one year, six months. So you can create those however you see fit to meet the needs of your business.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Specify the DEFAULT Option for Columns in a Table (it_dfosfd_09_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/5b0a0931-a5bc-49de-88f9-c715c3430bdd/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5b0a0931-a5bc-49de-88f9-c715c3430bdd/image001.jpg')();" /><div class="section_text">In this video, learn how to set a default value to be assigned to a column when creating a table.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define a default value to be assigned to a column when creating a table</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Specify the DEFAULT Option for Columns in a Table. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration we&#39;ll see another example of creating a table. But we&#39;ll simplify the data entry process for our users by implementing default values. Now these are optional, but they can help to ensure consistency of data and quite simply make it a little bit easier for the end users. Now, you specify this again during the creation of the table. So I&#39;m going to use my same Customers table but</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open in which the HR tab is selected. A statement is displayed in the HR tabbed page.</em> [Video description ends]</p>
+<p>I have dropped the one that was created earlier. And I&#39;m simply re-creating it with the exact same name and the exact same column definitions. But if we look at the last two columns, we can now see that the DEFAULT keyword specifies what the value will be if the user leaves it blank, okay?</p>
+<p>[Video description begins] <em> He highlights the state_prov CHAR(2) DEFAULT &#39;NY&#39;, create_date DATE DEFAULT SYSDATE lines in the statement.</em> [Video description ends]</p>
+<p>And that&#39;s key, it doesn&#39;t mean that this will always be the value, it just means that the user has the option to skip right over it. And if they don&#39;t enter anything, this is what will be entered. They can absolutely still put in a different value if they choose, okay? So it&#39;s defined after the column name, and the column data type.</p>
+<p>Then you just use the keyword of DEFAULT and then you specify an appropriate value. Now it does have to match the data type so in my case CHAR(2) means that it expects to see two characters. So in this particular example, let&#39;s just imagine that we do most of our business in the state of New York. Then I can assume that most of my customers would be in New York.</p>
+<p>So therefore, I can put in the DEFAULT value. Now again, that&#39;s entirely up to you. But if let&#39;s say greater than 50% of your customers were in New York, then the value goes in automatically. The user can certainly change it again if they want to. And a very common example is really any kind of date column. So the create_date, in this case is simply when the customer was created. The DATE is the data type so for the DEFAULT value, if I&#39;m creating this customer right now today, then the create_date is today. That is the SYSDATE option. So again, that&#39;s just the default.</p>
+<p>Maybe if they were actually created yesterday but I haven&#39;t gotten around to creating the record yet, then I could still enter a different date, okay? So again, the default is just something that you can enter automatically if you want to give the user the option to skip right over it. So let&#39;s actually take a look at that. Let&#39;s create the table. And we&#39;ll see how you can now enter a value and just forget about those two columns.</p>
+<p>[Video description begins] <em> He highlights and executes the statement that reads, CREATE TABLE Customers ( cust_id NUMBER(4), first_name VARCHAR2(25), last_name VARCHAR2(30), street VARCHAR2(30), city VARCHAR2(25), state_prov CHAR(2) DEFAULT &#39;NY&#39;, create_date DATE DEFAULT SYSDATE );. The Script Output tab opens in the content pane with a message that reads, Table CUSTOMERS created.</em> [Video description ends]</p>
+<p>So let&#39;s refresh the browser here.</p>
+<p>[Video description begins] <em> He closes the Script Output tab and refreshes the navigation pane. The CUSTOMERS table gets added in the Tables (Filtered) folder. Then he selects the CUSTOMERS table and the CUSTOMERS tab opens in the content pane.</em> [Video description ends]</p>
+<p>There is my new table, and in fact we can see there are the default values right there, okay?</p>
+<p>[Video description begins] <em> The CUSTOMERS tab includes the Columns and Data tabs. The Columns tab is selected. It displays a table, which includes DATA_TYPE and DATA_DEFAULT column headers. He selects the DATA_DEFAULT column, which includes (null), &#39;NY&#39;, and SYSDATE values.</em> [Video description ends]</p>
+<p>So none of the other ones have defaults. But if we go to the Data tab in here, we can actually start creating a new record.</p>
+<p>[Video description begins] <em> He selects the Data tab which includes the plus, delete, and Commit Changes icons, and an empty table. The column headers of the table are CUST_ID, FIRST_NAME, LAST_NAME, STREET, CITY, STATE_PROVINCE, and CREATE_DATE. </em>[Video description ends]</p>
+<p>So we can click on the plus sign here and we&#39;ll just make up value.</p>
+<p>[Video description begins]<em> He clicks the plus icon in the Data tab. A row gets added in the table.</em> [Video description ends]</p>
+<p>So customer ID 1 will be John Doe, STREET will be 123 Oak Street. The CITY will be New York, the full city name. So then for state and province, I really can just skip past this.</p>
+<p>[Video description begins] <em> The values in the STATE_PROVINCE and CREATE_DATE columns are (null).</em> [Video description ends]</p>
+<p>And the same goes for CREATE date. I can skip past that. So I can just tab to the next record and start creating my next record, okay?</p>
+<p>[Video description begins] <em> He clicks the plus icon and another row gets added in the table.</em> [Video description ends]</p>
+<p>Now it&#39;s still showing null, but that&#39;s only because I haven&#39;t yet committed this. So watch what happens if I commit. There is the commit button right there. So again, currently nulls for STATE_PROVINCE and CREATE_DATE. Commit and there are the values.</p>
+<p>[Video description begins] <em> He clicks the Commit Changes icon and the NY value gets added in the STATE_PROVINCE column and the 18-11-08 value gets added in the CREATE_DATE column.</em> [Video description ends]</p>
+<p>New York went in, or NY, I should say, and the CREATE_DATE, put in today&#39;s date, okay? And in fact, look at the next record now, it&#39;s ready to go if you will, and it already has those values in place because of the commit, okay? So as mentioned, if you want to change it, that&#39;s perfectly fine. So we can create another record using more or less the same information, it doesn&#39;t really matter. And we&#39;ll go with a different city here. Okay, so for</p>
+<p>[Video description begins] <em> In the second row, under the CUST_ID, FIRST_NAME, LAST_NAME, STREET, CITY, and STATE_PROVINCE column headers, he types: 2, Jane, Doe, 234 Oak Street, Chicago, and IL respectively.</em> [Video description ends]</p>
+<p>the state or province now, you can see it&#39;s already showing New York. But I certainly can still change it. So we&#39;ll just put in a different state and we&#39;ll leave the CREATE_DATE as it is but that&#39;s perfectly fine. When I commit that, of course, you see it stays with the new value.</p>
+<p>[Video description begins] <em> He clicks the Commit Changes icon and points to the IL value in the STATE_PROVINCE column.</em> [Video description ends]</p>
+<p>Now, again, end users would not really be entering records directly into the table using the Oracle SQL Developer. They would be using a front-end application. So they might just have a drop-down list or something like that. But again, any new record would simply have that value in place by default. And if it&#39;s correct, they can just skip right over it. And basically that&#39;s the idea behind default values. Make it a little bit easier on the data entry side, and when most of the records will contain that value, it also helps for consistency. You know that people will not be entering something other than the default when it&#39;s appropriate. So feel free to use default values in any situation where you think it just might make it a little bit easier.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Overview of Constraints (it_dfosfd_09_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/cb133c98-3a16-48e1-8254-721ff3a4988a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/cb133c98-3a16-48e1-8254-721ff3a4988a/image001.jpg')();" /><div class="section_text">In this video, you will identify the different types of constraints and how these are used to enforce rules at a table level.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">identify the different types of constraints and how these are used to enforce rules at a table level</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Overview of Constraints. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation we&#39;ll take a look at including constraints in your tables, which are designed to enforce rules at the table level. To help ensure consistency and the overall integrity of the database. So as a very simple example, if you&#39;re allowing people to enter values into a particular column that was maybe just character based. Let&#39;s go with the name of a city. If there were no constraints on that column, then one user might enter the city using its full name, such as New York. But then another user might enter the same value but using abbreviations, they might put in NY. Then another user might come along and put in NYC. Then another user might enter N, period, Y, period.</p>
+<p>So you can see that in that simple example, we have inconsistent data. If I then were to execute a query that specified to return all customers in New York, and then I spelled out the name. Well, I would only get that one record back, where the user actually entered in New York. All of the others would not be returned. So clearly that represents a huge problem in the design of the database. You want to ensure consistency and integrity so that everyone enters the same value. So there are several different constraint types that can be implemented. Not null, which is just a property that you can set on a column, is a constraint. It forces you to enter something, you cannot leave it blank. A unique constraint prevents duplicates. A primary key essentially does that as well. But, in fact, it would be really a combination of not null and unique.</p>
+<p>Because a primary key does not allow a null value and it has to be unique. A foreign key represents a primary key value from some other table. But it ensures that the value exists. So if I&#39;m creating an order, and it belongs to a particular customer, I have to use a valid customer ID, for example, to indicate the owner of this order. I can&#39;t just create an order or a customer that does not exist. So, again, that is a constraint, I can&#39;t just make up a value. And a check constraint is essentially any kind of constraint that you design yourself. So, for example, the city issue that I just mentioned. Not allowing users to enter New York, NY, N, period, Y, period, that would be an example of a check constraint. And they typically represent just your own business rules in many cases.</p>
+<p>[Video description begins] <em> Constraint Guidelines.</em> [Video description ends]</p>
+<p>Now, there are some guidelines. You can name a constraint yourself or the Oracle server can generate an automatic name by using the format of SYS_C for constraint and then n is just a generated number that is just randomly selected. So typically you would want to name them yourself so you know what you&#39;re working with. And you can create a constraint at either the time of table creation or afterward, it really doesn&#39;t matter, it&#39;s up to you. You can define a constraint at the column or the table level. Now, each individual constraint will operate on a specific column.</p>
+<p>But it really is considered more so a table-level object because if you consider the primary key, although that generally represents a single column, it actually could include more than one column. Plus it helps to ensure that every record in the table is unique. So it&#39;s more so a table-level object. Plus any single constraint can operate on multiple columns. So typically they are considered to be table-level objects, but you can define it on a specific column. And you can view a constraint in the data dictionary to simply see its definition, its properties. So here we see some examples of defining constraints. And, again, you can do it during the creation of a table itself. But it can be done afterward as well.</p>
+<p>[Video description begins] <em> The statements of syntax, table-level constraint syntax, and column-level constraint syntax are displayed.</em> [Video description ends]</p>
+<p>But if you are creating the table then you can include the column constraint or the table constraint at that particular point.</p>
+<p>[Video description begins] <em> The syntax is, CREATE TABLE [schema.] table (column datatype [DEFAULT expr] [column_constraint], ... [table_constraint] [,...]);.</em> [Video description ends]</p>
+<p>Now we do see here again the syntax for a table level. So you just create your columns, column 1, column 2, column 3. Then we see constraint, and then the name of the constraint and its type. So, again, not null, or primary key, or check constraint, that&#39;s the type.</p>
+<p>[Video description begins] <em> The table-level constraint syntax is, column,... [CONSTRAINT constraint_name] constraint_type (column, ...),.</em> [Video description ends]</p>
+<p>Then the column on which this constraint is being defined. And note that it can be more than one column. So a single constraint can operate across multiple columns. That&#39;s essentially the table-level constraint. The column-level constraint is specifically attached to a particular column.</p>
+<p>[Video description begins] <em> The column-level constraint syntax is, column [CONSTRAINT constraint_name] constraint_type,. </em>[Video description ends]</p>
+<p>So column X, then the constraint, and whatever you want to call it, and its type on that specific column.</p>
+<p>[Video description begins]<em> Defining Constraints: Example. The example of the column-level and table-level constraints are displayed.</em> [Video description ends]</p>
+<p>So here we see, in fact, two examples of creating the same type of constraint. In both cases it&#39;s a primary key. But we see a column-level constraint versus a table-level constraint. Now, at the end of the day, both of these will accomplish the same task, the same goal, establishing a primary key. But if it&#39;s done during the creation of a table, you can see that the first thing that happens here is the table is created, then the employee_id column is created, along with a constraint that goes with that column, if you will. So the employee_id is going to be the primary key.</p>
+<p>So the constraint is called emp_emp_id_pk. Seeing the emp twice might seem redundant there but it&#39;s actually emp referring to the table employees. Then emp_id, referring to the employer_id column. Then pk, of course, standing for primary key. Now, you can call it whatever you want, but that&#39;s a fairly common naming convention, table_column_type. So then primary key is quite simply the actual type of constraint that is being implemented. So you&#39;re creating the column and the constraint at the same time, okay?</p>
+<p>[Video description begins] <em> The column-level constraint displays the statement which reads, CREATE TABLE employees( employee_id NUMBER(6) CONSTRAINT emp_emp_id_pk PRIMARY KEY, first_name VARCHAR2(20), ...);.</em> [Video description ends]</p>
+<p>In the second example, it&#39;s still just the same primary key that&#39;s being created, but it&#39;s considered a table-level constraint at this point. Because you define the table and all of the columns, then you define the constraint after the fact and you explicitly attach it, if you will, to a particular column.</p>
+<p>[Video description begins] <em> The table-level constraint example displays the statement which reads, CREATE TABLE employees( employee_id NUMBER(6), first_name VARCHAR2(20), ... job_id VARCHAR2(10) NOT NULL, CONSTRAINT emp_emp_id_pkPRIMARY KEY (EMPLOYEE_ID));.</em> [Video description ends]</p>
+<p>Again, really either option is fine and functionally the results here would be no different. So constraint is still defined, then the name is still given, then primary key is the type and then it is explicitly attached to the employee_id column, okay? But again, using that type or that method, I should say, you could specify several columns. A primary key does not actually have to be just one column. So you could add in another column using that type of syntax there. So that&#39;s why it&#39;s considered to be table level in that regard. But, again, for this case both of those accomplish the same goal.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Working with Constraints (it_dfosfd_09_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/3e59c71d-114f-4a5f-b8df-767eef0bd37b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3e59c71d-114f-4a5f-b8df-767eef0bd37b/image001.jpg')();" /><div class="section_text">In this video, you will learn how to define constraints such as NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, and CHECK.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define constraints such as NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, and CHECK</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Working with Constraints. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll take another look at creating a table. But in this case, we&#39;ll implement all of the constraint types at the same time. So we&#39;ll create the table and all of its constraints in a single statement. Now I&#39;m essentially recreating the Employees table here.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open in which the HR tab is selected. A statement is displayed in the HR tabbed page that reads, CREATE TABLE Employees2 ( emp_id NUMBER(4) PRIMARY KEY, first_name VARCHAR2(25) NOT NULL, last_name VARCHAR2(30) NOT NULL, email VARCHAR2(50) NOT NULL, dept NUMBER(3), hire_date DATE DEFAULT SYSDATE, salary NUMBER(7,2), CONSTRAINT emp_dept_fk2 FOREIGN KEY (dept) REFERENCES DEPARTMENTS(department_id), CONSTRAINT email_uq2 UNIQUE (email), CONSTRAINT salary_not_zero_ck2 CHECK (salary &gt; 0) );.</em> [Video description ends]</p>
+<p>So I&#39;m just using the number 2 in the name of the table, and in the name of the constraints to avoid any duplicates, okay? So largely ignore that. But it&#39;s still the CREATE TABLE statement, then just name of table, okay?</p>
+<p>[Video description begins] <em> He highlights the CREATE TABLE Employees2 line in the statement.</em> [Video description ends]</p>
+<p>And then in our parentheses, we start defining our columns and our constraints. So take note that all of the columns and all of the constraints are all defined within the parentheses here. So even after my last column name, I&#39;ve left a space just for readability. But there is still a comma here, then there&#39;s a comma after each</p>
+<p>[Video description begins] <em> He highlights the , after the salary NUMBER(7,2) line in the statement.</em> [Video description ends]</p>
+<p>constraint as well, until you get to the last one. Then you just close off the parentheses.</p>
+<p>[Video description begins] <em> He highlights the emp_id NUMBER(4) PRIMARY KEY line in the statement.</em> [Video description ends]</p>
+<p>So our first constraint is the PRIMARY KEY. And this really is the quickest and easiest way to set the PRIMARY KEY. Just define the column, specify its data type, then simply add in PRIMARY KEY immediately after the data type. That&#39;s it, this sets the PRIMARY KEY without having to manually define a constraint.</p>
+<p>Now the only slight downside is that this does not allow you to name the constraint. But Oracle will give you a system generated name, and that&#39;s usually not a concern, okay? So just add PRIMARY KEY after the column definition, and that gets you the PRIMARY KEY constraint. Now NOT NULL is placed on any column where you are forcing the user to enter something.</p>
+<p>[Video description begins] <em> He highlights the NOT NULL in three lines of the statement that reads, first_name VARCHAR2(25) NOT NULL, last_name VARCHAR2(30) NOT NULL, email VARCHAR2(50) NOT NULL.</em> [Video description ends]</p>
+<p>In other words, whenever it should not be left blank. And of course that is up to you, but that&#39;s all you have to do, is again, add in NOT NULL after the data type for any column that must contain a value, okay? Then we have our more explicit constraints down here.</p>
+<p>[Video description begins] <em> He highlights the CONSTRAINT emp_dept_fk2 FOREIGN KEY (dept) REFERENCES DEPARTMENTS(department_id), CONSTRAINT email_uq2 UNIQUE (email), CONSTRAINT salary_not_zero_ck2 CHECK (salary &gt; 0) line in the statement.</em> [Video description ends]</p>
+<p>So the syntax here is simply the word CONSTRAINT, then the name of the constraint, then the type of the constraint. Then the column on which it is being placed. And that&#39;s consistent for all of these, okay? There&#39;s a little bit of syntax variation after that but it&#39;s always CONSTRAINT, name of constraint, type of constraint, column for the constraint, okay?</p>
+<p>[Video description begins] <em> He highlights the CONSTRAINT emp_dept_fk2 FOREIGN KEY (dept) line in the statement.</em> [Video description ends]</p>
+<p>So our first one is the FOREIGN KEY, I&#39;m calling it emp_dept_fk2. You can call it whatever you want, but for a foreign key, it&#39;s fairly common to indicate the two tables that are on either side of this relationship. And then fk simply stands for foreign key, okay? This requires the keyword of REFERENCES, then this refers back to the department_id column of the DEPARTMENTS table. And note that the column goes in parentheses here, okay?</p>
+<p>[Video description begins] <em> He highlights the REFERENCES DEPARTMENTS(department_id) line in the statement.</em> [Video description ends]</p>
+<p>But this establishes the relationship back to the DEPARTMENTS table. So you do have to make sure you include that REFERENCES aspect, and a comma. Then our next constraint is called email_uq2 for unique. I sometimes see UK, but call it whatever you want, then this is the type, a UNIQUE constraint. Again, being placed on the email column, and this Ensures that no duplicates will appear in this column. Because of course, email addresses should be unique. Then another comma, and finally, CONSTRAINT salary_not_zero_ck2 for check. Its type is a CHECK constraint, then in parentheses, it&#39;s operating on the salary column.</p>
+<p>But you can see it&#39;s an expression that verifies that it is greater than 0. And any syntactically correct expression can be used there. You could have used something like between this value and that value, or greater than or equal to this value, and less than or equal to this value. So again, really, any kind of expression can be used there. That&#39;s your call, but in this case, it just ensures that the salary must be greater than 0. So the user is not allowed to enter 0 as a value. Okay, so let&#39;s go ahead and create the table.</p>
+<p>[Video description begins] <em> He executes the statement. The Script Output tab opens in the content pane with the result that reads, Table EMPLOYEES2 created.</em> [Video description ends]</p>
+<p>There it is, and we can verify everything. If we just refresh our browser here, there is the table, we can just click on it.</p>
+<p>[Video description begins] <em> He closes the Script Output tab and refreshes the Connections section. The EMPLOYEES2 table gets added in the Tables (Filtered) folder.</em> [Video description ends]</p>
+<p>And of course, we see all the columns, but this doesn&#39;t really show us the nature of the constraints.</p>
+<p>[Video description begins] <em> He clicks the EMPLOYEES2 table in the Tables (Filtered) folder and the EMPLOYEES2 tab opens in the content pane. It includes the Columns and Constraints tabs. The Columns tab is selected. The Columns tab includes the Actions drop-down button and a table. The column headers of the table include, COLUMN_NAME, DATA_TYPE, and DATA_DEFAULT.</em> [Video description ends]</p>
+<p>But we can go to the Constraints tab. And here are all of them, okay?</p>
+<p>[Video description begins] <em> He selects the Constraints tab and its corresponding page opens in the content pane. A table is displayed. The column headers of this table include CONSTRAINT_NAME, SEARCH_CONDITION, and CONSTRAINT_TYPE.</em> [Video description ends]</p>
+<p>Now recall that anyone that starts with SYS_C then a number was system generated in terms of the name, okay?</p>
+<p>[Video description begins] <em> He selects the SYS_C0013642, SYS_C0013643, SYS_C0013644 and SYS_C0013646 values under the CONSTRAINT_NAME column header.</em> [Video description ends]</p>
+<p>And they were placed on things like the null columns, okay? It cannot be left blank, so they are actually implemented as check constraints interestingly enough.</p>
+<p>[Video description begins] <em> He selects the &#34;FIRST_NAME&#34; IS NOT NULL, &#34;LAST_NAME&#34; IS NOT NULL, and &#34;EMAIL&#34; IS NOT NULL values under the SEARCH_CONDITION column header.</em> [Video description ends]</p>
+<p>But it just checks to see that there is a value, okay?</p>
+<p>[Video description begins] <em> He selects the Check value under the CONSTRAINT_TYPE column header.</em> [Video description ends]</p>
+<p>Primary_Key, again, also got a system generated name but that&#39;s fine, you can certainly create the Primary_Key constraint afterward, if you prefer.</p>
+<p>[Video description begins] <em> He selects the row values of the CONSTRAINT_NAME and CONSTRAINT_TYPE columns that are SYS_C0013646 and Primary_Key respectively.</em> [Video description ends]</p>
+<p>But here are the ones that we defined explicitly. They have the names that we specified.</p>
+<p>[Video description begins] <em> He selects the EMAIL_UQ2, EMP_DEPT_FK2, and SALARY_NOT_ZERO_CK2 values under the CONSTRAINT_NAME column header.</em> [Video description ends]</p>
+<p>And of course, it tells you the type. Okay, and in fact, there&#39;s even the condition for the salary, okay?</p>
+<p>[Video description begins] <em> He selects the Unique, Foreign_Key, and Check values under the CONSTRAINT_NAME column header. Then he selects the salary &gt; 0 value under the SEARCH_CONDITION column header.</em> [Video description ends]</p>
+<p>So again, it&#39;s up to you with respect to when you define your constraints, they can be created after the fact. And you could also create a constraint right from here, if you click the Actions tab, go to Constraint, you can create new constraints in here.</p>
+<p>[Video description begins] <em> He clicks the Actions drop-down button, a list of options appears, which includes the Column and Constraint options. He selects the Constraint option, a flyout appears, which includes the Enable all and Disable all options.</em> [Video description ends]</p>
+<p>All right, so it&#39;s perfectly fine to create the constraints after you define the table. But of course, as we have just seen, you can do it all in a single CREATE TABLE statement.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Creating Tables Using Subqueries (it_dfosfd_09_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/07546183-510c-4761-aee5-7419e0af2840/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/07546183-510c-4761-aee5-7419e0af2840/image001.jpg')();" /><div class="section_text">To create a new table and insert rows, combine the CREATE TABLE and AS keywords in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create a new table and insert rows by combining CREATE TABLE and AS in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Creating Tables Using Subqueries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll take a look at another method for creating a table that is effectively building a table out of data that already exists. Now, officially, this is known as creating a table using a subquery, but it&#39;s often referred to as a make table query. Because you literally just run a query, but from the results, you construct a table. When you just issue a query normally, a standard SELECT statement, no persistent object is ever created. It just returns the records and when you close that down, that&#39;s it. So, in this case, I am doing exactly that. I&#39;m just selecting out specific records, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open with the HR tab opened in it. The HR tabbed page displays two statements. He highlights the SELECT employee_id, last_name, (salary*12) AS &#34;Annual Salary&#34; FROM EMPLOYEES WHERE department_id &#61; 100; line in the first statement.</em> [Video description ends]</p>
+<p>But from those results, I want to create a persistent object. Now, when you want to do this, it doesn&#39;t hurt to actually just run the SELECT statement first. To verify that you are dealing with the desired records. So in my case, I&#39;m selecting out the employee_id, the last_name, a (salary*12) AS an Annual Salary. So that&#39;s just an alias, from the EMPLOYEES table. But I only want those who are in department 100. That happens to be the finance department. So I can run just the SELECT statement, and there they are, okay?</p>
+<p>[Video description begins] <em> He executes the highlighted line and the Query Result tab opens in the content pane with the result, which includes a table with the column headers, EMPLOYEE_ID, LAST_NAME, and Annual Salary.</em> [Video description ends]</p>
+<p>But again, this does not create any kind of persistent object. Once I close this down, they disappear, okay.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>They’re still in the original EMPLOYEES table but nothing additional was created. So here is where I can encompass that, if you will, within a CREATE TABLE statement.</p>
+<p>[Video description begins] <em> He points to the highlighted line.</em> [Video description ends]</p>
+<p>That’s why it’s referred to as a subquery because it’s inside the CREATE TABLE statement. So it&#39;s still just CREATE TABLE, name of table. But I want to call this Finance_Department, so it&#39;s just those people, okay?</p>
+<p>[Video description begins] <em> He highlights the CREATE TABLE Finance_Department line in the first statement.</em> [Video description ends]</p>
+<p>Then AS is where I define the query. So this takes these results and builds a table out of them. Okay, and I&#39;m just committing that so that I can immediately select afterwards. So let&#39;s go ahead and create the table that has committed.</p>
+<p>[Video description begins] <em> He executes the first statement that reads, CREATE TABLE Finance_Department AS SELECT employee_id, last_name, (salary*12) AS &#34;Annual Salary&#34; FROM EMPLOYEES WHERE department_id &#61; 100; COMMIT. The Script Output tab opens in the content pane with the result message that reads, Table FINANCE_DEPARTMENT created. Commit complete.</em> [Video description ends]</p>
+<p>So now, I can SELECT FROM the Finance_Department. And there they are.</p>
+<p>[Video description begins] <em> He executes the second statement that reads, SELECT * FROM Finance_Department; and the Query Result tab opens with a table displayed in it, which consists of the column headers, EMPLOYEE_ID, LAST_NAME, and Annual Salary.</em> [Video description ends]</p>
+<p>If we refresh our tables over here, there it is. So now I&#39;ve got my table, if you will. Just one that I work with</p>
+<p>[Video description begins] <em> He refreshes the Connections section and the FINANCE_DEPARTMENT table gets added in the Tables (Filtered) folder. He selects the FINANCE_DEPARTMENT table and the FINANCE_DEPARTMENT tab opens in the content pane with a table, which includes the column headers, COLUMN_NAME, DATA_TYPE, and DATA_DEFAULT.</em> [Video description ends]</p>
+<p>so that I can issue the queries that are a little more appropriate to me. Without always having to query the full EMPLOYEES table. Now, that of course is up to you.</p>
+<p>[Video description begins] <em> He closes the FINANCE_DEPARTMENT tab and the HR tab gets selected.</em> [Video description ends]</p>
+<p>Whether or not it makes sense to construct an entirely separate table versus just using views is dependent on the situation, okay. But you certainly can create these tables, and maybe they&#39;re useful for testing or just generating quick reports, things like that. But essentially, the results of any query can be used to define a new object using the CREATE TABLE AS statement.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: ALTER TABLE Statement (it_dfosfd_09_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/3003b21b-a2ca-4604-ac03-6f2b3c4bca50/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3003b21b-a2ca-4604-ac03-6f2b3c4bca50/image001.jpg')();" /><div class="section_text">In this video, you will learn how to change the definition of a table using the SQL command ALTER TABLE.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">change the definition of a table using the ALTER TABLE SQL command</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: ALTER TABLE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, we&#39;ve seen a few different methods now for creating a table. But once a table is built, that doesn&#39;t necessarily mean that it won&#39;t ever change. So in this demonstration, we&#39;ll take a look at using the ALTER TABLE statement, which quite simply allows you to make changes to a table. Now, one of the most common changes is to add a new column, and that can be done using ALTER TABLE. Then, again, the name of the table, and that&#39;s always the case, once you say ALTER TABLE you have to specify which one.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open with the HR tab opened in it. The HR tabbed page displays three statements.</em> [Video description ends]</p>
+<p>Then you use the ADD keyword to simply specify a new column. And basically, you use the same structure that you would when you are specifying the column in a CREATE statement.</p>
+<p>[Video description begins] <em> He highlights the first statement that reads, ALTER TABLE FINANCE_DEPARTMENT ADD (job_id VARCHAR2(8));.</em> [Video description ends]</p>
+<p>So this is the name of the column, job_id. And this, of course, is the data type, VARCHAR2, a size of 8 and everything enclosed in a set of parentheses. And you can see that currently in my FINANCE_DEPARTMENT table. I do not have that column, so let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> In the Tables (Filtered) folder, he points to the columns of the FINANCE_DEPARTMENT table, which are EMPLOYEE_ID, LAST_NAME, and Annual Salary.</em> [Video description ends]</p>
+<p>And we should get our ALTER TABLE,</p>
+<p>[Video description begins] <em> He executes the first statement and the Script Output tab opens in the content pane with a message, that reads, Table FINANCE_DEPARTMENT altered. </em>[Video description ends]</p>
+<p>let&#39;s refresh, and there it is.</p>
+<p>[Video description begins]<em> He refreshes the Connections section and the JOB_ID column gets added in the FINANCE_DEPARTMENT table.</em> [Video description ends]</p>
+<p>Okay, so that simply adds the column. Now, there, of course, is no data in that column at this point in time. So if we were to select the records out, let&#39;s go ahead and do that. Let&#39;s just SELECT * FROM FINANCE_DEPARTMENT. We, of course, will not see any data in that column. So you do now have to go back and make sure that you add appropriate values, okay?</p>
+<p>[Video description begins] <em> He types the SELECT * FROM FINANCE_DEPARTMENT; statement and executes it. The Query Result tab opens with a table, which includes the JOB_ID column. He points to the (null) values under the JOB_ID column header.</em> [Video description ends]</p>
+<p>Because all you&#39;ve done is add it to the structure of the table, not the data.</p>
+<p>[Video description begins] <em> He points to the JOB_ID column and closes the Query Result tab.</em> [Video description ends]</p>
+<p>Now, you can also make changes to an existing column in the table. If we just select the table itself here, you can see that we can find out what the data types are.</p>
+<p>[Video description begins] <em> He selects the FINANCE_DEPARTMENT table in the navigation pane and the FINANCE_DEPARTMENT tab opens in the content pane. This tab has a table which contains the COLUMN_NAME, DATA_TYPE, NULLABLE, DATA_DEFAULT, COLUMN_ID, and COMMENTS column headers.</em> [Video description ends]</p>
+<p>And nullabilities, default values, COMMENTS, anything like that, they can all be changed. So for example, LAST_NAME is currently VARCHAR2, 25 in size.</p>
+<p>[Video description begins] <em> He highlights the values, LAST_NAME and VARCHAR2(25 BYTE) under the column headers, COLUMN_NAME and DATA_TYPE respectively.</em> [Video description ends]</p>
+<p>So let&#39;s just make a change to the size of that column. So again, it&#39;s ALTER TABLE, name of table. Then MODIFY to make a change to an existing column. So we aren&#39;t adding, we aren&#39;t dropping, we aren&#39;t creating, we&#39;re just making a modification. Then again, in parentheses, specify which column is going to be modified, and what the modification is. In this case, it&#39;s the data type, changing it to a size of 30 instead of 25, let&#39;s execute.</p>
+<p>[Video description begins] <em> He highlights and executes the second statement that reads, ALTER TABLE FINANCE_DEPARTMENT MODIFY (last_name VARCHAR2(30));. The Script Output tab opens with a message that reads, Table FINANCE_DEPARTMENT altered.</em> [Video description ends]</p>
+<p>That has been altered, and again, if we just select the table itself now, we should see that its size has increased to 30 bytes. Okay, then you can also remove a column from a table.</p>
+<p>[Video description begins] <em> He closes the Script Output tab. Then he selects the FINANCE_DEPARTMENT table in the navigation pane, and the FINANCE_DEPARTMENT tab opens in the content pane. He points at the value, VARCHAR2(30 BYTE) under the column header DATA_TYPE. He then closes the FINANCE_DEPARTMENT tab and the HR tab gets selected.</em> [Video description ends]</p>
+<p>Now, I&#39;ll just use that exact same column that I just created, the job_id column. But once again, it is still ALTER TABLE, name of table, and this is perhaps the simplest syntax, just drop the name of column in parentheses. You don&#39;t have to specify any other property, just identify which column you want to drop and this will remove it.</p>
+<p>[Video description begins] <em> He highlights and executes the third statement that reads, ALTER TABLE FINANCE_DEPARTMENT DROP (job_id);. The Script Output tab opens with a message that reads, Table FINANCE_DEPARTMENT altered.</em> [Video description ends]</p>
+<p>Okay so again, now, if we select out the records, it should be exactly as it was when we started.</p>
+<p>[Video description begins] <em> He closes the Script Output tab and executes the statement that reads, SELECT * FROM FINANCE_DEPARTMENT;. The output returned in the Query Result tab displays a table with the EMPLOYEE_ID, LAST_NAME, and Annual Salary column headers.</em> [Video description ends]</p>
+<p>Okay, so again, you can make changes to a table really at any time. You just need to use the ALTER TABLE statement and, of course, specify what kind of change you want to make. Add a column, modify an existing column, or drop an existing column.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Marking Columns as Unused (it_dfosfd_09_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/72b85663-1c42-4d50-97d5-183f88735bb6/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/72b85663-1c42-4d50-97d5-183f88735bb6/image001.jpg')();" /><div class="section_text">In this video, you will learn how to mark columns as unused with the SET UNUSED statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">mark columns as unused with the SET UNUSED statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Marking Columns as Unused. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In our previous demonstration, we saw how you can use the ALTER TABLE statement to drop a column from a table. And that&#39;s certainly fine if that&#39;s what you need to do. But in some cases, you might be dealing with a very large table. And as such, removing a column or columns could quite simply take a very long time and you might interfere with normal day-to-day processing. So in this demonstration, we&#39;ll see essentially an alternative to dropping a column known as marking it as unused. Now, from a user&#39;s perspective, this is functionally equivalent to dropping it. Because once it is marked as unused, it no longer shows up in the results of a SELECT statement, nor, from the results of a DESCRIBE statement. So again, it&#39;s the functional equivalent of dropping the column. But Oracle just doesn&#39;t go through all of the processing to actually purge the data. So you can hold off and fully drop the column later on when things calm down. Now we&#39;ll see that in an upcoming demonstration.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open with the HR tab opened in it. The HR tabbed page displays five statements.</em> [Video description ends]</p>
+<p>But for the time being, what I&#39;m going to do here is recreate the job_id column in my FINANCE DEPARTMENT table that was dropped previously. So let&#39;s just re-add that column, okay?</p>
+<p>[Video description begins] <em> He highlights and executes the first statement that reads, ALTER TABLE FINANCE_DEPARTMENT ADD (job_id VARCHAR2(8));. The Script Output tab opens in the content pane with a message that reads, Table FINANCE_DEPARTMENT altered.</em> [Video description ends]</p>
+<p>That has now been altered. So let&#39;s just do a DESCRIBE here.</p>
+<p>[Video description begins] <em> He closes the Script Output tab and executes the fourth statement that reads, DESCRIBE FINANCE_DEPARTMENT;. The output displays in a tabular form in the Script Output tab. The table contains the Name, Null, and Type column headers. He points to the fourth row of the table. The value under the Name column is JOB_ID. The Null column is empty. The value under the Type column is VARCHAR2(8). </em>[Video description ends]</p>
+<p>And we can see that JOB_ID is there, okay?</p>
+<p>[Video description begins]<em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>So again, instead of dropping it, I can set it as unused. So again, it is the ALTER TABLE statement, which table, then SET UNUSED. And then simply specify which column you want to mark as unused and you can do more than one. If I had several, I could just put a comma in here and list them all, but let&#39;s just go with that one column, and that has been altered.</p>
+<p>[Video description begins] <em> He highlights and executes the second statement that reads, ALTER TABLE FINANCE_DEPARTMENT SET UNUSED (job_id);. The Script Output tab opens with a message that reads, Table FINANCE_DEPARTMENT altered.</em> [Video description ends]</p>
+<p>Okay, so now, again if I select from this table even though the column was not totally dropped. It no longer appears in the results of SELECT statements, nor</p>
+<p>[Video description begins] <em> He closes the Script Output tab. Then he highlights and executes the third statement that reads, SELECT * FROM FINANCE_DEPARTMENT;. The Query Result tab opens in the content pane with a three column table. The column headers of the table contains EMPLOYEE_ID, LAST_NAME, and Annual Salary.</em> [Video description ends]</p>
+<p>in the results of DESCRIBE statements, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab and executes the fourth statement. The Script Output tab opens with a three column table. The column headers of the table are Name, Null, and Type.</em> [Video description ends]</p>
+<p>So again, from all perspectives, it is gone. And really, I should mention that it is gone.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>There&#39;s no way that I can just mark that as used again. It’s just that Oracle has not gone through all of the processing to actually purge the data. Because again, maybe I’m dealing with millions upon millions of rows. So I just want to wait until everything calms down, until everyone goes home before I actually drop the unused column, okay? Now, before you do anything, you can verify what the state is of any unused columns by querying the data dictionary. So you can SELECT * FROM DBA_UNUSED_COL_TABS, which is column tables, okay?</p>
+<p>[Video description begins] <em> He highlights the fifth statement that reads, SELECT * FROM DBA_UNUSED_COL_TABS;.</em> [Video description ends]</p>
+<p>Now this just shows you which tables contain UNUSED columns.</p>
+<p>[Video description begins] <em> He highlights the comment of the fifth statement that reads, Query the data dictionary to determine which tables contain UNUSED columns.</em> [Video description ends]</p>
+<p>Because the column itself, you know, has sort of been dropped. It actually does not show you the column name. But it tells you that there is an unused column in this table. So let&#39;s take a look at the results of that. And we see that the FINANCE_DEPARTMENT has a COUNT of 1 unused column, okay?</p>
+<p>[Video description begins] <em> He executes the fifth statement and the Query Result tab opens with a single row table. The column headers of the table contains OWNER, TABLE_NAME, and COUNT. The values under the OWNER column is HR, the TABLE_NAME column is FINANCE_DEPARTMENT, the COUNT column is 1.</em> [Video description ends]</p>
+<p>So again, it&#39;s just an alternative. It does more or less drop the column, but can save a lot of time if you are dealing with a very large table. And again, we will see how you can ultimately remove that column. But it gives you time to just simply mark it as no longer there, no longer usable and we&#39;ll worry about it later on.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Removing Unused Columns (it_dfosfd_09_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/cb83051f-222e-44ea-8f7f-63529ab146a0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/cb83051f-222e-44ea-8f7f-63529ab146a0/image001.jpg')();" /><div class="section_text">In this video, you will remove any unused columns.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">remove unused columns</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Removing Unused Columns. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, so we&#39;ve seen now how you can use the ALTER TABLE statement to set columns as unused. Which is effectively a precursor to actually dropping them. So, in this demonstration, we&#39;ll see how to go about that process of dropping unused columns. Now, again, you can find out which tables contain unused columns by first querying this data dictionary table or view, DBA_UNUSED_COL_TABS. Or column tables, and this just simply reports</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open with the HR tab opened in it. The HR tab displays six statements. He highlights the fourth statement that reads, SELECT * FROM DBA_UNUSED_COL_TABS;.</em> [Video description ends]</p>
+<p>where the unused columns exist, okay?</p>
+<p>[Video description begins] <em> He executes the fourth statement. The Query Result tab opens in the content pane. The output includes a single row table containing the OWNER, TABLE_NAME, and COUNT column headers. The values under these column header are HR, FINANCE_DEPARTMENT, and 1 respectively.</em> [Video description ends]</p>
+<p>So I have one unused column in my FINANCE_DEPARTMENT table. Note it does not tell me what the name was or any other properties, but I do know that that&#39;s where they currently reside.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So to actually drop them, once again, it&#39;s just the ALTER_TABLE statement, then which table, and then simply DROP UNUSED COLUMNS.</p>
+<p>[Video description begins] <em> He highlights the comment of the fifth statement that reads, DROP UNUSED columns from a table. Then he highlights the fifth statement that reads, ALTER TABLE FINANCE_DEPARTMENT DROP UNUSED COLUMNS;.</em> [Video description ends]</p>
+<p>You cannot specify a particular unused column. So, had there been two unused columns, I can only drop them both or just leave them as they are. But I cannot specify a single column to drop if there are more than one unused, okay? Now there&#39;s an optional CHECKPOINT value that you can also specify, which is arbitrary, it&#39;s just the number of rows, in terms of the value right here. But this can reduce the amount of undo logs required. And possibly avoid exhaustion of undo space, because again, generally you are doing this because the tables were very large. So if we specify in this case 1000 as a checkpoint value, that means that it will just checkpoint in the logs after 1000 records and then start a new log. So we won&#39;t run out of undo space by just building up a very large log file, okay?</p>
+<p>[Video description begins] <em> He highlights 1000 in the sixth statement that reads, ALTER TABLE FINANCE_DEPARTMENT DROP UNUSED COLUMNS CHECKPOINT 1000;.</em> [Video description ends]</p>
+<p>Now I don&#39;t have any records in this table, so I can simply issue the first statement here to just drop unused columns, okay? That has now been altered.</p>
+<p>[Video description begins] <em> He executes the fifth statement and a message returns in the Script Output tab that reads, Table FINANCE_DEPARTMENT altered.</em> [Video description ends]</p>
+<p>And if I now reselect from the data dictionary, there should be none, okay?</p>
+<p>[Video description begins] <em> He executes the fourth statement and the Query Result tab opens with an empty table. The column headers of the table are OWNER, TABLE_NAME, and COUNT.</em> [Video description ends]</p>
+<p>So again, in a practical scenario, if you are marking the columns as unused, typically it&#39;s because they are very large. So you generally would just want to hold off to fully purge them until things calm down. So that is when you would issue the DROP UNUSED COLUMNS statement. And again, optionally use the CHECKPOINT feature but that&#39;s up to you.</p>
+<p>[Video description begins] <em> He highlights DROP UNUSED COLUMNS; in the fifth statement and CHECKPOINT 1000; in the sixth statement.</em> [Video description ends]</p>
+<p>But that will fully purge the data from the tables. And should you need to recover them at any point, again, that&#39;s certainly possible but only if you have a backup, okay? There&#39;s no way to restore an unused column once it has been set as unused, nor can you just undo the drop and restore the data that way. You would have to resort to backups to get that data back.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: DROP TABLE Statement (it_dfosfd_09_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/17b33cad-f81d-4487-b14e-3c61d62a195e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/17b33cad-f81d-4487-b14e-3c61d62a195e/image001.jpg')();" /><div class="section_text">In this video, find out how to use the DROP TABLE SQL command to delete a table from your database.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the DROP TABLE SQL command to delete a table from the database</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: DROP TABLE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, for our final demonstration, we&#39;ll see how to drop a table from your database, which is to fully remove it. And of course, this is something that you probably wouldn&#39;t do all of that often in production. But certainly, when you are testing and developing your databases, it&#39;s not uncommon at all to drop an entire table. So it&#39;s a very simple statement, just DROP TABLE, name of table, and really that&#39;s it, you could end the code right there.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open with the HR tab opened in it. He highlights the statement displayed in the HR tab that reads, DROP TABLE FINANCE_DEPARTMENT PURGE;.</em> [Video description ends]</p>
+<p>But it does also support this PURGE option to immediately reclaim the space that the table was using. Without it, it actually does not reclaim the space, but this is a very small table, so it really wouldn&#39;t matter in my case. Now, all data will be removed as will any associated objects, such as the constraints that were on the table and the indexes that might have been placed on the table. So, you know, all of it goes. So we can simply execute to remove our FINANCE_DEPARTMENT table. Table has been dropped.</p>
+<p>[Video description begins] <em> He executes the statement and the Script Output tab opens in the content pane with a message that reads, Table FINANCE_DEPARTMENT dropped.</em> [Video description ends]</p>
+<p>And if we refresh the tables here, we can see it&#39;s now gone.</p>
+<p>[Video description begins] <em> He closes the Script Output tab and refreshes the HR database in the navigation pane. The FINANCE_DEPARTMENT table gets removed from the Tables (Filtered) folder in the navigation pane.</em> [Video description ends]</p>
+<p>Okay, so again, it&#39;s a very simple operation but certainly something that you would want to be careful with. Because it doesn&#39;t really require many parameters or arguments, just DROP TABLE, name of table. So it&#39;s easy to perhaps accidentally remove the wrong table. So certainly, be careful. But as mentioned, during testing and development, it&#39;s not uncommon at all, just maybe not so much in a production environment.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Exercise: Create and Work with Tables Using DDL (it_dfosfd_09_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/d51b2338-f193-4751-816e-8cdadbc3fc11/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d51b2338-f193-4751-816e-8cdadbc3fc11/image001.jpg')();" /><div class="section_text">In this video, you will learn how to create and work with tables using DDL.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and work with tables using DDL</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Create and Work with Tables Using DDL. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now for our exercise this time, we&#39;ll ask you to use the CREATE TABLE statement to create new tables in the database. Then to identify the different Oracle database types used when creating a table. And finally, to create a new table while at the same time inserting rows by using the CREATE TABLE with the AS clause in a SQL statement. So again, what we&#39;d like you to do is to take a few minutes and try these exercises on your own. Then we&#39;ll come back to review and we&#39;ll see what you made out, so we&#39;ll see you shortly. All right, so to review, our first exercise was to use the CREATE TABLE statement to construct a new table.</p>
+<p>[Video description begins] <em> Solution. The Oracle SQL Developer : HR window is open with the HR tab opened in it. It displays four statements.</em> [Video description ends]</p>
+<p>Now I&#39;m just using the same example that we saw earlier. But I&#39;m going to call it Customers2 just to avoid any naming conflicts with my earlier Customers table. But regardless of the name of the table, it is always just CREATE TABLE, name of table, then in parenthesis define all of your columns, okay? You can also define constraints if you want to at the same time. But it&#39;s perfectly fine to just create the columns then add in your constraints or any other objects after the fact. So your first column name, followed by its data type then a comma, then your next column name, its data type then a comma. And every column is separated with those commas until the last one where you just close off your parenthesis. So let&#39;s go ahead and execute, and we get our new table.</p>
+<p>[Video description begins] <em> He highlights and executes the first statement that reads, CREATE TABLE Customers2 ( cust_id NUMBER(4), first_name VARCHAR2(25), last_name VARCHAR2(30), street VARCHAR2(30), city VARCHAR2(25), state_prov CHAR(2), create_date DATE );. The Script Output tab opens in the content pane with a message that reads, Table CUSTOMERS2 created.</em> [Video description ends]</p>
+<p>Now, then we asked about the data types that you can use, now clearly we are seeing a few data types here, VARCHAR2, NUMBER, DATE.</p>
+<p>[Video description begins] <em> He highlights the NUMBER(4), VARCHAR2(25), and DATE in the cust_id NUMBER(4), city VARCHAR2(25), and create_date DATE line of statements respectively.</em> [Video description ends]</p>
+<p>But when it comes to all of your options, it&#39;s actually a little easier if you use the graphic table option. Now you can either create or just edit an existing table to see all of those. So if for example, I right-click on Tables and choose New Table, I can just create one here, okay?</p>
+<p>[Video description begins] <em> He right-clicks the Tables (Filtered) folder in the navigation pane and a shortcut menu opens which includes the New Tables option. He selects the New Tables option and the Create Table dialog box opens.</em> [Video description ends]</p>
+<p>And I won&#39;t even bother changing any of the names here, but if we just go to the first column and then go to the Data Type column here. Notice there&#39;s a drop-down, and these are certainly some of the more common data types, but if you just scroll, you see every data type, okay?</p>
+<p>[Video description begins] <em> In the Create Table dialog box, he expands the Data Type drop-down list box under the Data Type column.</em> [Video description ends]</p>
+<p>So clearly several of them are available and we certainly did not go into all of these. So a little extra research will certainly help, but there are a lot of available data types, okay? The ones we&#39;ve been using, again, are certainly very common. But that&#39;s a good option to see which ones are available and</p>
+<p>[Video description begins] <em> He closes the Create Table dialog box.</em> [Video description ends]</p>
+<p>you could also just modify using that same option. So if I go back to my original CUSTOMERS table for example,</p>
+<p>[Video description begins] <em> He clicks the CUSTOMERS table under the Tables (Filtered) folder in the navigation pane and the CUSTOMERS tab opens in the content pane.</em> [Video description ends]</p>
+<p>I can right-click and just choose Edit and I can do the same thing.</p>
+<p>[Video description begins] <em> He right-clicks the CUSTOMERS table in the navigation pane, which opens a shortcut menu including the Edit and Open options. He selects the Edit option and the Edit Table dialog box opens. The dialog box includes a table in a section. The table includes the Name and Data Type column headers.</em> [Video description ends]</p>
+<p>Just go to the Data Type, hit the drop-down and change it that way.</p>
+<p>[Video description begins] <em> He clicks the Data Type drop-down list box containing NUMBER value under the Data Type column header and scrolls down to show other data types, like, CLOB and BLOB. Then he closes the Edit Table dialog box.</em> [Video description ends]</p>
+<p>Okay, so then finally we asked about creating a table that already has records by using the CREATE TABLE with an AS clause.</p>
+<p>[Video description begins] <em> He closes the CUSTOMERS tab in the content pane and get back to the HR tab.</em> [Video description ends]</p>
+<p>And essentially this allows you to specify a query, or</p>
+<p>[Video description begins] <em> He closes the Script Output tab. Then he highlights AS in the second statement that reads, CREATE TABLE Finance_Department2 AS SELECT employee_id, last_name, (salary*12) AS &#34;Annual Salary&#34; FROM EMPLOYEES WHERE department_id &#61; 100;.</em> [Video description ends]</p>
+<p>what&#39;s known as a subquery in this case. That will extract data and then build a table out of those results. So I can just run the SELECT statement first to verify that this is what I want. Okay, so this is no different than any other SELECT statement. I can go ahead and see that these are the records returned by that.</p>
+<p>[Video description begins] <em> He highlights and executes the SELECT employee_id, last_name, (salary*12) AS &#34;Annual Salary&#34; FROM EMPLOYEES WHERE department_id &#61; 100; line from the second statement. The Query Result tab opens in the content pane with a table. The table contains the EMPLOYEE_ID, LAST_NAME, and Annual Salary column headers.</em> [Video description ends]</p>
+<p>So if that&#39;s correct, I can simply use an AS statement in front of that. Along with my CREATE TABLE statement to build the table from those results, okay? So I&#39;ll go ahead and create the table using that statement.</p>
+<p>[Video description begins] <em> He closes the Query Result tab. Then he highlights and executes the second statement. The Script Output tab opens with a message that reads, Table FINANCE_DEPARTMENT2 created.</em> [Video description ends]</p>
+<p>I&#39;ll COMMIT that to ensure that the records are there.</p>
+<p>[Video description begins] <em> He executes the third statement that reads, COMMIT. The Script Output tab opens with a message that reads, Commit complete.</em> [Video description ends]</p>
+<p>And then I can select from the new table, okay?</p>
+<p>[Video description begins] <em> He closes the Script Output tab and executes the fourth statement that reads, SELECT * FROM Finance_Department2;. The Query Result tab opens with the result, which contains a table.</em> [Video description ends]</p>
+<p>And there they are, so that is now a persistent object. So if it&#39;s something that I work with frequently, maybe it makes a little more sense to construct it as a table. As opposed to just continually querying out those records. Again, that&#39;s also referred to as a make table query.</p>
+<p>[Video description begins] <em> He closes the Query Result tab. Then he highlights the comment of the second statement that reads, Creating a table using a subquery (sometimes referred to as a &#34;make-table query&#34;).</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises. And if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

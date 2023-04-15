@@ -1,0 +1,475 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Controlling User Access</h1><div class="section_text"><p>Discover how to control database access to specific objects and add new users with different levels of access privileges.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Controlling User Access (it_dfosfd_16_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Privileges (it_dfosfd_16_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Granting Privileges (it_dfosfd_16_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Roles (it_dfosfd_16_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Granting Privileges to a Role (it_dfosfd_16_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: ALTER USER Statement  (it_dfosfd_16_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Object Privileges (it_dfosfd_16_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: WITH GRANT OPTION clause  (it_dfosfd_16_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Confirming Granted Privileges (it_dfosfd_16_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: REVOKE Statement (it_dfosfd_16_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Exercise: Implement User Access (it_dfosfd_16_enus_11)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Controlling User Access (it_dfosfd_16_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/c29a1784-a2b4-4858-a83f-14eca656a655/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c29a1784-a2b4-4858-a83f-14eca656a655/image001.jpg')();" /><div class="section_text">In this video, find out how to discuss the benefits of user access control.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">discuss the benefits of user access control</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Controlling User Access. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Apart from the databases and the data they contain, perhaps one of the most important elements of managing a database environment, is ensuring user access control. And this a mechanism that allows an administrator to define which users are able to access which objects. And perhaps another way to state that is to also say that you want to ensure that unauthorized users are not able to gain access to data. And all of this really begins with users and roles and then ultimately privileges. Now we&#39;ll talk about all of those in greater detail as we move through the course.</p>
+<p>[Video description begins] <em> The Mozilla Firefox window opens. The EM Express web page is open. It includes the Storage and Security drop-down buttons. The Database Home page is open.</em> [Video description ends]</p>
+<p>But at the moment, I&#39;m in my Enterprise Manager application and I&#39;m logged in here as the SYS user. Now that&#39;s a default administrative account that is built during the installation of Oracle itself. So when you are logged in as SYS, you are effectively unrestricted. There really isn&#39;t anything that you can&#39;t do. So in terms of setting up user access control, we can click on the Security page here.</p>
+<p>[Video description begins] <em> He clicks the Security drop-down button. It includes the Users and Profiles options.</em> [Video description ends]</p>
+<p>And there we have Users and Roles.</p>
+<p>[Video description begins] <em> He clicks the Users option. The Users page opens.</em> [Video description ends]</p>
+<p>So Users lists out all of the users who currently exist. Now a fair number of those are system generated users, but this is where you could also create a new user. So anyone who needs to access any database needs to have a user account. Similarly, if we choose Roles, we see a list of existing roles.</p>
+<p>[Video description begins] <em> The Roles page opens.</em> [Video description ends]</p>
+<p>And again, many of these are system generated. But they allow you to group users together so that I don&#39;t have to assign a particular privilege, let&#39;s say, a 100 different times if I had a 100 users. I could just place them into roles and greatly simplify the management of privileges. Now again, we&#39;ll talk about that in much greater detail later on, but that&#39;s really where user access begins. Creating a user account and then determining into which roles they should be placed. Now, in terms of operating within something like the Oracle SQL Developer application, you don&#39;t necessarily have to be using the same account.</p>
+<p>[Video description begins] <em> He clicks the Oracle SQL Developer : HR tab. The Oracle SQL Developer : HR window opens. It is divided into two sections. The first section is divided into two subsections. The first subsection is titled as Connections. It contains the navigation pane. The second subsection is titled as Reports. The second section is the content pane. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains one statement, which is SELECT user FROM dual;.</em> [Video description ends]</p>
+<p>Anyone could be using the Oracle SQL Developer application while anyone else is using the Enterprise Manager Application. And in fact, you can always find out which account you are currently using. It&#39;s not uncommon for administrators to have multiple accounts. One that is a very higher level administrative account and then one that is just a lower level regular user account. So you can find out which one you are using by issuing SELECT user FROM dual;. Again, the system table that just allows you to complete a SELECT statement when you are selecting values that don&#39;t exist in regular tables. So if we execute, it returns the user identity you are currently using, in my case, HR.</p>
+<p>[Video description begins] <em> He selects the statement and clicks the execute button. The output pane appears below the content pane. The Query Result tab is open in the output pane. A table with one column and one row is displayed. The column header is USER. The row entry is HR. He highlights the HR value.</em> [Video description ends]</p>
+<p>So it&#39;s up to someone at some point to ensure that the HR user is able to access the appropriate data. And again, at the same time also not able to access any inappropriate data. Okay, so again, that&#39;s just the very basic information about user access. Everyone who&#39;s going to use the database environment needs a user account. They don&#39;t necessarily have to be in a role, but it certainly is very common, and it&#39;s a very good way to simplify your administrative approach.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Privileges (it_dfosfd_16_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/854b10df-0190-47b3-ba3c-b48e5173d04f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/854b10df-0190-47b3-ba3c-b48e5173d04f/image001.jpg')();" /><div class="section_text">In this video, learn how to differentiate between system and object privileges.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">differentiate between system and object privileges</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Privileges. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll differentiate between the two types of privileges available in Oracle. System privileges and object privileges. Now, the system privileges allow you to perform a particular action within the database but they typically aren&#39;t concerned with a specific object. Of course, this is the object privilege, and it allows you to manipulate the content of the database objects. So objects such as tables, views, sequences, really any other object can be managed by assigning object privileges.</p>
+<p>[Video description begins] <em> A diagram is displayed, which shows that the database security is of two types: system security and data security. System Privileges.</em> [Video description ends]</p>
+<p>Now taking a closer look at the system privileges, for starters, there are a lot of them. More than 200 privileges are available. But they are typically held by the DBA, whoever is the database administrator. They have higher level system privileges for various tasks such as, creating new users, removing users, granting other privileges to other users. And perhaps backing up tables or several different databases. So again, these are effectively administrative tasks.</p>
+<p>They typically don&#39;t operate against a specific object like a table or a view. So in most cases you will certainly have both depending on what your job is. But the degree of privileges that you have is certainly very controllable. The system administrator can determine who is able to hold which privileges and it can be any combination of object privileges and/or system privileges. So of course, we&#39;ll see some examples as to how to assign these privileges. But as mentioned, almost every user will have a certain level of privilege in either one or the other or both.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Granting Privileges (it_dfosfd_16_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/e196d629-90f3-4d8e-9747-bdeab67fe6f2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e196d629-90f3-4d8e-9747-bdeab67fe6f2/image001.jpg')();" /><div class="section_text">In this video, you will learn how to create a user and how to grant privileges.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create a user and grant privileges</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Granting Privileges. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll see how to get started with managing your user access control. And it begins with creating a new user. Now, one quick word, before you attempt to do this, you would need to ensure that the user account that you are using has the ability to create new user accounts. So for example, a brand new standard user, for lack of a better word, would not have this ability. But certainly an administrative account such as DBA would. So you just need to verify that you can perform this task. But to create a new user, it&#39;s very simple.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>Our command is just CREATE USER.</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE USER new_user IDENTIFIED BY new_password;.</em> [Video description ends]</p>
+<p>Then this is the name of that user. So I&#39;m going with new_user then you can use IDENTIFIED BY to specify a password. So I&#39;m using new_password. That&#39;s it, just CREATE USER, name of user, IDENTIFIED BY and then create a password.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. In the output pane, the Script Output tab opens. The text User New_USER created. is displayed.</em> [Video description ends]</p>
+<p>So let&#39;s execute, NEW_USER created, so now that we have the new user we can grant some system privileges to that user. And I do want to stress these are system privileges at this point. Privileges such as CREATE TABLE or CREATE VIEW of course suggest that they do not yet exist. So therefore you can not give them an object privilege on an object that does not yet exist, okay?</p>
+<p>[Video description begins] <em> He points to the second statement, which is GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW TO new_user;.</em> [Video description ends]</p>
+<p>So the system privileges in this case are CREATE SESSION to be able to log in and interact with the database, CREATE TABLE and CREATE VIEW. And they can all be listed together after the GRANT statement. So it&#39;s simply GRANT, then list of privileges. Then TO which user?</p>
+<p>[Video description begins] <em> He highlights CREATE SESSION, CREATE TABLE, CREATE VIEW.</em> [Video description ends]</p>
+<p>In my case, new_user, okay? And you can keep listing privileges. There&#39;s no limit to the number of privileges you can enter in here. So let&#39;s go ahead and execute. And the Grant succeeded.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>Okay, now they can be changed at any time and we will see that but really this is how it begins. Create a user, decide which privileges that user should have, then simply grant them and, optionally test it out, make sure that it works. But from that point that user should be able to begin interacting with the database environment.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Roles (it_dfosfd_16_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/db47aef6-0960-414c-bc19-438c75fa0a22/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/db47aef6-0960-414c-bc19-438c75fa0a22/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe the purpose of a role.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the purpose of a role</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Roles. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce the concept of a role. And quite simply, a role is a named collection of privileges that generally are related. And this makes it much easier to grant and/or revoke, or just generally maintain users and their privileges. Now, you certainly can operate with individual users and there are always instances where you may still do this. But if a number of users need the same level of access to effectively the same set of objects, then it makes much more sense to use a role.</p>
+<p>[Video description begins] <em> What is a Role?</em> [Video description ends]</p>
+<p>If you have even just a few users, such as three users accessing four different objects and every user needs to access every object, then you have 12 connections to make, if you will.</p>
+<p>[Video description begins] <em> In the diagram displayed, the users are allocated the privileges without a role.</em> [Video description ends]</p>
+<p>User one has access to four objects. User two has access to four more or the same four, I should say. And user three has access to the same four. So you&#39;re managing 12 different sets of privileges. But if you use a role, you can then assign the privileges to the role and this dramatically reduces the amount of connections, for lack of a better word.</p>
+<p>[Video description begins] <em> In the diagram displayed, the users are assigned the Manager&#39;s role. The privileges are allocated with a role.</em> [Video description ends]</p>
+<p>The role can have access to the four objects, that&#39;s it. Then you simply populate the role. Now, this is hardly a new approach, almost every type of IT administration makes use of users and groups. And they all essentially perform the same task. Rather than managing a lot of individuals with access to a lot of resources, let&#39;s just group them together. So that all of the individual users who require that same level of access are just placed within the role or the group. So it&#39;s just meant to simplify the approach to handling all of your users with respect to the objects that they are able to access.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Granting Privileges to a Role (it_dfosfd_16_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/3a566014-10ef-4aef-956f-a1e0f7e3aae0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3a566014-10ef-4aef-956f-a1e0f7e3aae0/image001.jpg')();" /><div class="section_text">Learn how to give privileges to a role.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">grant privileges to a role</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Granting Privileges to a Role. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Earlier we saw how to create a new user, and how to assign system privileges to that user. And in this demonstration we&#39;ll essentially do the same thing, except we&#39;ll also incorporate a role.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains four statements. </em> [Video description ends]</p>
+<p>So that the user will receive privileges, simply by being a member of the role.</p>
+<p>[Video description begins] In<em> the first statement, which is CREATE USER alice IDENTIFIED BY al_password;, he highlights CREATE USER alice.</em> [Video description ends]</p>
+<p>So I&#39;m going to create another new user named alice, IDENTIFIED BY al_password.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text User ALICE created. is displayed.</em> [Video description ends]</p>
+<p>New user created. And then I&#39;m going to create a new role.</p>
+<p>[Video description begins] <em> He points to the second statement, which is CREATE ROLE managers;.</em> [Video description ends]</p>
+<p>So the syntax here is simply CREATE ROLE, name of role, and I&#39;m calling it managers. We&#39;ll create the role.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Role MANAGERS created. is displayed.</em> [Video description ends]</p>
+<p>Then we&#39;ll give the following privileges to the role. So I&#39;ll GRANT CREATE TABLE and CREATE VIEW to the managers role.</p>
+<p>[Video description begins] <em> He points to the third statement, which is GRANT CREATE TABLE, CREATE VIEW TO managers;.</em> [Video description ends]</p>
+<p>We&#39;ll execute. Now that role has those privileges.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>So to give alice those privileges, all I have to do is add her to the role, okay? Now, you still used the GRANT syntax, so you grant the role to the user, but in plainer English it adds the user to the role.</p>
+<p>[Video description begins] <em> He points to the fourth statement, which is GRANT managers TO alice;.</em> [Video description ends]</p>
+<p>So we GRANT the name of the role TO the name of the user.</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed. </em>[Video description ends]</p>
+<p>So in my case, GRANT managers TO alice;, execute, and that Grant succeeded.</p>
+<p>[Video description begins] He<em> closes the Script Output tab.</em> [Video description ends]</p>
+<p>Okay, so again, it&#39;s really the same approach, you still have a user and you still have privileges. But now we&#39;ve put them together by using the role. And now any user who joins that role will inherit those privileges automatically. So it greatly simplifies the approach of managing your user access control, particularly when you have a lot of users and a lot of objects to deal with.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: ALTER USER Statement  (it_dfosfd_16_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/5a87c685-5697-4a3c-ac47-4cee45f82b8f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5a87c685-5697-4a3c-ac47-4cee45f82b8f/image001.jpg')();" /><div class="section_text">During this video, you will learn how to change a password using the ALTER USER statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">change a password using the ALTER USER statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: ALTER USER Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>One of the most common administrative tasks in almost any IT environment is managing user passwords. Users forget their passwords all the time, and they very often need to be reset. So in this demonstration, we&#39;ll see how to do exactly that in Oracle.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>And earlier, I created a user called alice and she was initially identified by the password al_password. So I&#39;ve left that code there just to indicate that this user does exist, and the password is there.</p>
+<p>[Video description begins] <em> He highlights the first statement, which is CREATE USER alice IDENTIFIED BY al_password;.</em> [Video description ends]</p>
+<p>So on the assumption that alice has forgotten her password, she can contact administration and of course request that it have it be reset. And to do so, you use the ALTER USER command.</p>
+<p>[Video description begins] <em> He points to the second statement, which is ALTER USER alice IDENTIFIED BY new_al__password;.</em> [Video description ends]</p>
+<p>So it is simply ALTER USER than the name of user, of course alice in this case. And then you still use the IDENTIFIED BY statement and you just supply a new password. So there&#39;s no change password or reset password command, you really just issue that same statement IDENTIFIED BY and supply a new password. So in my case, I&#39;m going with new_al_password, as long as it&#39;s something different. And then of course, you just inform the user of what the new password is.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Script Output tab opens. The text User ALICE altered. is displayed. </em>[Video description ends]</p>
+<p>So we can execute. And that user should now be altered, okay?</p>
+<p>[Video description begins] He<em> closes the Script Output tab.</em> [Video description ends]</p>
+<p>Now, that&#39;s typically implemented when the user cannot remember their password. So obviously, they have no means to change it themselves. You absolutely can give users the ability to change their own passwords. But that is up to you, and typically, you might create some sort of custom application to allow this. But when you are working directly in something like Oracle SQL developer, you can just use your ALTER USER statement, then again IDENTIFIED BY the new password to reset any user&#39;s password.</p>
+<p>And again, of course, the user who is resetting the password needs to have the administrative ability to do so. Again, a standard user would not be able to reset the password of any other standard user. So if someone asks if you can reset the password, of course, you would need to verify that you have that privilege before trying.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Object Privileges (it_dfosfd_16_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/5b59c50b-642e-4155-9abe-b4b304b3f8e4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5b59c50b-642e-4155-9abe-b4b304b3f8e4/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to list the various object privileges.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">list the various object privileges</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Object Privileges. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this presentation, we&#39;ll summarize some of the object privileges. And I say summarize because this is not a thorough list of every object nor every privilege, but certainly some very common examples. So for a table, just about all of the privileges are available or applicable to it because this is where your data resides. So in almost every case, you might want to focus your initial assignment of privileges at the table level. So they include ALTER, DELETE, INDEX, INSERT, REFERENCES, SELECT, and UPDATE.</p>
+<p>But a view doesn&#39;t really have the same structure as a table even though it looks the same. So there are different privileges for views, for example, there&#39;s no ALTER VIEW statement. You may recall from an earlier demonstration that you used the CREATE or REPLACE statement, so ALTER VIEW is not applicable. You can, however, DELETE them. You can INSERT through a view, you can SELECT from a view, and you can UPDATE through a view as well.</p>
+<p>And a sequence only has two privileges, ALTER and SELECT. So, again, the object privileges will vary from object to object. Different objects have different types of privileges associated with them. But in terms of who can allocate those privileges, an owner has all the privileges on the object. And as such, they can give specific privileges to anyone else on any object they own.</p>
+<p>[Video description begins] <em> An example of a statement is displayed, which is GRANT object_priv [(columns)]|ALL ON object TO {user|role|PUBLIC} [WITH GRANT OPTION];.</em> [Video description ends]</p>
+<p>Now, typically, a database administrator also has this ability, but not necessarily. But there is a syntax example where it states that you can simply GRANT the object privilege to specific columns, such as in a table or a view. Or you can use the ALL keyword to allow them to access all columns. Then ON which object, then TO the user or the role, or there is a role known as PUBLIC, which we will talk about a little bit later on. And the WITH GRANT OPTION is optional, meaning that the privilege you give to this user can then pass that along to someone else if you specify the WITH GRANT OPTION. So again, that&#39;s up to you.</p>
+<p>[Video description begins] <em> Granting Object Privileges</em> [Video description ends]</p>
+<p>So here are some other examples of granting object privileges. The first one grants query privileges on the EMPLOYEES table.</p>
+<p>[Video description begins] <em> He points to the statement GRANT select ON employees TO demo;.</em> [Video description ends]</p>
+<p>So it&#39;s GRANT select, that&#39;s the privilege, ON employees, that&#39;s the table, TO demo, and that would be the role. The second example GRANT privileges to update specific columns to users and roles.</p>
+<p>[Video description begins] <em> He points to the statement GRANT update (department_name, location_id) ON departments TO demo, manager;.</em> [Video description ends]</p>
+<p>So GRANT update, and then the list of columns where they can perform that task, department_name and location_id in this case. ON departments, that&#39;s the table, TO demo is a role, and manager would probably be an individual user. So, of course, we&#39;ll see some additional examples. But that is the basic syntax to grant a privilege to a user or a role to a specific object.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: WITH GRANT OPTION clause  (it_dfosfd_16_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/95c9b869-89e4-4d78-89cd-0e05f761316a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/95c9b869-89e4-4d78-89cd-0e05f761316a/image001.jpg')();" /><div class="section_text">To find out how to pass on privileges using the WITH GRANT OPTION clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">pass on privileges using the WITH GRANT OPTION clause </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: WITH GRANT OPTION clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see how to assign object privileges to a user while at the same time, allowing them to pass that privilege on to other users. And this is done using the WITH GRANT option. And this can help to alleviate a certain amount of administrative overhead, particularly if you as the database administrator know who the departmental managers are but you don&#39;t really have a good idea of the hierarchy after that.</p>
+<p>So for example I might know that alice is the manager of the HR department. But beyond that I don&#39;t really know which employee should be able to access which tables or which objects. So, I can say alice, you look after it, okay? And if I decide as the DBA that alice should no longer have these abilities, you can revoke them. And it will also revoke all privileges that she has passed on to other users. So, you still have that control as the administrator. So to grant the privileges, it&#39;s still just GRANT then list of privileges.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements. He points to the first statement, which is GRANT SELECT, INSERT, UPDATE ON EMPLOYEES TO alice WITH GRANT OPTION;.</em> [Video description ends]</p>
+<p>Now take note these are object privileges, so we&#39;re talking about things like tables and views now. So the privileges are SELECT, INSERT, and UPDATE in my case. Then since it&#39;s an object, you specify ON, then which object. So I&#39;m saying ON EMPLOYEES then TO the user, in my case, alice. So that grants those privileges to alice but then we can finish it off with the WITH GRANT OPTION. And this quite simply authorizes alice to pass those same privileges on to other users. So let&#39;s execute, Grant succeeded.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>So alice now has the ability to pass those along. Now in some cases you might may be even rely on that, so that alice does say, okay, here are the other people who can do this and do that and that&#39;s fine. But you might also want to know about just granting privileges to everyone rather then relying on these departmental managers. In some cases, you can just say, you know what? Everyone can do this. So this really has nothing to do with the WITH GRANT option but it&#39;s a nice option when you just want to say yes, everyone&#39;s allowed to do this.</p>
+<p>[Video description begins] <em> He points to the second statement, which is GRANT SELECT ON DEPARTMENTS TO PUBLIC;.</em> [Video description ends]</p>
+<p>So for example, we can GRANT SELECT which is not particularly harmful, you can&#39;t make any changes with just the SELECT privilege. ON again which object, I&#39;ll say DEPARTMENTS. And then TO PUBLIC;, PUBLIC is a role. And it&#39;s a default role to which everyone belongs, okay? So, again, just rather than hoping that the appropriate people will pass along SELECT to the appropriate subordinate people, this just says everyone&#39;s fine, okay?</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>So, GRANT SELECT, ON DEPARTMENTS, TO PUBLIC; allows every user to see the departments table in this case. Of course, that&#39;s up to you. You can take either approach but both of them typically involve getting a privilege out to more than just one person.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Confirming Granted Privileges (it_dfosfd_16_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/be7cce71-bcba-4db9-8898-af7ca59ab22b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/be7cce71-bcba-4db9-8898-af7ca59ab22b/image001.jpg')();" /><div class="section_text">Learn how to confirm privileges that have been granted.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">confirm granted privileges</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Confirming Granted Privileges. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now one of the challenges of controlling and managing your user access is simply keeping track of everything. Knowing who has what in terms of privileges, or to which roles they belong. So in this demonstration, we&#39;ll see how you can query several data dictionary views to find out.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. It contains the HR and HR~1 tabs. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains six statements.</em> [Video description ends]</p>
+<p>Now, in my commented list I have several data dictionary views that can be useful, including the ROLE_SYS_PRIVS. And anytime you see SYS, that means it&#39;s a system privilege. ROLE_TAB_PRIVS is table privileges. USER_ROLE_PRIVS, the users and their roles. USER_SYS_PRIVS, USER_TAB_PRIVS_MADE, and PRIVS_MADE are the privileges that you have assigned. USER_TAB_PRIVS_RECD are the ones that you have received.</p>
+<p>And again, TAB stands for table, then USER_COL is column. And again, PRIVS_MADE are those that you have assigned. USER_COL_PRIVS_RECD are the ones that you have received. So again, those are several useful data dictionary views. So for any one of them, you can find out which columns are included in them by issuing the DESCRIBE statement. So I begin with DESCRIBE ROLE_SYS_PRIVS. Let&#39;s execute.</p>
+<p>[Video description begins] <em> He points to the first statement, which is DESCRIBE ROLE_SYS_PRIVS;.</em> [Video description ends]</p>
+<p>And this tells us that the columns are ROLE, PRIVILEGE, ADMIN_OPTION, COMMON and INHERITED.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. A table with three columns and five rows is displayed. The column headers are Name, Null, and Type. The values under the Name column header are ROLE, PRIVILEGE, ADMIN_OPTION, COMMON, and INHERITED. There are no values under the Null column header. The values under the Type column header are VARCHAR2 (128), VARCHAR2 (40), VARCHAR2 (3), VARCHAR2 (3), and VARCHAR2 (3).</em> [Video description ends]</p>
+<p>So you can now decide which columns you want to query.</p>
+<p>[Video description begins] <em> He closes the Script Output tab. He points to the second statement, which is SELECT role, privilege FROM ROLE_SYS_PRIVS WHERE role &#61; &#39;MANAGERS&#39;;.</em> [Video description ends]</p>
+<p>So I&#39;ll SELECT the role and the privilege FROM ROLE_SYS_PRIVS, and I know that I have a role called &#39;MANAGERS&#39;. So I can put in a WHERE clause that states WHERE role &#61; &#39;MANAGERS&#39;;. So let&#39;s execute, and now I see that the MANAGERS role has the CREATE VIEW and the CREATE TABLE privilege.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Query Result tab opens. A table with two columns and two rows is displayed. The column headers are ROLE and PRIVILEGE. The entries in the first row are MANAGERS and CREATE VIEW respectively. The entries in the second row are MANAGERS and CREATE TABLE respectively.</em> [Video description ends]</p>
+<p>So I&#39;ve confirmed, those privileges have been assigned to that role. Then I can DESCRIBE the USER_SYS_PRIVS.</p>
+<p>[Video description begins] <em> He closes the Query Result tab. </em> [Video description ends]</p>
+<p>This tells us that we can query out the USERNAME, the PRIVILEGE, the ADMIN_OPTION.</p>
+<p>[Video description begins] He<em> selects the third statement, which is DESCRIBE USER_SYS_PRIVS; and clicks the execute button. The Script Output tab opens. A table with three columns and five rows is displayed. The column headers are Name, Null, and Type. The values under the Name column header are USERNAME, PRIVILEGE, ADMIN_OPTION, COMMON, and INHERITED. There are no values under the Null column header. The values under the Type column header are VARCHAR2 (128), VARCHAR2 (40), VARCHAR2 (3), VARCHAR (3), and VARCHAR (3).</em> [Video description ends]</p>
+<p>That&#39;s with WITH GRANT by the way, the COMMON and the INHERITED columns.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and select username and privilege from USER_SYS_PRIVS.</p>
+<p>[Video description begins] <em> He selects the fourth statement, which is SELECT username, privilege FROM USER_SYS_PRIVS; and clicks the execute button. The Query Result tab opens. A table with two columns and seven rows is displayed. The column headers are USERNAME and PRIVILEGE.</em> [Video description ends]</p>
+<p>Now take note, this reports the privileges of the currently logged on user. In my case I&#39;m logged in as HR, so that&#39;s why I&#39;m seeing my user account come back here.</p>
+<p>[Video description begins] <em> In the table, the values under the USERNAME column header for all the rows is HR.</em> [Video description ends]</p>
+<p>But those are the privileges assigned.</p>
+<p>[Video description begins] <em> He points to the values under the PRIVILEGE column header, which includes CREATE VIEW and CREATE SEQUENCE. He closes the Query Result tab.</em> [Video description ends]</p>
+<p>Then I can describe the USER_ROLE_PRIVS, and again, you see a list of columns that you can query.</p>
+<p>[Video description begins] <em> He selects the fifth statement, which is DESCRIBE USER_ROLE_PRIVS; and clicks the execute button. The Script Output tab opens. A table with three columns and eight rows is displayed. The column headers are Name, Null, and Type.</em> [Video description ends]</p>
+<p>So you decide for yourself whichever ones you want to select.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>And in my case, I&#39;ll select username and granted_role from USER_ROLE_PRIVS.</p>
+<p>[Video description begins] <em> He selects the sixth statement, which is SELECT username, granted_role FROM USER_ROLE_PRIVS; and clicks the execute button. The Query Result tab opens. A table with two columns and three rows is displayed. The column headers are USERNAME and GRANTED_ROLE. The values in the first row are HR and DBA respectively. The values in the second row are HR and MANAGERS respectively. The values in the third row are HR and RESOURCE respectively.</em> [Video description ends]</p>
+<p>And again, it shows me that my account belongs to the following roles, so those three, DBA, MANAGERS, and RESOURCE.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so again, really this is just being able to track. See what is going on. Which privileges have been granted to which users or roles. Which users belong to which roles. Which specific object permissions. And really anything else that you feel will be useful in terms of keeping track of all this. But I will also suggest that if you document as thoroughly as possible, as you go. And that will also make it much easier to keep track of, and also to make changes when necessary.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: REVOKE Statement (it_dfosfd_16_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/d29ecf53-df44-4be1-be89-9e7049448f33/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d29ecf53-df44-4be1-be89-9e7049448f33/image001.jpg')();" /><div class="section_text">Learn how to revoke privileges using the REVOKE statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">revoke privileges using the REVOKE statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: REVOKE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once a privilege has been granted to a user or a role, it by no means needs to stay that way for ever. Things change. People come and go. They move to different departments, they get different job titles. So their privileges need to be managed accordingly. So in this demonstration we&#39;ll see how you can remove privileges using the REVOKE statement. Now do take note that revoking privileges will also cascade, if you will, to other users who receive those privileges through the WITH GRANT OPTION.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. It contains the HR and HR~1 tabs. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements.</em> [Video description ends]</p>
+<p>So in other words, I gave it to someone and they gave it to someone else. So if I revoke it from the original recipient, it will also revoke from the next recipient. And that might not be a good thing. You know, maybe it&#39;s just that first-level person who is leaving. Everyone else who got the permission from that person is going to remain. So if that&#39;s going to cause a problem, then a better option is to simply drop the user account of the first person. That does not revoke anything from the subsequent people who receive those privileges again through the WITH GRANT OPTION.</p>
+<p>[Video description begins] <em> He points to the first statement, which is REVOKE SELECT, INSERT, UPDATE ON EMPLOYEES FROM alice;.</em> [Video description ends]</p>
+<p>But to simply revoke, it really is just the opposite of the GRANT. So you REVOKE, then whichever privileges you want, typically it&#39;s the ones that you have already signed.</p>
+<p>[Video description begins] <em> He highlights SELECT, INSERT, UPDATE.</em> [Video description ends]</p>
+<p>But it doesn&#39;t have to be, you know, you can revoke just one of several privileges, that&#39;s up to you. But if it&#39;s an object privilege then it&#39;s still ON which object, so ON EMPLOYEES for example. And since it&#39;s revoking they do actually say FROM instead of to.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text Revoke succeeded. is displayed. </em> [Video description ends]</p>
+<p>Where the GRANT says TO, REVOKE says FROM, and then, of course, the user. </p>
+<p>[Video description begins] He<em> closes the Script Output tab.</em> [Video description ends]</p>
+<p>So simply REVOKE list of privileges ON which object FROM which user.</p>
+<p>[Video description begins] <em> He points to the second statement, which is REVOKE CREATE SESSION, CREATE TABLE, CREATE VIEW FROM new_user;.</em> [Video description ends]</p>
+<p>So I&#39;ll revoke the same privileges that I granted to Alice using the REVOKE statement and the revoke succeeded. </p>
+<p>[Video description begins] <em> He highlights CREATE SESSION, CREATE TABLE, CREATE VIEW.</em> [Video description ends]</p>
+<p>You can also revoke system privileges but since there&#39;s no object here, again, you just state REVOKE list of privileges FROM which user or role.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Script Output tab opens. The text Revoke succeeded. is displayed.</em> [Video description ends]</p>
+<p>So I&#39;ll revoke privileges I granted earlier to new user. I&#39;ll revoke list of privileges from new user.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>Revoke succeeded. And you can revoke from a role as well.</p>
+<p>[Video description begins] <em> He points to the third statement, which is REVOKE CREATE TABLE, CREATE VIEW FROM managers;. </em>[Video description ends]</p>
+<p>So REVOKE, and again, just list of privileges.</p>
+<p>[Video description begins] He<em> highlights CREATE TABLE, CREATE VIEW.</em> [Video description ends]</p>
+<p>FROM name of role, managers in my case, And revoke has succeeded there.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. The Script Output tab opens. The text Revoke succeeded. is displayed.</em> [Video description ends]</p>
+<p>Okay, so it&#39;s fairly simple, it&#39;s quick and easy.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>But again you just need to make sure that you are revoking appropriately. And not taking away privileges that have been granted that should remain.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Exercise: Implement User Access (it_dfosfd_16_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/8a248c12-7c90-4af5-a328-ededa7128930/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/8a248c12-7c90-4af5-a328-ededa7128930/image001.jpg')();" /><div class="section_text">Find out how to implement user access control.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">implement user access control</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Implement User Access. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, for our exercise, this time we&#39;ll ask you to create a user and grant privileges to the user. Then to create a role and grant privileges to the role. Then to change a password using the ALTER USER statement. Then to enable passing on privileges via the WITH GRANT OPTION. And finally, to revoke privileges using the REVOKE statement. So as per usual, what we&#39;d like you to do is to take a few minutes on your own and try these exercises out. Then we&#39;ll come back to review and we&#39;ll see how you made out. So we&#39;ll see you soon.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. It includes the HR, HR~1, and HR~2 tabs. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements. Solution.</em> [Video description ends]</p>
+<p>Okay, so to review our first task was to create a new user and assign privileges to that user. Now I&#39;m just tagging the number 1 onto all the users and roles that I create in these solutions just so I don&#39;t get any duplication errors.</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE USER new_user1 IDENTIFIED BY new_password;.</em> [Video description ends]</p>
+<p>So CREATE USER, new_user1, IDENTIFIED BY new_password;, that will create the user.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text User New_USER1 created. is displayed.</em> [Video description ends]</p>
+<p>Then we can GRANT whichever privileges we want, in this case system privileges to that user.</p>
+<p>[Video description begins] <em> He points to the second statement, which is GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW TO new_user1;.</em> [Video description ends]</p>
+<p>So GRANT CREATE SESSION, CREATE TABLE, CREATE VIEW TO new_user1;. And that user now has those privileges.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed. He closes the Script Output tab.</em> [Video description ends]</p>
+<p>Okay, then we asked to create a new role and assign privileges to the role.</p>
+<p>[Video description begins] <em> He clicks the HR~1 tab and the corresponding tabbed file opens. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains four statements.</em> [Video description ends]</p>
+<p>So we&#39;ll begin by creating another new user alice1, IDENTIFIED BY al_password;.</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE USER alice1 IDENTIFIED BY al_password;.</em> [Video description ends]</p>
+<p>Then we&#39;ll create a new role.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text User ALICE1 created. is displayed.</em> [Video description ends]</p>
+<p>So CREATE ROLE managers1;.</p>
+<p>[Video description begins] <em> He points to the second statement, which is CREATE ROLE managers1;.</em> [Video description ends]</p>
+<p>Then we&#39;ll assign system privileges to the new role.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Role MANAGERS1 created. is displayed. </em>[Video description ends]</p>
+<p>So we&#39;ll GRANT CREATE TABLE and CREATE VIEW, TO managers1;.</p>
+<p>[Video description begins] He<em> points to the third statement, which is GRANT CREATE TABLE, CREATE VIEW TO managers1;.</em> [Video description ends]</p>
+<p>Now the entire role has those privileges, so any member of the role will have the same privileges.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>So we&#39;ll grant managers1 to alice1.</p>
+<p>[Video description begins] <em> He highlights to the fourth statement, which is GRANT managers TO alice1;. </em>[Video description ends]</p>
+<p>And this places Alice in the role and any other user who was placed in that role will immediately inherit those same privileges.</p>
+<p>[Video description begins] He<em> alters the fourth statement from GRANT managers TO alice1; to GRANT managers1 TO alice1;.</em> [Video description ends]</p>
+<p>Then we asked about changing a password.</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. In the Script Output tab, the text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>This can be done using the ALTER USER statement and you simply ALTER USER.</p>
+<p>[Video description begins] <em> He clicks the HR~2 tab and the corresponding tabbed file opens. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains one statement.</em> [Video description ends]</p>
+<p>Name of user and you reissue the IDENTIFIED BY statement and then simply supply a different password.</p>
+<p>[Video description begins] <em> He points to the statement, which is ALTER USER alice1 IDENTIFIED BY new_al_password;.</em> [Video description ends]</p>
+<p>So we&#39;ll execute and that resets the password for that user.</p>
+<p>[Video description begins] <em> He highlights ALTER USER alice1.</em> [Video description ends]</p>
+<p>Then we asked about passing along granted object privileges to other users, via the WITH GRANT OPTION.</p>
+<p>[Video description begins] <em> He selects the statement and clicks the execute button. The Script Output tab opens. The text User ALICE1 altered. is displayed.</em> [Video description ends]</p>
+<p>So you still grant, just like you would in any other scenario, so I&#39;ll GRANT SELECT, INSERT and UPDATE ON EMPLOYEES because these are object privileges.</p>
+<p>[Video description begins] <em> He clicks the HR~3 tab and the corresponding tabbed file opens. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains one statement.</em> [Video description ends]</p>
+<p>So I have to specify which object TO alice1.</p>
+<p>[Video description begins] <em> He points to the statement which is, GRANT SELECT, INSERT, UPDATE ON EMPLOYEES TO alice1 WITH GRANT OPTION;.</em> [Video description ends]</p>
+<p>And then just finish the code with the WITH GRANT OPTION line. The word option is included there so we can execute.</p>
+<p>[Video description begins] <em> He selects the statement and clicks the execute button. The Script Output tab opens. The text Grant succeeded. is displayed.</em> [Video description ends]</p>
+<p>And now Alice has the ability to pass those same privileges on to other users.</p>
+<p>[Video description begins] <em> He clicks the HR~4 tab and the corresponding tabbed file opens. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements. </em>[Video description ends]</p>
+<p>And finally, we asked about revoking privileges.</p>
+<p>[Video description begins] He<em> points to the first statement, which is REVOKE SELECT, INSERT, UPDATE ON EMPLOYEES FROM alice1;.</em> [Video description ends]</p>
+<p>And really this is just the opposite of granting. You use REVOKE instead of GRANT. And then you use FROM instead of TO. So I&#39;ll REVOKE SELECT, INSERT and UPDATE ON EMPLOYEES FROM alice1;. And remember that since this was done using the WITH GRANT OPTION, it would also revoke all of the privileges that she passed along to other users. So if that&#39;s not a good thing, then consider just dropping the account instead of revoking. But as it is, we can go ahead and revoke.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text Revoke succeeded. is displayed.</em> [Video description ends]</p>
+<p>We can revoke the system privileges from new user.</p>
+<p>[Video description begins] <em> He points to the second statement, which is REVOKE CREATE SESSION, CREATE TABLE, CREATE VIEW FROM new_user1;.</em> [Video description ends]</p>
+<p>Again, using the REVOKE statement, the list of privileges from whichever user.</p>
+<p>[Video description begins] <em> He highlights REVOKE CREATE SESSION, CREATE TABLE, CREATE VIEW.</em> [Video description ends]</p>
+<p>And also bear in mind, you do not have to revoke all of the privileges you granted in the first place.</p>
+<p>[Video description begins] <em> He highlights new_user1;.</em> [Video description ends]</p>
+<p>I&#39;m just using the same one, it&#39;s just for demonstration purposes, but you could just revoke one or two or any number. It&#39;s up to you of course. But will revoke those same ones from new_user1.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Revoke succeeded. is displayed.</em> [Video description ends]</p>
+<p>And we can revoke the role privileges as well by revoking</p>
+<p>[Video description begins] <em> He points to the third statement, which is REVOKE CREATE TABLE, CREATE VIEW FROM managers1;.</em> [Video description ends]</p>
+<p>CREATE TABLE and CREATE VIEW FROM managers1 and now the role privileges have also been revoked.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. In the Script Output tab, the text Revoke succeeded. is displayed.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises and if so, we will move on to our final course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

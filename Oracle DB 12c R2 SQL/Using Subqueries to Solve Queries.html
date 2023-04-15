@@ -1,0 +1,606 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Using Subqueries to Solve Queries </h1><div class="section_text"><p>Subqueries are very useful when you need to select rows from a table with a condition that depends on the data in the table itself. Explore the types, syntax, and guidelines for using subqueries in Oracle.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Using Subqueries to Solve a Problem (it_dfosfd_14_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Single-Row Subqueries (it_dfosfd_14_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Multiple-Row Subqueries (it_dfosfd_14_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Multiple-Column Subqueries (it_dfosfd_14_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: EXISTS and NOT EXISTS Operators (it_dfosfd_14_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: WITH Clause (it_dfosfd_14_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Correlated UPDATE (it_dfosfd_14_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Correlated DELETE (it_dfosfd_14_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: WITH CHECK OPTION (it_dfosfd_14_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: NULL Values in a Subquery (it_dfosfd_14_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Exercise: Manipulate Data Using Subqueries (it_dfosfd_14_enus_11)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Using Subqueries to Solve a Problem (it_dfosfd_14_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/446c074d-f8dd-4adb-afba-0080d6196a0c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/446c074d-f8dd-4adb-afba-0080d6196a0c/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use a subquery to solve a problem in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use a subquery to solve a problem in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Using Subqueries to Solve a Problem. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce using a subquery to solve a problem. So what does it mean to say, solve a problem? Well, let&#39;s consider a scenario whereby an HR manager wants to retrieve a list of employees who were hired after a specific employee, in this case, named Davies. But she&#39;s not supplying us with a date to use as comparison even though she&#39;s asking for a list of employees hired after a specific person. Well, that implies some kind of higher date.</p>
+<p>Now, we don&#39;t expect the HR manager to know SQL syntax. So she might use an HR application to submit that request in plain English to the IT department. And it might simply state I want a list of employees hired after Davies. Okay, well, it&#39;s the job of the IT department to translate that into a SQL query. But the dependency here is knowing when Davies was hired.</p>
+<p>Because the list has to be all of the employees hired after that person, but the IT department does not know when Davies was hired. So as it is, you would have to create two queries. One to find out when was Davies hired, then another one using that value as the filter in a main query that retrieves all of the other employees. But in fact, you can do both within a single statement, and that&#39;s using a subquery. The subquery is responsible for determining that hired date of Davies.</p>
+<p>Then it supplies that value back to the main query which is responsible for assembling the list of all of the other employees.</p>
+<p>[Video description begins] <em> Subquery Syntax.</em> [Video description ends]</p>
+<p>So looking at the syntax, the subquery, also known as the inner query, executes before the main query, which is also known as the outer query. And the result of the subquery is used by the main query, okay?</p>
+<p>[Video description begins] <em> A code snippet is displayed: SELECT select_list FROM table WHERE expr operator. In this WHERE expr operator is labeled as the Main query and (SELECT select_list FROM table); is labeled as Subquery.</em> [Video description ends]</p>
+<p>So the inner query in our example will go and find out the hired date of Davies. Once known, it will pass that back so it can be used for comparison purposes to determine all of the other employees who should be retrieved.</p>
+<p>[Video description begins] <em> Using a Subquery. A code snippet is displayed: SELECT last_name, hire_date FROM employees WHERE hire_date &gt; (SELECT hire_date FROM employees WHERE last_name &#61; &#39;Davies&#39;);.</em> [Video description ends]</p>
+<p>So this is what it would actually look like. Again, using our example here, the subquery, is finding out the hire_date of Davies by selecting just the hire_date column FROM the employees table WHERE the last_name &#61; Davies. Now, let&#39;s just assume that there&#39;s only one Davies and this retrieves a single date, let&#39;s just say it was January 1st, okay? Once that value is known, that is what gets passed back to the outer query.</p>
+<p>So the outer query is selecting the last name and the hire date from the employees table where the hire date is greater than what we now know to be January 1st, okay? So that&#39;s why the inner query has to process first, it has to retrieve that value so the WHERE clause can compare against it. Now, you&#39;ll probably find that it&#39;s most common to find the subquery after a WHERE clause, but that&#39;s not the only place that you can use it. A HAVING clause can also be used as a filter when you are grouping. So a subquery can follow a HAVING clause.</p>
+<p>And since it&#39;s a query like any other, it can also retrieve an entire set of records. As such, it can also be after the FROM clause. Because FROM usually references a table or a view. But if the subquery produces a set of records, that&#39;s really no different than a table or a view, so in fact, it can also follow the FROM clause, okay? But again, most commonly you will likely see that it follows a WHERE clause because the WHERE clause needs it for some kind of comparison. Now, there are some rules and guidelines for using subqueries.</p>
+<p>The subquery itself needs to be enclosed within a set of parentheses, and you should place the subquery on the right side of the comparison condition for readability. So again, in our scenario, the comparison condition was WHERE hire_date greater than, then the subquery, so on the right-hand side of that greater than. And use single-row operators with single-row subqueries and conversely multiple-row operators with multiple-row subqueries. Now, that might not be all that easy to visualize at the moment, what does that really mean?</p>
+<p>[Video description begins] <em> Types of Subqueries.</em> [Video description ends]</p>
+<p>Well, recall that a single-row subquery means that it is returning a single row. As such, the WHERE clause of the main query could use an operator such as equal to, okay? In this example, the subquery is returning a single value of ST_CLERK. So if the main query is using the job id in its WHERE clause, then you could say something like WHERE job_id equals whatever comes back from the subquery. As long as it&#39;s a single value, you could use equal to or like if it&#39;s characters.</p>
+<p>But in a multiple-row subquery, the subquery retrieves multiple values, ST_CLERK and sales manager, both come back from the subquery. If that&#39;s the case, the WHERE clause cannot use something like an equality operator. You can&#39;t say WHERE job_id equals to values, something can&#39;t equal ST_CLERK and equal sales manager. So you need to use a multi-row operator such as the IN clause.</p>
+<p>IN effectively equates to multiple ORs, you can just say WHERE job_id IN. And then, whatever comes back from the subquery can be accepted by the IN clause because it accepts multiple pieces of criteria. So you might not know whether or not one row will come back or two rows will come back. But the nice thing about subqueries is that you can actually highlight just the inner query and execute just that to see what results come back. Then you can decide what the outer query needs to be in terms of the WHERE clause and in terms of the appropriate operator to use.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Single-Row Subqueries (it_dfosfd_14_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/0365faed-33d6-4e98-bfc8-2f8f51059fdb/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/0365faed-33d6-4e98-bfc8-2f8f51059fdb/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use group functions and the HAVING clause in a subquery.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">using group functions and the HAVING clause in a subquery</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Single-Row Subqueries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll see several examples of executing single-row subqueries. And in a single-row subquery, the inner portion, the subquery itself, must only return a single value to the outer query. This will be used by the WHERE clause to find the appropriate rows. But the general idea is that whatever is being returned by the inner query is currently unknown.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. It includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part includes the Start Page , HR, HR~1, HR~2, and HR~3 tabs. The HR tab is selected. It is divided into two sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder tabs. The Worksheet tab is selected. The Worksheet tab contains a SELECT statement. The statement is SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);.</em> [Video description ends]</p>
+<p>So in this case, I&#39;m looking for a list of employees, their last_name, the job_id and the salary FROM the EMPLOYEES table, WHERE the job_id is equal to that of Bates. But the problem is, I don&#39;t know what the job id of Bates is. If I did, I could just pass that in as an explicit value. So this is the essence of the subquery. Let&#39;s use the inner query to select the job_id FROM the EMPLOYEES table WHERE the last name &#61; Bates.</p>
+<p>So that will retrieve the job_id of Bates and then pass it back to the outer query. And I do recommend that you try this when you are formulating subqueries. Execute just the inner portion. Recall that you can just highlight whatever code you want to execute. And you can test it, make sure that it is working. So I&#39;m going to highlight just the inner query here and execute.</p>
+<p>[Video description begins] <em> He highlights (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); in the SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with JOB_ID column. It contains one row entry: SA_REP.</em> [Video description ends]</p>
+<p>And I get my result. Sales rep, that is the single value, and I could rewrite this now and simply pass in sales rep as the job_id, but I don&#39;t have to, it&#39;s already been assembled. So I know now that this is the value that will be used by the WHERE clause as the comparison. So where job_id equals whatever comes back from the subquery but now we know, sales rep is coming back. So I can execute the entire statement.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);. A table with LAST_NAME, JOB_ID, and SALARY column headers appears in the Query Result tab. It contains 30 row entries.</em> [Video description ends]</p>
+<p>And I see that in my results, all of the people coming back are all sales reps, okay?</p>
+<p>[Video description begins] <em> He points at the JOB_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, that&#39;s the nice feature about the subquery. It will go and find the value for you when you don&#39;t know what it is. Now, as mentioned, I have several examples here so in the next example on our next worksheet here is using multiple pieces of criteria. So the WHERE clause is evaluating where the job_id is equal to Bates, but also where the salary is greater than that of Bates.</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab. The Worksheet tab is selected and it contains a statement. The statement is SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); AND salary &gt; (SELECT salary FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);.</em> [Video description ends]</p>
+<p>So there&#39;s two pieces of criteria here. So we can use two separate subqueries. The outer query is exactly the same. I&#39;m selecting the last_name, the job_id and the salary FROM the EMPLOYEES table, WHERE the job_id is equal to whatever the job_id of Bates is. So up to that point it&#39;s identical to the previous query, but I also want to compare the salary. So I use an AND condition and state that where the salary must be greater than whatever Bates&#39; salary is, okay? So this reads as return all employees who have the same job as Bates and a higher salary. In this case, both the job_id and the salary is unknown.</p>
+<p>[Video description begins] <em> He executes (SELECT salary FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); in the SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); AND salary &gt; (SELECT salary FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); statement. The Query Result tab opens and it contains a table with SALARY column header. It contains one row entry: 7300.</em> [Video description ends]</p>
+<p>And again, I could run just the inner portion to find out the salary, and I get an answer, 7300. I could run just the first subquery which again will simply confirm that Bates is a sales rep.</p>
+<p>[Video description begins] <em> He executes (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); in the SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); AND salary &gt; (SELECT salary FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); statement. A table with JOB_ID column header appears. It contains one row entry: SA_REP.</em> [Video description ends]</p>
+<p>But now, the entire query will return only people who are sales reps and only those with a salary higher than Bates.</p>
+<p>[Video description begins] <em> He executes the statement: SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); AND salary &gt; (SELECT salary FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);. A table with LAST_NAME, JOB_ID, and SALARY column headers appears on the Query Result tab. It contains 20 rows.</em> [Video description ends]</p>
+<p>Okay, and if we compare the total number of records back in the first query, 30 rows were retrieved.</p>
+<p>[Video description begins] <em> He switches to the HR tab. He points at the table on the Query Result tab. He switches back to the HR~1 tab. He then points at the table on the Query Result tab.</em> [Video description ends]</p>
+<p>But now that multiple pieces of criteria have to be satisfied, only 20 rows came back, okay. So again, multiple pieces of criteria can be examined using multiple subqueries. In the next example, we can use a group function in the subquery.</p>
+<p>[Video description begins] <em> He switches to the HR~2 tab. The Worksheet tab is selected and it contains a statement. The statement is SELECT last_name, job_id, salary FROM EMPLOYEES WHERE salary &#61; (SELECT MIN(salary) FROM EMPLOYEES);.</em> [Video description ends]</p>
+<p>So in this case, the inner query is simply looking for the minimum salary, whatever that is. So again, that&#39;s the unknown. So that value will be passed back to the outer query. So this simply reads as return all employees earning the minimum salary, whatever that is. So again, that represents the unknown so I can still execute just the inner portion and there it is, 2100.</p>
+<p>[Video description begins] <em> He executes (SELECT MIN(salary) FROM EMPLOYEES); in the (SELECT MIN(salary) FROM EMPLOYEES); statement. The Query Result tab opens and it contains a table with MIN(SALARY) column header. It contains one row entry: 2100.</em> [Video description ends]</p>
+<p>Okay, but I can execute the entire statement. And I will see the list of employees earning the minimum salary.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT last_name, job_id, salary FROM EMPLOYEES WHERE salary &#61; (SELECT MIN(salary) FROM EMPLOYEES);. A table with LAST_NAME, JOB_ID, and SALARY column headers appears. It contains one row.</em> [Video description ends]</p>
+<p>In this case, there&#39;s only one. That&#39;s fine, it still worked. The minimum salary was previously unknown. And in the final example, you can use a HAVING clause as the filter because recall that a WHERE clause cannot operate on a group of functions.</p>
+<p>[Video description begins] <em> He switches to the HR~3 tab. The Worksheet tab is selected and it contains a statement. The statement is SELECT department_id, MIN(salary) FROM EMPLOYEES GROUP BY department_id HAVING MIN(salary) &gt; (SELECT MIN(salary) FROM EMPLOYEES WHERE department_id &#61; 50);.</em> [Video description ends]</p>
+<p>So in the original outer query, there is a group function, the minimum salary. So I&#39;m selecting the department_id and the minimum salary FROM EMPLOYEES with a GROUP BY on the department_id. So this will return the minimum salary per department. But since I have used the group function in the outer query, I cannot use a WHERE clause against that function. So I need a HAVING clause against the minimum salary.</p>
+<p>And I want to retrieve those that are greater than whatever the minimum salary is for a particular department, in this case, department 50. So my inner query is finding out the minimum salary for a specific department, 50 in this case. But again, that represents the unknown. So the inner query will find out what that is and pass it back to the outer. So once again, we can execute just the inner query, and there&#39;s my value, 2100.</p>
+<p>[Video description begins] <em> He executes(SELECT MIN(salary) FROM EMPLOYEES WHERE department_id &#61; 50); in the (SELECT MIN(salary) FROM EMPLOYEES WHERE department_id &#61; 50); statement. The Query Result tab opens and it contains a table with MIN(SALARY) column header. It contains one row entry: 2100.</em> [Video description ends]</p>
+<p>So that gets passed back to the outer query. And this reads as return all departments and their minimum salaries where their minimum salary is greater than that of the salary for department 50, greater than the minimum salary of department 50. So we can execute everything and my list of departments are returned.</p>
+<p>[Video description begins] <em> He executes the statement, (SELECT MIN(salary) FROM EMPLOYEES WHERE department_id &#61; 50);. A table with DEPARTMENT_ID and MIN(SALARY) column headers appears. It contains 11 rows.</em> [Video description ends]</p>
+<p>Okay, so again the key aspect is that the inner query is passing only a single value back to the outer query. But at the point of execution, we don&#39;t know what that value is. So we rely on the inner query to determine that value for us, to pass it back to the outer query. So that it can be evaluated by the WHERE clause or by the HAVING clause, and retrieve the appropriate results.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Multiple-Row Subqueries (it_dfosfd_14_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/859133c5-26b1-4be6-ad57-5769faea964e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/859133c5-26b1-4be6-ad57-5769faea964e/image001.jpg')();" /><div class="section_text">In this video, learn how to use the IN, ANY, and ALL operators in multiple-row subqueries in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the IN, ANY, and ALL operators in multiple-row subqueries in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Multiple-Row Subqueries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll take a look at using the IN, ANY, or ALL operators in a multi-row subquery. And these differ from the single-row subquery in exactly the way their name indicates. The inner portion, or the subquery, will return multiple rows. In our previous demonstration, we saw the subquery only returning a single row or a single value back to the outer. Now that&#39;s important because primarily of the WHERE clause.</p>
+<p>If a single value is coming back, then the WHERE clause can say something like WHERE Salary&#61;. It can use an equality operator. And it can compare whatever comes back from the inner query to all of the records being retrieved by the outer query. But in a multi-row subquery, the inner query retrieves multiple rows. So you can&#39;t say something like WHERE Salary&#61; and then give it a bunch of different values. So the IN, ANY, or ALL operators can all handle multiple values coming back.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer: HR window is open. The HR tab is selected. The editor contains the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id);.</em> [Video description ends]</p>
+<p>So again, let&#39;s just focus on the subquery for a moment. In this case, I&#39;m selecting the minimum salary from the EMPLOYEES table but grouped by the department_id. So we know now that a GROUP BY, will allow the function to operate on each group. So we&#39;ll get several totals coming back. Let&#39;s execute, and there it is.</p>
+<p>[Video description begins] <em> He executes (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id); in the SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id); statement. The Query Result tab opens and it contains a table with MIN(SALARY) column header. It contains 12 rows.</em> [Video description ends]</p>
+<p>We see the minimum salary per department, 12 rows came back. So again, I can&#39;t say WHERE salary&#61; all 12 of these. They&#39;re all different. So the WHERE clause is WHERE salary IN. IN can handle all of these values, okay? So the outer query is selecting the employee_id, the last_name, the job_id, and the salary FROM the EMPLOYEES table, WHERE the salary is IN any one of those values, okay? So this reads as return all employees who earn the equivalent of any departmental minimum.</p>
+<p>There was still an unknown here, the subquery retrieves that unknown, I don&#39;t know what the departmental minimums are. It just determined all of them and passed all of them back to the outer query, so that if we execute the entire statement, they&#39;re there, our records come back.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id);. A table with EMPLOYEE_ID, LAST_NAME, JOB_ID, and SALARY column headers appears. It contains 26 rows.</em> [Video description ends]</p>
+<p>So these are the employees who earn essentially the exact same as any departmental minimum. Now in our next example, we&#39;ll see the ANY operator,</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab. It contains the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary &lt; ANY (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) AND job_id &lt;&gt; &#39;IT_PROG&#39;;.</em> [Video description ends]</p>
+<p>which compares values to each of the results returned by the inner query. Now, using the ANY operator can be used with an equality operator, less than in this case, because it will evaluate to true as long as at least one element exists in the result set of the subquery for which the comparison is true. Now that might not make a lot of sense at the moment, but hopefully it will.</p>
+<p>This reads as return all employees who are not IT programmers but whose salary is less than any IT programmer, okay? So the ANY operator is still here in the WHERE clause because it, for starters, can still handle the multiple rows that will be returned by the subquery. So again, let&#39;s just focus on the subquery for a moment. We&#39;ll highlight just that and the subquery is selecting only the salary from the EMPLOYEES table WHERE the job_id is equal to IT programmer. If we execute, we do see multiple rows come back, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) in the SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary &lt; ANY (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) AND job_id &lt;&gt; &#39;IT_PROG&#39;; statement. The Query Result tab opens and it contains a table with SALARY column header. It contains five rows.</em> [Video description ends]</p>
+<p>Five different salaries came back. So we still need, in this case, the ANY operator. Just like IN, it can handle multiple rows. But the less than can be used. And it essentially says, as long as the salary is less than any one of these, okay?</p>
+<p>[Video description begins] <em> He points at the SALARY column of the table in the Query Result tab.</em> [Video description ends]</p>
+<p>So it will examine each row of the outer query looking for any value that is less than any value listed here, okay?</p>
+<p>[Video description begins] <em> He points at the SALARY column of the table in the Query Result tab again.</em> [Video description ends]</p>
+<p>So we still need the ANY, for all intents and purposes that&#39;s holding all of the rows, if you will. Then, as long as there is any other salary less than any one of those, it will be returned, okay? Now the AND condition is also specifying that they not be an IT programmer because in this case, that&#39;s what I&#39;m looking for.</p>
+<p>The people who are earning less than any IT programmer. Okay, so note 4200 is the lowest salary of any programmer but records higher than that will be returned because the highest is 9000. So again, as long as your salary is less than any IT programmer, you qualify, provided you are also not an IT programmer, okay? So let&#39;s execute the entire statement.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary &lt; ANY (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) AND job_id &lt;&gt; &#39;IT_PROG&#39;;. A table with EMPLOYEE_ID, LAST_NAME, JOB_ID, and SALARY column headers appears. It contains 50 rows.</em> [Video description ends]</p>
+<p>And as mentioned, if we scroll farther down, we do see values that are certainly higher than 4200.</p>
+<p>[Video description begins] <em> He points at the SALARY column of the table in the Query Result tab. </em>[Video description ends]</p>
+<p>But we don&#39;t see anything higher than 9000, 8800 is as high as we get.</p>
+<p>[Video description begins] He<em> points at the 76 entry: 175, Hutton, SA_REP, and 8800.</em> [Video description ends]</p>
+<p>And the job_id should not contain anyone who is an IT programmer and in fact, it doesn&#39;t, okay?</p>
+<p>[Video description begins] <em> He points at the JOB_ID column of the table in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, the ANY operator can still handle that list of values that came back from the inner query. Then as long as there&#39;s even one condition that evaluates to true, the record will be returned. So we can still use a less than in this case. So for our final example, the code here is identical with the exception of the operator.</p>
+<p>[Video description begins] <em> He switches to the HR~2 tab. It contains the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary &lt; ALL (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) AND job_id &lt;&gt; &#39;IT_PROG&#39;;.</em> [Video description ends]</p>
+<p>This time, we&#39;ll see the ALL operator. And the ALL operator compares values to every result returned by the inner query. Using the ALL operator can still be used with an equality operator, again, less than, in this case, because it will evaluate to true but only if EVERY element exists in the result set of the subquery for which the comparison is true.</p>
+<p>So this reads as return all employees who are NOT IT programmers but whose salary is less than EVERY IT programmer, okay? That&#39;s the difference. In the previous example, it was if their salary was less than ANY IT programmer. So again note that 4200 is the lowest salary of All IT Programmers. So records higher than that value are NOT returned. They were returned in our previous example.</p>
+<p>[Video description begins] <em> He switches to the HR~1 TAB. He then points at the SALARY column of the table in the Query Result tab.</em> [Video description ends]</p>
+<p>We see values going all the way up to 8800, again, because the highest was 9000. ANY compares them against any salary of an IT programmer. This compares them against all salaries of the IT programmer,</p>
+<p>[Video description begins] <em> He switches back to the HR~2 tab.</em> [Video description ends]</p>
+<p>and the other employees must have a salary less than all of them, okay? So nothing above 4200 gets returned in this case. We can still execute just the inner query but this is exactly the same as it was before.</p>
+<p>[Video description begins] <em> He executes (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) in the SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary &lt; ANY (SELECT salary FROM EMPLOYEES WHERE job_id &#61; &#39;IT_PROG&#39;) AND job_id &lt;&gt; &#39;IT_PROG&#39;; statement. The Query Result tab opens and it contains a table with SALARY column header. It contains five rows.</em> [Video description ends]</p>
+<p>So there&#39;s 4200 as the lowest value. So when I execute the entire statement, nothing above 4200 comes back, okay? So these are people again who are not IT programmers but their salary is less than all of the IT programmers, so nothing above 4200 is returned. Okay, now again, the main aspect is using the ANY, ALL, or IN operators to initially just handle the fact that multiple rows are coming back.</p>
+<p>Then the comparison really is up to you, what it is you&#39;re looking for, of course, is really the main thing. But the ANY, ALL, and IN operators can all handle those multiple rows. Then you can perform whichever evaluation you feel is appropriate to retrieve the desired results.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Multiple-Column Subqueries (it_dfosfd_14_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/a805401f-a06f-49e1-9778-455b74113be3/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a805401f-a06f-49e1-9778-455b74113be3/image001.jpg')();" /><div class="section_text">In this video, learn how to use a multiple-column subquery to return more than one column to the outer query in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">"use a multiple-column subquery to return more than one column to the outer query in a SQL statement "</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Multiple-Column Subqueries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see an example of using a multi column subquery. Now, this is certainly similar to a multi row and in fact, at least in this case, this is also a multi row, but it wouldn&#39;t have to be and I&#39;ll come back to that in a moment. But in the previous examples for single-row subqueries, the inner portion was only retrieving a single value that could then be examined by the WHERE clause. But in this case, we are retrieving multiple columns with the inner query.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the statement, SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id;.</em> [Video description ends]</p>
+<p>So let&#39;s jump straight to the inner query to see that I&#39;m selecting out the minimum of the salary, and the department id from the EMPLOYEES table. And I&#39;m grouping by the department_id. So again, this will also produce multiple rows, but we&#39;ll see two columns. So let&#39;s execute just the inner portion and there are the results.</p>
+<p>[Video description begins] <em> He executes (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id; in the SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id; statement. The Query Result tab opens and it contains a table with MIN(SALARY) and DEPARTMENT_ID column headers. It contains 12 rows.</em> [Video description ends]</p>
+<p>So we&#39;re seeing each department and the minimum salary in that department, 12 rows, okay? That&#39;s fine, but when you are using a multi column subquery, the change really occurs in the WHERE clause. So in my case, the WHERE clause now has to compare both of those columns to whichever values are being retrieved by the outer query. So the WHERE clause asks to examine the salary and the department_id. And note that both columns are listed within a set of parentheses separated by a comma.</p>
+<p>Okay, so WHERE salary, department_id, and then because this is still a multi row, I still have to use the IN operator to accommodate those multiple records that are coming back. So the WHERE clause really is the big change here. It has to have matching columns for comparison, but this avoids having to construct two separate WHERE clauses. And again, the IN operator is still used because the inner query is also retrieving multiple rows. Now, that&#39;s just in this case. A multi column subquery does not necessarily have to bring back multiple rows, okay?</p>
+<p>But it&#39;s the fact that multiple columns are being returned. So the WHERE clause needs to evaluate against every column value that comes back. So this reads as return all employees who earn the equivalent of their own departmental minimum. And we did see a similar example earlier where I was returning a list of employees who earn the equivalent of any departmental minimum, okay? But since I&#39;m retrieving the department_id in the subquery and devaluating the department_id in the where clause, I&#39;m saying there needs to be a match there as well.</p>
+<p>So that&#39;s why this reads as all employers who earn the equivalent of their own departmental minimum, okay? So let&#39;s execute the entire statement, and there they are.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id;. A table with FIRST_NAME, DEPARTMENT_ID, and SALARY column headers appears. It contains 12 rows.</em> [Video description ends]</p>
+<p>So we get our employees back, and there happens to be 12 as well. That&#39;s not necessarily going to always match. That just means that in this case, there is only one employee in each department who is earning the minimum, okay? There certainly could be several in any given department who are all earning the minimum. So the 12 rows in both cases here really is just a coincidence for lack of a better word. But it&#39;s the fact that, again, the subquery retrieved more than one column. Therefore, the WHERE clause must examine all of the columns that are being retrieved in order to produce the correct results.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: EXISTS and NOT EXISTS Operators (it_dfosfd_14_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/1b62733a-cd5a-44df-bd65-8dbd45aa1914/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1b62733a-cd5a-44df-bd65-8dbd45aa1914/image001.jpg')();" /><div class="section_text">In this video, find out how to use the EXISTS and NOT EXISTS operators.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the EXISTS and NOT EXISTS operators</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: EXISTS and NOT EXISTS Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll see how to use the EXISTS and NOT EXISTS operators along with a subquery.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. It contains two SELECT statements. The first SELECT statement is, SELECT employee_id, last_name, job_id, department_id FROM EMPLOYEES emp_outer WHERE EXISTS (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id);. The second SELECT statement is, SELECT DISTINCT manager_id FROM EMPLOYEES WHERE manager_id is not null;.</em> [Video description ends]</p>
+<p>Now there is a fair amount going on here logically, so we&#39;ll go through this very carefully. But to set this up, in the EMPLOYEES table, any given employee also references who their manager is. So there is a manager_id column, and that&#39;s a self-referencing relationship which just points back to the employee_id who is that person&#39;s manager. But if you were to just look at the records of the EMPLOYEES table, there&#39;s nothing that immediately distinguishes someone as a manager.</p>
+<p>In other words, there&#39;s no manager yes/no type of column. So the problem here is I want to find the employees who are managers. So there&#39;s no real way for me to just say SELECT WHERE manager_id &#61; yes. That doesn&#39;t exist in this table. But the fact that any given record does reference a manager_id which points back to an employee_id, certainly means that there are managers in the table. So I want to find just the managers, okay? So this is where the EXISTS operator can come into play. It&#39;s not really concerned with any specific value, any particular record, or even any columns.</p>
+<p>It just performs a logical test and evaluates to true or false. That&#39;s it, yes or no. The condition either exists or it doesn&#39;t. So let&#39;s look at the inner query first. Because I&#39;m not concerned with any particular record or any specific value, I can actually just say SELECT NULL. Really, all I&#39;m interested in, in this case, is the WHERE clause of the inner query, which is WHERE manager_id FROM the EMPLOYEES table has a matching value in the employee_id of the emp_outer table.</p>
+<p>Now the emp_outer is just an alias, but look at my outer query. I&#39;m selecting the employee_id, the last_name, the job_id, and the department_id FROM the EMPLOYEES table, but I&#39;ve aliased it as emp_outer, okay? This just builds two temporary, virtual tables, if you will, the outer EMPLOYEES table and an inner EMPLOYEES table. So that the manager_id of the inner can be compared to the employee_id of the outer to see is there a match.</p>
+<p>If there is, WHERE EXISTS, then perform the outer query. SELECT out the employee_id, the last_name, the job_id, and the department_id. If there&#39;s no match, do not perform the outer query. So again, that&#39;s really all I&#39;m concerned with. Yes or no, is there a match, okay? So the inner query reads as return a match if there are any employees that reference a manager. That should then be equal to an employee_id in the outer table because every manager is still an employee.</p>
+<p>So the results are that only employees who are managers are returned. Now one quick note, when you are using the SELECT NULL option, in this case, you cannot execute just the inner query. We&#39;ve seen in earlier demonstrations that you can, but SELECT NULL, again, is really just performing the logical test of is there a match, yes or no. So if I try to execute just the inner query, this throws an error, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id);in the SELECT employee_id, last_name, job_id, department_id FROM EMPLOYEES emp_outer WHERE EXISTS (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id); statement. The Query Result tab opens and it displays an error message.</em> [Video description ends]</p>
+<p>So they can be a little tricky to assemble since you can&#39;t test the inner query.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>But if we execute the entire statement, there they are.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT employee_id, last_name, job_id, department_id FROM EMPLOYEES emp_outer WHERE EXISTS (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id); . The Query Result tab opens and it contains a table with EMPLOYEE_ID, LAST_NAME, JOB_ID, and DEPARTMENT_ID column headers. It contains 18 rows.</em> [Video description ends]</p>
+<p>Now take note that there are 18 rows.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>The reason why I&#39;m pointing that out is because there is an alternative to finding just the managers. But it&#39;s using the DISTINCT clause. There is a manager_id column in the EMPLOYEES table. So if I just said SELECT manager_id, I would see many repeating values come back because any given manager would have several employees reporting to them.</p>
+<p>But if I say SELECT DISTINCT, as long as there is just even one instance of that manager_id, that&#39;s the only one that comes back. So I can SELECT DISTINCT manager_id FROM EMPLOYEES, and this is simply to exclude the president, okay, WHERE manager_id is not null. The president does not have a manager. So if I execute this, 18 rows.</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT DISTINCT manager_id FROM EMPLOYEES WHERE manager_id is not null;. The Query Result tab opens and it contains a table with MANAGER_ID column. It contains 18 rows.</em> [Video description ends]</p>
+<p>So I have found the same managers. So you might think well, that’s a lot easier but there’s not as much detail here.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>If you tried to select the other columns that are referenced In the first example, then the results go all askew, okay?</p>
+<p>[Video description begins] <em> He highlights last_name, job_id, and department_id in the first statement, SELECT employee_id, last_name, job_id, department_id FROM EMPLOYEES emp_outer WHERE EXISTS (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id);.</em> [Video description ends]</p>
+<p>SELECT DISTINCT says only return the distinct instance of that value. So if I were to include even just the last_name, I&#39;m now telling it to select distinct last names.</p>
+<p>[Video description begins] <em> He alters the second statement from SELECT DISTINCT manager_id FROM EMPLOYEES WHERE manager_id is not null; to SELECT DISTINCT manager_id, last_name FROM EMPLOYEES WHERE manager_id is not null;.</em> [Video description ends]</p>
+<p>Well, almost every employee in this table has a distinct last name. I&#39;m fairly sure that there are only two in the entire table with the same last name. So selecting distinct last_name alone returns almost every record. Let&#39;s test. And if we scroll to the bottom,</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT DISTINCT manager_id, last_name FROM EMPLOYEES WHERE manager_id is not null;. The Query Result tab opens and it contains a table with MANAGER_ID and LAST_NAME column headers. It contains 106 rows.</em> [Video description ends]</p>
+<p>106 records and, again, there are 107 employees. So the two matching last names only returned a single distinct instance. But I have no idea who my managers are now.</p>
+<p>[Video description begins] <em> He alters the second statement from SELECT DISTINCT manager_id, last_name FROM EMPLOYEES WHERE manager_id is not null; to SELECT DISTINCT manager_id FROM EMPLOYEES WHERE manager_id is not null; and then executes it. The Query Result tab opens and it contains a table with MANAGER_ID column header. It contains 18 rows.</em> [Video description ends]</p>
+<p>So if you want to SELECT DISTINCT you can only bring back the manager_id and you don&#39;t get all of that extra information about them.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So it&#39;s not as functional, it&#39;s not as descriptive in the results as using the subquery and the WHERE EXISTS.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT employee_id, last_name, job_id, department_id FROM EMPLOYEES emp_outer WHERE EXISTS (SELECT NULL FROM EMPLOYEES WHERE manager_id &#61; emp_outer.employee_id); . The Query Result tab opens and it contains a table with EMPLOYEE_ID, LAST_NAME, JOB_ID, and DEPARTMENT_ID column headers. It contains 18 rows.</em> [Video description ends]</p>
+<p>Now I see the last_name, the job_id, the department, anything else that I might want to include. Okay, now that&#39;s the WHERE EXISTS.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>You can reverse the logic with the WHERE NOT EXISTS.</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab. It contains a statement, SELECT department_id, department_name FROM DEPARTMENTS dept_outer WHERE NOT EXISTS (SELECT NULL FROM EMPLOYEES WHERE department_id &#61; dept_outer.department_id);.</em> [Video description ends]</p>
+<p>Now in this case, I&#39;m selecting the department_id and the department_name from the DEPARTMENTS table in the outer query. And again, I&#39;ve aliased that as dept_outer. The inner query is still selecting NULL, because, again, I&#39;m really just concerned with, is there a match? But this one is selecting from the EMPLOYEES table. So WHERE department_id of the EMPLOYEES table has matching values equal to the department_id of the department outer table.</p>
+<p>So this is looking at the employees, trying to find their department_id and then says well, does that match a department in the DEPARTMENTS table? If it does, return it. So again, if we look at just the subquery, this would say find me employees whose department ID matches an actual department. But the NOT EXISTS completely reverses the logic, okay? And then says return only departments with no employees, okay? It&#39;s because the outer query is selecting the department_id from the DEPARTMENTS table.</p>
+<p>The inner is selecting or comparing the department_id from the EMPLOYEES table, okay? That&#39;s the foreign key in this case. So if we execute, I see departments with no employees.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT department_id, department_name FROM DEPARTMENTS dept_outer WHERE NOT EXISTS (SELECT NULL FROM EMPLOYEES WHERE department_id &#61; dept_outer.department_id);. The Query Result tab opens and it contains a table with DEPARTMENT_ID and DEPARTMENT_NAME column headers. It contains 17 rows.</em> [Video description ends]</p>
+<p>And again, I could very quickly reverse this by just getting rid of the NOT, okay? Now it&#39;s an EXISTS test again. And if I re-execute, I see the exact opposite departments, those with employees. Okay, so it&#39;s very easy to just flip the switch, if you will, find the matches or find the non-matches by just testing for WHERE EXISTS versus WHERE NOT EXISTS.</p>
+<p>And the fact that you can do it with the subquery, again, allows you to include those extra columns to be more descriptive, okay? Again, we saw that SELECT DISTINCT accomplishes the same goal, but does not give us those additional columns, so we lack all that descriptive information. Okay, but that&#39;s using the EXISTS and NOT EXISTS operators to simply test for does the match exist or does the match not exist?</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: WITH Clause (it_dfosfd_14_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/45bf3f41-b40f-4f46-8a9c-3e46d83ca077/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/45bf3f41-b40f-4f46-8a9c-3e46d83ca077/image001.jpg')();" /><div class="section_text">In this video, learn how to use the WITH clause correctly.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the WITH clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: WITH Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Queries are generally used to retrieve records from tables but you can also query a view, or put another way, you can query a query. But in both cases, it would involve either the table or the view existing already before we can query them. In some cases, what it is that you might want to query may not exist. So in this demonstration, we&#39;ll see how you can use the WITH clause to construct a temporary table that can be used by a subsequent SELECT statement.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. It contains two statements. The first statement is, WITH Count_emps_in_depts AS ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id). The second statement is, SELECT employee_id, ROUND(salary/num_emps) AS &#34;Salary divided by number of Employees&#34; FROM EMPLOYEES emps JOIN Count_emps_in_depts c ON (emps.department_id &#61; c.department_id) ORDER BY &#34;Salary divided by number of Employees&#34; DESC;.</em> [Video description ends]</p>
+<p>This is useful for when you want to select data that does not otherwise exist in any standard table or view. And any objects that are defined in the temporary table can be referenced by the other SELECT statement. So, you quite literally just build this object on the fly if you will, then you can query it. And once you have your results, you can just close down your session and that object that you created in the first section, the WITH clause, just goes away, okay?</p>
+<p>So you may often see this used for performance purposes because I don&#39;t want to build an entire table or create a new view, so that alone just saves time. But the temporary table exists only in memory as well, so you&#39;re querying an object that is already in memory. You don&#39;t ever have to go to disk to get the records back. So in many cases these can perform better than querying against tables that do already exist. So, in terms of syntax, the WITH statement really, in and of itself, only involves coming up with a name for the temporary object.</p>
+<p>And in this case, I&#39;m calling it count_emps_in_depths, which is count employees in departments and then an AS keyword. Which then allows you to simply define a SELECT statement. So that can be anything. So in my case, I&#39;m selecting out the department_id. And I&#39;m using a group function here COUNT(*), which just counts everything. I&#39;m aliasing that as num_emps, number of employees. From the employer&#39;s table but grouping it by the department_id.</p>
+<p>So I&#39;ll get all of my groups of departments. Then the GROUP function, COUNT(*), will simply count up the number of records. So I just get a total count of records per department, okay? Now, earlier we saw how you can use subqueries, and you could execute just the subquery portion. This is similar but there&#39;s no outer query, inner query here. We do have two SELECT statements, but one of them is just creating a temporary object.</p>
+<p>So in this case, it&#39;s not the second query that can be executed because the second query depends on the first one. But you can execute just the SELECT statement all by itself of the WITH clause, okay? So I can execute that, and there I see DEPARTMENTS all grouped together and then simply counting the number of records for each department.</p>
+<p>[Video description begins] <em> He executes ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id) in the first statement, WITH Count_emps_in_depts AS ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id). The Query Result tab opens and it contains a table with DEPARTMENT_ID and NUM_EMPS column headers. It contains 12 rows.</em> [Video description ends]</p>
+<p>So, there are six employees in department 100. There are six in department 30.</p>
+<p>[Video description begins] <em> He points at row entry 1: 100 and 6.</em> [Video description ends]</p>
+<p>There&#39;s one employee with no department, a null.</p>
+<p>[Video description begins] <em> He points at row entry 2: 30 and 6.</em> [Video description ends]</p>
+<p>That&#39;s fine.</p>
+<p>[Video description begins] <em> He points at row entry 3: (null) and 1.</em> [Video description ends]</p>
+<p>But it&#39;s just giving me these totals per department, okay?</p>
+<p>[Video description begins] <em> He points at row entry 4: 90 and 3. He then points at row entry 5: 20 and 2. He then closes the Query Result tab.</em> [Video description ends]</p>
+<p>Now, that does not create the object if I just run the SELECT statement, I need to run the whole thing, the WITH portion of it, to construct it in the first place. But I can run all of this in one shot, so I won&#39;t bother with that right now, but that was just to indicate that you can run this upper proportion, just to verify that it&#39;s building the correct object, okay?</p>
+<p>[Video description begins] <em> He points at ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id) in the first statement, WITH Count_emps_in_depts AS ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id).</em> [Video description ends]</p>
+<p>Now, in the actual SELECT statement that comes after, this is not a particularly useful example but it does still indicate what can be done. So what I am doing here is simply dividing the salary of any given employee by the number of employees in their department. So that&#39;s not a particularly useful piece of information, but again the idea is to see what can be done here. So I&#39;m selecting out the employee_id.</p>
+<p>Then salary divided by num_emps, but recall that num_emps was defined up here in the WITH clause, okay? That&#39;s the COUNT(*) being aliased as num_emps. But I can reference it down here in my lower portion, okay? And I&#39;m just rounding that so I&#39;ve nested that inside a ROUND function just to get rid of all the decimal places, okay? So that&#39;s being selected from employees. Which is then aliased as emps. Now, you&#39;ll want to do that because I&#39;m selecting from the EMPLOYEES table twice here. Once in the WITH clause, once in my SELECT statement down below.</p>
+<p>They&#39;ll give it an alias down here because I&#39;m joining these two objects. So I want to be able to distinguish one from the other, okay? So I&#39;m selecting those columns from EMPLOYEES aliased as emps. Then I&#39;m joining what I created in the first place in the WITH clause. Count_emps_in_depts, that&#39;s what I called it up here in my WITH statement. So I&#39;m joining that in just like any other table. And I have simply aliased that as c, okay? The on clause then specifies the join condition.</p>
+<p>So where emps.department_id, okay? That&#39;s this employees table in the lower section alias as emps, where the department_id in this lower emps table is equal to the department_id in the upper WITH statement, okay? That&#39;s where I defined it, and then I&#39;m finally just closing this off with an ORDER BY clause. And note that again, since the ORDER BY process is last, I can reference the alias of Salary divided by number of Employees, that was defined in the initial SELECT of this portion.</p>
+<p>Okay, so again, that&#39;s not a particularly valuable answer coming back. But the idea is just to see that we can define an object using the WITH statement, then select against it referring to objects that were defined up above. So let&#39;s run the entire section and we get our results.</p>
+<p>[Video description begins] <em> He executes the first and the second statements, WITH Count_emps_in_depts AS ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id). and SELECT employee_id, ROUND(salary/num_emps) AS &#34;Salary divided by number of Employees&#34; FROM EMPLOYEES emps JOIN Count_emps_in_depts c ON (emps.department_id &#61; c.department_id) ORDER BY &#34;Salary divided by number of Employees&#34; DESC;. The Query Result tab opens and it contains a table with EMPLOYEE_ID and Salary divided by number of Employees column headers. It contains 50 rows.</em> [Video description ends]</p>
+<p>So EMPLOYEE_ID 204. Their salary divided by the number of employees is 10000.</p>
+<p>[Video description begins] <em> He points at the row entry 1: 204 and 10000.</em> [Video description ends]</p>
+<p>Employee 100, their salary divided by the number of employees is 8000. And again, bear in mind this is the number of employees per department, okay?</p>
+<p>[Video description begins] <em> He points at the row entry 2: 100 and 8000.</em> [Video description ends]</p>
+<p>Not all employees because we grouped by the department_id in the original temporary table construction.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, but again, this can perform much better because this object was defined on the fly, it exists only in memory. It contains columns that don&#39;t exist anywhere else so we can do all kinds of calculations and create useful data in the WITH clause.</p>
+<p>[Video description begins] <em> He highlights the first statement, WITH Count_emps_in_depts AS ( SELECT department_id, COUNT(*) AS num_emps FROM EMPLOYEES GROUP BY department_id).</em> [Video description ends]</p>
+<p>Then once that object has been constructed, we can select against it in any way that we like, okay?</p>
+<p>[Video description begins] <em> He highlights the second statement, SELECT employee_id, ROUND(salary/num_emps) AS &#34;Salary divided by number of Employees&#34; FROM EMPLOYEES emps JOIN Count_emps_in_depts c ON (emps.department_id &#61; c.department_id) ORDER BY &#34;Salary divided by number of Employees&#34; DESC;.</em> [Video description ends]</p>
+<p>So again, useful for when the data you want simply doesn&#39;t exist in a normal table or view.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Correlated UPDATE (it_dfosfd_14_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/64c4c928-d748-40d3-ae09-55431f3655db/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/64c4c928-d748-40d3-ae09-55431f3655db/image001.jpg')();" /><div class="section_text">Learn how to use UPDATE subqueries that are correlated.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use correlated UPDATE subqueries</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Correlated UPDATE. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll see an example of using a correlated subquery and specifically, an UPDATE correlated subquery. But for starters, let&#39;s just talk about what a correlated subquery is. In all of the earlier examples of subqueries, the inner query could only reference objects that were in the select statement or perhaps more generally stated, defined within the inner query. A correlated subquery makes reference to objects that were defined in the outer query.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer: HR window is open. The HR tab is selected. The editor contains three statements. The first statement is, ALTER TABLE EMP_COPY ADD(department_name VARCHAR2(30));. The second statement is, SELECT * FROM EMP_COPY;. The third statement is, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id);.</em> [Video description ends]</p>
+<p>So I&#39;m going to skip right to the bottom of the code here for a moment to point that out. If we look at the inner query, it is selecting the department name from the department&#39;s table, okay? Now, that&#39;s fine but it&#39;s making a comparison in the WHERE clause, where the department_id of the employees table exists. Now, why do I say employees? I have the letter e here, qualifying the name.</p>
+<p>[Video description begins] <em> He points at the third statement, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id);.</em> [Video description ends]</p>
+<p>Where was that e defined? Out here, okay?</p>
+<p>[Video description begins] <em> He highlights EMP_COPY e in the statement, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id);.</em> [Video description ends]</p>
+<p>This is the outer query, I&#39;m updating a table called EMP_COPY. I&#39;m just working with a copy here, so I don&#39;t affect the original. But it&#39;s aliased as e, okay? So e equals EMP_COPY. So I&#39;m saying WHERE department_id from the EMP_COPY table. That&#39;s the correlated sub query. The inner query only references the departments table in its own query. Therefore, it should have no idea what the EMP_COPY table department_id column is. I have not joined that table into this inner query. So really, it shouldn&#39;t have any idea what I&#39;m talking about when I say the EMP_COPY.department_id column. It&#39;s defined outside of the query. But that&#39;s the idea of a correlated subquery.</p>
+<p>For all intents and purposes, it can kind of operate bidirectionally, if you will. Again, in the earlier demonstrations, we saw the inner query passing values out to the outer. So basically the inner query said, here you go outer, here is the stuff you asked for. In a correlated subquery, it&#39;s almost the reverse. The outer query can say here you go inner query, here&#39;s something that you can use. And really, it&#39;s just a definition of this table.</p>
+<p>EMP_COPY is being referenced as e. Now, the inner query can reference anything defined in that table, okay? So again, that&#39;s the essence of the correlated subquery but what is it we&#39;re actually trying to do here? Well, we&#39;re updating values in one table based on values from another. So to set this up, the first thing I did, again, was to use this EMP_COPY table, okay? But I added a new column and you can see it right here, DEPARTMENT_NAME.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY table in the Tables subnode in the Connections pane. The EMP_COPY tab opens in the content pane. It contains a table with COLUMN_NAME, DATA_TYPE, NULLABLE, DATA_DEFAULT, COLUMN_ID, and COMMENTS column headers. It contains 12 rows.</em> [Video description ends]</p>
+<p>That did not exist before.</p>
+<p>[Video description begins] <em> He points at entry 12: DEPARTMENT_NAME, VARCHAR(30 BYTE), Yes, (null), and 12 (null).</em> [Video description ends]</p>
+<p>DEPARTMENT_ID was there but there was no DEPARTMENT_NAME.</p>
+<p>[Video description begins] <em> He points at entry 11: DEPARTMENT_ID, NUMBER(4,0), Yes, (null), and 11 Departments.</em> [Video description ends]</p>
+<p>Now, that&#39;s a little redundant because the DEPARTMENT_NAME already exists in the department table. But again, this is just a demonstration to show you what you can do, so we won&#39;t worry about that.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY blade and switches back to the HR tab.</em> [Video description ends]</p>
+<p>The point is I have a column in this table now, so I&#39;ve already executed this statement right here, ALTER TABLE EMP_COPY.</p>
+<p>[Video description begins] <em> He points at the statement, ALTER TABLE EMP_COPY ADD(department_name VARCHAR2(30));.</em> [Video description ends]</p>
+<p>I added department_name as a VARCHAR, and that created the new column, okay? So I already ran that, the column exists. Now, it exists but there&#39;s nothing in it. So let&#39;s do this. Let&#39;s select everything from the EMP_COPY table and verify that it&#39;s empty.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM EMP_COPY;. The Query Result tab opens and it contains a table with various columns. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, DEPARTMENT_NAME, and EMAIL.</em> [Video description ends]</p>
+<p>Let&#39;s scroll over and we see nothing but nulls.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>Okay, so the department name column is there but every value is null. So I want to populate these values with their proper department names based on the ID.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_ID column.</em> [Video description ends]</p>
+<p>But the ID is being drawn from the departments table in my subquery, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab. He then highlights department_id in the statement, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id);.</em> [Video description ends]</p>
+<p>So again, here is another instance where, in fact, you cannot execute just the inner portion. With a correlated subquery, making reference to an object that only exists in the outer, the inner query here will fail if I try to run just that, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement. The Query Result tab opens and it displays an error message.</em> [Video description ends]</p>
+<p>It&#39;s telling me, it doesn&#39;t know what this object called e is because it was defined in the outer query.</p>
+<p>[Video description begins] <em> He closes the Query Result tab. He then highlights UPDATE EMP_COPY e in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement.</em> [Video description ends]</p>
+<p>So correlated subqueries depend on the outer, standard subqueries do not. The inner query can run all by itself. So that&#39;s kind of a dead giveaway, if you will, of a correlated subquery. It will not run on its own, okay?</p>
+<p>[Video description begins] <em> He highlights (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); in the UPDATE EMP_COPY e in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement.</em> [Video description ends]</p>
+<p>So let&#39;s still look at the code here. The inner query selects the department_name from the original departments table, okay? That&#39;s where it&#39;s getting the values from. And then I just alias that as d, d for departments, where e.department_id and again, that&#39;s the correlation because e was defined in the outer query.</p>
+<p>[Video description begins] <em> He highlights UPDATE EMP_COPY e in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement.</em> [Video description ends]</p>
+<p>But it would have an equal value to the department_id of the original departments table. So using the department_id as the link, go and find the names, okay? That&#39;s what I told it to do, SELECT the department_name, WHERE there is a match. So it will pass all the names back to the outer query. What is the outer query doing? It is updating the EMP_COPY table, aliased as e and setting the department_name equal to whatever comes back from the inner query, okay?</p>
+<p>[Video description begins] <em> He highlights (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); in the UPDATE EMP_COPY e in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement.</em> [Video description ends]</p>
+<p>Let&#39;s execute.</p>
+<p>[Video description begins] <em> He executes the statement, UPDATE EMP_COPY e in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement. The Script Output tab opens. It contains the text &#39;107 rows updated&#39;.</em> [Video description ends]</p>
+<p>107 rows are updated, that sounds exactly right, there are 107 employees.</p>
+<p>[Video description begins] <em> He closes the Script Output tab. </em>[Video description ends]</p>
+<p>Let&#39;s close, let&#39;s re-select from EMP_COPY.</p>
+<p>[Video description begins] He<em> executes the statement, SELECT * FROM EMP_COPY;. The Query Result tab opens and it contains a table with various columns. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, DEPARTMENT_NAME, and EMAIL</em> [Video description ends]</p>
+<p>Let&#39;s scroll over to the DEPARTMENT_NAME column. And there it is, okay?</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>We now see the names of each of those departments and the entire table has been updated, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So again, the key points with a correlated subquery, you are referencing objects in the inner that were only defined in the outer. So there&#39;s a dependence. The inner query cannot run on its own. It requires the outer, okay? But as long as it was defined in the outer, then the inner can reference it. And then, you can perform operations such as updating values in one table based on values in other tables but I don&#39;t need a join.</p>
+<p>There&#39;s no join condition happening here at all. So in some cases, they can perform better, again, than standard queries with joins because there&#39;s a lot of processing when joins get involved, okay? So when it comes to just wanting to update something in one table based on something in another table, a correlated subquery is a good option.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Correlated DELETE (it_dfosfd_14_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/c532055b-09d6-41d8-87eb-b0a200a9d767/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c532055b-09d6-41d8-87eb-b0a200a9d767/image001.jpg')();" /><div class="section_text">In this video, you will use subqueries that are correlated with DELETE statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use correlated DELETE subqueries</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Correlated DELETE. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration we&#39;ll see another example of using a Correlated Subquery, but in this case a correlated DELETE, rather than an UPDATE. So we&#39;ll remove values from one table based on values in another table, okay? But again, the fact that the Subquery is operating on a different table isn&#39;t really what makes it a correlated subquery, it&#39;s the fact that the inner query depends on the outer. It refers to objects that only exist in the outer query. So again, what you cannot do with a correlated subquery is execute just the subquery portion.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer: HR window is open. The HR tab is selected. The editor contains two statements. The first statement is, SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN (SELECT employee_id FROM RETIRED_EMPLOYEES);. The second statement is, DELETE FROM EMP_COPY ec WHERE employee_id &#61; (SELECT employee_id FROM RETIRED_EMPLOYEES re WHERE ec.employee_id &#61; re.employee_id);.</em> [Video description ends]</p>
+<p>So even before getting to the code, you can see my inner query portion cannot run all by itself.</p>
+<p>[Video description begins] <em> He executes (SELECT employee_id FROM RETIRED_EMPLOYEES re WHERE ec.employee_id &#61; re.employee_id); in the DELETE FROM EMP_COPY ec WHERE employee_id &#61; (SELECT employee_id FROM RETIRED_EMPLOYEES re WHERE ec.employee_id &#61; re.employee_id); statement. The Query Result tab opens and it displays an error message.</em> [Video description ends]</p>
+<p>I get an error if I try to do it, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>And the reason is, because in my WHERE clause I referred to an object that does not exist within the inner query. It only exists in the outer query. And it&#39;s the employee_id column of the EMP_COPY table. That is not referenced in my FROM clause of the inner query, okay?</p>
+<p>[Video description begins] <em> He highlights RETIRED_EMPLOYEES in the DELETE FROM EMP_COPY ec WHERE employee_id &#61; (SELECT employee_id FROM RETIRED_EMPLOYEES re WHERE ec.employee_id &#61; re.employee_id); statement.</em> [Video description ends]</p>
+<p>So, let&#39;s set this up. I have my RETIRED_EMPLOYEES table and I still have an employee copy table and I&#39;m still working with the copy just so I don&#39;t affect the original, okay? But there are six retired employees. But those six employees still exist in the employees table. Again, the copy table but they&#39;re in both tables.</p>
+<p>So my first query here is simply determining which employees exist in both the EMP_COPY table and the RETIRED EMPLOYEES table. Now this is a standard multi-row subquery. In other words, the inner query can run on its own. So this one is not a correlated subquery. I can highlight just the inner query here and select the employee_id from the RETIRED EMPLOYEES table and there they are, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT employee_id FROM RETIRED_EMPLOYEES); in the SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN (SELECT employee_id FROM RETIRED_EMPLOYEES); statement. The Query Result tab opens and it contains a table with EMPLOYEE_ID column header. It contains 6 rows.</em> [Video description ends]</p>
+<p>Six records, employees 200 to 205. So let&#39;s just verify that they also exist in the EMP_COPY table. So I&#39;ll select the employee_id, the first name and the last name from the EMP_COPY table where the employee_id is in whatever values come back from the inner query. These six values, okay?</p>
+<p>[Video description begins] <em> He highlights SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN in the SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN (SELECT employee_id FROM RETIRED_EMPLOYEES); statement.</em> [Video description ends]</p>
+<p>Let&#39;s execute the entire statement and there they are, employees 200 to 205.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN (SELECT employee_id FROM RETIRED_EMPLOYEES);. The Query Result tab opens and it contains a table with EMPLOYEE_ID, FIRST_NAME, and LAST_NAME column headers. It contains 6 rows.</em> [Video description ends]</p>
+<p>I just see their names as well, but that confirms that those employees are in both tables. So now what I want to do is to remove them from the employee table and just leave them in the RETIRED_EMPLOYEES table, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>There&#39;s no reason for them to be in both if they are retired. They are no longer an employee. So that&#39;s the idea of the DELETE statement. I want to delete the retired employees from the EMP_COPY table, based on their employee_id in the RETIRED_EMPLOYEES table. So I delete from EMP_COPY and I&#39;ve aliased, that is ec, EMP_COPY. Where the employee_id is equal to then the correlated subquery.</p>
+<p>Select the employee_id from the RETIRED_EMPLOYEES table aliased as re or RETIRED_EMPLOYEES. WHERE and here&#39;s the correlation. I&#39;m referencing the employee_id of the EMP_COPY table which was only defined in the outer query out here. Delete from EMP_COPY, aliased as ec but I&#39;m referencing ec.employee_id in the inner query. Even though I&#39;m only selecting from RETIRED_EMPLOYEES so there&#39;s the correlation, okay? The inner query depends on the outer. But I want those equal values. So WHERE ec.employee_id is equal to re.employee_id. Let&#39;s execute the entire statement.</p>
+<p>[Video description begins] <em> He executes the statement, DELETE FROM EMP_COPY ec WHERE employee_id &#61; (SELECT employee_id FROM RETIRED_EMPLOYEES re WHERE ec.employee_id &#61; re.employee_id);. The Script Output tab opens. It contains the text &#39;6 rows deleted&#39;.</em> [Video description ends]</p>
+<p>Six rows were deleted, okay?</p>
+<p>[Video description begins] <em> He closes the Script Output tab. It displays the text &#39;Commit complete&#39;. He then closes the Script Output tab.</em> [Video description ends]</p>
+<p>Now, if we re-execute my original query up above which binds the duplicates, the ones that are in both tables, I should not get anything back. Let&#39;s just actually issue a COMMIT statement first just to make sure. Okay, that has now committed. You can delete that.</p>
+<p>[Video description begins] <em> He executes a COMMIT statement. The Script Output tab opens. He then closes the Script Output tab.</em> [Video description ends]</p>
+<p>And let&#39;s re-execute our original query, which again just found the matches.</p>
+<p>[Video description begins] <em> He deletes the COMMIT statement.</em> [Video description ends]</p>
+<p>Execute, none, okay?</p>
+<p>[Video description begins] <em> He executes the statement, SELECT employee_id, first_name, last_name FROM EMP_COPY WHERE employee_id IN (SELECT employee_id FROM RETIRED_EMPLOYEES);. The Query Result tab opens and it contains a table with EMPLOYEE_ID, FIRST_NAME, and LAST_NAME column headers. It contains 0 rows.</em> [Video description ends]</p>
+<p>That&#39;s exactly what I expected to see. There now should be no one in the employees table who is retired, okay? So again, the correlated subquery makes reference to an object that was only defined in the outer query.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>The inner query depends on the outer and it cannot be executed on its own. But otherwise the logic is the same, I&#39;m deleting values in one table based on values of another table. So once again, the correlated subquery is a very good approach to performing that kind of task.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: WITH CHECK OPTION (it_dfosfd_14_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/525120c3-8883-4211-a6ab-5959d66385d0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/525120c3-8883-4211-a6ab-5959d66385d0/image001.jpg')();" /><div class="section_text">In this video, you will use the WITH CHECK OPTION.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the WITH CHECK OPTION</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: WITH CHECK OPTION. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see a subquery used as a means of validation when inserting new records, or really for that matter, making any kind of change. It wouldn&#39;t necessarily have to be an INSERT.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. It contains two statements. The first statement is, INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;US&#39;);. The second statement is, SELECT * FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>But to set this up, in this case, I have a LOCATIONS table and I&#39;m going to attempt to insert a new record into that table. But I want to ensure that the new record matches values that are returned by a subquery. So it&#39;s a form of validation. I want to ensure that whatever values I enter, they match what the subquery returns.</p>
+<p>So in this case, this is, for lack of a better word, a standard subquery whereby I can execute just the internal, whereby I can execute just the inner portion. So let&#39;s highlight and execute. And the statement is simply selecting the country_id from countries and adjoins the regions table WHERE the region_name is equal to Europe. Let&#39;s execute, and we see 8 rows come back and the countries are only those that are in Europe, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) in the INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;US&#39;); statement. The Query Result tab opens and it contains a table with the COUNTRY_ID column header. It contains 8 rows.</em> [Video description ends]</p>
+<p>So that&#39;s what I am using as validation. Note that my initial code here for the entire statement attempts to add a new location in the United States.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>That&#39;s this line right here, VALUES, and 5,000 is just an arbitrary ID, and I&#39;m specifying the city is Washington, and that the country is US. But again back in the subquery, not only did this produce values that were only in Europe, I finished it off by using the WITH CHECK OPTION, okay? That is passed back to the outer select statement which is selecting the location_id, the city and the country_id from the locations table.</p>
+<p>WHERE country_id is IN any of those values retrieved by the subquery. But the WITH CHECK says, anything that follows, with respect to the INSERT statement, must match something that comes back from the inner query. In other words, I simply cannot create one in the United States. United States was not listed as a country in the region of Europe. So let&#39;s try to execute this INSERT INTO statement. So I&#39;m just selecting, again, from an existing table and inserting into the same table, okay? LOCATION is what I&#39;m selecting from, that&#39;s what I insert into. So let&#39;s execute the entire statement.</p>
+<p>[Video description begins] <em> He executes the statement, INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;US&#39;);. The Script Output tab opens and it displays an error message.</em> [Video description ends]</p>
+<p>And I get an error, and it tells me the WITH CHECK OPTION where-clause violation has occurred. But I intentionally did this of course and that&#39;s what I expected to see.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>United States does not match anything that came back by the subquery, okay?</p>
+<p>[Video description begins] <em> He executes (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) in the INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;US&#39;); statement. The Query Result tab opens and it contains a table with the COUNTRY_ID column header. It contains 8 rows.</em> [Video description ends]</p>
+<p>So in order for this to succeed, the country has to be one of these ones.</p>
+<p>[Video description begins] <em> He points at the COUNTRY_ID column.</em> [Video description ends]</p>
+<p>So it wouldn&#39;t matter which one, as long as it matches any of them.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So let&#39;s just change this and we won&#39;t worry about the city name, we&#39;ll just change the country to FR. Now, let&#39;s re-execute.</p>
+<p>[Video description begins] <em> He aalters the statement from INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;US&#39;); to INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;FR);. He then executes the statement, INSERT INTO ( SELECT location_id, city, country_id FROM LOCATIONS WHERE country_id IN (SELECT country_id FROM countries NATURAL JOIN regions WHERE region_name &#61; &#39;Europe&#39;) WITH CHECK OPTION) VALUES (5000, &#39;Washington&#39;, &#39;FR);. The Script Output tab opens and It displays the text &#39; 1 row inserted&#39;.</em> [Video description ends]</p>
+<p>One row inserted, okay, no errors.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>Let&#39;s select everything out from LOCATIONS.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT * FROM LOCATIONS;. The Query Result tab opens and it contains a table with LOCATION_ID, STREET_ADDRESS, POSTAL_CODE, CITY, STATE_PROVINCE, and COUNTRY_ID column headers. It contains 24 rows.</em> [Video description ends]</p>
+<p>And sure enough there it is, okay? LOCATION_ID 5000, city Washington, again, we won&#39;t worry about that, but the country of France was returned by the subquery.</p>
+<p>[Video description begins] <em> He highlights entry 1: 5000, (null), (null), WASHINGTON, (null), and FR.</em> [Video description ends]</p>
+<p>Therefore, it is acceptable as a new value for the INSERT statement, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So again, that&#39;s the WITH CHECK OPTION. And that ensures that whatever is returned by the inner query has to match whatever is being inserted. And if it isn&#39;t, it will throw an error. So it&#39;s just an option that you can use to help ensure the integrity of values that are being inserted into your tables.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: NULL Values in a Subquery (it_dfosfd_14_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/8f323ace-551b-4b05-aa69-0974cc96c9f1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/8f323ace-551b-4b05-aa69-0974cc96c9f1/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use NULL values in a subquery and use the NOT IN operator in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate the use of NULL values in a subquery and use the NOT IN operator in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: NULL Values in a Subquery. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>For our final demonstration, we&#39;ll take a look at dealing with null values that are returned by a subquery. Now in terms of setting this up, what I&#39;m looking for are the employees who do not have any subordinates, okay? They have managers. I&#39;m looking for those who are essentially lowest in the ranking order. They do not have anyone reporting to them. But whether or not someone is a manager or has a manager is indicated by the manager_id value.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. It contains the statement, SELECT emp.last_name FROM employees emp WHERE emp.employee_id NOT IN (SELECT mgr.manager_id FROM employees mgr);.</em> [Video description ends]</p>
+<p>And in this case, there is a null in that column, okay? In this company, employee King is the president. Therefore, he has no manager and a null will appear in the manager_id column. So let me show you that, that is simply the inner portion of the query that I have here. I&#39;m just going to SELECT the manager_id from the employees table, okay? Execute, and there it is, okay, so there&#39;s a null in this column.</p>
+<p>[Video description begins] <em> He executes (SELECT mgr.manager_id FROM employees mgr); in the SELECT emp.last_name FROM employees emp WHERE emp.employee_id NOT IN (SELECT mgr.manager_id FROM employees mgr); statement. The Query Result tab opens and it contains a table with MANAGER_ID column header. It contains 107 rows.</em> [Video description ends]</p>
+<p>Now, at the moment, that doesn&#39;t really have a whole lot to do with what I want to find, but I just wanted to point out there is a null in the manager_id column.</p>
+<p>[Video description begins] <em> He points at row 1: (null).</em> [Video description ends]</p>
+<p>Now that&#39;s the only one. I can scroll through every other record, but there is still a null, okay?</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So again, what I&#39;m looking for are the employees who have no one beneath them, no subordinates at all. So I might be tempted to use something like a NOT IN operator when I compare against the results of the subquery. If I think about, okay, well, there are values in the manager_id column indicating who someone&#39;s manager is. So I&#39;m looking for people who don&#39;t have anyone reporting to them. So maybe it&#39;s a NOT IN comparison, okay?</p>
+<p>So again, this is just sort of the cautionary note here. If a subquery returns a null value at all, anywhere in the column that you are examining, the NOT IN operator equates to &lt;&gt;ALL. We talked about ALL and ANY in some earlier demonstrations. So this is how it operates, &lt;&gt;ALL. Meaning, outer query results will only be returned if they match ALL values returned by the inner query. I just ran the inner query and considering ALL values, a null came back. So therefore, the outer query will only return results that match ALL values.</p>
+<p>But a null does not match anything, okay? Recall that null is nothing. Null does not equal null, it doesn&#39;t equal anything. So no rows are returned, okay? So this is an easy fix. Simply do not use the NOT IN comparison operator when you anticipate null is maybe returned, use IN, okay? So again, it&#39;s just a little bit of logic. You just might think that you&#39;re looking for a NOT IN scenario when you&#39;re looking for people who don&#39;t manage anyone, okay? But using the IN operator equates to &#61;ANY. Therefore, as long as ANY match occurs between the inner and outer results, the rows will be returned. So there are 18 employees in this table who don&#39;t have any subordinates.\</p>
+<p>So now let&#39;s look at the code. I&#39;m just selecting the last_name, that&#39;s all I need to see. And I&#39;m prefacing it with emp in this case because, again, there&#39;s a self-referencing relationship here. So I want to create two virtual tables, if you will. In both cases I&#39;m selecting from the employees table. But I need to compare values from one side against values in the other side, the outer and the inner queries. So emp is just an alias, so I&#39;m selecting emp.last_name from employees, aliased as emp. WHERE emp.employee, and again, I have my NOT IN currently.</p>
+<p>And then the subquery is selecting mgr.manager_id FROM employees aliased as mgr, okay? Again, this creates two virtual copies of the employees table, one called emp and one called mgr. Now they can be compared. But recall, just the inner query returns a null.</p>
+<p>[Video description begins] <em> He executes (SELECT mgr.manager_id FROM employees mgr); in the SELECT emp.last_name FROM employees emp WHERE emp.employee_id NOT IN (SELECT mgr.manager_id FROM employees mgr); statement. The Query Result tab opens and it contains a table with MANAGER_ID column header. It contains 107 rows.</em> [Video description ends]</p>
+<p>There it is.</p>
+<p>[Video description begins] <em> He points at row 1: (null). He then closes the Query Result tab.</em> [Video description ends]</p>
+<p>So using the NOT IN operator equates to &lt;&gt;ALL. So if I try to execute the entire statement, nothing comes back.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT emp.last_name FROM employees emp WHERE emp.employee_id NOT IN (SELECT mgr.manager_id FROM employees mgr); statement. The Query Result tab opens and it contains a table with LAST_NAME column header. It contains 0 rows.</em> [Video description ends]</p>
+<p>Now I know that&#39;s wrong. There are 18 employees in this table with no subordinates. So again, simple fix, just remove the NOT.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>Re-execute.</p>
+<p>[Video description begins] <em> He alters the statement from SELECT emp.last_name FROM employees emp WHERE emp.employee_id NOT IN (SELECT mgr.manager_id FROM employees mgr); to SELECT emp.last_name FROM employees emp WHERE emp.employee_id IN (SELECT mgr.manager_id FROM employees mgr);. He then executes the statement, SELECT emp.last_name FROM employees emp WHERE emp.employee_id IN (SELECT mgr.manager_id FROM employees mgr);. The Query Result tab opens and it contains a table with LAST_NAME column header. It contains 18 rows.</em> [Video description ends]</p>
+<p>There are my 18 employees with no subordinates, okay? No nulls came back in this case.</p>
+<p>[Video description begins] <em> He points at the LAST_NAME column. He then closes the Query Result tab.</em> [Video description ends]</p>
+<p>Or more to the point, the nulls didn&#39;t matter because the IN operator equates to &#61;ANY. So as long as there was a match between the IDs in ANY of the records, then they were returned. Okay, so again, really, that&#39;s just something to remember. When dealing with subqueries, if the subquery is going to return a null, then you should not use the NOT IN operator, use the IN operator. And again, remember that in most cases if it&#39;s a standard subquery, you can always execute just the subquery portion to verify if nulls are coming back.</p>
+<p>[Video description begins] <em> He executes (SELECT mgr.manager_id FROM employees mgr); in the SELECT emp.last_name FROM employees emp WHERE emp.employee_id IN (SELECT mgr.manager_id FROM employees mgr); statement. The Query Result tab opens and it contains a table with MANAGER_ID column header. It contains 107 rows.</em> [Video description ends]</p>
+<p>And if so, use the IN operator not NOT IN.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Exercise: Manipulate Data Using Subqueries (it_dfosfd_14_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/d9210bf5-ad5c-42f1-baaf-d9fe3fbe21ff/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d9210bf5-ad5c-42f1-baaf-d9fe3fbe21ff/image001.jpg')();" /><div class="section_text">In this video, find out how to use subqueries to manipulate data.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">manipulate data using subqueries</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Manipulate Data Using Subqueries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, for our exercise this time, we&#39;ll ask you to use a single-row subquery in a SQL statement. Then to use a multi-row subquery in a SQL statement. Then to use a multi-column subquery in a SQL statement. And finally, to use the correlated UPDATE subquery. So again, as usual, what we&#39;d like you to do is to take a few minutes, try these exercises on your own. Then we&#39;ll come back to review, and we&#39;ll see how you made out.</p>
+<p>So we&#39;ll see you in a few minutes. All right, to review some possible solutions then, our first task was to execute a single-row subquery in a SQL statement.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The fourth part includes the Start Page , HR, HR~1, HR~2, and HR~3 tabs. The HR tab is selected. It contains a statement. The statement is SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);.</em> [Video description ends]</p>
+<p>And with single-row subqueries, remember that the inner query is only returning a single value to the outer query. In which case, you can use some kind of equality operator in the where clause. And as with all regular subqueries, you can always execute just the inner portion to see what is going to be returned to the outer. So in this case, the unknown is represented by the job_id of employee Bates. So we can find that out first and see what comes back, SA_REP.</p>
+<p>[Video description begins] <em> He highlights (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); in the SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;); statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with JOB_ID column. It contains one row entry: SA_REP.</em> [Video description ends]</p>
+<p>That now is essentially the value that will be passed back to the outer queries. So really, this query now reads as SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; SA_REP, but we didn&#39;t know that going in. So the subquery can simply retrieve it for us, and then pass it back to the other query as criteria. And since it&#39;s a single value, we can use an equality operator for comparison, and we get our results back.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT last_name, job_id, salary FROM EMPLOYEES WHERE job_id &#61; (SELECT job_id FROM EMPLOYEES WHERE last_name &#61; &#39;Bates&#39;);. A table with LAST_NAME, JOB_ID, and SALARY column headers appears in the Query Result tab. It contains 30 row entries.</em> [Video description ends]</p>
+<p>Then we asked in our next task to use a multi-row query.</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab. It contains the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id);.</em> [Video description ends]</p>
+<p>In this case, multiple values will be returned from the inner query. So we cannot use something like an equality operator. In this case, I&#39;m selecting the minimum salary from employees, but grouping it by department. So I will see several groups, and then the minimum salary per group. So once again, I can execute just the subquery portion and I see that many records come back, not just a single value.</p>
+<p>[Video description begins] <em> He executes (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id); in the SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id); statement. The Query Result tab opens and it contains a table with MIN(SALARY) column header. It contains 12 rows.</em> [Video description ends]</p>
+<p>Therefore, I can&#39;t say in the criteria of the outer query where salary is equal to all 12 of these values. It simply wouldn&#39;t work. So we use something like the IN operator which can accept multiple values. So all of them get passed back as criteria, the IN operator will handle that, and I can execute the entire subquery and get my results.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT employee_id, last_name, job_id, salary FROM EMPLOYEES WHERE salary IN (SELECT MIN(salary) FROM EMPLOYEES GROUP BY department_id);. A table with EMPLOYEE_ID, LAST_NAME, JOB_ID, and SALARY column headers appears. It contains 26 rows.</em> [Video description ends]</p>
+<p>Then we asked to use a multi-column subquery. Now in fact, this one is also a multi-row, so it&#39;s both multi-column and multi-row.</p>
+<p>[Video description begins] <em> He switches to the HR~2 tab.It contains the statement, SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id;.</em> [Video description ends]</p>
+<p>Now, that doesn&#39;t necessarily have to be the case, that&#39;s just what happens in this particular query. But the inner query can still be executed on its own. But in this case, the inner query is selecting the minimum salary and the department_id, two columns from the EMPLOYEES table grouped by department_id. So again, we can execute just the inner portion and we&#39;ll get results back.</p>
+<p>[Video description begins] <em> He executes (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id; in the SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id; statement. The Query Result tab opens and it contains a table with MIN(SALARY) and DEPARTMENT_ID column headers. It contains 12 rows.</em> [Video description ends]</p>
+<p>So I&#39;m now seeing multiple rows and the multiple columns. So the WHERE clause of the outer query has to include those same two columns in the WHERE clause. And we have to use something like the IN operator to handle the multiple rows. But without the same rows in the WHERE clause that are being returned by the subquery, the query would fail, okay? So this one now reads as return all employees who earn the equivalent of their own departmental minimum. In the previous example, it read as return all employees who earn the equivalent of any departmental minimum, okay? So that&#39;s the difference in this case. So we can execute the entire query and we get our results.</p>
+<p>[Video description begins] <em> He executes the statement, SELECT first_name, department_id, salary FROM EMPLOYEES WHERE (salary, department_id) IN (SELECT MIN(salary), department_id FROM EMPLOYEES GROUP BY department_id) ORDER BY department_id;. A table with FIRST_NAME, DEPARTMENT_ID, and SALARY column headers appears. It contains 12 rows.</em> [Video description ends]</p>
+<p>And finally, we asked about using a correlated UPDATE subquery and this updates values in one table based on values in another table.</p>
+<p>[Video description begins] <em> He switches to the HR~3 tab. It contains two statements. The first statement is, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id);. The second statement is, SELECT * FROM EMP_COPY;.</em> [Video description ends]</p>
+<p>But yet there are no joins because of the correlated subquery. And again, what defines a correlated subquery is that the inner table depends on the outer, okay? It will make reference to something that is only defined in the outer query. In this case, the EMP_COPY table is declared with its alias of e in the update statement of the outer query. That is nowhere in the inner query. The inner query selects department_name from departments d. So there&#39;s nothing in the inner query that really should allow it to reference something from the outer query. But yet we&#39;re doing exactly that, e.department_id is referencing the EMP_COPY table.</p>
+<p>[Video description begins] <em> He executes (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); in the UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement. The Query Result tab opens and it displays an error message. </em>[Video description ends]</p>
+<p>So there is this dependency and because of that, recall that the inner query cannot be executed all by itself because of that dependency.</p>
+<p>[Video description begins] He<em> closes the Query Result tab.</em> [Video description ends]</p>
+<p>You have to execute the entire statement.</p>
+<p>[Video description begins] <em> He executes the statement, UPDATE EMP_COPY e SET department_name &#61; (SELECT department_name FROM departments d WHERE e.department_id &#61; d.department_id); statement. The Script Output tab opens. It contains the text &#39;101 rows updated&#39;. </em>[Video description ends]</p>
+<p>So this will go to the departments table in the inner query and find all of the associated department names based on the department_id.</p>
+<p>[Video description begins] He<em> closes the Script Output tab.</em> [Video description ends]</p>
+<p>That will update the EMP_COPY table and set the department name to whatever comes back from the inner query.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM EMP_COPY;. The Query Result tab opens and it contains a table with various columns. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, DEPARTMENT_NAME, and EMAIL.</em> [Video description ends]</p>
+<p>So we can execute, 101 rows were updated, we can SELECT * FROM EMP_COPY to verify, and there are all of the department names.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises, and if so, we will move on to our next course.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

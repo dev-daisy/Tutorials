@@ -1,0 +1,442 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Managing Objects with Data Dictionary Views </h1><div class="section_text"><p>Explore the basics of data dictionary views. Discover how to create views on tables. Synonyms, sequences, and indexes, and how to create them is also covered.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Introduction to Data Dictionary Views (it_dfosfd_07_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: USER_OBJECTS (it_dfosfd_07_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: ALL_OBJECTS (it_dfosfd_07_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Querying Dictionary Views (it_dfosfd_07_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Adding Comments to a Table (it_dfosfd_07_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Exercise: Work with Dictionary Views (it_dfosfd_07_enus_06)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Introduction to Data Dictionary Views (it_dfosfd_07_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/602824a2-4a65-4cac-8270-0e06489d58d1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/602824a2-4a65-4cac-8270-0e06489d58d1/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to provide an overview of data dictionary views.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">provide an overview of data dictionary views</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Introduction to Data Dictionary Views. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce the data dictionary. Which pertains more so to the properties and the structure of your objects as opposed to the actual data they may contain. So in many cases, if someone is needing to make a change. You might need to check with the owner of the table to discuss the effects of that change. Such as adding a new department into the DEPARTMENTS table. Before you insert that new value, you might need to be aware of various constraints on the table so that you don&#39;t violate them. So rather than needing to reach the person who created the table in the first place to discuss this with them. You can simply query the data dictionary. So no documentation or property list needs to be created or maintained to store this information. All you need to do is learn to query the data dictionary. It&#39;s a list of built-in tables and views which is constructed and maintained automatically by the Oracle server.</p>
+<p>[Video description begins] <em> The Oracle Server diagram is open. The Oracle Server includes Tables containing business data and Data dictionary views. The Tables containing business data includes EMPLOYEES, DEPARTMENTS, LOCATIONS, and JOB_HISTORY tables. The Data dictionary views includes DICTIONARY, USER_OBJECTS, USER_TABLES, and USER_TAB_COLUMNS.</em> [Video description ends]</p>
+<p>So in addition to of course the user tables which are created and maintained by the users. There is simply another collection of tables and views in the Oracle database known as the data dictionary. This collection is created automatically as soon as you create any other object. And it contains information about the properties of every object in every database. So it&#39;s structured in tables and views just like other database data. And it&#39;s a very important tool for all users, from end users to application designers and database administrators. Because you can simply use standard SQL statements to access the data dictionary.</p>
+<p>But, take note that the dictionary itself is read-only. Users will make changes directly to the original database objects themselves. So for example, you might create a table, you might then remove a column from that table, or you might add a column, or change a data type. But you don&#39;t have to look after making the associated change in the data dictionary. Oracle will make the subsequent changes to the dictionary automatically. So you can only issue queries against the tables and views in the data dictionary. But you can use those queries to find out information such as the definition of all schema objects in the database. The tables, the views, the indexes, the procedures and functions, and so on. Default values for columns, integrity constraint information, names of the Oracle users, privileges and roles that each user has been granted. And various other general database information.</p>
+<p>[Video description begins] <em> Data Dictionary Structure.</em> [Video description ends]</p>
+<p>So in terms of the structure of the dictionary itself, it consists of underlying base tables. Which again store information about the associated database and the associated objects in that database. But there are also several views that summarize and display the information stored in the base tables. Which presents that data as much more useful information, such as user or table names. And they use standard joins and where clauses just like any other query. So you are mostly given access to the views rather than the base tables to avoid the possibility of compromising the database integrity. But there is an Oracle user called SYS, S-Y-S, and SYS does own all base tables and user-accessible views of the dictionary itself. But despite this, no Oracle user should ever alter any rows or schema objects contained in this schema. Again, changes are made directly to the original user objects, then Oracle will handle the updates automatically in the data dictionary.</p>
+<p>So, as mentioned, the data dictionary consists of sets of views. And in many cases, a set consists of three views containing similar information and they are each distinguishable by their prefixes. For example, there is a view named USER objects, another named ALL objects, and the third named DBA objects. So these three views would contain similar information about the objects in the database except that the scope would be a little bit different. USER objects contains information about objects that you own or that you created. ALL objects contains information about all objects to which you have access, but don&#39;t necessarily own. And DBA, or database administrator objects contains information about all objects that are owned by all users. So for views that are prefixed with ALL or DBA. You&#39;ll typically find an additional column in the view named owner to identify who owns that object. Now there&#39;s also a set of views prefixed with V$. And these views are dynamic in nature, and they hold information about performance, so it&#39;s changing all the time, of course. Dynamic performance tables generally aren&#39;t accessed by most users, but of course the database administrators would want to know that information. They can query these views, and they certainly can grant access to other users if they need to. But typically it&#39;s the database administrators that are concerned with performance.</p>
+<p>[Video description begins] <em> How to Use Dictionary Views. Two code snippets are shown with their output. The first code snippet is DESCRIBE DICTIONARY. Its output shows two rows table. The table includes three columns. The column headers are Name, Null, and Type. The values under the column header Name are TABLE_NAME and COMMENTS. The values under the column header Type are VARCHAR2(128) and VARCHAR2(4000). There are no values under the column header Null. The second code snippet is SELECT * FROM dictionary WHERE table_name &#61; &#39;USER_OBJECTS&#39;;. Its output shows a single row table. The column headers are TABLE_NAME and COMMENTS. The value under the column header TABLE_NAME is USER_OBJECTS. The value under the column header COMMENTS is Objects owned by the user.</em> [Video description ends]</p>
+<p>So to familiarize yourself with the dictionary views, you can use the dictionary view named DICTIONARY. It contains the name and a short description of each dictionary view to which you have access. And you can write queries to search for information about a particular view name. Or you can search the COMMENTS column for a specific word or phrase. So in the example in the slide, the DICTIONARY view is described and it has only two columns, TABLE_NAME and COMMENTS. So you can simply issue the statement DESCRIBE DICTIONARY and it will return those properties to you. Then the SELECT statement, a little further down, actually retrieves information about the dictionary view. Named USER_OBJECTS in this case. And this view contains information about all of the objects that you own. And these queries are written like any other query against any other user object. So all of the same conventions of a standard SELECT statement apply to queries against the data dictionary. So of course we&#39;ll see some examples of using the data dictionary. And issuing queries against the dictionary views in our upcoming demonstrations.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: USER_OBJECTS (it_dfosfd_07_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/f93fe9be-5cc5-40af-b7c5-8bc72b4dddd0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f93fe9be-5cc5-40af-b7c5-8bc72b4dddd0/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the USER OBJECTS view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate when to use the USER OBJECTS view</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: USER_OBJECTS. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll see our first example of querying the data dictionary. And we&#39;ll begin by querying the USER_OBJECTS table which allows you to see a list of all of the objects that you own.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The window is divided into two parts: navigation pane and content pane. The navigation pane is divided into two sections. The first section is named as Connections, which contains the Connections directory, which further contains the HR database. The HR database contains the Tables (Filtered) folder. The Tables (Filtered) folder is expanded. It includes the COUNTRIES, DEPARTMENTS, and EMPLOYEES tables. The second section is named as Reports. It contains the All Reports folder. The All Reports folder includes the Data Dictionary Reports and OLAP Reports subfolders. The content pane includes an execute icon and two tabs, Start Page and HR. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now quickly, this HR account that I&#39;m using was used to create this database, therefore it owns all of the objects in this database. But that&#39;s fine, you can still just find out what they are. So in terms of the syntax, we&#39;ll just begin with selecting every column, so SELECT* FROM user_objects, and then we can simply ORDER BY the object_type. That&#39;s just one of the columns, of course.</p>
+<p>[Video description begins] <em> He highlights the first statement which reads, SELECT * FROM user_objects ORDER BY object_type;.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute just to see what it looks like. And you can see that 37 objects were returned, and</p>
+<p>[Video description begins] <em> He clicks the execute icon. The content pane divides into two sections. In the first section the HR tab is open. In the second section the Query Result tab is open. The Query Result tab shows a message and the user_objects table. The message reads, All Rows Fetched: 37 in 0.043 seconds. The column headers of the user_objects table includes OBJECT_NAME, OBJECT_TYPE, CREATED and LAST_DDL_TIME.</em> [Video description ends]</p>
+<p>looking at the OBJECT_NAME you can get a basic idea of what these objects are. The JHIST would be job history, EMPLOYEE would be the employees table and IX would be for an index.</p>
+<p>[Video description begins] <em> In the Query Result tab, he points to the first row entry, JHIST_EMPLOYEE_IX of the OBJECT_NAME column.</em> [Video description ends]</p>
+<p>So it&#39;s fairly distinguishable in terms of what these objects are. PK stands for primary key, UK, a unique key.</p>
+<p>[Video description begins] <em> He points to the 11th and 12th row entries, EMP_EMP_ID_PK and EMP_EMAIL_UK respectively of the OBJECT_NAME column.</em> [Video description ends]</p>
+<p>So you get all of these different object names of course, and you can see that there are clearly several other columns of interest here. So there&#39;s the OBJECT_TYPE, which would actually tell you what this is if the name is not clear enough.</p>
+<p>[Video description begins] <em> He points to the OBJECT_TYPE column entries which includes, INDEX, SEQUENCE, and TABLE.</em> [Video description ends]</p>
+<p>And we have many other columns that may or may not be of interest to you, but you can query any of them.</p>
+<p>[Video description begins] <em> In the Query Result tab, he drags the scroll bar to the right to show other columns in the table which includes TIMESTAMP and STATUS.</em> [Video description ends]</p>
+<p>So let&#39;s just narrow the results down a little bit here to just some of the desired columns. We&#39;ll include the object_name, the object_type, when it was created, and what its current status is in this example. But it&#39;s from the same table, user_objects and still ordered by the object_type.</p>
+<p>[Video description begins] <em> In the HR tab, he highlights the second statement which reads, SELECT object_name, object_type, created, status FROM user_objects ORDER BY object_type;.</em> [Video description ends]</p>
+<p>So we just don&#39;t need all of those columns, so now we just see the name,</p>
+<p>[Video description begins] <em> He executes the second statement. Its output returns in the Query Result tab. The output shows the table with the column headers, OBJECT_NAME, OBJECT_TYPE, CREATED, and STATUS.</em> [Video description ends]</p>
+<p>the type, when it was created and if it is currently still valid. So this of course just again presents you with those objects that you own,</p>
+<p>[Video description begins] <em> He selects the first row entries in the output. The first row entries of the OBJECT_NAME, OBJECT_TYPE, CREATED, and STATUS columns are JHIST_EMPLOYEE_IX, INDEX, 18-09-20, and VALID respectively.</em> [Video description ends]</p>
+<p>so anything that you would have created so that you know. I created this object, I own this object, I&#39;m the one who is able to make changes to that object. And again of course, you are allowed to make changes to any object that you own. So this is always just useful information to find out the properties, the structure of the database, the objects that exist within it. And again, when querying the user_objects table, then you are always presented with the objects that you own.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: ALL_OBJECTS (it_dfosfd_07_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/1e003425-f652-49f6-ad49-5b0fc7cb62a3/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1e003425-f652-49f6-ad49-5b0fc7cb62a3/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the ALL_OBJECTS view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate when to use the ALL_OBJECTS view</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: ALL_OBJECTS. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll extend the reach of our searching by querying the ALL_OBJECTS table. And this allows you to see all objects to which you have access. Now, one quick point is that I&#39;m using an administrative account so</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR and Query Result 1 tabs are open in the content pane. The HR tab displays two statements. The first statement reads, SELECT * FROM all_objects ORDER BY object_type;. The second statement reads, SELECT owner, object_name, object_type, created, status FROM all_objects WHERE object_type &#61; &#39;VIEW&#39;;. The Query Result 1 tab contains a table which includes the column headers, OWNER, OBJECT_NAME, and OBJECT_TYPE and a message which reads, Fetched 3,400 rows in 28.98 seconds.</em> [Video description ends]</p>
+<p>as such, I have access to every object. So I&#39;ve already executed this first statement and I&#39;m just selecting everything from the all_objects data dictionary table. And the reason why I have done that is because look at the amount of time. It took almost 30 seconds and it has currently fetched 3400 rows,</p>
+<p>[Video description begins] <em> He points to the message in the Query Result 1 tab.</em> [Video description ends]</p>
+<p>and that&#39;s only because I already scrolled through some of the results. There are far more than just those, so I can keep scrolling and scrolling and scrolling here, and it just keeps returning results. And again, that&#39;s simply because the account that I&#39;m using is administrative.</p>
+<p>[Video description begins] <em> He scrolls down the output and the message changes to Fetched 3,950 rows in 29.001 seconds.</em> [Video description ends]</p>
+<p>So you would want to be careful when querying the all_objects table if your account is administrative. But of course, you can still restrict which records come back. So one example is of course just querying out a specific type of object, so this is just one example.</p>
+<p>[Video description begins] <em> He highlights the WHERE object_type &#61; &#39;VIEW&#39;; in the second statement in the HR tab.</em> [Video description ends]</p>
+<p>I&#39;m looking for just views or take note that when you do query the all_objects table, there is an extra column or the OWNER. So you can just search for a specific owner if you wanted to.</p>
+<p>[Video description begins] <em> He points to the OWNER column in the Query Result 1 tab.</em> [Video description ends]</p>
+<p>Of course, you can filter out by just about anything. So in my second example, I&#39;ve narrowed down the columns. And again I&#39;ve filtered for just views in this example, so let&#39;s go ahead and execute that and of course, we see far fewer results.</p>
+<p>[Video description begins] <em> He highlights and executes the second statement in the HR tab. The Query Result 2 tab opens in the content pane, which contains a table with column headers, OWNER, OBJECT_NAME, OBJECT_TYPE, CREATED, and STATUS and a message. The message reads, Fetched 50 rows in 0.18 seconds.</em> [Video description ends]</p>
+<p>Now again, it&#39;s probably more than 50. I can keep scrolling, we do see still quite a lot of results coming back.</p>
+<p>[Video description begins] <em> He scrolls down the table displayed in the output and the message changes to Fetched 850 rows in 0.626 seconds.</em> [Video description ends]</p>
+<p>But this at least narrows the result set to just views. And I could search for any other type as well.</p>
+<p>[Video description begins] <em> He points to the value VIEW of the OBJECT_TYPE column in the output.</em> [Video description ends]</p>
+<p>But one other thing to take note of is the data in this table is actually case-sensitive. The column names are not. You can see in my SELECT statement I&#39;ve used lowercase letters, but they appear as uppercase, but the data itself is actually case-sensitive.</p>
+<p>[Video description begins] <em> He points to the object_name in the second statement displayed in the HR tab. Then he points to the OBJECT_NAME column header displayed in the Query Result 2 tab.</em> [Video description ends]</p>
+<p>So if I were to type this in in lowercase and execute,</p>
+<p>[Video description begins] <em> In the HR tab, he replaces the VIEW with view in the second statement. The statement reads, SELECT owner, object_name, object_type, created, status FROM all_objects WHERE object_type &#61; &#39;view&#39;;. Then he highlights and executes the second statement.</em> [Video description ends]</p>
+<p>it&#39;s going to attempt to find the word view in lowercase letters. And in fact, it will not find any. So this might take 10 or 15 seconds to go through all of those records again, well there we go, ten seconds about, but nothing came back.</p>
+<p>[Video description begins] <em> He points at the values of the OWNER, OBJECT_NAME, OBJECT_TYPE, CREATED, and STATUS column.</em> [Video description ends]</p>
+<p>So interestingly, the data itself in the data dictionary is case sensitive in your WHERE clauses, okay?</p>
+<p>[Video description begins] <em> He replaces the view with the VIEW and executes the second statement.</em> [Video description ends]</p>
+<p>So again, there we see view in uppercase. And I believe all of the data in the data dictionary tables is in uppercase, so typically you would want to include that in your WHERE clause.</p>
+<p>[Video description begins] <em> He points to the row values of the OBJECT_TYPE column in the output.</em> [Video description ends]</p>
+<p>But the idea here again is just to extend the reach of any given search against the data dictionary table. So it&#39;s not just what I created or what I own, the all_objects table shows me everything to which I have access.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Querying Dictionary Views (it_dfosfd_07_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/bdbd1f25-1e65-485b-a938-0cca69ec057d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/bdbd1f25-1e65-485b-a938-0cca69ec057d/image001.jpg')();" /><div class="section_text">Learn how to query a data dictionary view for information about tables, columns, and constraints.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">query a data dictionary view for table, column, and constraint information </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Querying Dictionary Views. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Okay, in this demonstration, we&#39;ll take a look at several examples of querying the data dictionary views. And these ones might be a little more common, just in your day-to-day tasks. Now, we&#39;ll begin with a DESCRIBE statement so that we can just see the structure and then determine which columns might be of interest. So again, the DESCRIBE statement simply requires the table or the view that you want to see the structure for.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open and eight statements are displayed in it.</em> [Video description ends]</p>
+<p>So we can simply say DESCRIBE user_tables in this case, and we can execute. And this shows us all of the properties of that table.</p>
+<p>[Video description begins] <em> He highlights and executes the first statement. The first statement reads, DESCRIBE user_tables;. The content pane divides into two sections. In the first section the HR tab is open. In the second section the Script Output tab is open. The Script Output tab contains the Name, Null, and Type column headers.</em> [Video description ends]</p>
+<p>So again, it&#39;s not returning a list of the tables but rather the structure of the table that stores this information. So we see columns such as TABLE_NAME.</p>
+<p>[Video description begins] <em> He points to the TABLE_NAME value of the Name column in the output.</em> [Video description ends]</p>
+<p>We see a lot of the properties in terms of the space used and the percentage free. And whether or not that table has been backed up. So there&#39;s a common example right there of something that you would probably want to know about the state of your tables.</p>
+<p>[Video description begins] <em> He points to the PCT_FREE, PCT_USED, and BACKED_UP values of the Name column in the output.</em> [Video description ends]</p>
+<p>Now you can decide for yourself what you feel is of interest here, and you can see there are quite a few options. But let&#39;s look at an example now. We can select out the table_name and that backed_up column from user_tables. And we will see a list of all of the tables, and again, user defined, so these aren&#39;t any of the system tables.</p>
+<p>[Video description begins] <em> In the HR tab, he highlights and executes the second statement that reads, SELECT table_name, backed_up FROM user_tables;. The Query Result tab gets added next to the Script Output tab. The output of the statement displays in the Query Result tab. The output includes two columns: TABLE_NAME and BACKED_UP.</em> [Video description ends]</p>
+<p>These are the user_tables. But it tells us that, in fact, these tables have not been backed up, so that&#39;s certainly useful information.</p>
+<p>[Video description begins] <em> He points to the TABLE_NAME column in the Query Result tab. Then he points to the N values in the BACKED_UP column displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>In the next example, we&#39;ll look at the user_tab_column, so again that&#39;s user tables but specifically the columns of the table.</p>
+<p>[Video description begins] <em> In the HR tab, he highlights the third statement that reads, DESCRIBE user_tab_columns;.</em> [Video description ends]</p>
+<p>I&#39;m not seeing anything about the columns in these tables as it is. So we&#39;ll describe first, and again we see the structure here, okay?</p>
+<p>[Video description begins] <em> He points to the TABLE_NAME and BACKED_UP columns in the Query Result tab. Then he executes the third statement in the HR tab. The Script Output tab gets selected and the output of the third statement displays in it.</em> [Video description ends]</p>
+<p>Not the actual columns themselves but the name of the table then the name of the column and the DATA_TYPE, for example. So those again are very common examples, properties that you might want to know.</p>
+<p>[Video description begins] <em> The Script Output tab contains three columns: Name, Null, and Type. He points to the first three row values of the Name column.</em> [Video description ends]</p>
+<p>So we can then select whichever columns you want, so I&#39;ll just go with something fairly simple, the column_name and the data_type. From user_tab_columns, and I&#39;ll just focus in on one table. So where the table_name is EMPLOYEES.</p>
+<p>[Video description begins] <em> In the HR tab, he highlights the fourth statement that reads, SELECT column_name, data_type FROM user_tab_columns WHERE table_name &#61; &#39;EMPLOYEES&#39;;.</em> [Video description ends]</p>
+<p>And again take note, the data is case-sensitive when using a WHERE clause in queries that operate against the data dictionary views. So let&#39;s execute this one.</p>
+<p>[Video description begins] <em> He highlights and executes the fourth statement. The Query Result tab gets selected and the output of the fourth statement displays in it.</em> [Video description ends]</p>
+<p>And there we see are the column names and the data types for each column.</p>
+<p>[Video description begins] <em> The output displayed in the Query Result tab contains two columns: COLUMN_NAME and DATA_TYPE. He scrolls down the table.</em> [Video description ends]</p>
+<p>So again, I&#39;m basically just looking at the structure, but I can be a little more selective. I don&#39;t have to browse through the table to see these properties. There they are right there. The next one is user_constraints. So again, we can just describe it first and</p>
+<p>[Video description begins] <em> In the HR tab, he highlights and executes the fifth statement that reads, DESCRIBE user_constraints;. The Script Output tab gets selected and the output displays three column table. The column headers are Name, Null, and Type.</em> [Video description ends]</p>
+<p>there we see are all of the columns, all the properties. So again, the OWNER, the CONSTRAINT_NAME, the CONSTRAINT_TYPE, for example.</p>
+<p>[Video description begins] <em> He points to the values of the Name column.</em> [Video description ends]</p>
+<p>So again, you can decide for yourself which columns are of interest. But in my case, I&#39;m going to select out the constraint_name, the constraint_type. And any search condition that might be included from the user_constraints table. And again, we&#39;ll focus on just the EMPLOYEES table. Remembering the case sensitivity, so we&#39;ll execute here. And there are all of the constraints.</p>
+<p>[Video description begins] <em> In the HR tab, he highlights and executes the sixth statement that reads, SELECT constraint_name, constraint_type, search_condition FROM user_constraints WHERE table_name &#61; &#39;EMPLOYEES&#39;;. The Query Result tab gets selected and the output displays three column table. The column headers of the table are CONSTRAINT_NAME, CONSTRAINT_TYPE, and SEARCH_CONDITION.</em> [Video description ends]</p>
+<p>So this is very useful if I&#39;m needing to make a lot of changes to the data in any given table. This tells me what kind constraints are there. So the CONSTRAINT_NAME of course can be anything but the CONSTRAINT_TYPE just has one letter indicating what the types are. And R is a referential constraint, so that&#39;s some sort of primary foreign key scenario. And of course FK, represents a foreign key in the name.</p>
+<p>[Video description begins] <em> He points to the first row values of the CONSTRAINT_NAME and CONSTRAINT_TYPE columns in the Query Result tab. The row values are EMP_DPT_FK and R respectively.</em> [Video description ends]</p>
+<p>C is a check constraint, and typically you can see the search condition here tells you what that search condition, or what that constraint is. So &#39;LAST_NAME&#39; IS NOT NULL, in this case, is the constraint. You cannot leave it null.</p>
+<p>[Video description begins] <em> He points to the fourth row values of the CONSTRAINT_NAME, CONSTRAINT_TYPE, and SEARCH_CONDITION columns in the Query Result tab. The row values are EMP_LAST_NAME_NN, C, and &#34;LAST_NAME&#34; IS NOT NULL respectively.</em> [Video description ends]</p>
+<p>U is a unique constraint, anything that just simple has to be unique so the e-mail address. And P is a primary key, and again we see PK.</p>
+<p>[Video description begins] <em> He points to the ninth row values of the CONSTRAINT_NAME and CONSTRAINT_TYPE columns in the Query Result tab. The row values are EMP_EMAIL_UK and U respectively. Then he points to the tenth row values of the CONSTRAINT_NAME and CONSTRAINT_TYPE columns. The row entries are EMP_EMP_ID_PK and P respectively.</em> [Video description ends]</p>
+<p>And there are a few other constraint types. V for example is to validate and that essentially is also like a check constraint that checks the value. But it&#39;s validating it against some other type of rule,</p>
+<p>[Video description begins] <em> In the HR tab, he highlights the seventh statement that reads, DESCRIBE user_cons_columns;.</em> [Video description ends]</p>
+<p>but again this allows you to see which constraints are present in the table. And finally, the user_cons_columns refers to the user constraints. And the columns on which they have been placed. So we can SELECT the constraint. Let&#39;s to do the DESCRIBE first.</p>
+<p>[Video description begins] <em> He executes the seventh statement. The Script Output tab gets selected and the output displays three column table. The column headers of the table are Name, Null, and Type.</em> [Video description ends]</p>
+<p>And we can see that we have the OWNER, the CONSTRAINT_NAME, the table on which it has been placed and the column where that constraint exists.</p>
+<p>[Video description begins] <em> In the Script Output tab, he points to the first four values of the Name column.</em> [Video description ends]</p>
+<p>So we can select the constraint_name and the column_name from user_cons_columns. And again, just focusing on the EMPLOYEES table. And now we see the name of the constraint and of course the column it has been placed on.</p>
+<p>[Video description begins] <em> He highlights and executes the eighth statement. The eighth statement reads, SELECT constraint_name, column_name FROM user_cons_columns WHERE table_name &#61; &#39;EMPLOYEES&#39;;. The Query Result tab gets selected and the output displays in it. The output includes CONSTRAINT_NAME and COLUMN_NAME columns.</em> [Video description ends]</p>
+<p>Now usually the name will include the column so it&#39;s not all that difficult to discern, you know, EMP_SALARY_MIN is clearly on the SALARY column.</p>
+<p>[Video description begins] <em> He points to the row values of the CONSTRAINT_NAME and COLUMN_NAME columns.</em> [Video description ends]</p>
+<p>But it&#39;s not always the case that the person who created the constraint gave it an effective name. So all of these again just help you to determine those properties. And really, that&#39;s what you are interested in, in many of your administrative tasks. So before I make any kind of change or before I back up a table or before I do really any kind of task that I&#39;m allowed to do as an administrator. It&#39;s not a bad idea to query out these data dictionary views to ascertain that structural information. The properties rather than the real records in those tables.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Adding Comments to a Table (it_dfosfd_07_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/9116a435-ef28-44ef-989a-4cbd21f112b8/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9116a435-ef28-44ef-989a-4cbd21f112b8/image001.jpg')();" /><div class="section_text">To add a comment to a table, query the data dictionary view for comment information.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">add a comment to a table and query the data dictionary view for comment information </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Adding Comments to a Table. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>One of the most useful pieces of information when performing administrative tasks on structure or on object properties. Is simply the comment. This just allows you to put in any information that you want to describe something about this particular object or really any type of entity. So when you are creating an object, you can certainly add comments in but maybe you didn&#39;t think to. Or maybe you just want to change it after the fact. Well, you can do so by simply using the comment on statement. And then in this example, we&#39;ll see how to add a comment on to a table and to a column. So in the first example, we&#39;ll add a comment to the EMPLOYEES table.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is open in the content pane.</em> [Video description ends]</p>
+<p>So our syntax is simply COMMENT ON TABLE then of course, the name of the table. Then the comment is defined using the IS statement. And then in single quotes, this is the comment. Table contains employee information, and that can be anything, okay?</p>
+<p>[Video description begins] <em> He highlights the first statement that reads, COMMENT ON TABLE EMPLOYEES IS &#39;Table contains employee information&#39;;.</em> [Video description ends]</p>
+<p>There&#39;s no real structure required there, it&#39;s just any string of characters, so it can be whatever you want in single quotes. So let&#39;s go ahead and execute, and it should tell us that this succeeded, which it did.</p>
+<p>[Video description begins] <em> He executes the first statement. The Script Output tab opens in the second section. The Script Output tab displays the output of the executed statement. The output displays a message that reads, Comment on table employees &#39;TABLE CONTAINS EMPLOYEE INFORMATION&#39; succeeded.</em> [Video description ends]</p>
+<p>So then we can see the comments by selecting from the all_tab_comments table or you could use the user_tab_comments.</p>
+<p>[Video description begins] <em> He highlights all_tab_comments in the second statement that reads, SELECT * FROM all_tab_comments WHERE table_name &#61; &#39;EMPLOYEES&#39;. Then he highlights the user_tab_comments in the comment of the second statement that reads, View by selecting from all_tab_comments or user_tab_comments.</em> [Video description ends]</p>
+<p>Now in this case, it really wouldn&#39;t matter because I&#39;m specifying a WHERE clause. WHERE table_name &#61; &#39;EMPLOYEES&#39; and table_name would exist in both the all_tab_comments table, as well as the user_tab_comments table.</p>
+<p>[Video description begins] <em> He highlights the WHERE clause in the second statement.</em> [Video description ends]</p>
+<p>But of course the user_tab_comments will only be tables defined by users, okay, but either would work in this case.</p>
+<p>[Video description begins] <em> He highlights the user_tab_comments in the comment of the second statement.</em> [Video description ends]</p>
+<p>And again, recall that the data in the data dictionary views is case-sensitive, so this needs to be in uppercase. So let&#39;s select everything from all_tab_comments, let&#39;s execute and there is the comment, Table contains employee information. So again, you can put in whatever you want, but maybe someone forgot to</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab gets added next to the Script Output tab. The output displayed in the Query Result tab shows a single row table. The column headers of the table are OWNER, TABLE_NAME, TABLE_TYPE, and COMMENTS. He points to the row entry of the COMMENTS column that reads, Table contains employee information.</em> [Video description ends]</p>
+<p>add a comment when they created it, maybe you simply want to change it. You don&#39;t need any kind of an alter statement. I could just rerun this command again. In fact, let&#39;s go ahead and do this, and let&#39;s just put in This table contains employee information, so let&#39;s execute.</p>
+<p>[Video description begins] <em> He modifies the first statement. Now the first statement reads, COMMENT ON TABLE EMPLOYEES IS &#39;This table contains employee information&#39;;. He executes the modified first statement. The Script Output gets selected and the output displays a message that reads, Comment on table employees &#39;THIS TABLE CONTAINS EMPLOYEE INFORMATION&#39; succeeded. He points to the message displayed in the output.</em> [Video description ends]</p>
+<p>That succeeded. Let&#39;s reselect, and there it is, This table contains employer information.</p>
+<p>[Video description begins] <em> He again executes the second statement. The Query Result tab gets selected and the output displays a single row table. The table includes TABLE_NAME and COMMENTS column headers. He points to the row entry of the COMMENTS column that reads, This table contains employee information.</em> [Video description ends]</p>
+<p>So no kind of update statement is required and then we can do the same thing for a column. So it&#39;s pretty much the exact same syntax. It&#39;s just COMMENT ON COLUMN. And of course, we do have to specify the full table dot column name. So in this case, it&#39;s EMPLOYEES.first_name. And then the comment, IS &#39;First name of the employee, must not contain a null&#39;;</p>
+<p>[Video description begins] <em> He highlights the text COLUMN in the third statement that reads, COMMENT ON COLUMN EMPLOYEES.first_name IS &#39;First name of the employee, must not contain a null&#39;;.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute that. That has succeeded, then again we can clear that out.</p>
+<p>[Video description begins] <em> He executes the third statement. The Script Output tab gets selected and the output displays a message that reads, Comment on column employee.first_name &#39;FIRST NAME OF THE EMPLOYEE, MUST NOT CONTAIN A NULL&#39; succeeded.</em> [Video description ends]</p>
+<p>So we can view it by selecting from all_col_comments, col for column of course or user_col_comments. Again, either one would work.</p>
+<p>[Video description begins] <em> He highlights the comment of the fourth statement.</em> [Video description ends]</p>
+<p>So we can SELECT * FROM all_col_comments. And in this case, I&#39;m putting in the criteria of the table_name &#61; &#39;EMPLOYEES&#39;. And the column_name &#61; &#39;FIRST_NAME&#39;. And again, those are case-sensitive. But we execute, and there we have it.</p>
+<p>[Video description begins] <em> He executes the fourth statement that reads, SELECT * FROM all_col_comments WHERE table_name &#61; &#39;EMPLOYEES&#39; AND column_name &#61; &#39;FIRST_NAME&#39;;. The Query Result tab gets selected and the output displays a single row table that includes COLUMN_NAME and COMMENTS columns.</em> [Video description ends]</p>
+<p>First name of the employee, must not contain a null.</p>
+<p>[Video description begins] <em> He selects the row entry of the COMMENTS column in the Query Result tab that reads, First name of the employee, must not contain a null.</em> [Video description ends]</p>
+<p>And you can see all of the other comments as well. Let me just remove the column criteria</p>
+<p>[Video description begins] <em> He modifies the fourth statement that reads, SELECT * FROM all_col_comments WHERE table_name &#61; &#39;EMPLOYEES&#39;.</em> [Video description ends]</p>
+<p>and let&#39;s re-execute and there are the comments for every column.</p>
+<p>[Video description begins] <em> He executes the modified fourth statement. The output displays in the Query Result tab. The output shows a message and a table. The message reads, All Rows Fetched: 11 in 0.023 seconds. The column headers in the table are OWNER, TABLE_NAME, COLUMN_NAME, and COMMENTS.</em> [Video description ends]</p>
+<p>So again, those are up to you but they certainly help to inform you what is expected of this value. So it&#39;s essentially documentation. The same way that we put comments into our code.</p>
+<p>[Video description begins] <em> He highlights the comment of the third statement that reads, Adding comments to a column.</em> [Video description ends]</p>
+<p>We can add them directly to the tables or really any other object. So that we can inform anyone else who might be working with it. This is what this is for. This is why it was done, or any other information that you want to impart to that user.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Exercise: Work with Dictionary Views (it_dfosfd_07_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/b1b5cd13-a356-4a0c-a5aa-11b68ff70572/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b1b5cd13-a356-4a0c-a5aa-11b68ff70572/image001.jpg')();" /><div class="section_text">During this video, you will learn how to work with dictionary views.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">work with dictionary views </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Work with Dictionary Views. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>For our exercise in this course, we&#39;ll ask you to provide an overview of data dictionary views. Then to describe when to use the USER_OBJECTS view, versus when to use the ALL_OBJECTS view. Then to query a dictionary view for table, column, and constraint information. And finally, to add a comment to a table and then query the dictionary view for the comment information. So again, what we&#39;d like you to do is to take a few minutes and try these exercises on your own. Then come back and we&#39;ll review to see how you made out. So we&#39;ll see in a few minutes. All right, our first task was to provide an overview of the data dictionary views.</p>
+<p>[Video description begins] <em> Solution. The Data Dictionary. The Oracle Server diagram is displayed.</em> [Video description ends]</p>
+<p>And instead of it being the tables that contain the actual business data. It is rather the structure, the properties of those tables so that I can find out which tables even exist. What are the properties of those tables? What are the columns in those tables? What are their properties? So before I try to perform any administrative tasks, it&#39;s useful to know this information. And all of this is stored automatically by the Oracle server. So you do not have to define any of this. As soon as you construct a table, for example. The Oracle server automatically constructs the data dictionary view that records all of the properties of that table. So, again, they&#39;re very important in terms of just accessing the structure and finding out what kind of data exists. What properties exist on those objects, who owns them, when they were created and various other aspects.</p>
+<p>[Video description begins] <em> Data Dictionary Structure. The USER objects vs ALL objects table is displayed. The column headers of the table are View Prefix and Purpose. The first row entries of the table under these column headers are USER and User&#39;s view (what is in your schema; what you own) respectively. The second row entries of the table under these column headers are ALL and Expanded user&#39;s view (what you can access) respectively.</em> [Video description ends]</p>
+<p>Then we asked to describe when to use the USER objects versus the ALL objects data dictionary views. And quite simply, the USER objects are only those objects that you own. So regardless of what other properties might exist or whatever else it is that you are looking for. The USER objects will simply say here is what is in your schema. This is what you own. But the ALL objects will expand that to everything that you can access. So I might have permission, of course, to gain access to someone else&#39;s table. In that event I would query the ALL objects to see not only my own, but anything else that someone else might own that I&#39;m simply allowed to use. So it really comes to what it is you&#39;re trying to do and what kind of information you are wanting to ascertain. Okay, our next task was to query a dictionary view for a table, column, and constraint information.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The content pane includes three tabs: Start Page, HR, and HR~1. The HR tab is selected and it displays six statements.</em> [Video description ends]</p>
+<p>And recall that first you can use the DESCRIBE statement to simply ascertain the structure of those data dictionary views. Now this would not be necessary, but it never hurts. So again, we can just simply execute DESCRIBE. Then in this case, user_tables will tell us the structure of this view. We can execute and see which columns we feel will be the most useful.</p>
+<p>[Video description begins] <em> He executes the first statement. The first statement reads, DESCRIBE user_tables;. The Script Output tab opens in the content pane. The output displays in the form of table under the Script Output tab.</em> [Video description ends]</p>
+<p>Then we can simply select those which we want. So for example we can select the table_name and determine its backed_up status by selecting those from the user_tables view.</p>
+<p>[Video description begins] <em> He executes the second statement in the HR tab. The second statement reads, SELECT table_name, backed_up FROM user_tables;. The Query Result tab gets added next to the Script Output tab. The output displays in the form of table under the Query Result tab.</em> [Video description ends]</p>
+<p>And we see all of the user defined tables and the BACKED_UP status. We can then do the same for the columns. So we can describe the user_tab_columns,</p>
+<p>[Video description begins] <em> He executes the third statement in the HR tab. The third statement reads, DESCRIBE user_tab_columns;. The Script Output tab gets selected and the output displays in the tabular form.</em> [Video description ends]</p>
+<p>because of course this tells us the nature of column structure. And again, you can decide for yourself which columns you feel are of interest. But we can select the column_name and the data_type from the user_tab_columns data dictionary view. And then again, supply criteria or just a specific table or any number of tables. But recall that the data itself is case-sensitive. So WHERE table_name &#61; &#39;EMPLOYEES&#39; in uppercase, and we see the properties of the columns for that table.</p>
+<p>[Video description begins] <em> He executes the fourth statement in the HR tab. The fourth statement reads, SELECT column_name, data_type FROM user_tab_columns WHERE table_name &#61; &#39;EMPLOYEES&#39;;. The Query Result tab gets selected and the output displays in the tabular form.</em> [Video description ends]</p>
+<p>Finally for the constraints, again, we can describe that data dictionary view to see which columns are of interest.</p>
+<p>[Video description begins] <em> He executes the fifth statement in the HR tab. The fifth statement reads, DESCRIBE user_constraints;. The Script Output tab gets selected and the output displays in the tabular form.</em> [Video description ends]</p>
+<p>Then we can select out the constraint_name, the constraint_type, and the search_condition. And again, anything else that you want from user_constraints. And again, supply criteria, and we can obtain information about the constraints.</p>
+<p>[Video description begins] <em> He executes the sixth statement in the HR tab. The sixth statement reads, SELECT constraint_name, constraint_type, search_condition FROM user_constraints WHERE table_name &#61; &#39;EMPLOYEES&#39;;. The Query Result tab gets selected and the output displays in the tabular form.</em> [Video description ends]</p>
+<p>And finally, we asked about adding comments to a table or a column, and you can do this at any point in time.</p>
+<p>[Video description begins] <em> He selects the HR~1 tab and the window name changes to Oracle SQL Developer : HR~1. The HR~1 tab is selected and it displays four statements.</em> [Video description ends]</p>
+<p>So the syntax is COMMENT ON TABLE to add a comment to a table, then specify which table. Then the comment is defined using the IS statement. Now again, the comment itself can be anything. So we could say This table contains employee information. And we can execute that, then we can select everything</p>
+<p>[Video description begins] <em> He executes the first statement. The first statement reads, COMMENT ON TABLE EMPLOYEES IS &#39;This table contains employee information&#39;;. The Script Output tab opens in the content pane. The output displays a message in the Script Output tab. The message reads, Comment on table employees &#39;THIS TABLE CONTAINS EMPLOYEE INFORMATION&#39; succeeded.</em> [Video description ends]</p>
+<p>from either the all_tab_comments view or the user_tab_comments view.</p>
+<p>[Video description begins] <em> He highlights the second statement that reads, SELECT * FROM all_tab_comments WHERE table name &#61; &#39;EMPLOYEES&#39;. Then he highlights its comment that reads, View by selecting from all_tab_comments or user_tab_comments.</em> [Video description ends]</p>
+<p>Again, supplying criteria that is case-sensitive. And we see the comment.</p>
+<p>[Video description begins] <em> He executes the second statement. The Query Result tab gets selected and the output displays in it. The output includes the COMMENTS column. He points to the row value of the COMMENTS column which reads, This table contains employee information.</em> [Video description ends]</p>
+<p>So let&#39;s change this just for the sake of argument, let&#39;s change it to employee data.</p>
+<p>[Video description begins] <em> He modifies the first statement and the first statement reads, COMMENT ON TABLE EMPLOYEES IS &#39;This table contains employee data&#39;;.</em> [Video description ends]</p>
+<p>Re-execute, reselect, and that comment has changed.</p>
+<p>[Video description begins] <em> He highlights and executes the modified first statement. The Script Output tab gets selected and the output displays in it. The output displays a message that reads, Comment on table employees &#39;THIS TABLE CONTAINS EMPLOYEE DATA&#39; succeeded. Then he highlights and executes the second statement. The Query Result tab gets selected and the output of the second statement displays in it. The output shows a single row table that includes COMMENTS column, which contains the value, This table contains employee data.</em> [Video description ends]</p>
+<p>And we can do the same thing for column. So we can COMMENT ON COLUMN and specify the table_name dot column. Then IS and then again, anything you want for the comment.</p>
+<p>[Video description begins] <em> He highlights the third statement that reads, COMMENT ON COLUMN EMPLOYEES.first_name IS &#39;First name of the employee, must not contain a null&#39;;.</em> [Video description ends]</p>
+<p>So let&#39;s say, must not contain nulls. Just to make a change, so we&#39;ll execute.</p>
+<p>[Video description begins] <em> He modifies the third statement. The third statement reads, COMMENT ON COLUMN EMPLOYEES.first_name IS &#39;First name of the employee, must not contain nulls&#39;;. He highlights and executes the modified third statement. The Script Output tab gets selected and a message gets displayed in the output. The message reads, Comment on column employees.first_name &#39;FIRST NAME OF THE EMPLOYEE, MUST NOT CONTAIN NULLS&#39; succeed.</em> [Video description ends]</p>
+<p>Then we can select everything from either the all_col_comments view or again, the user_col_comments view, supplying our criteria.</p>
+<p>[Video description begins] <em> He highlights and executes the fourth statement that reads, SELECT * FROM all_col_comments WHERE table_name &#61; &#39;EMPLOYEES&#39;.</em> [Video description ends]</p>
+<p>And there is the new comment.</p>
+<p>[Video description begins] <em> The Query Result tab gets selected and the output of the statement displays in it. The output contains a table. The column headers of the table includes COLUMN_NAME and COMMENTS.</em> [Video description ends]</p>
+<p>First name of the employee, must not contain nulls.</p>
+<p>[Video description begins] <em> He selects the second value of the COMMENTS column.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises, and if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

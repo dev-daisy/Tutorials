@@ -1,0 +1,378 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Using Structured Query Language (SQL)</h1><div class="section_text"><p>Explore the introductory concepts of working with Oracle Database 12c, including relational database management concepts and terminologies and Oracle Live SQL. </p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Focus Areas (it_dfosfd_01_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Features (it_dfosfd_01_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Database Management Systems (it_dfosfd_01_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Relational Databases (it_dfosfd_01_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Data Models  (it_dfosfd_01_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Querying Databases Using SQL (it_dfosfd_01_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Oracle Live SQL (it_dfosfd_01_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: SQL Developer (it_dfosfd_01_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Database Cloud Service (it_dfosfd_01_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Exercise: Work with the SQL Language (it_dfosfd_01_enus_10)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Focus Areas (it_dfosfd_01_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/be8fbcdc-530a-42c9-b517-9a07aad6ca98/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/be8fbcdc-530a-42c9-b517-9a07aad6ca98/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to list focus areas such as infrastructure grid technology, information management, application development, and infrastructure grids.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">list focus areas such as infrastructure grid technology, information management, application development, infrastructure grids</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Focus Areas. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at the four main areas of focus when implementing Oracle Database 12c beginning with information management,</p>
+<p>[Video description begins] <em> Oracle Database 12c: Focus Areas</em> [Video description ends]</p>
+<p>which provides capabilities in content management, information integration and information life cycle management areas. And you can also manage content of advanced data types such as extensible markup language or XML, text, spatial, multimedia, medical imaging, and semantic technologies using the features inherently provided by Oracle. And you can also now plug in to Oracle Cloud with Oracle Database 12c. This will help you to standardize, consolidate and automate database services in the cloud which of course can alleviate the need for on-premises infrastructure.</p>
+<p>And with Oracle Database 12c, you can manage all the major application development environment such as PL/SQL, Java and JDBC, .NET, Windows, PHP, SQL Developer, and Application Express. And finally with the infrastructure grid technology of Oracle, you can pull low cost servers and storage mechanisms to form commodity systems that deliver the highest quality of service in terms of manageability, high availability and performance. Oracle Database 12c also helps you to consolidate and extend the benefits of grid computing and manage changes in a controlled and cost effective manner. Ultimately, Oracle Database 12c serves as an integral component of your data management requirements and allows you to implement comprehensive solutions to meet the needs of your organization.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Features (it_dfosfd_01_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/b5563c26-aa68-4fe8-bcf6-efd3d234dd12/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b5563c26-aa68-4fe8-bcf6-efd3d234dd12/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to describe features such as manageability, high availability, performance, security, and information integration.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe features such as manageability, high availability, performance, security, information integration</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Features. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a closer look at some of the specific features of Oracle Database 12c that can be implemented to help meet the demands of your enterprise. These days, many organizations need to support multiple terabytes of information for users who demand fast and secure access to business applications around the clock. As such, the database systems must be reliable and must be able to recover quickly in the event of any kind of failure. For instance, the high availability features can reduce the risk of downtime and</p>
+<p>[Video description begins] <em> Oracle Database 12c</em> [Video description ends]</p>
+<p>data loss while at the same time, improving online operations and enabling faster database upgrades. In terms of manageability, features such as change assurance, management automation, and fault diagnostics features enables database administrators to increase their productivity, reduce cost and minimize errors. All while maximizing the quality of service by using components such as the database replay facility, the SQL performance analyzer, automatic SQL tuning facility, and real time database operations monitoring. In addition, the enterprise manager database express application is a web based tool for monitoring and managing Oracle databases. And this greatly simplifies the database performance diagnostics by consolidating all the relevant database performance screens into a view called Database Performance Hub.</p>
+<p>Administrators get a single consolidated view of the current real time and historical view of the database performance across multiple dimensions such as Database Load, Monitor, SQL and PL-SQL as well as active session history all on a single page for the selected time period. By using some of the performance features such as secure files and results caches, among others, you can greatly improve the performance of your database. Oracle Database 12c enables organizations to manage large, scalable, transactional, and data warehousing systems that deliver fast data access using low cost modular storage. Security is, of course, critical to any organization. And Oracle Database 12c helps with protecting your information with unique secure configurations, data encryption and masking, and sophisticated auditing capabilities.</p>
+<p>And finally, with respect to information integration, including the ability to manage the changing data, you can utilize Oracle&#39;s advanced information life cycle management capabilities to integrate and manage data throughout its life cycle in a better way. Regardless of your needs, the collective features of Oracle Database 12c can provide you with the tools necessary to manage your data as effectively and as reliably as possible.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Database Management Systems (it_dfosfd_01_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/8a989e4b-1c56-4e09-a7ed-d3e8ca0d0de1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/8a989e4b-1c56-4e09-a7ed-d3e8ca0d0de1/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to list the features of relational and object relational database management systems and how data is stored on different media.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">list the features of relational and object relational database management systems and how data is stored on different media</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Database Management Systems. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll examine the architecture of Oracle Database as a relational database management system, or RDBMS. Which can also be extended into what&#39;s known as an object RDBMS</p>
+<p>[Video description begins] <em> Relational RDBMS and Object RDBMS. Relational RDBMS is a relational model. Object RDBMS is an object relational model.</em> [Video description ends]</p>
+<p>by implementing object-oriented features such as user-defined data types, inheritance and polymorphism. Or the ability of one object to be referenced as a parent object with many child forms. This makes it possible to store complex business models that remain fully compatible with relational databases while still supporting multimedia and other large objects and databases that can take advantages of high quality server features. Now, some of the advantages provided by this architecture include</p>
+<p>[Video description begins] <em> Advantages</em> [Video description ends]</p>
+<p>improved performance and functionality, better sharing of runtime data structures, larger buffer caches, deferrable constraints. And it also provides parallel execution of insert, update, and delete operations, partitioning, and parallel-aware query optimization to provide benefits to data warehouse applications. And ultimately, this model supports client server and web-based applications that are distributed and multi-tiered, which allows for greater flexibility. So when you consider that organizations can store their data on various</p>
+<p>[Video description begins] <em> The Oracle model is referred here. Data Storage on Different Media.</em> [Video description ends]</p>
+<p>media types and in different formats, such as a hard copy document in a filing cabinet or data stored in an electronic spreadsheet, or of course, more commonly in databases. A database management system, or DBMS, is required. And a DBMS is simply a program that stores, retrieves</p>
+<p>[Video description begins] <em> A screenshot of an example of electronic spreadsheet is displayed in a tabular form. The table has four columns and eight rows. The column headers are DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID. A screenshot of an example of filing cabinet and database is displayed in a tabular form. The table has three columns and six rows. The column headers are GRADE_LEVEL, LOWEST_SAL, and HIGHEST_SAL.</em> [Video description ends]</p>
+<p>and modifies data in your database on request. And there are four main types of databases themselves, hierarchical, network, relational, and more recently, object relational. And we&#39;ll be focusing on the relational model for the bulk of this course, of course, as it remains one of the most common database implementations.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Relational Databases (it_dfosfd_01_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/b40924fc-0bd0-43c7-aba2-0cc10718d78b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b40924fc-0bd0-43c7-aba2-0cc10718d78b/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to list the features and benefits of a relational database.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">list the features and benefits of a relational database</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Relational Databases. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at the principles of the relational database model, which were originally proposed by Dr. E F Codd back in June of 1970.</p>
+<p>[Video description begins] <em> Relational Database Concept</em> [Video description ends]</p>
+<p>Now, at the time, the more commonly used models were hierarchical and network databases, or even simple flat-file structures. The relational database management systems, or again, an RDBMS, soon became very popular, especially for their ease of use and flexibility. And this proposal quickly became the basis of the modern RDBMS implementation. In addition, a number of innovators, such as Oracle, supplemented the RDBMS with a suite of powerful application development and user interface products, thereby providing a much more comprehensive solution. Now, the components of the relational model include collections of objects or relations that store the data, a set of operators that can act on those relations, and various data integrity mechanisms for accuracy and consistency. And we&#39;ll see several examples of all of these as we move through the course. But at its core, the relational database is a collection of</p>
+<p>[Video description begins] <em> Definition of a Relational Database</em> [Video description ends]</p>
+<p>two-dimensional tables, so we have columns and rows. And everything is controlled by the Oracle Server to store and manage that data effectively and efficiently. So every organization has information that it must store and manage to meet its requirements. So consider one that might want to store information about their employees. You can create several tables to store different pieces of information about your employees, such as an employees table, and perhaps a departments table, in this example. But before storing any of that information in the database, you need to design</p>
+<p>[Video description begins] <em> The screenshots of EMPLOYEES and DEPARTMENTS tables are displayed. The EMPLOYEES table has four columns and several rows. The column headers are EMPLOYEE_ID, FIRST_NAME, LAST_NAME, and EMAIL. The DEPARTMENTS table has three columns and several rows. The column headers are DEPARTMENT_ID, DEPARTMENT_NAME, and MANGER_ID.</em> [Video description ends]</p>
+<p>a model of how and what data will be stored in each of these tables. So before we get into the detailed structure,</p>
+<p>[Video description begins] <em> Relational Database Terminology. A screenshot of a table is displayed. The table has six columns and several rows. The column headers are EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY, COMMISSION_PCT, and DEPARTMENT_ID.</em> [Video description ends]</p>
+<p>let&#39;s just take a look at some of the terminology. And it really does begin with the table. This is the basic storage structure of an RDBMS. A table holds all of the data necessary about something in the real world, such as employees, sales, or maybe customers. So in this example, we see an employees table. So with respect to the terminology, the numbers indicate the following. Number 1 is a single row or a record, sometimes referred to as a tuple. And this represents all the data required for a particular employee.</p>
+<p>[Video description begins] <em> A row is highlighted and marked as 1. Its row entries are 201, Michael, Hartstein, 13000, (null), and 20 respectively.</em> [Video description ends]</p>
+<p>Now, the order of the rows is irrelevant. When you retrieve the records out of the table, you can specify the order however you like. So it doesn&#39;t really matter how they are stored going into the table. Number 2 is a column or an attribute designated as the primary key, which identifies a unique employee in the employees table. In this example, the EMPLOYEE number column is the primary key,</p>
+<p>[Video description begins] <em> The EMPLOYEE_ID column is highlighted and marked as 2.</em> [Video description ends]</p>
+<p>and it must also contain some kind of value. In other words, you can&#39;t leave it blank. And again, every employee should have a unique ID. You should never see the same value twice. Now, number 3 is any column that is not a key value. So we just talked about the primary key value.</p>
+<p>[Video description begins] <em> The SALARY column is highlighted and marked as 3.</em> [Video description ends]</p>
+<p>So in this case, number 3, the SALARY column, is just any other column. But of course, it contains data that describes something about that particular employee. So of course, we see the appropriate salary for each employee in that column. Number 4 is a column or attribute designated as the foreign key. Now, a foreign key is a column that defines how tables relate to each other.</p>
+<p>[Video description begins] <em> The DEPARTMENT_ID column is highlighted and marked as 4.</em> [Video description ends]</p>
+<p>A foreign key refers back to a primary key or a unique key in the same or in another table. So in this example, DEPARTMENT_ID relates back to the departments table. And it identifies the value, of course, for the department for this particular employee, the department to which they have been assigned. Now, not every table requires a foreign key, but most tables have them. So again, the relationship here is that any single department will have multiple employees. So you can see duplicate values in the DEPARTMENT_ID column. For example, we see department 50 several times, and that&#39;s perfectly fine.</p>
+<p>But if you look at any single employee, you can always find the specific department, again, to which they have been assigned. And that value can change, of course, because people might get transferred to different departments, that&#39;s usually fine. But the unique value of the department ID itself in the departments table should remain consistent. In other words, you should not change the ID of the sales department, for example, that should remain consistent. Now, numbers 5 and 6 are both referred to as fields or values. It&#39;s just whether or not there is a value.</p>
+<p>[Video description begins] <em> Under the DEPARTMENT_ID, the value 60 is highlighted and is marked as 5. Under the COMMISSION_PCT, the value (null) is highlighted and marked as 6.</em> [Video description ends]</p>
+<p>So number 5 is simply the intersection of the row and the column, and it must contain only a single value. So again, looking at the example for number 5, that represents the single department for employee number 104. So again, clearly, there should not be two departments assigned to that single employee. And then number 6 is still just a value or a field, but sometimes there is no applicable value. In this case, the commission percentage is only applicable to employees who are sales people. They get a commission, other employees do not. Therefore, there is no applicable value for people who aren&#39;t sales people. So it&#39;s referred to as a null, and it simply means that there is nothing there. It&#39;s not zero, it&#39;s not an empty string of characters, it literally is just nothing. And it&#39;s perfectly fine, in many cases, to have a null in any given column. But in some cases, you can&#39;t have nulls. Recall, the primary key value, for example, is not allowed to be left blank. So you cannot have a null in a primary key column, but just about any other column can contain a null. So again, those are just some of the terms when it comes to working with tables in a relational database management system.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Data Models  (it_dfosfd_01_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/b41aef01-03f2-4bbc-a737-7f86193c9bf2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b41aef01-03f2-4bbc-a737-7f86193c9bf2/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe the purpose of data models.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the purpose of data models</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Data Models. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this presentation, we&#39;ll introduce some of the basic design aspects of creating a database. And while this will just be an overview, this really is one of the most important aspects of designing a database. Because you can&#39;t build anything strong on a weak foundation. So like anything that needs to be designed,</p>
+<p>[Video description begins] <em> Data Models</em> [Video description ends]</p>
+<p>it begins with an idea in someone&#39;s mind. They have a general idea of what it is that needs to be stored but</p>
+<p>[Video description begins] <em> Here the idea of the model of system in client&#39;s mind is referred.</em> [Video description ends]</p>
+<p>that needs to be fleshed out and refined. So from that point where it really is just an idea, you&#39;re trying to determine what&#39;s known as an entity model of that client&#39;s model. And I will tell you right away that an entity ultimately will be implemented as a table. But at this point, you don&#39;t need to be particularly concerned with what is in the table, just which tables you will have, and how they relate to one another. So that&#39;s your entity model. From that point, you do refine, again a little bit more, and you create a table model. So now, we do consider which columns will be in the table and again, of course how they relate to one another. And then ultimately, this will be implemented on the server. This is where you can actually create the database on the Oracle server. So in terms of modeling, the entity relationship model allows you to create</p>
+<p>[Video description begins] <em> Entity Relationship Model</em> [Video description ends]</p>
+<p>these relationships for your specific business needs. And again, you do consider, to a degree, some of the columns of a table at this point. But it&#39;s more so what the tables are, how they relate to one another and, yes, maybe some basic columns. But we aren&#39;t really concerned with actually creating anything on a server at this point. This could all be done with just pen and paper. Now, there is software that you can use for this as well. But it really doesn&#39;t matter what you use. This is just diagramming, it&#39;s just a model. So we&#39;ll talk about some of the conventions that you see here in this example in a moment. But in terms of the relationship model, if we look at the scenarios down below, this is just a plain English statement of how things work. So the scenario is that you can assign one or more employees to a department. Some departments do not yet have any assigned employees. So you&#39;re taking that into consideration. But again, you don&#39;t need to worry about what the records themselves will look like at this point. But again, employees are assigned to a department.</p>
+<p>[Video description begins] <em> An entity relationship diagram between EMPLOYEE and DEPARTMENT is displayed. The EMPLOYEE and DEPARTMENT are connected via a dashed line.</em> [Video description ends]</p>
+<p>A department is composed of employees. That&#39;s the nature of the relationship. Now, I will also tell you on the employee side of that dashed line, you see what&#39;s known as a crow&#39;s foot, meaning that it splits off. There are multiple employees, if you will, that are assigned to a single department. That&#39;s why it&#39;s just the dashed line on the department side. And that&#39;s actually what&#39;s known as a one too many relationship or you might also hear a many to one, but that&#39;s the same thing. Many employees are assigned to a single department. Any single department is composed of many employees. So again, that&#39;s the nature of those scenarios, expressed as a relationship. So some of the key components include the entity.</p>
+<p>[Video description begins] <em> Key Components</em> [Video description ends]</p>
+<p>And this is an aspect of significance about which information must be known. For example, departments, employees, and orders are entities. And again, these do end up being your tables. But at a more basic level, entities are nouns, people, places, and things. So you need to know things about these entities, the nouns. Well, in that case you use attributes. And sticking with the grammatical analogy here, if an attribute describes or qualifies the entity, then an attribute is an adjective. For example, the employee entity would have attributes such as the employee number, their name, the job title, the hire date, the department number and so on. Now, they are simply describing any single employee.</p>
+<p>Now, each of those attributes is either required or optional and this is known as optionality. Sometimes, you just don&#39;t have an appropriate value for that attribute. That&#39;s fine, you just have to indicate when that is the case. And finally, the relationship, this is a named association between entities showing optionality and degree. For example, an employee assigned to a department is the relationship between the employee and the department entities. You take an employee and you assign them to a department. That&#39;s the relationship. So looking a little more closely at some of those conventions,</p>
+<p>[Video description begins] <em> Entity Relationship Modeling Conventions</em> [Video description ends]</p>
+<p>for the entity, it&#39;s typically expressed as a singular unique name. Now, that&#39;s not necessary. And in fact, the diagram might say employee when we see the actual table, it&#39;s actually called employees. That&#39;s up to you but it&#39;s common to use a singular name. But it certainly should be unique, in uppercase to simply identify that this is an entity. And the soft box again, just means that there&#39;s no column or rows outlined here. We&#39;re just including everything in the box. And optionally, you can have a synonym in parentheses. For example, employees might also be referred to as staff or personnel. Again, that&#39;s entirely up to you. Then the attribute is typically also a singular name, but written in lowercase. And then mandatory attributes are marked with an asterisk. And optional are marked with an O. And again, we see the nature of the relationship between them still there. But that&#39;s how you translate what&#39;s in the diagram. Now, we also see the unique identifiers marked with a pound sign</p>
+<p>[Video description begins] <em> An entity relationship diagram between EMPLOYEE and DEPARTMENT is displayed. The EMPLOYEE and DEPARTMENT are connected via a dashed line. Many-to-one relationship exists between EMPLOYEE and DEPARTMENT. The EMPLOYEE contains the number, name, and job title attributes. The number is marked as primary and mandatory. The name is marked as mandatory. The job title is marked as optional. The DEPARTMENT contains the number, name, and location attributes. The number is marked as primary and mandatory. The name is marked as mandatory. The location is marked as optional. The text Unique Identifier (UID), Primary marked with &#34;#&#34;, and Secondary marked with &#34;(#)&#34; is displayed. It points to EMPLOYEE and DEPARTMENT.</em> [Video description ends]</p>
+<p>or a number sign and this is what&#39;s known as the primary key. And note that the primary key is always mandatory. Now, sometimes you might see a secondary value for the primary key, that&#39;s fine. And basically, what that means is that there can be instances where a single value is not enough to guarantee uniqueness of the record. So you include another column. We&#39;ll see examples of that a little bit later on. But it is perfectly fine to have more than one column acting as the primary key. So then when you have to relate your tables together,</p>
+<p>[Video description begins] <em> Relating Multiple Tables</em> [Video description ends]</p>
+<p>it certainly involves the primary key. But the primary key is responsible for just uniquely identifying each row in its own table. So again, for the EMPLOYEES table, and note the plural name here, Employee ID</p>
+<p>[Video description begins] <em> The screenshots of EMPLOYEES and DEPARTMENTS tables are displayed. The EMPLOYEES table has four columns and nine rows. The column headers are EMPLOYEE_ID, FIRST_NAME, LAST_NAME, and DEPARTMENT_ID. The DEPARTMENTS table has four columns and eight rows. The column headers are DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>is the primary key for that table, uniquely identifying each employee. For the DEPARTMENTS table, the Department ID uniquely identifies each department. So the relationship is established on the Foreign key. The Foreign key is simply a primary key from another table. So Department ID is included in the EMPLOYEES table. And it relates back to indicate the department to which this particular employee has been assigned. So it&#39;s perfectly fine to see duplicate values in a Foreign key column. And again, that&#39;s the nature of the relationship. Multiple employees work in the same department. So we see 90, 60, and 50 three times each in this simple example. But again, that&#39;s perfectly fine.</p>
+<p>[Video description begins] <em> In the EMPLOYEES table, he refers to the values under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>That&#39;s multiple employees working in the same department. That&#39;s the nature of the relationship. So finally, some guidelines for Primary Keys and Foreign Keys,</p>
+<p>[Video description begins] <em> Guidelines for Primary Keys and Foreign Keys</em> [Video description ends]</p>
+<p>you cannot use a duplicate value in a Primary Key column. So every employee should be unique. Each department should be unique. Primary keys generally cannot be changed. Now, it&#39;s not quite that rigid. You might decide to change the structure of what the primary key is. Instead of just going with one, two, three, four, five maybe you are going to change it to be some sort of social security number or social insurance number. That&#39;s fine, you can do that, but generally they are very static. What you would not do is change employee number one to employee number two. They really should remain employee number one. Foreign keys are based on data values and are purely logical, not physical pointers. It&#39;s just a value that references back to an already existing value. But that&#39;s a key aspect. It must match an existing primary key or another unique key value, otherwise it must be null. In other words, I cannot take an employee and assign them to a department that does not exist. The department has to be there, has to be a valid value or I have to leave it blank, okay.</p>
+<p>So the foreign key must reference either a primary key or a unique key. It doesn&#39;t always necessarily have to be the primary key. But I will tell you that it is by far the most common scenario. But it can point back to any other unique value in the column. Again, coming back to using something like the social security number of an employee, that might not be the primary key. But it is unique. So you could actually refer back to the employee in a foreign key by referencing the social security number as long as it&#39;s being stored, okay? That is acceptable. But it does have to be unique. And again, by far it is most commonly associated to the primary key value. Okay, so a lot of steps there in terms of the design but that&#39;s where you really need to focus your attention when you are trying to model this out. Because as mentioned, an improper foundation will not allow you to build a very functional database.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Querying Databases Using SQL (it_dfosfd_01_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/3de03a6f-3152-43f6-8cce-0b0fb2e15e88/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3de03a6f-3152-43f6-8cce-0b0fb2e15e88/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use SQL to query a database.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use SQL to query a database</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Querying Databases Using SQL. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce using SQL or Sequel to query your database, beginning with what it is.</p>
+<p>[Video description begins] <em> Using SQL to Query Your Database</em> [Video description ends]</p>
+<p>An SQL quite simply stands for structured query language. And this is an ANSI standard language for operating in relational database environments. Now, ANSI is the American National Standards Institute, and they have simply defined a standardization for this language. It&#39;s very efficient, easy to learn and use and it&#39;s functionally complete. In other words, you don&#39;t need any other languages when working with relational databases. You can define, retrieve, and manipulate data in your tables and various other objects all with SQL. So we see one very simple example here of a query or in other words retrieving information. You use the SELECT statement, and then you specify a column or columns that you want to see from a particular table or again tables. We&#39;ll get to that later, but in this case,</p>
+<p>[Video description begins] <em> The following query is displayed: SELECT department_name FROM departments;.</em> [Video description ends]</p>
+<p>what you are doing is quite simply describing what it is you want to see, and this is what&#39;s known as a declarative language. In other words, you do not need to instruct the Oracle server, as to how to obtain that information. You simply describe what it is you want, and the Oracle server is responsible for producing that information. When you are going to passing instructions per se, that&#39;s referred to as a procedural language. And you are quite literally instructing the server do this, do this, do this. SQL does not use that approach. You simply describe what you want, and its up to the Oracle server to produce the results. Now, SQL provides statements for a variety of tasks, not just selecting data, but we did just see that.</p>
+<p>Querying data is always select, show me this information. But it can also be used for inserting, updating and deleting rows in a table. Creating, replacing, altering and dropping objects, such as a table itself. Controlling access to the database and its objects, in other words permissions. And also for guaranteeing database consistency and integrity so that once a value is entered it remains that way. And regardless of how many times it appears perhaps in other tables through references, it always points back to the same original object. So that&#39;s the consistency of a value. So looking at how SQL works, it is again a standalone language and</p>
+<p>[Video description begins] <em> How SQL Works?</em> [Video description ends]</p>
+<p>it&#39;s very powerful. You don&#39;t need any other language to work in a relational database environment, and it can process very large groups or sets of data. It could just be a single record but there&#39;s no real limit on the size of the data set that is manipulated. And it lets you work with data at a logical level, in other words, the physical underlying structure of how the data is actually stored really doesn&#39;t matter. We can present the information however we want, we can work with it however we want. And we can manipulate it in any manner, again, regardless of the underlying physical structure. Now, all SQL statements are categorized</p>
+<p>[Video description begins] <em> SQL Statements Used in the Course</em> [Video description ends]</p>
+<p>and in this course, we&#39;ll refer to those categories as DML, DDL, and DCL statements, and then finally transaction control. And DML is data manipulation language, and these include the select statements, inserts, updates, deletes, and merges. You are always directly manipulating the data with these statements. DDL is to create or alter or drop, rename,</p>
+<p>[Video description begins] <em> The term DDL stands for data definition language.</em> [Video description ends]</p>
+<p>truncate, or comment an entire object. So a table for example, you would create a table, you might alter that table, you might drop it to remove it, those are DDL. And then DCL are for the permissions. You can grant a permission to someone or you can then revoke that permission.</p>
+<p>[Video description begins] <em> The term DCL stands for data control language.</em> [Video description ends]</p>
+<p>Transaction control allows you to commit a change to the data base, which ensures that it is written. Or if some kind of problem or error occurs, you can roll it back, and it essentially never happened. A saved point is a specific saved point within your transaction where you can roll back to. In other words, some of it may have completed successfully and you want that to commit, but then an error occurred after the saved point. You could then roll back to the saved point ensuring that the error goes away, but the statements that completed successfully are then committed. Now, there are two main development environments that we&#39;ll see in this course.</p>
+<p>[Video description begins] <em> Development Environments for SQL</em> [Video description ends]</p>
+<p>The primary tool is the Oracle SQL Developer. And this is a very graphic interface whereby you can assemble and execute your SQL statements. And you can also browse the objects of the database over on the left-hand side. But you can also use the SQL*Plus command line interface. And this allows you to issue SQL statements directly from a terminal, or shell, or a command prompt depending on the term you like. But it simply does not require anything to be installed on that system. You</p>
+<p>[Video description begins] <em> The screenshots of the Oracle SQL Developer and SQL*Plus windows are displayed.</em> [Video description ends]</p>
+<p>can directly connect to the database and issue your statements from within the terminal. We&#39;ll primarily focus on using the SQL developer application in this course.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Oracle Live SQL (it_dfosfd_01_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/ceae9900-adb4-4626-8986-cfff3ae0483f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ceae9900-adb4-4626-8986-cfff3ae0483f/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to provide an introduction on Oracle Live SQL.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">provide an introduction on Oracle Live SQL</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Oracle Live SQL. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce Oracle Live SQL, which is an easy way to learn, access, test,</p>
+<p>[Video description begins] <em> Introduction to Oracle Live SQL</em> [Video description ends]</p>
+<p>and share SQL and PL/SQL scripts on Oracle Database. And essentially, this is just a service that they offer for free. You can just sign up, and it essentially allows you to just get in there and start coding against a sample database. So it quite literally is an online learning environment that anyone can use. You can see that there are links there to start coding now</p>
+<p>[Video description begins] <em> A screenshot of the ORACLE Live SQL sign in page is displayed. It includes the Start Coding Now and View Scripts and Tutorials buttons.</em> [Video description ends]</p>
+<p>or to view scripts and tutorials. But it&#39;s just instant access to an Oracle Database that you can use to learn from. It has a browser-based SQL worksheet that</p>
+<p>[Video description begins] <em> Features</em> [Video description ends]</p>
+<p>is able to access an Oracle Database schema. So essentially what you do not need is a local installation of something like SQL developer. As long as you have a browser, you can access the database and you can start submitting code and essentially learn how to navigate around an Oracle Database schema. It has the ability to save and share SQL scripts. It provides a schema browser to view and extend database objects so that it&#39;s not just a matter of seeing what&#39;s there, you can actually work with it and create new objects. And it provides access to interactive educational tutorials, as well as customized data access examples for PL/SQL, Java, PHP, and C. So again, it really is just an online learning environment. Anyone can use it. It&#39;s accessible entirely through a browser, and again, gives you an actual database schema to work with. So you can test your scripts and verify that they work before you actually attempt to implement anything in production. So it&#39;s a very good feature to use, particularly if you are fairly new to working in an Oracle environment.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: SQL Developer (it_dfosfd_01_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/53694c3b-68f1-444e-af6e-90077076f0be/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/53694c3b-68f1-444e-af6e-90077076f0be/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to provide an overview of SQL Developer.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">provide an overview of SQL Developer</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: SQL Developer. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, since it&#39;s the primary development environment of this course, in this presentation we&#39;ll take a closer look at the Oracle SQL Developer application. Which again, is just a graphical tool that enhances productivity</p>
+<p>[Video description begins] <em> What Is Oracle SQL Developer?</em> [Video description ends]</p>
+<p>and simplifies database development tasks. Using it, you can connect to any target Oracle Database schema by using standard Oracle Database authentication. In other words, as long as your identity has the necessary permissions to connect to that database, then you can make that connection and get in there and start interacting with the database. Now, in terms of its specifications, it&#39;s shipped along with Oracle Database 12c</p>
+<p>[Video description begins] <em> Specifications of SQL Developer</em> [Video description ends]</p>
+<p>Release 1, so it&#39;s typically always installed on the database server itself. Although it actually doesn&#39;t have to be. You can install the application itself on any system and then make remote connections. But it is developed in Java, but it supports Windows, Linux, and Mac OS X platforms. And this enables default connectivity using the JDBC, or Java Database Connectivity Thin driver, and connects to any Oracle Database version 9.2.0.1 and later. So here we see an example of the interface.</p>
+<p>[Video description begins] <em> SQL Developer 3.2 Interface. A screenshot of the Oracle SQL Developer window is displayed. It is divided into two sections. The first section is divided into two subsections. The first subsection is titled as Connections. It includes the Connections and Cloud Connections connections. The second subsection is titled as Reports. It contains the navigation pane. The second section is the content pane. The Start Page tab is open in the content pane. The names of the first and second subsections, which are Connections and Reports respectively are highlighted. The Connections connection is also highlighted and it points to the text You must define a connection to start using SQL Developer for running SQL queries on a database schema.</em> [Video description ends]</p>
+<p>So once you launch it, the first thing you need to do is establish a connection. Now, you have to define these yourself. But really, you just need the basic property such as the server to which you are wanting to connect, the database schema on that server, and of course, the necessary permissions so the identity that is able to establish a connection. Now, you can create multiple connections and they will all remain active until you remove them. But any connection that you do create will stay there. So that when you launch the interface the next time using that same identity, all of your connections will still remain. And you can work within any of them at any given time. There&#39;s no real limit on the number of connections. So of course, we&#39;ll see examples of using the Oracle SQL Developer interface as we move through our demonstrations. But this will be the primary development environment when working with your Oracle Databases.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Database Cloud Service (it_dfosfd_01_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/048e3be7-a297-433e-a058-f204bb425275/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/048e3be7-a297-433e-a058-f204bb425275/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe the cloud database service.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the database cloud service</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Database Cloud Service. The presenter is Aaron Sampson. Introduction to Oracle Cloud.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce the Oracle Cloud, which allows any business to use the enterprise resources in the Cloud provided by Oracle. Now, you may already have a significant level of infrastructure in your on-premises environment. And of course that&#39;s fine, but let&#39;s imagine you need to do a significant expansion and you are already taxing the limits of your current infrastructure. So in that case, you effectively have two choices. You can get more infrastructure, or you can just subscribe to those services from Oracle and use their infrastructure. Now, you can access this at cloud.oracle.com. But it offers features such as a measured service, meaning that you only pay for what you use, or perhaps more accurately, you don&#39;t pay for what you don&#39;t use.</p>
+<p>It offers very rapid elasticity. Changes can be made at any point in time, really without any concern for uptime or downtime. It is on-demand and self service. You do not need to submit any requests to Oracle to create anything for you. You decide what you want and when you want it. You build it yourself. It has broad network access. Essentially, as long as you have internet access, you have access to the Cloud. And it also offers resource pooling, whereby I can have a collection of databases that simply draw from a pool of resources. Rather than having to statically specify the resources that are available to this particular database. So if one instance of a database needs more, it can simply draw from the pool. And if one needs less, it can essentially give up access to those resources and return it back to the pool. Now, when you subscribe to these Cloud services,</p>
+<p>[Video description begins] <em> Oracle Cloud Services</em> [Video description ends]</p>
+<p>there are three basic types known as Software as a Service or SaaS, Platform as a Service or PaaS, and Infrastructure as a Service or IaaS. Now, I&#39;ll begin at the bottom. Infrastructure means that you want a significant degree of control over not just the databases but the servers themselves. So you&#39;ll get in there and you&#39;ll create the virtual machines. You&#39;ll define their specifications and even the operating system configuration. So you have a very high degree of control when using IaaS. But there is also a higher degree of overhead. Because not only do you define what those virtual machines look like but you also must maintain them on a day to day basis. So again, you create the virtual machine from scratch. You handle the installation of Oracle and the creation of all the databases, and you manage every other aspect of those virtual machines. So it&#39;s really not much different than your own on-premises configuration. It&#39;s really just the location that&#39;s different. Now, let&#39;s go all the way to the opposite end of the scale or contrast. Software as a Service essentially says, I don&#39;t want to deal with infrastructure at all. I just want to get in there and define databases.</p>
+<p>Let Oracle handle the servers. I just want to define the structure of the database and access that database from my local installation of something like Oracle SQL Developer. And let Oracle themselves worry about all of the infrastructure. So Platform as a Service is somewhere in between. You might decide that you want to define some of the characteristics of the servers and some of the software and the applications that might also be available to you. But you generally do not want to deal with the day to day maintenance. So I don&#39;t want to have to establish remote connections into those virtual machines to manage them on a daily basis. I just want to define their initial configuration and then let Oracle worry about the day to day maintenance. So again, it&#39;s really up to you, of course, with respect to what level you want. But it really comes down to the amount of control and overhead versus the lack of control and overhead that you feel is going to best suit your needs. Now, with respect to just overall cloud deployments,</p>
+<p>[Video description begins] <em> Cloud Deployment Models</em> [Video description ends]</p>
+<p>there are three basic models that you see here, a public cloud, a community cloud, and a private cloud. And the public is pretty much exactly as its name indicates. Anyone can subscribe to public cloud services. You can subscribe, I can subscribe, everyone can go in and create their own subscriptions and we don&#39;t interfere with each other. As far as I&#39;m concerned, I&#39;m the only tenant of that cloud. Again, if we look at the exact opposite end, the private cloud is just for your organization. That&#39;s common in scenarios where you have perhaps a headquarters or a primary data center where most if not all of the infrastructure resides. Then you might have smaller branch offices with very minimal infrastructure. So they can subscribe to the services of your infrastructure, the headquarters. But it&#39;s all maintained internally, the general public does not have access. A community cloud is perhaps a little bit in between.</p>
+<p>Maybe there&#39;s you and some kind of business partner, or a vendor, or a supplier, or a set of clients that you do deal with all the time. And you are essentially sharing resources among that group. That is essentially the community cloud, so it&#39;s a little more public than private, but not fully public. And then a hybrid cloud is simply a combination of any of those, typically public and private. So again, I&#39;ve already got my private cloud, but maybe again I need to expand, I need additional infrastructure. Well, maybe we don&#39;t have it, so we can simply top things off, if you will, by using public Cloud services. And again, this model is whatever you feel suits your needs the best. But of those, certainly the public cloud would probably be the more common, but really it&#39;s the same type of structure in all three cases. You are just subscribing to the services of someone else because they have the infrastructure that you need.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Exercise: Work with the SQL Language (it_dfosfd_01_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/42c7ab28-0ce5-486d-bd42-4b35621329a9/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/42c7ab28-0ce5-486d-bd42-4b35621329a9/image001.jpg')();" /><div class="section_text">In this video, learn how to use the SQL language.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">work with the SQL language</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Work with the SQL Language. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, at the end of each course we&#39;ll ask you to perform some exercises whereby it will either be some questions or some specific tasks to perform. And we&#39;d like you to attempt them on your own based on what you&#39;ve learned. And then we&#39;ll come back and review to look at some possible solutions. So in this exercise, we&#39;ll ask you to describe features of Oracle 12c. To describe the purpose of data models, then to describe the types or categories of SQL statements. Then to list the three types of services provided by Oracle Cloud, and finally to describe the Oracle SQL Developer application. So, in this case, there are no particular tasks so you can just jot down some responses. And again, we&#39;ll come back later to review some possible answers. So take a moment, perform the exercises, pause the recording, and then we&#39;ll see you shortly to review some of the answers. Okay, so our first question was to list the features of Oracle Database 12c.</p>
+<p>[Video description begins] <em> Oracle Database 12c. Solution.</em> [Video description ends]</p>
+<p>And to quickly recap, they include high availability, or fault tolerance. High performance, very good security, information integration and manageability. Then we asked about data models,</p>
+<p>[Video description begins] <em> Data Models</em> [Video description ends]</p>
+<p>and this begins with having an idea in your mind. This is then developed into an entity model that tables in how they relate to each other. Which is then developed into an actual tabular model where we identify the columns. And finally it is implemented on the server. And again, this is a very important aspect of developing the database. Because you need to ensure that you have a good foundation before you attempt to build anything on that foundation. Then we asked about the SQL statements in terms of their categories or types.</p>
+<p>[Video description begins] <em> SQL Statements Used in the Course</em> [Video description ends]</p>
+<p>And they include DML for data manipulation language, DDL for data definition language, and DCL for data control language. And then also transaction control, and we see the specific examples of each type. Now, you don&#39;t ever have to specify what type of statement you are using,</p>
+<p>[Video description begins] <em> The examples of DML are SELECT, INSERT, UPDATE, DELETE, and MERGE statements. The examples of DDL are CREATE, ALTER, DROP, RENAME, TRUNCATE, and COMMENT statements. The examples of DCL are GRANT and REVOKE statements. The examples of transaction control are COMMIT, ROLLBACK, and SAVEPOINT statements.</em> [Video description ends]</p>
+<p>you just issue the statement itself. But those categories help to determine what it is you are actually doing when you issue them in the first place. Then we asked about the types of services provided by Oracle Cloud.</p>
+<p>[Video description begins] <em> Oracle Cloud Services</em> [Video description ends]</p>
+<p>And they include Software as a Service, Platform as a Service and Infrastructure as a Service. And again, it really comes down to how much control you want and how much overhead you want. Infrastructure as a Service involves the virtual machines themselves, right down to the operating system. And all of the software, and all of the services running on them. That gives you very high control, but there is a lot of overhead associated with it. Software as a Service is the exact opposite. Essentially no virtual machines, you just focus on the application. And Platform is somewhere in between. A little bit of control over the virtual machines, at least in terms of their configuration, but no real day-to-day overhead. And then we asked what is the Oracle SQL Developer as our final question.</p>
+<p>[Video description begins] <em> What Is Oracle SQL Developer?</em> [Video description ends]</p>
+<p>And this is quite simply the graphical tool that enhances productivity and simplifies database development tasks. You can use it to connect to any target Oracle Database schema by using standard Oracle Database authentication. It just allows you to browse the database objects. As well as issue all of the statements against that database so you can perform your general day-to-day tasks. So hopefully you made out all right with those review questions, and if so, we will move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

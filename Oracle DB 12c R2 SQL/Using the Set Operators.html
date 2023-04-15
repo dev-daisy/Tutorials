@@ -1,0 +1,425 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Using the Set Operators  </h1><div class="section_text"><p>Discover how to write SQL queries by using set operators.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Types of Set Operators (it_dfosfd_06_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Oracle Server and Set Operators (it_dfosfd_06_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: UNION and UNION ALL Operators (it_dfosfd_06_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: INTERSECT Operator (it_dfosfd_06_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: MINUS Operator (it_dfosfd_06_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Matching SELECT Statements (it_dfosfd_06_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Using the ORDER BY Clause in Set Operations (it_dfosfd_06_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Exercise: Combine Multiple Queries (it_dfosfd_06_enus_08)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Types of Set Operators (it_dfosfd_06_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/772b8f03-928e-4d01-9ba1-60a2e1b549cf/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/772b8f03-928e-4d01-9ba1-60a2e1b549cf/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe the types of set operators and their guidelines.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the types of set operators and their associated guidelines</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Types of Set Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce the concept of working with set operators. And these are similar to using joins in that you can operate with two tables and create a single result set. And it&#39;s not just two, you can have more than two.</p>
+<p>[Video description begins] Four venn diagrams are displayed. The first venn diagram represents UNION. The second venn diagram represents UNION ALL. The third venn diagram represents INTERSECT. The fourth diagram represents MINUS. [Video description ends]</p>
+<p>But for the sake of argument, if you were working with two, you can create a single result set. But you don&#39;t need to actually use a join. In fact, what you do is you just combine SELECT statements. So one SELECT statement can retrieve a certain amount of records. Then you can combine that set with the results of another SELECT statement. So again, that&#39;s different from a join. There&#39;s only one SELECT statement with a join. But the typical scenario where you find sets is if you consider something like an orders table or something that tracks sales. Over time, if you were to track every sale, it could get very large. So what you can do is to divide it up into smaller units that maybe use something like the year as the dividing mechanism.</p>
+<p>So in other words, sales for 2014, then another set for sales for 2015, sales for 2016, 2017 and so on. So this is essentially creating structurally identical tables. It&#39;s just the records that vary in each table, but you&#39;ve got the exact same columns and the exact same data types in each column. That&#39;s typically more so where you find the set operators. This is generally done so that the current sales for this year is just a smaller table. This is the one that&#39;s most heavily used. We write the new records to that table. We query the previous sales for just last week or last month from this table. But we don&#39;t really refer back to the historical sales all that often. You certainly still can, but most of your attention is focused on the current table. So you might still want to create queries that retrieve records from multiple sets. Maybe I want to query the current year sales and last year&#39;s to see how they compare to each other.</p>
+<p>So I don&#39;t really need a join in this case because the two tables, again, are structurally identical. So I can create a SELECT statement that would retrieve records from last year&#39;s sales. And another SELECT statement that would retrieve records from the current year&#39;s sales and simply put them together. So that&#39;s the UNION statement that you see in the first example.</p>
+<p>[Video description begins] <em> In the first venn diagram, that is, UNION, there are two circles overlapping each other, circle A and circle B, and there are no duplicate records.</em> [Video description ends]</p>
+<p>The two sets are queried separately but the results are unioned together. So I would select from set A, and then union that with set B, and I get a single result set. Now, the UNION ALL by itself is what you see on the left side, whereby it&#39;s all of the records from set A and set B without any duplicates, okay? Now, if we&#39;re talking about sales divided up by year, there really shouldn&#39;t be a duplicate, okay? I should not see any given sale showing up in two tables if they&#39;re divided by year. But that&#39;s certainly not the only scenario. So in some cases, there may be duplicates. </p>
+<p>If that is the case, the UNION will remove the duplicates, the UNION ALL includes the duplicates. So sometimes you just might want to see, are there any duplicates? If so, the UNION ALL will return them.</p>
+<p>[Video description begins] <em> In the second venn diagram, that is, UNION ALL, there are two circles overlapping each other, circle A and circle B, and the duplicate records are included.</em> [Video description ends]</p>
+<p>Now the INTERSECT is essentially the opposite of the UNION. Where a UNION removes duplicates, INTERSECT highlights them, if you will. So if we look at the overlap section, that&#39;s what gets returned with an INTERSECT. So the individual records of each set that do not duplicate are not returned, it&#39;s only the duplicates.</p>
+<p>[Video description begins] <em> In the third venn diagram, that is, INTERSECT, there are two circles overlapping each other, circle A and circle B, and the overlapped or common section is the INTERSECT. It includes only the duplicate records, and all unique records are removed.</em> [Video description ends]</p>
+<p>And the last opinion, the MINUS, will only retrieve records from the A side, okay? Nothing comes back from the B side. But you get the records from the A side minus any duplicates that may appear on the B.</p>
+<p>[Video description begins] <em> In the fourth venn diagram, that is, MINUS, there are two circles overlapping each other, circle A and circle B. Only circle A&#39;s records are included and the records that are common in both circle A and circle B and the records that are unique to circle B are excluded.</em> [Video description ends]</p>
+<p>So let&#39;s just say there were originally 100 records on the A side, but 10 of them duplicated on the B side. Then you would only get 90 records back from the A side. But again, a MINUS never returns anything from the B side. So it all comes down to what you are looking for. But again you can work with these two separate sets without having to use joins.</p>
+<p>[Video description begins] <em> Set Operator Rules.</em> [Video description ends]</p>
+<p>Now, there are some rules that have to be followed. The expressions in each SELECT list, we call that a union, is SELECT statement one unioned together with SELECT statement two, and that&#39;s true for the INTERSECT and the MINUS. So the number of columns and or the number of expressions that you create must match. You can&#39;t select two columns from the first set and three from the second. The data type of each column in the subsequent query must match the data type of its corresponding column in the first query. They essentially line up, if you will. So the first column you select in the first SELECT statement will line up with the first column of the second SELECT statement.</p>
+<p>So their data types have to match. Now again, they don&#39;t have to be exact matches in every case. Recall that Oracle is capable of performing things like implicit conversions. But let&#39;s just at least call them compatible. You can use parentheses to alter the sequence of execution if necessary. But since there are two separate SELECT statements, if you use an ORDER BY clause, it can only appear at the very end of the statement. You can&#39;t have two ORDER BYs when working with your set operators. Okay, so we&#39;ll see examples, of course, of each of these. And we&#39;ll see how they are implemented and what the circumstances generally are. But again, they allow you to simply combine record sets from more than one source into a single record set without using a join.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Oracle Server and Set Operators (it_dfosfd_06_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/9f3fd9ff-4231-41ec-8084-d224f82163a8/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9f3fd9ff-4231-41ec-8084-d224f82163a8/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to recognize how the Oracle Server manages set operators.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">recognize how the Oracle Server manages set operators</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Oracle Server and Set Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll just cover some other considerations when working with set operators. And just as a reminder, essentially, duplicate rows are automatically eliminated when using the UNION operator. So you have to use the UNION ALL to include them. And this is just being reiterated because a UNION in and of self, suggests, show me everything. Every record from set A and every record from set B. So in many cases you just might forget about it and think that I am seeing everything because the results are being unioned. But always remember that, by default, the UNION operator will remove duplicates.</p>
+<p>You have to explicitly use the UNION ALL if you want to include them, also remember, the intersect highlights just the duplicates. Now, in terms of column names, the names of the columns between the two sets of select statements actually do not have to match. It&#39;s more so the data type that is of concern and even on that regard, there&#39;s some flexibility. But let&#39;s just say for example in one table, you had a column called department name and in another table it was just called department. It&#39;s the same data but the names do not match. That won&#39;t really cause any problems. But it would only be the name from the first query that would appear in the result. So regardless of what it&#39;s called in the second query, it will only ever show the names from the first SELECT statement. And on the topic of the data types, again, there is certainly some flexibility if I were to union together two columns that were both characters but the amount of characters were different.</p>
+<p>So let&#39;s say one of them was only character 5 but another one was character 10. Well, in that case you&#39;re getting different sizes coming back. So what Oracle will do is actually implicitly or automatically, temporarily convert the result set into something like var char, with the size of a maximum value coming back as the size of that temporary data type. So again you can have minor mismatches if you will, in the data types but ideally, if they are the same that would be better. And finally, the output is sorted in ascending order by default except in the case of a UNION ALL. So just be mindful of the manner in which the records are being presented to you, and if you want to order them, you certainly can, but you can only have a single ORDER BY clause. Again, there are two SELECT statements, or more than two, but you can only have one ORDER BY at the very end.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: UNION and UNION ALL Operators (it_dfosfd_06_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/714e59f7-a251-4136-871d-de0fb20e0e11/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/714e59f7-a251-4136-871d-de0fb20e0e11/image001.jpg')();" /><div class="section_text">Find out how to use the UNION and UNION ALL operators to return all rows in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use UNION and UNION ALL operators to return all rows in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: UNION and UNION ALL Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll take a look at our first set operator in Oracle known as the UNION. And there are two types of basic UNION if you will and a UNION ALL.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. It includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part contains the Start Page and HR tabs. The HR tab is selected. It is divided into two sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder tabs. The Worksheet tab is selected.</em> [Video description ends]</p>
+<p>And we&#39;ll see the difference in a moment. But in terms of application where you typically find UNIONs, are when you have tables that are essentially the same, at least in terms of their structure. Now, a good example of that would be if you are tracking sales. It&#39;s not at all uncommon to divide those types of tables up in to various time frames. For example, sales for the current year, then sales for last year, and sales for the year before, and the year before rather than keeping all the sales in a single table. Because it can get very large. So effectively, you create these copies that are identical in terms of the structure, it&#39;s the same columns and the same data types. But the records themselves differ by the time. And this creates sort of an archive scenario whereby the current sales would be the ones that are of the most interest. So you would be querying that table most often.</p>
+<p>Sales for previous years, we might still refer to them from time to time, but most of the analysis would be on current data as opposed to historical. So by breaking them up into those divided or partitioned tables, you can alleviate the workload on the current table. And you&#39;d still have access to the older tables at any point in time. So if then, I wanted to run a query that say did return sales data from last year, the year before and the year before, so let&#39;s say three years worth of sales data, those are now three separate tables. But I need to pull the results back together. Rather than using joins, I can simply use a UNION because again the table structure is identical and that&#39;s sort of the key aspect of the UNION. I don&#39;t need to create these complex join scenarios because there aren&#39;t really primary to foreign key connections here. It&#39;s just that the structure of the tables is identical in every case. So I can select the exact same columns from each instance of the table.</p>
+<p>[Video description begins] <em> The Worksheet tab contains two SELECT statements. The first statement is SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. The second statement is SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;.</em> [Video description ends]</p>
+<p>Now in terms of my setup here, I don&#39;t have really sales data to track. But I do have EMPLOYEES. And I have introduced another new table called RETIRED_EMPLOYEES. And it has the exact same columns, in fact, all I did was copy the original employees table, then I deleted most of the records.</p>
+<p>[Video description begins] <em> He expands the RETIRED_EMPLOYEES table. It includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, and JOB_ID columns.</em> [Video description ends]</p>
+<p>Now, I will show you that in a moment, but you can see the structure is identical. So if I then wanted to see current EMPLOYEES and RETIRED_EMPLOYEES in the same statement, I can just use a UNION.</p>
+<p>[Video description begins] He highlights EMPLOYEES and RETIRED EMPLOYEES from the Tables (Filtered) subnode. [Video description ends]</p>
+<p>So here we see a SELECT statement that pulls out the Employee_ID, the Last_Name, and the Job_ID FROM just EMPLOYEES. Okay, let&#39;s go ahead and run.</p>
+<p>[Video description begins] <em> He highlights SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES in the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with the EMPLOYEE_ID, LAST_NAME, and JOB_ID columns. 107 rows containing employee information displays</em> [Video description ends]</p>
+<p>And if we scroll to the bottom, we can see that there are 107 rows. Now, I haven&#39;t done anything to the original EMPLOYEES table. But what I did do in the RETIRED_EMPLOYEES table was to copy everything, then I deleted all records that were 200 or less.</p>
+<p>[Video description begins] <em> He points at the EMPLOYEE_ID column in the Query Result tab.</em> [Video description ends]</p>
+<p>And I did this intentionally and we&#39;ll come to this in a moment. But at the moment, the retired employees for 200 through 205, those six records are duplicated in the RETIRED_EMPLOYEES table, okay?</p>
+<p>[Video description begins] <em> He points at the row entries containing the values 200, 201, 202, 203, 204, and 205 in the EMPLOYEE_ID column.</em> [Video description ends]</p>
+<p>So these same records exist in both, and again I did this intentionally. This single employee has been changed, so there is a unique record in the RETIRED_EMPLOYEES table.</p>
+<p>[Video description begins] <em> He points at the row entry value 206 in the EMPLOYEE_ID column. The LAST_NAME is Gietz and the JOB_ID is AC_ACCOUNT.</em> [Video description ends]</p>
+<p>So let&#39;s select from just the RETIRED_EMPLOYEES table, and I&#39;ll show you what I mean. There they are, so there are those six records from 200 to 205.</p>
+<p>[Video description begins] <em> He highlights the SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; in the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab. It contains seven row entries.</em> [Video description ends]</p>
+<p>But then this record, and again, I intentionally raised the value up to 300 and changed the last name and put it in uppercase as well. Just let it stood out. So this is the only unique record in this table.</p>
+<p>[Video description begins] <em> He highlights the 300, GATES, and AC_ACCOUNT row entry.</em> [Video description ends]</p>
+<p>So again, the reason I did that is because when you issue a UNION, it does combine the result sets of both queries, okay? So you can see the SELECT statements are identical in both cases but the UNION removes duplicates, okay?</p>
+<p>[Video description begins] <em> He highlights the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES and SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>So again, there are 107 employees, 7 retired employees, but 6 of them are duplicated. So when I run the two SELECT statements with the UNION in between, and that&#39;s all you have to do in terms of syntax, just create the two separate SELECT statements. The only difference is the table from which you are selecting and you union them together.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES statement and RETIRED_EMPLOYEES in the SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>So when I run the entire statement, and I scroll down, I get my original 107 but only the single unique record.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab.</em> [Video description ends]</p>
+<p>The 6 duplicated records have been removed, okay?</p>
+<p>[Video description begins] <em> He highlights the 300, GATES, and AC_ACCOUNT row entry .</em> [Video description ends]</p>
+<p>So 108 records are coming back with the UNION and that&#39;s the nature of a UNION. If there happens to be a duplicate in those two tables, it simply removes them. It&#39;s of no use to see that record twice is what it comes down to. That said, maybe in fact you are looking to see, are there duplicates? Did we miss something? Maybe when I archived out the older sales, a record was missed somehow. So you can include the duplicates with the UNION ALL, it combines all records from both record sets including the duplicates. So now, I get my 107 employees plus all 7 retired employees, duplicates and non-duplicates for 114 in total. And the only difference now is you actually state UNION ALL.</p>
+<p>[Video description begins] <em> He highlights UNION ALL in the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute the UNION ALL, scroll to the bottom, and there we see 114 rows returned, and we do see the duplicate, so there&#39;s 200 Whalen.</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab.</em> [Video description ends]</p>
+<p>There it is again, 200 Whalen, 201 Hatrstein, 201 Hartstein.</p>
+<p>[Video description begins] <em> He highlights the 101 entry 200 Whalen AD_ASST and the 108 entry 200 Whalen AD_ASST.</em> [Video description ends]</p>
+<p>So those duplicates are coming back, as is the unique record from the RETIRED_EMPLOYEES table, okay?</p>
+<p>[Video description begins] <em> He highlights the 102 entry 201 Hartstein MK_MAN and the 109 entry 201 Hartstein MK_MAN.</em> [Video description ends]</p>
+<p>So again, in practical scenarios, it&#39;s simply wanting to recombine tables that have been divided or partitioned up.</p>
+<p>[Video description begins] He highlights the 114 entry: 300, GATES, and AC_ACCOUNT. [Video description ends]</p>
+<p>Generally, so that you can just have smaller tables rather than a single very large table because smaller tables perform better in queries. But sometimes you need to pull them back together again. And that is where you implement the UNION or the UNION ALL operators.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: INTERSECT Operator (it_dfosfd_06_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/7890dbbc-431d-40b3-8a94-0c46dc093a2a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/7890dbbc-431d-40b3-8a94-0c46dc093a2a/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the INTERSECT operator to return all rows that are common to multiple queries in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the INTERSECT operator to return all rows that are common to multiple queries in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: INTERSECT Operator. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see our next example of a set operator known as the INTERSECT. And for all intents and purposes, the INTERSECT is the exact opposite of the UNION. In our previous demonstration, we saw how you can take the results of one SELECT statement and combine them together with the results of another SELECT statement. But remember that a UNION removes duplicates. So you only see records that are unique to each table. So if then the INTERSECT is the exact opposite, in this case, you will only see the duplicates, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES INTERSECT SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>So recall from my earlier setup that the RETIRED_EMPLOYEES table has 7 employees. Let&#39;s go ahead and run just the SELECT against the RETIRED_EMPLOYEES table, and there they are.</p>
+<p>[Video description begins] <em> He executes the Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab. There are seven rows containing employee information.</em> [Video description ends]</p>
+<p>But this record here at the end is the only unique record, okay?</p>
+<p>[Video description begins] <em> He highlights the 300, GATES, and AC_ACCOUNT row entry.</em> [Video description ends]</p>
+<p>All employees from 200 to 205 are duplicated in both tables. And again, I set that up intentionally so that we would have duplicates.</p>
+<p>[Video description begins] He highlights the EMPLOYEE_IDs from rows 1 to 6, which are 200, 201, 202, 203, 204 and 205. [Video description ends]</p>
+<p>So only 1 unique, 6 duplicated records. So if we run the entire statement to intersect the two, I only see the 6 duplicating records, okay?</p>
+<p>[Video description begins] <em> He executes the SELECT Employee_ID, Last_name, Job_ID,FROM EMPLOYEES INTERSECT SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab. The table has 6 rows. He points at the LAST_NAME column.</em> [Video description ends]</p>
+<p>So again, imagine these two tables as a Venn diagram. You have the employees on the left and the retired employees on the right. What I&#39;m looking at now is the overlap, those two tables overlaying if you will. And I&#39;m seeing the records that are present, or common I should say, to both tables. So again, the UNION removes duplicates. The INTERSECT returns only the duplicates. And that&#39;s useful if you are wanting to verify that you have the correct records in the correct tables. So perhaps I&#39;ve missed someone. These records should be moved to one table or the other. They should not be existing in both tables.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: MINUS Operator (it_dfosfd_06_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/189cb926-5a1e-4075-8635-80568b21c3f1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/189cb926-5a1e-4075-8635-80568b21c3f1/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the MINUS operator to return all distinct rows selected by the first query in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the MINUS operator to return all distinct rows selected by the first query in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: MINUS Operator. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Our next example of working with sets is the MINUS operator. And this is similar to a UNION in that it is concerned with removing duplicates. But a UNION will return records from both tables as long as there are no duplicates. But you would still see all records from the first table and all records from the second table with the exception of the duplicated records.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES MINUS SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>But the MINUS operator will only ever return records from the first table. But those that do not redundantly appear in the second table. So again, the duplicates are removed but no records from the second table are ever returned with the MINUS operator, okay? So using my same setup here, I have 107 employees but 6 of those records have been duplicated in the RETIRED_EMPLOYEES table. So 107 minus those 6 duplicates will equal 101 records returned. The code, again, is identical. The only thing that has changed is the operator, so it&#39;s now MINUS. So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He executes the SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES MINUS SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES; statement. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result tab. The table has 101 rows.</em> [Video description ends]</p>
+<p>And there we see the results. Let&#39;s scroll down, and sure enough, 101 records. And you can see there&#39;s a gap between 200 and 205, those are the 6 duplicated records.</p>
+<p>[Video description begins] <em> He points at the entries 199 and 206 in the EMPLOYEE_ID column.</em> [Video description ends]</p>
+<p>So they have been removed, but these are only records from the EMPLOYEES table. I&#39;m not seeing anything from the RETIRED_EMPLOYEES table because they have been subtracted. That&#39;s the idea of the MINUS operator. So again, you will only ever see records from the first table with the exception of those that are duplicating in the second table when using the MINUS operator.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Matching SELECT Statements (it_dfosfd_06_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/523c6b3f-49ee-4dbd-bfae-743462f728d5/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/523c6b3f-49ee-4dbd-bfae-743462f728d5/image001.jpg')();" /><div class="section_text">In this video, you will learn how the expressions in the SELECT lists of queries must match in number in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate how the expressions in the SELECT lists of queries must match in number in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Matching SELECT Statements. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at a process known as matching your SELECT statements. And this is something that may need to be done due to the inherent nature of working with sets and in particular the UNION operator. When you issue a UNION statement, the number of columns in each SELECT statement has to match and their data types must also be compatible, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains two SELECT statements. The first statement is, SELECT location_id, department_name FROM DEPARTMENTS UNION SELECT location_id, city, state_province FROM LOCATIONS;. The second statement is, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>Now to illustrate that, I&#39;ve set up an intentional error here. I&#39;m selecting only two columns from my DEPARTMENTS table and I&#39;m unioning that with three columns from my LOCATIONS table. Let&#39;s go ahead and execute. And we immediately get an error that there simply is an incorrect number of resulting columns.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT location_id, department_name FROM DEPARTMENTS UNION SELECT location_id, city, state_province FROM LOCATIONS;. An error is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>I try to union two columns together with three, so that doesn&#39;t work, okay? Now, I also mentioned that data types need to be compatible, so let&#39;s just remove the third column.</p>
+<p>[Video description begins] <em> He alters the first statement from SELECT location_id, department_name FROM DEPARTMENTS UNION SELECT location_id, city, state_province FROM LOCATIONS; to SELECT location_id, department_name FROM DEPARTMENTS UNION SELECT location_id, city, FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>Now, there are only two in each. This will work, but look at the results.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT location_id, department_name FROM DEPARTMENTS UNION SELECT location_id, city, FROM LOCATIONS;. A table with LOCATION_ID and DEPARTMENT_NAME column headers appears in the Query Result tab. 50 rows containing department names and cities display.</em> [Video description ends]</p>
+<p>For the DEPARTMENT_NAME, I&#39;m seeing cities as well as departments, so this is not particularly meaningful and the city column itself doesn&#39;t even appear.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>So again, this is not really meaningful data. But in some cases, you do need to essentially create columns to match the results that are coming back from the SELECT statement. Now that may not be all that clear at the moment, but here is an example of that process down below here, let&#39;s clear the results here.</p>
+<p>[Video description begins] <em> He minimizes the Query Result tab.</em> [Video description ends]</p>
+<p>And let&#39;s just look at one SELECT statement at a time. I&#39;m initially selecting from the DEPARTMENTS table, which is right here, and you can see that the DEPARTMENTS table has a LOCATION_ID.</p>
+<p>[Video description begins] <em> He points at the LOCATION_ID column in the DEPARTMENTS table in the Connections pane.</em> [Video description ends]</p>
+<p>It&#39;s right there, in fact that is the foreign key pointing back to the primary key of the LOCATIONS table.</p>
+<p>[Video description begins] <em> He points at the LOCATION_ID column in the LOCATIONS table in the Connections pane.</em> [Video description ends]</p>
+<p>But we&#39;re not using any joins here, so that&#39;s not really relevant. But I&#39;m also selecting out the DEPARTMENT_NAME, that&#39;s right here.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column in the DEPARTMENTS table in the Connections pane.</em> [Video description ends]</p>
+<p>But then this third column is an expression that creates a column that doesn&#39;t even exist, I&#39;m calling it Warehouse Location.</p>
+<p>[Video description begins] <em> He highlights TO_CHAR(null) &#34;Warehouse Location&#34; in the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>And clearly, you can see there is no column in the DEPARTMENTS table called Warehouse Location.</p>
+<p>[Video description begins] <em> He points at the columns in the DEPARTMENTS table in the Connections pane.</em> [Video description ends]</p>
+<p>But notice in my second SELECT statement that the third column SELECT, and so this is the first one, this is the second, this is the third.</p>
+<p>[Video description begins] <em> He highlights location_id, department_name, and TO_CHAR(null) &#34;Warehouse Location&#34; in the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>If we look at the third column of the second SELECT statement, it&#39;s STATE_PROVINCE, that would appear to match up with something called Warehouse Location. Now again, I&#39;m just making this up, okay? You could call this whatever you want. But it&#39;s something that&#39;s meaningful to a state or a province. The same thing happens in the second SELECT statement down below. I&#39;m selecting LOCATION_ID from my LOCATIONS table, that&#39;s this column right here.</p>
+<p>[Video description begins] <em> He points at the LOCATION_ID column in the LOCATIONS table in the Connections pane.</em> [Video description ends]</p>
+<p>Then I&#39;m selecting state and province, that&#39;s this column right here, but then I do the same thing.</p>
+<p>[Video description begins] <em> He points at the STATE_PROVINCE column in the LOCATIONS table in the Connections pane.</em> [Video description ends]</p>
+<p>In the middle, the second column is one called Department, which does not exist in the LOCATIONS table, I&#39;m just making it up, okay? Now, the reason the TO_CHAR function is here is to simply set all of the values for this made-up column to null, okay? Let&#39;s run just the first SELECT statement to see what this looks like.</p>
+<p>[Video description begins] <em> He executes SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS in the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;. A table with LOCATION_ID, DEPARTMENT_NAME, and Warehouse Location column headers appears in the Query Result tab. 28 rows containing department name information displays.</em> [Video description ends]</p>
+<p>So now I see the LOCATION_ID, I see the DEPARTMENT_NAME, which are two valid columns, but here&#39;s my made-up column, and nothing but nulls, okay?</p>
+<p>[Video description begins] <em> He points at the LOCATION_ID, department_name, and Warehouse Location columns.</em> [Video description ends]</p>
+<p>Let&#39;s do the same thing for the second SELECT statement.</p>
+<p>[Video description begins] <em> He executes SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS; in the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;. A table with LOCATION_ID, DEPARTMENT_NAME, and STATE_PROVINCE column headers appears in the Query Result tab. 23 rows containing state province information display.</em> [Video description ends]</p>
+<p>I see the valid LOCATION_ID, the state and province, now this happens to contain nulls, okay? But that&#39;s just the nature of this data. But this made-up column in the middle called Department has been set to null.</p>
+<p>[Video description begins] <em> He points at the LOCATION_ID, Department, and STATE_PROVINCE columns.</em> [Video description ends]</p>
+<p>What I have now are placeholders, okay? You can match your SELECT statements by creating new columns in one record set and then projecting the data from the other into those columns. So Warehouse Location becomes a placeholder for the state and province, okay? They match up. This is the third column, this is the third column. Then I did the same thing here, setting this made-up column of department is a placeholder for department_name, they match up. location_id matches anyway. So I don&#39;t have any issues there, same data, same data type. But now if I execute, it pulls it all together.</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;. A table with LOCATION_ID, DEPARTMENT_NAME, and Warehouse Location column headers appears in the Query Result tab. 23 rows containing department name and state province information display.</em> [Video description ends]</p>
+<p>And now we can see the DEPARTMENT_NAME has the correct department names, okay, and null whenever it&#39;s appropriate.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>Warehouse Location now has a state or a province listed, and again, null where it&#39;s appropriate.</p>
+<p>[Video description begins] <em> He points at the Warehouse Location column.</em> [Video description ends]</p>
+<p>But I have now successfully combined these two using these made-up columns. So again, they are nothing more than placeholders to accept the data that is returned by its counterpart in the other statement, okay?</p>
+<p>[Video description begins] <em> He highlights Warehouse Location and state_province in the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS;.</em> [Video description ends]</p>
+<p>So again, this might not be particularly common. But if you are using UNIONs, you need to ensure that you have the same number of columns and that they have compatible data types coming back. And in some cases, you just don&#39;t. So you quite literally have to create it. You just build it on the fly, you make it up, you call it whatever you want. But the TO_CHAR function or any other function you could use TO_NUMBER or TO_DATE depending on what kind of data you anticipate coming in to that column. But using the null allows you to blank out all of the data so that you get empty placeholders for the data coming in.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Using the ORDER BY Clause in Set Operations (it_dfosfd_06_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/5ec03f72-fb44-4610-a5b2-8dda2d62ea63/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5ec03f72-fb44-4610-a5b2-8dda2d62ea63/image001.jpg')();" /><div class="section_text">Learn how to use the ORDER BY clause in set operations in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the ORDER BY clause in set operations in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Using the ORDER BY Clause in Set Operations. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in our final demonstration, we&#39;ll just take a look at some considerations that must be observed. If you want to use an ORDER BY clause when working with sets or in particular UNIONs and UNION ALL statements. And this comes down to the fact that you are using two separate SELECT statements at least in these examples. But you are only producing a single record set.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains three statements. The first statement is, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;. The second statement is, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS ORDER BY state_province;. The third statement is, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS ORDER BY &#34;Warehouse Location&#34;;.</em> [Video description ends]</p>
+<p>So that brings us to the first rule, --Individual ORDER BY clauses cannot be used in each SELECT statement. So, again, you might think yourself, well, I&#39;m using two different SELECT statements. Therefore, I&#39;ll order the results of the first one, then I&#39;ll union that with ordered results of the second one. But this does not work, okay? I&#39;ll try to execute as is. I have two ORDER BY clauses, and you can see, I immediately get an error.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;. An error message is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>Now, you might think well, that&#39;s just because I didn&#39;t end my first SELECT statement with the semicolon. Well, you can do that, and this might seem to work. Well, watch what happens. I&#39;ll execute.</p>
+<p>[Video description begins] <em> He alters the code SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;to SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;. He closes the Query Result tab. He then executes the SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name; statement. The Query Result, Script Output, and Query Result 1 tabs open.</em> [Video description ends]</p>
+<p>I get three result sets back.</p>
+<p>[Video description begins] <em> He opens the Query Result tab. It includes a table with EMPLOYEE_ID, LAST_NAME, and Job_ID column headers. He highlights SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; in the first statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;. 50 rows containing employee information displays.</em> [Video description ends]</p>
+<p>This Query Result is only this statement. This Query Result is only this statement.</p>
+<p>[Video description begins] <em> He opens the Query Result 1 tab. It includes a table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears in the Query Result 1 tab. The table has seven rows entries. He then highlights SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name; in the first statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;.</em> [Video description ends]</p>
+<p>And then I get a Script Output that still tells me there&#39;s an error with this UNION ALL.</p>
+<p>[Video description begins] <em> He opens the Script Output tab. It contains an error message.</em> [Video description ends]</p>
+<p>Okay, essentially I&#39;ve just run these two separate statements and I did not get my unioned results. So that&#39;s not what I was looking for.</p>
+<p>[Video description begins] <em> He closes the Query Result, Script Output, and Query Result 1 tabs.</em> [Video description ends]</p>
+<p>Okay, so that does not work. Let&#39;s just set this back to the way that it was.</p>
+<p>[Video description begins] <em> He alters the code SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name; UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;to SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES ORDER BY Last_Name UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES ORDER By Last_Name;.</em> [Video description ends]</p>
+<p>So we know that you can only have one ORDER BY. All right, well, in my second example, I do have a single ORDER BY statement. But I&#39;m trying to ORDER BY the state and province. The second rule is that even though the ORDER BY seems to end the second SELECT statement, it can actually only refer to columns in the first, okay? So again, state and province is here in my second SELECT. So if I try to execute here.</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS ORDER BY state_province;. An error message appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Another error, STATE_PROVINCE is an invalid identifier. And that does seem a little bit strange because again, this SELECT statement would seem to be the one that is ending with the ORDER BY. But for all intents and purposes, it is the first SELECT statement that is, let&#39;s just call it the primary statement, and the second one is just an add-on, for lack of a better word.</p>
+<p>[Video description begins] <em> He highlights SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; in the SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS ORDER BY state_province; statement.</em> [Video description ends]</p>
+<p>So therefore, you can only order by columns in the first SELECT statement, okay? So my final example does work, it&#39;s a single ORDER BY and it references my Warehouse Location column, which is here in the first SELECT statement.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>So this one will work, okay?</p>
+<p>[Video description begins] <em> He executes the third statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department&#34;, state_province FROM LOCATIONS ORDER BY &#34;Warehouse Location&#34;;. A table with LOCATION_ID, DEPARTMENT_NAME, and Warehouse Location column headers appears in the Query Result tab. 50 rows containing employee information displays.</em> [Video description ends]</p>
+<p>And now we see the results are ordered by the Warehouse Location.</p>
+<p>[Video description begins] <em> He points at the Warehouse Location column. He closes the Query Result tab.</em> [Video description ends]</p>
+<p>All right, so, individual ORDER BY clauses cannot be used in each SELECT statement. And you can only reference columns that appear in the first SELECT statement despite the fact that the ORDER BY clause has to appear at the very end.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Exercise: Combine Multiple Queries (it_dfosfd_06_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/d6de9836-20c5-4cf1-85c4-8549f5b54ff2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d6de9836-20c5-4cf1-85c4-8549f5b54ff2/image001.jpg')();" /><div class="section_text">In this video, find out how to use set operators to combine the results of multiple queries.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use set operators to combine the results of multiple queries</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Combine Multiple Queries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Okay, for our exercise this time, we&#39;ll ask you to use the UNION and UNION ALL operators in a SQL statement. Then to use the INTERSECT operator to return all rows that are common to the sets in a SQL statement. Then to use the MINUS operator to return all distinct rows selected by the first query in a SQL statement. And finally, to use the ORDER BY clause in a set operation. So as per usual, what we&#39;d like you to do is take a few minutes on your own to try these exercises. Then we&#39;ll come back to review, and we&#39;ll see how you made out. So we&#39;ll see you in a few minutes. Okay, so let&#39;s review some possible solutions, and our first task was to use the UNION and the UNION ALL operators.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains five SELECT statements. The first statement is SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. The second statement is SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. The third statement is SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES INTERSECT SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. The fourth statement is SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES MINUS SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. The fifth statement is, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department, state_province FROM LOCATIONS ORDER BY &#34;Warehouse Location&#34;;.</em> [Video description ends]</p>
+<p>So in my example, I am selecting out the Employee_ID, the Last_Name, and the Job_ID from the EMPLOYEES table. And then unioning that with the same columns from my RETIRED_EMPLOYEES table. And again, this will remove duplicates. So there are 107 employees, 7 retired, but 6 of them are duplicated and showing up in both tables. So the duplicates are removed and only 108 are returned. Let&#39;s verify, there are the results.</p>
+<p>[Video description begins] <em> He executes the first statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears. 108 rows containing employee information displays.</em> [Video description ends]</p>
+<p>And if we scroll to the bottom, 108 records. So again, remember, your UNION will remove duplicates. The second example, the UNION ALL is identical, with the exception of UNION ALL instead of just UNION. This will return my 107 employees plus the 7 retired for 114 because I am telling it to include the duplicates UNION ALL records. So if we execute this one, we get 114 records.</p>
+<p>[Video description begins] <em> He executes the second statement, SELECT Employee_ID, Last_Name, Job_ID FROM EMPLOYEES UNION ALL SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears. 114 rows containing employee information displays.</em> [Video description ends]</p>
+<p>Then an INTERSECT combines only the duplicates. So again, there are 7 retired employees, only 1 of them is unique to this table, or to both sets, I should say. 6 of them are duplicated, but the INTERSECT is looking for just the duplicates. So really, nothing else matters. The code again, is identical. We use the INTERSECT operator, however, instead of a UNION. And this will only return my 6 duplicated records.</p>
+<p>[Video description begins] <em> He executes the third statement, SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES INTERSECT SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears. Six rows containing employee information displays.</em> [Video description ends]</p>
+<p>The MINUS operator was the next task. And in this case, we are looking for all of the records from the first SELECT statement minus those that have duplicated in the second. So again, 107 employees, but 6 of them have been duplicated in the RETIRED_EMPLOYEES table. So 107 minus 6 equals 101 records returned. Code is identical, except we use the MINUS operator instead of a UNION or an INTERSECT, and we only get 101 rows returned.</p>
+<p>[Video description begins] <em> He executes the fourth statement, SELECT Employee_ID, Last_name, Job_ID, FROM EMPLOYEES MINUS SELECT Employee_ID, Last_Name, Job_ID FROM RETIRED_EMPLOYEES;. A table with EMPLOYEE_ID, LAST_NAME, and JOB_ID column headers appears. 101 rows containing employee information displays.</em> [Video description ends]</p>
+<p>And finally, the ORDER BY must simply appear at the end of the entire statement, but must also reference a column in the first SELECT statement. So that is exactly what&#39;s happening here. I only have a single ORDER BY, and I&#39;m ordering by the Warehouse Location column that was defined in my first SELECT statement. I cannot reference any column from the second SELECT statement with my ORDER BY. That still must appear at the end. Otherwise, the UNION is the same. Let&#39;s execute, and we see our results in ORDER BY the Warehouse Location.</p>
+<p>[Video description begins] <em> He executes the fifth statement, SELECT location_id, department_name, TO_CHAR(null) &#34;Warehouse Location&#34; FROM DEPARTMENTS UNION SELECT location_id, TO_CHAR(null) &#34;Department, state_province FROM LOCATIONS ORDER BY &#34;Warehouse Location&#34;;. A table with LOCATION_ID, DEPARTMENT_NAME, and Warehouse Location column headers appears. 50 rows containing department name and warehouse location information displays.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those examples, and if so, we&#39;ll move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

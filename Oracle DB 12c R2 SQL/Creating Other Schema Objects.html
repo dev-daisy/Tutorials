@@ -1,0 +1,430 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Creating Other Schema Objects</h1><div class="section_text"><p>Explore the basics of creating and using sequences and views in Oracle Database 12c SQL.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Views (it_dfosfd_15_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Simple and Complex Views (it_dfosfd_15_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Creating a View (it_dfosfd_15_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Modifying a View (it_dfosfd_15_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Viewing Information  (it_dfosfd_15_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Visible and Invisible Columns (it_dfosfd_15_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Sequences  (it_dfosfd_15_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Pseudocolumns (it_dfosfd_15_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Using a Sequence (it_dfosfd_15_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Modifying a Sequence (it_dfosfd_15_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Sequence Information  (it_dfosfd_15_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Exercise: Create Other Schema Objects (it_dfosfd_15_enus_12)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Views (it_dfosfd_15_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/59c65028-ce61-4d49-a1ad-3ce9719a49d7/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/59c65028-ce61-4d49-a1ad-3ce9719a49d7/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to describe views.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe views</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Views. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce views in Oracle, and talk a little about why they&#39;re used. But it really does begin with tables. Now, tables are used to store the data. The actual records always reside in a table. But in most cases, your regular day to day users do not have direct access to the tables. And this can be for a number of reasons. But most commonly, it&#39;s because there is some information in that table that really should not be disclosed to everyone.</p>
+<p>[Video description begins] <em> Why Views?</em> [Video description ends]</p>
+<p>So for example, an employees table might contain a salary column. Well, that really should not be available to everyone. So you can create a view which retrieves only the information that you feel is appropriate. This is then what you present to your users. You might then construct some kind of company portal where they can access a custom interface. And they can search for employees. But the data is retrieved through the view. And as such, the view can filter out that which you feel should not be made available to them. Now, in terms of what it actually is, it looks like a table.</p>
+<p>[Video description begins] <em> What Is a View?</em> [Video description ends]</p>
+<p>It presents like a table, because we see records. We see columns and rows, but the table is the table. The view is just a means to access the data from the table. So even though it looks and feels like a table, really, it&#39;s nothing more than a stored SELECT statement. That is it, okay? If a table contains a million records, and you create a view that selects all million records, you did not just create another object storing another million records.</p>
+<p>There is only one set of records and they reside in the table. Okay, so the view, again, is really nothing more than a stored SELECT statement to retrieve the data. But it does persist as an object, so that we can access the view as many times as we want, over, and over, and over again. And we can issue queries against the view, as well. I can say select from the table, or I can say select from the view. Because they have the same structure, ultimately. So there are several advantages of using views.</p>
+<p>[Video description begins] <em> Advantages of Views.</em> [Video description ends]</p>
+<p>You can restrict the data access. Again, if the salary column should not be made available to most users, you can create a view that simply does not include the salary column. Maybe the HR department has access to it, but no one else. You can make complex queries easy. The developers and the administrators are the ones who have the knowledge of the SQL language. So they can produce very complex views that retrieve whatever information is necessary. But then, general day to day users can simply query through those views.</p>
+<p>So they just see custom made interfaces, where they can perhaps enter in a few variable values and retrieve the data that way. You can present different views of the same data. The employees table might have information that is of interest to several different subgroups of people. But it doesn&#39;t have to be the same information every time. The sales people, for example, might want to see the employees only in their region, not every other region, while the HR people might want to see different information entirely than the sales people. So again, it&#39;s the same data, but you can present it in a different manner. And again, you can provide a certain level of data independence here.</p>
+<p>You can select from one table, or ten tables, or a hundred tables. It really doesn&#39;t matter. The view simply says here is what you will get back if you execute or query against this view. But the underlying tables, what is known as the base tables, really are entirely shielded from the users. They remain independent of the view. So again, there are a number of instances why you&#39;ll want to use views. And of course, we&#39;ll see examples of creating and using them in our upcoming demonstrations. But they are very commonly used in almost every database environment.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Simple and Complex Views (it_dfosfd_15_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/71901c6b-ec0b-46a0-8a4a-090f2119238b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/71901c6b-ec0b-46a0-8a4a-090f2119238b/image001.jpg')();" /><div class="section_text">Find out how to differentiate between simple and complex sentences.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">differentiate between simple and complex views</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Simple and Complex Views. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this presentation, we&#39;ll talk about the distinction between a simple view and a complex view. But before getting into any of the characteristics, I do want to stress, there is nothing in the code that allows you to define a simple view or a complex view. In other words, you don&#39;t say create simple view, nor do you say create complex view. It&#39;s just the nature of the view and really what you can do with it that makes it simple versus complex, but there are certain characteristics.</p>
+<p>[Video description begins] <em> Simple Views and Complex Views.</em> [Video description ends]</p>
+<p>So we have a table here summarizing those features. And a simple view typically operates on only a single base table. Whereas a complex view can still operate on one table, but it&#39;s usually more. So what you find with a complex view is that it&#39;s using joins to select from table one, join table two, join table three. Simple views tend to not contain any functions nor any groups of data, whereas complex views tend to have them almost all the time. Again, they don&#39;t have to, but it&#39;s much more common. Because you are typically presenting summarized information that has been calculated.</p>
+<p>Now, DML operations through a view, again, that stands for data manipulation language. Means that you can do things like inserting, updating, or deleting records in the underlying table through the view. Now, this might seem reversed. It says yes for simple but not always for complex, but that is correct. When you&#39;re talking about, for example, inserting a record through a view. Well, you can only insert a record through a view if it is operating on a single base table. If you are working with several tables joined together, you actually can&#39;t insert records into all of them at the same time.</p>
+<p>There may be still some operations that you can do. You might be able to update a single value in one of those tables. So that is why it says not always. But generally, inserts, updates, and deletes are easier through views that only work with a single table. Otherwise, there is just too much going on to try to get everything correct, if you will. So again, it&#39;s a little more common to see the DML operations in simple views, as compared to the complex.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Creating a View (it_dfosfd_15_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/95c0b6a7-485b-416c-9491-361b741ab518/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/95c0b6a7-485b-416c-9491-361b741ab518/image001.jpg')();" /><div class="section_text">In this video, you will learn how to create a view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create a view</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Creating a View. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see how to create a view, and this is a fairly simple process. But in terms of getting started, what I do recommend is that you focus on formulating your SELECT statement first. You can create a view from essentially any SELECT statement. So ensure that you are retrieving the correct and/or desired records first, before you actually create the view.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. It includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part contains the Start Page and HR tabs. The HR tab is selected. It is divided into two sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder tabs. The Worksheet tab is selected.</em> [Video description ends]</p>
+<p>And what I mean by that is that you can just execute the SELECT statement all by itself to ensure that you do get the desired records. Once that has been confirmed, then really all you do is wrap this up in a CREATE VIEW statement, okay?</p>
+<p>[Video description begins] <em> He selects SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE department_id &#61; 80; from the CREATE VIEW emp_view_dept_80, AS, SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE department_id &#61; 80; statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows.</em> [Video description ends]</p>
+<p>And the syntax here is simply CREATE VIEW, then name of view, then the AS keyword, then whatever your SQL statement is, okay? And again, that can be really any valid SQL statement. So I&#39;m not too concerned with being overly complicated at this point, it&#39;s a very simple query, but that is fine. We&#39;re focusing on simply building the structure itself. Now, with respect to the name, I do recommend that you give it a somewhat descriptive name. In other words, if I were to just call this my_view, then really no one else would know what they&#39;re looking at.</p>
+<p>Even by executing the results, it might not be particularly obvious what these records are. So in my case you can see emp_view_dept_80 as the name. Well, clearly this indicates that the people I&#39;m looking at when I execute a query against this view are only the people in department 80, okay? So again, be somewhat descriptive in the name, but you don&#39;t want to go too far with that either so that you end up with way too many characters in the name. So just try to find a happy medium there. But again, creating the view itself does not return any records.</p>
+<p>You&#39;re just building the object here, okay? So you can certainly execute just the SELECT portion to ensure that you are getting the correct records. But once you include the CREATE VIEW statement and execute that, all you get is the view. It just builds the object. So let&#39;s go ahead and execute, and there we get our prompt that says it was created, okay?</p>
+<p>[Video description begins] <em> He selects the CREATE VIEW emp_view_dept_80, AS, SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE department_id &#61; 80; statement and clicks the execute icon. The Script Output tab opens. It is divided into two parts. The first part is the toolbar. The second part displays the message: View EMP_VIEW_DEPT_80 created.</em> [Video description ends]</p>
+<p>Now, we can verify. We can use the DESCRIBE statement here to just get the properties. So DESCRIBE, name of view. Now that we have successfully instructed it, we should see properties come back for that object, and there they are.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE emp_view_dept_80; statement and clicks the execute icon. A table with Name, Null, and Type column headers and three rows appears in the Script Output tab.</em> [Video description ends]</p>
+<p>So it tells you which columns exist, whether they&#39;re nullable columns. And it tells us, of course, the data type of each column and we can also now select from that view. So I&#39;ll just do a simple statement here. SELECT * FROM and then name of view. So emp_view_dept_80, and this behaves pretty much like any other SELECT statement against a table.</p>
+<p>[Video description begins] <em> He types the SELECT * FROM emp_view_dept_80; statement in the Worksheet. He selects the statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And I could refine this query as much as I want, let&#39;s say limit by salary or sort the records. You know, again, any valid SELECT statement can be issued against the view, but this makes it a persistent object. So that I can query it a little more easily and always refer back to it at any point in time, okay? So again, just remember, determine which records are coming back first, make sure they are correct. Then just essentially wrap that SELECT statement up in your CREATE VIEW AS statement and that will build your view.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Modifying a View (it_dfosfd_15_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/9bda4348-b14c-424c-b088-7d0ea3702dc9/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9bda4348-b14c-424c-b088-7d0ea3702dc9/image001.jpg')();" /><div class="section_text">In this video, you will learn how to modify a view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">modify a view</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Modifying a View. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll see how to modify a view by using the CREATE OR REPLACE VIEW statement. So interestingly, it&#39;s a little bit different than something like a table. To modify a table, you can just use the ALTER TABLE command. But views really aren&#39;t like tables, even though the results are presented to us in tabular format. A table defines all of the column properties, the data types, the names.</p>
+<p>And of course, contains the actual data itself. Views don&#39;t do that. Views just retrieve the data from the table, so we don&#39;t define data types. We don&#39;t define the column names, and the data does not reside in the view. So, a view is really nothing more than a saved SELECT statement.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>So CREATE OR REPLACE, really you can&#39;t go wrong with this statement, because if the view does not exist, it will create it. If it does exist, it will replace it. Okay? So CREATE OR REPLACE VIEW, name of view. Then the second line is a list of aliases that I&#39;m defining for the existing column names. I have that referenced in my comments here. So for employee_id of the SELECT statement, I&#39;m aliasing that Employee Number, with a space in between. Then for the first_name and last_name columns, it&#39;s aliased as First Name and Last Name.</p>
+<p>Then I have made a change to the structure, if you will. The salary column is now being multiplied by 12, and the alias is Annual Salary, okay? So those are the changes that I&#39;m making. And then, of course, in the SELECT statement, I have to ensure that I now include the first_name column, because that was not included in the original statement. In fact, let&#39;s verify. Let&#39;s use the DESCRIBE command to show the current structure of the view. And it is still just EMPLOYEE_ID, LAST_NAME, and SALARY, three columns.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE emp_view_dept_80; statement and clicks the execute icon. A table with Name, Null, and Type column headers and three rows appears in the Script Output tab.</em> [Video description ends]</p>
+<p>So I&#39;ve added a fourth, and I&#39;ve changed up the salary. And note that I do not need to use the AS keyword to define an alias for the salary in the SELECT statement. It&#39;s in this second line.</p>
+<p>[Video description begins] <em> He highlights (“Employee Number”, “First Name”, “Last Name”, “Annual Salary”) from the CREATE OR REPLACE VIEW emp_view_dept_80, (“Employee Number”, “First Name”, “Last Name”, “Annual Salary”), AS, SELECT employee_id, first_name, last_name, salary*12, FROM EMPLOYEES, WHERE department_id &#61; 80; statement</em> [Video description ends]</p>
+<p>Essentially this is the list of changes that are being applied, for lack of a better word. So let&#39;s execute everything. The view was created.</p>
+<p>[Video description begins] <em> He selects the CREATE OR REPLACE VIEW emp_view_dept_80, (“Employee Number”, “First Name”, “Last Name”, “Annual Salary”), AS, SELECT employee_id, first_name, last_name, salary*12, FROM EMPLOYEES, WHERE department_id &#61; 80; statement and clicks the execute icon. The View EMP_VIEW_DEPT_80 created message is displayed in the Script Output tab.</em> [Video description ends]</p>
+<p>More specifically, replaced, in this case. Let&#39;s DESCRIBE, to ensure the new structure is in place. And now we do see our First Name column is there as is Annual Salary.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE emp_view_dept_80; statement and clicks the execute icon. A table with Name, Null, and Type column headers and three rows appears in the Script Output tab. He points at the values First Name and Annual Salary under the Name column header.</em> [Video description ends]</p>
+<p>Let&#39;s select everything from the view. And there we see are the aliases, Employee Number, First Name, Last Name, with the spaces in them, and Annual Salary.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM emp_view_dept_80; statement and clicks the execute icon. A table with Employee Name, First Name, Last Name, Annual Salary column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So the headers are just a little neater, a little more readable, okay? So really, the changes are up to you. But just always remember, it&#39;s not the ALTER statement. It&#39;s CREATE OR REPLACE VIEW. List any new column headers. And I should also mention if I were to only, let&#39;s say, put the alias on Annual Salary, then I still have to list out every other column. The number of columns has to match, okay?</p>
+<p>I don&#39;t have to alias them, but if I&#39;m going to make any one of them an alias, and I still have to put in employee id, First Name, Last Name as they were, okay? The number of columns listed in this changes line has to match the number of columns in the SELECT statement, otherwise it will generate an error. Okay, but that is how you can make your changes to existing views.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Viewing Information  (it_dfosfd_15_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/153f4f10-74cd-4adb-a55f-e199d903c090/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/153f4f10-74cd-4adb-a55f-e199d903c090/image001.jpg')();" /><div class="section_text">During this video, you will learn how to view information using the USER_VIEWS table.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">view information using USER_VIEWS</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Viewing Information. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once you have some views defined in your database, as an administrator, there may be several instances where you just want to ascertain some of the properties of those views. Now, not seeing the data they return, but rather their structure, how they were created. So in this demonstration, we&#39;ll see how you can use the user_views system view to see the properties of the views in the database.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now, you can begin by determining which properties are available for you to see, and which ones interest you by issuing the DESCRIBE command against user_views. So DESCRIBE user_views, and these are the columns that we can query.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE user_views; statement and clicks the execute icon. A table with Name, Null, and Type column headers and several rows appears in the Script Output tab. The values under the Name column header includes VIEW_NAME, VIEW_TYPE, SUPERVIEW_NAME, and READ_ONLY.</em> [Video description ends]</p>
+<p>So if we scroll to the top, certainly VIEW_NAME, maybe the TEXT, which is the actual SQL statement. The owner is there, whether it&#39;s read only, its default container. Whichever properties you feel might be of interest, those can be queried. So now that we know that, we can retrieve a list of views by their name. Simply select view_name FROM user_views, and this will show us which views exist.</p>
+<p>[Video description begins] <em> He selects the SELECT view_name, FROM user_views; statement and clicks the execute icon. A table with VIEW_NAME column header and two rows appears in the Query Result tab. The values EMP_DETAILS_VIEW and EMP_VIEW_DEPT_80 are displayed under the VIEW_NAME column header.</em> [Video description ends]</p>
+<p>Now, the EMP_DETAILS_VIEW was already there. That came with the sample database, but there is the one that I created in an earlier demonstration, EMP_VIEW_DEPT_80, that is mine. And as mentioned, if you select the text, then you can actually see the SQL statement that was used to define that view. So select text from user_views, and then give it a WHERE clause. Where view_name &#61; EMP_VIEW_DEPT_80. And do take note, it is case sensitive. Let me quickly go back and select a view_name.</p>
+<p>[Video description begins] <em> He selects the SELECT view_name, FROM user_views; statement and clicks the execute icon. He points at the value EMP_VIEW_DEPT_80 displayed under under the VIEW_NAME column header in the Query Result tab.</em> [Video description ends]</p>
+<p>All of the characters in the name are uppercase, even though when I defined it, I used lowercase letters, okay? So the criteria needs to be all uppercase, so EMP_VIEW_DEPT_80, it has to match that exactly. But I can execute that, and I can see the actual SELECT statement. Okay?</p>
+<p>[Video description begins] <em> He selects the SELECT text, FROM user_views, WHERE view_name &#61; ‘EMP_VIEW_DEPT_80’; statement and clicks the execute icon. A table with TEXT column header and one row appears in the Query Result tab. The SELECT employee_id, first_name, last_name, salary*12FROM EMPLOYEEWHERE department_id &#61; 80 statement is displayed under the TEXT column header.</em> [Video description ends]</p>
+<p>So that might be useful if I need to work with someone else&#39;s view, but I don&#39;t know what code they issued to create it. Now, be a little mindful. It&#39;s not the best at displaying the employees table, and the WHERE clause are crammed together here as a single word. So it&#39;s not really displaying the hard returns versus soft returns correctly. But you still get a pretty good idea as to what the code was. So again, if you need to make changes, you know kind of where you are starting from. Okay? So again, your user_views system view simply allows you to ascertain those properties about the view before you begin working with them.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Visible and Invisible Columns (it_dfosfd_15_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/dcf08d69-aee2-49b3-8921-26bc6a90702b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/dcf08d69-aee2-49b3-8921-26bc6a90702b/image001.jpg')();" /><div class="section_text">In this video, find out how to make columns visible or invisible.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define columns as visible or invisible</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Visible and Invisible Columns. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see a feature that might seem a little bit off topic, compared to the rest of this course. But it is something that you should know about, especially if you are creating a view against a table that has this property. And it&#39;s the invisible property. Oracle allows you to create tables, or alter existing tables, and create a column that is effectively invisible. It&#39;s shielded from most standard operations, including SELECT *, or even DESCRIBE statements.</p>
+<p>And this is typically done just for a little bit of extra security. You just don&#39;t want people to know that the column is there, because it might contain some sensitive information. Now, it&#39;s not an overly strong security feature, but every little bit helps. So I&#39;ve already created the table, so let&#39;s just go over the code.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>It&#39;s the CREATE TABLE statement, and then I&#39;ve just named it Test_Invis_Table. And the column structure is very simple. Col1 as a number, col2 as a char with only one character. And then col3, also as a number, but then, after you specify the data type, you can specify INVISIBLE, okay? So that makes that column invisible. So again, I&#39;ve already created the table. And in fact, I&#39;ve already inserted a record into it as well. So here is the INSERT statement. INSERT INTO Test_Invis_Table. And the column is still there, okay, it&#39;s just not displaying.</p>
+<p>So with the INSERT statements, you still have to reference all columns. Unless that is a nullable column and you could just leave it null, or if it had a default. You could leave it off of the list if you wanted to, but, in my case, I&#39;m specifically stating for col1, col2, and col3. The VALUES are, the number 1, the letter A, and the number 1 again. Okay, so you do still have to make sure that you&#39;re putting something in there, particularly if it&#39;s not nullable. So once that is done, we can select out of that table. But as mentioned, invisible columns do not appear in the results of a SELECT statement, or I guess, I should say a SELECT * statement, okay?</p>
+<p>Nor do they show up in the results of a DESCRIBE statement.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM Test_Invis_Table; statement and clicks the execute icon. A table with COL1 and COL2 column headers and one row appears in the Query Result tab. The values 1 and A are displayed under the COL1 and COL2 column headers, respectively.</em> [Video description ends]</p>
+<p>So let&#39;s verify, SELECT * FROM Test_Invis_Table only reveals two columns, COL1 and COL2. If I DESCRIBE Test_Invis_Table, same thing, only shows me COL1 and COL2, okay?</p>
+<p>[Video description begins] <em> He selects the DESCRIBE Test_Invis_Table; statement and clicks the execute icon. A table with Name, Null, and Type column headers and two rows appears in the Script Output tab. The values COL1 and COL2 are displayed under the Name column header and the values NUMBER and CHAR(1) are displayed under the Type column header.</em> [Video description ends]</p>
+<p>Now, before proceeding, I will tell you if you go to your table browser, over on the left-hand side, the table shows up. But if you expand it, you will see the invisible column. But of course, this is the SQL developer application.</p>
+<p>[Video description begins] <em> He expands the TEST_INVIS_TABLE subnode under the Tables (Filtered) subnode and points at the COL3 option.</em> [Video description ends]</p>
+<p>Typically, this would only be used by administrators or developers. End users would not really have access to this. Okay? But if you just click on the TEST_INVIS_TABLE, the property page that opens, still only shows you two columns.</p>
+<p>[Video description begins] <em> He clicks the TEST_INVIS_TABLE subnode and the TEST_INVIS_TABLE tab opens in the fourth part. The tab includes Columns, Data, Grants, and Statistics tabs. The Column tab is selected and it is divided into two parts. The first part is the toolbar. The second part contains a table with five columns and two rows. The column headers are COLUMN_NAME, DATA_TYPE, NULLABLE, DATE_DEFAULT, COLUMN_ID, and COMMENTS.</em> [Video description ends]</p>
+<p>Okay, and if I go to the Data tab, it still only shows me two columns. So it is still fairly effectively being hidden. So from the perspective of security, again, if someone were to say, well, what is in this table? Let me issue the DESCRIBE statement. They would only see those two columns. And if they then did a SELECT *, they would still only see those two columns, so they really would have no idea that the third column even exists.</p>
+<p>So you do get some level of security there, okay? But again, of course, it is there, so that column data is available, if it&#39;s explicitly listed in a SELECT statement. So in my final statement here, I have select col1, col2, col3 from my Test_Invis_Table. And there is the lost data, if you will. Column 3 appears, the number 1 is there, and I see the values.</p>
+<p>[Video description begins] <em> He selects the SELECT col1, col2, col3, FROM Test_Invis_Table; statement and clicks the execute icon. A table with COL1, COL2, and COL3 column headers and one row appears in the Query Result tab. The values 1, A, and 1 are displayed under the COL1, COL2, and COL3 column headers, respectively.</em> [Video description ends]</p>
+<p>Okay, but again, somebody would have to know that it&#39;s there. If they didn&#39;t, if they were just browsing, they wouldn&#39;t see it. If they issued a DESCRIBE, they wouldn&#39;t see it. So they just wouldn&#39;t know that it even exists. Okay, and again, if someone were to build a view based on that table and they did not explicitly list that column, then it wouldn&#39;t be returned through the view either. So it&#39;s up to you. If you want that little bit of extra security to really just shield the data in that column, it can be set as invisible, and again, that can be done during the CREATE TABLE statement, or alter if you want to change it after the fact.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Sequences  (it_dfosfd_15_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/904d4fba-6e61-467b-987f-00e9dccf1c52/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/904d4fba-6e61-467b-987f-00e9dccf1c52/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe sequences.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe sequences</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Sequences. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration we&#39;ll take a look at creating a sequence. Which is an independent and reusable numeric sequence generator that will automatically insert new values into a table, as per the specifications of the sequence.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now, the syntax is quite simple. It is just CREATE SEQUENCE, then like all CREATE statements, a name for the object. And then a number of parameters that you can specify as per whatever you feel you need. So START WITH, of course, is the first value. Now, I&#39;m using 280 simply because I know that the next value in the DEPARTMENTS table would be 280, and that table increments by 10. So I&#39;m using that same increment, so we&#39;ll use the sequence a little bit later on. But you can start with any number and increment by any number.</p>
+<p>Then MAXVALUE is quite simply the limit, the upper range. Once it hits that, it will either stop or I can tell it to start again. We&#39;ll come to that in a minute. Now, you can see there are several other parameters that you can specify here, but many of them are, of course, defaults. So If I did not specify a MAXVALUE, you can see that there is an option for NOMAXVALUE. And this just gives you an unlimited ascending range, which is the default. Now, I shouldn&#39;t really say unlimited, but it goes up to 10 to the 27th power. So that is a ridiculously large number.</p>
+<p>So for all intents and purposes, that is unlimited. Then you can also specify a MINVALUE value because you can actually increment by negative numbers. So you could count down, in which case, MINVALUE would be your lower limit for negative increments. NOMINVALUE would give you an unlimited descending range, okay? ORDER guarantees the numbers are generated in order of request. Now, that is not saying that they&#39;ll ever be generated out of numerical sequence, rather, a timing issue. When the transactions are timestamped, essentially, means that this record was created or this new value was requested at a particular time.</p>
+<p>Well, you know, anything could happen in terms of processing, so one transaction might actually get through before another one, even though it started later, okay? So ORDER observes the timestamp and says well, even though that other one finished first, this one started first, so it gets the next number, okay? NOORDER essentially doesn&#39;t concern itself with that, they may not be generated in order of request. So again, your transaction may have started first, but mine took less time and finished first, so I get the next number. CACHE means that that Oracle will cache a certain number of integers so that they can just be retrieved a little more quickly.</p>
+<p>The default is 20, but you can specify your own value with the n argument there. So again, cache 50, cache 100, cache 1,000, whatever you like. And then NOCACHE is do not cache any numbers. Note that in this case, caching is on. So again, 20 are cached by default. Then CYCLE means to restart after hitting the maximum or minimum value. So it will just go through that whole sequence again. That certainly would not be something that you would use if you are generating primary key values. Because that would cause an error because, of course, it would create duplicate values.</p>
+<p>And NOCYCLE means do not restart that cycle, and this is the default. Okay, so we&#39;ll certainly see an example of using this in a later demonstration. But for the time being, we can go ahead and just create it by executing this code. And again, this won&#39;t return anything for us, it will just tell us that the sequence was created, because we&#39;re just creating an object.</p>
+<p>[Video description begins] <em> He selects the CREATE SEQUENCE id_seq, START WITH 280, INCREMENT BY 10, MAXVALUE 1000; statement and clicks the execute icon. The Script Output tab displays the message: Sequence ID_SEQ created.</em> [Video description ends]</p>
+<p>So no records come back, of course, in this case. But as mentioned, when you need those automatically incrementing values, a sequence is a very good option for doing that.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Pseudocolumns (it_dfosfd_15_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/bafe3794-ae3b-4c66-9cb9-de775bcfa9a5/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/bafe3794-ae3b-4c66-9cb9-de775bcfa9a5/image001.jpg')();" /><div class="section_text">In this video, you will learn about the use of the NEXTVAL and CURRVAL pseudocolumns.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate the use of the NEXTVAL and CURRVAL pseudocolumns</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Pseudocolumns. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once you have sequences defined in your database, you may want to see where they stand. So in this demonstration, we&#39;ll see how to ascertain that information by querying out what is known as the current value or CURRVAL. And the next value that will be issued or NEXTVAL. Now these two values do not exist in any standard table. So you can&#39;t include them in any kind of normal SELECT statement that is querying against a regular table. But you can query them from the dual system table. We saw that earlier when querying some system functions such as today&#39;s date, the sysdate function.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now if you want to query them, you do have to make sure that you include the name of the sequence first, okay? So it&#39;s name of sequence, id_seq in my case, .CURRVAL for current value, and name of sequence .NEXTVAL for the next value that will be inserted. So CURRVAL is essentially the last one that was issued. It&#39;s already out there, it has been issued. NEXTVAL of course is the next one coming down. But with respect to CURRVAL, just one quick note.</p>
+<p>If you just created a brand new sequence and it has never been used, then there is no value, or current value. You actually could find out the next value because that really would be the first one that the sequence will issue. But CURRVAL has no value until it issues a number, okay? So I&#39;ve cheated a little bit and I&#39;ve already used the sequence to create a new record, okay? I&#39;ll show you how to do that, but for the time being, that is fine. We just want to find out where we are, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT id_seq.CURRVAL, FROM dual; statement and clicks the execute icon. A table with CURRVAL column header and one row appears in the Query Result tab. The value 280 is displayed under the CURRVAL column header.</em> [Video description ends]</p>
+<p>So again, I can select name of sequence .CURRVAL from dual. I can execute, and 280 was issued, that was the first number that I specified in the creation of the sequence. So that one is out there, okay? Now, I can delete that record if I want to, that is perfectly fine. But the NEXTVAL of course will show me what the increment is and just tell me that this is the next one that is going to be issued. So if I select out NEXTVAL, it of course is going to be 290.</p>
+<p>[Video description begins] <em> He selects the SELECT id_seq.NEXTVAL, FROM dual; statement and clicks the execute icon. A table with NEXTVAL column header and one row appears in the Query Result tab. The value 290 is displayed under the NEXTVAL column header.</em> [Video description ends]</p>
+<p>So I know right away that my interval is 10, but that is the next value waiting to go out. So again, this does not do anything in terms of actually assigning a value to a column in a table, it just lets you know where things stand. And you can find out that information against any sequence at any time, okay? So again, just remember to query them from the dual table. And to always use the name of the sequence, then .CURRVAL or NEXTVAL to find out what those values are.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Using a Sequence (it_dfosfd_15_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/b84e53bc-13e3-4f68-af1f-591b1541bc72/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b84e53bc-13e3-4f68-af1f-591b1541bc72/image001.jpg')();" /><div class="section_text">Find out how to use a sequence.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use a sequence</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Using a Sequence. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration we&#39;ll see how to actually use a sequence to insert a new record in a table that draws from the sequence. So in this case I&#39;m going to insert a new department, and we&#39;ll just verify first where things stand in terms of the existing records. Now, recall that I already did a couple of insertions and then deletions.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. He highlights the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement.</em> [Video description ends]</p>
+<p>So my sequence is a little higher than maybe what it was when I initially defined it at 280. But that is fine, let&#39;s just select the existing records from DEPARTMENTS, and I have them in descending order by department_id.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So 270 is currently in the table as the most recent department_id. Now, that was created before the sequence ever came along. But, to insert a new record now that draws from the sequence, it&#39;s still a standard INSERT statement. So INSERT INTO DEPARTMENTS, that is the table name of course. Then, in parentheses we reference each of the columns, department_id, department_name, manager_id, and location_id. Those are the four columns of this table. Then the VALUES keyword draws from the sequence, okay?</p>
+<p>So the first column is department_id, so I reference the name of the sequence, dot the next value, okay? That is what I want to go in, because recall from our previous demonstration, the current value has already been issued. So I want the NEXTVAL. Then everything else is just whatever I want. So I&#39;m just calling it Engineering, I&#39;m putting a null in for the manager_id, and fairly arbitrarily choosing 2500 as the location. But that is the key in terms of drawing from the sequence. Specify the name of the sequence .NEXTVAL and that will insert the new record with whatever the next value was, okay? So it has been inserted, let&#39;s verify now.</p>
+<p>[Video description begins] <em> He selects the INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, ‘ENGINEERING’, null, 2500); statement and clicks the execute icon. He points at the message: 1 row inserted which is displayed in the Script Output tab.</em> [Video description ends]</p>
+<p>I can just re-issue my SELECT statement, ordering it in descending order by the department_id, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Now, it&#39;s up to 300. Now again, that is because I did a little bit of inserting and deleting, just to make sure everything was working. So it&#39;s at the moment up to 300. So that is the current value. So if I were to insert another one,</p>
+<p>[Video description begins] <em> He points at the value 300 in the first row under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>I can just re-execute this exact same statement. Let&#39;s just change things up here. So the values will still be the sequence.NEXTVAL. I&#39;ll just change this to Support. I&#39;ll leave the manager at null and I&#39;ll make the location 1700, just for the sake of argument, and execute again, another row is inserted.</p>
+<p>[Video description begins] <em> He alters the INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, ‘ENGINEERING’, null, 2500); statement to INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, ‘SUPPORT’, null, 1700);. He selects the INSERT INTO DEPARTMENTS (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, ‘SUPPORT’, null, 1700); statement and clicks the execute icon. The Script Output tab displays the message: 1 row inserted. </em>[Video description ends]</p>
+<p>Re-select, and we see 310, okay?</p>
+<p>[Video description begins] He<em> selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab. He points at the value 310 in the first row under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>So again, you just need to make sure that you reference the correct sequence by name, then the .NEXTVAL property. Then for all of the other columns, whatever values you want. But you can reference any sequence, and you could even find out again what the next value is going to be as we just saw by querying it out first. But generally, this is how you use a sequence to insert a new value into a table.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Modifying a Sequence (it_dfosfd_15_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/ba808439-0c48-4b9f-976c-97fd5d791f56/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ba808439-0c48-4b9f-976c-97fd5d791f56/image001.jpg')();" /><div class="section_text">To find out how to use the ALTER SEQUENCE statement, consult the documentation for your database management system.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the ALTER SEQUENCE statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Modifying a Sequence. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once you have defined a sequence, you may discover at some point that you need to change the properties of the sequence. So in this demonstration, we&#39;ll see how to do that using the ALTER SEQUENCE statement. Now, in terms of syntax, it&#39;s virtually identical to the CREATE SEQUENCE statement. You just put in ALTER instead of CREATE.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The fourth part includes two tabs, HR and HR ~ 1. The HR tab is selected.</em> [Video description ends]</p>
+<p>But there is one exception with respect to what can be changed, and I&#39;ve left this error in intentionally to show you that. The START WITH can&#39;t be changed using the ALTER statement, okay? I&#39;ve already created this sequence, and I&#39;ve already specified it should start at number x, whatever that number is. So there is currently a red squiggly line under the START WITH, indicating that this is not supported, okay? So I&#39;m going to comment that out, but any other property can be changed.</p>
+<p>[Video description begins] <em> He comments out START WITH 280 from the ALTER SEQUENCE id_seq, START WITH 280, INCREMENT BY 10, MAXVALUE 1000; statement.</em> [Video description ends]</p>
+<p>So this is my original sequence, and I initially set its increment to be 10. Let&#39;s change that to 20. Its MAXVALUE was initially 1000. Maybe I find that is not high enough now, so let&#39;s change it to 2000. Okay, and again, all of these other properties down here certainly could be changed.</p>
+<p>[Video description begins] <em> He alters INCREMENT BY 10, MAXVALUE 1000 to INCREMENT BY 20, MAXVALUE 2000 from the ALTER SEQUENCE id_seq, INCREMENT BY 10, MAXVALUE 1000; statement.</em> [Video description ends]</p>
+<p>Now if you do want to change that START WITH value, although you cannot do it using the ALTER statement, you could just drop the sequence and then recreate it with different properties. But that could be problematic if, of course, there are a number of tables depending on that sequence, so you would want to be careful with that. So I&#39;ve made my changes now, let&#39;s go ahead and execute. We see that the sequence has been altered, so let&#39;s give this a test now.</p>
+<p>[Video description begins] <em> He selects the ALTER SEQUENCE id_seq, INCREMENT BY 20, MAXVALUE 2000; statement and clicks the execute icon. The Script Output displays the message: Sequence ID_SEQ altered.</em> [Video description ends]</p>
+<p>I still have my INSERT statement from the previous demonstration up.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 1 tab.</em> [Video description ends]</p>
+<p>Let&#39;s switch over to this tab, and we can still just select out everything to verify where we are. So 310 was the last one that was used.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab. He points at the value 310 in the first row under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>So let&#39;s just re-execute the INSERT statement. And again, I&#39;m just making up another department. Let&#39;s INSERT, 1 row inserted.</p>
+<p>[Video description begins] <em> He selects the INSERT INTO DEPARTMENT (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, &#39;Development&#39;, null, 2500); statement and clicks the execute icon. The Script Output tab displays the message: 1 row inserted.</em> [Video description ends]</p>
+<p>Let&#39;s reselect, and you can see that it did increment by 20. It went from 310 to 330, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab. He points at the values 330 and 310 in the first and second rows under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>Now, clearly we will not see the MAXVALUE go into effect until we got that far. But the properties have been changed, and again, that is done by using the ALTER SEQUENCE statement.</p>
+<p>[Video description begins] <em> He switches to the HR tab and points at the ALTER SEQUENCE id_seq, INCREMENT BY 20, MAXVALUE 2000; statement.</em> [Video description ends]</p>
+<p>And as mentioned, if you do need to completely reconstruct it, you certainly can consider dropping it and rebuilding it. Just be mindful of which columns and which tables are drawing from the sequence before dropping it.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Sequence Information  (it_dfosfd_15_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/4b67c916-22a0-42e0-87fc-9af36daf377d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/4b67c916-22a0-42e0-87fc-9af36daf377d/image001.jpg')();" /><div class="section_text">During this video, you will learn how to view sequence information using the USER_SEQUENCES view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">view sequence information using USER_SEQUENCES</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Sequence Information. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In an earlier demonstration, we saw how you can query out properties of views by using the user_views system view. In this demonstration, we&#39;ll see a very similar approach. Whereby you can query out the properties of your sequences by querying the user_sequences system view. And again, this really just shows you the properties of the sequences so I can find out whatever I want about them. Now again, you can first ascertain which properties are available to query by using the DESCRIBE command. So we can execute DESCRIBE user_sequences. And of course note the underscore there, so user_sequences.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. He points at the DESCRIBE user_sequences; statement.</em> [Video description ends]</p>
+<p>And this tells us which columns are available to query.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE user_sequences; statement and clicks the execute icon. A table with Name, Null, and Type column headers and several rows appears in the Script Output tab.</em> [Video description ends]</p>
+<p>So we have the SEQUENCE_NAME, the MIN_VALUE, the MAX_VALUE, the INCREMENT_BY. The CYCLE_FLAG, the ORDER_FLAG, the CACHE_SIZE, the LAST_NUMBER.</p>
+<p>[Video description begins] <em> He reads out the values under the Name column header.</em> [Video description ends]</p>
+<p>You know, clearly all of the properties that we were able to set when we created it in the first place, okay? So now that we know what can be queried, let&#39;s retrieve a list of sequences by their names. So we&#39;ll select sequence_name from user_sequences. And in fact, there are a few others in this database. Now they were there when the database was created, so I didn&#39;t construct those, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT sequence_name, FROM user_sequences; statement and clicks the execute icon. A table with SEQUENCE_NAME column header and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>DEPARTMENTS_SEQ, EMPLOYEES_SEQ, LOCATIONS_SEQ, those are all prebuilt, but ID_SEQ is the one that I created earlier. So I see it there.</p>
+<p>[Video description begins] <em> He points at the values under the SEQUENCE_NAME column header.</em> [Video description ends]</p>
+<p>And again, now that we know some more specific properties, we can retrieve those out. Let&#39;s SELECT the max_value and the increment_by from user_sequences where the sequence_name equals my sequence, which is ID_SEQ. And again, take note, it is case sensitive.</p>
+<p>[Video description begins] <em> He selects the SELECT sequence_name, FROM user_sequences; statement and clicks the execute icon. A table with SEQUENCE_NAME column header and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So whatever you get back from selecting the name out, that is what you have to enter in the WHERE clause.</p>
+<p>[Video description begins] <em> He points at the value ID_SEQ under the SEQUENCE_NAME column header.</em> [Video description ends]</p>
+<p>Case sensitive, so upper case ID_SEQ. So let&#39;s execute and there we have it.</p>
+<p>[Video description begins] <em> He selects the SELECT max_value, increment_by, FROM user_sequences, WHERE sequence_name &#61; &#39;ID_SEQ&#39;; statement and clicks the execute icon. A table with MAX_VALUE and INCREMENT_BY column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>The MAX_VALUE is 2000 and the increment is 20. And of course that was just changed from ten when it was originally created, when we used the alter statement. So it&#39;s useful for finding out if any of the properties have been changed with respect to the sequences that you have created. You can always just check in periodically to see what their state is and of course make corrections if necessary. Now, nothing in the user_sequences view allows you to make changes.</p>
+<p>You need to use the ALTER statement to make those changes, but at least you would know which values need updating. Okay, so again, just query that user_sequences system view whenever you need to see or verify the properties of the sequences in your database.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Exercise: Create Other Schema Objects (it_dfosfd_15_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/c3ac7c40-00e9-4cd5-9e03-2f1dab7685aa/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c3ac7c40-00e9-4cd5-9e03-2f1dab7685aa/image001.jpg')();" /><div class="section_text">Find out how to create views and sequences.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create views and sequences</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Create Other Schema Objects. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, time for another exercise, and this time we&#39;ll ask you to create a simple view using the CREATE VIEW statement. Then to create a sequence and use it to insert a value in a table. Then to modify a sequence using the ALTER SEQUENCE statement. And finally, to retrieve sequence information using the user_sequences system view. So again, we&#39;d like you to take a few minutes and try these exercises on your own, then to come back and review, and we&#39;ll see how you made out. So we&#39;ll see you shortly. All right, so to review our possible solutions, in our first exercise, we asked to create a new view.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The fourth part includes three tabs: HR,HR ~ 1 and HR ~ 2. The HR tab is selected.</em> [Video description ends]</p>
+<p>And really, all you have to do is ensure that your SELECT statement is retrieving the desired records. Once you have verified that, then you really just wrap that up in a CREATE VIEW statement. So again, it is simply CREATE VIEW, name of view, and the name should be somewhat descriptive. Then AS, and then simply your SELECT statement, whatever that is. Now, I&#39;ve already created this view. So if I were to attempt to run this code again, it would generate a duplicate name error. But we can verify that the view exists by then selecting from it. So we can just SELECT * FROM the view that was just created above, and verify that we get records back. And there we have it.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM emp_view_dept_80; statement and clicks the execute icon. A table with Employee Number, First Name, Last Name, and Annual Salary column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Then in our next task, we asked about creating a sequence.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 1 tab.</em> [Video description ends]</p>
+<p>And in this case, we can just use the CREATE SEQUENCE statement and give it a name. And again, I&#39;ve already created this one. But you can specify a number of properties, most notably the START WITH value. Then the INCREMENT BY value, and optionally, a MAXVALUE, but that is up to you. So again, I&#39;ve already created that. And then we can find out which value is currently using the sequence, or at least which one was last used, in my case it is now 330. We can just select the records out.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab. He points at the value 330 in the first row under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>Then we asked about using it in an INSERT statement. So we can INSERT INTO really any table because sequences are reusable. Specify, of course, the columns into which you are inserting. Then for the VALUES line, we can call the NEXTVAL property of the sequence. So into the department_id column we&#39;ll use the sequence to insert the next value. Then we&#39;ll just make up a department name, insert a null and a location. So we can execute the INSERT.</p>
+<p>[Video description begins] <em> He selects the INSERT INTO DEPARTMENT (department_id, department_name, manager_id, location_id), VALUES (id_seq.NEXTVAL, &#39;Testing&#39;, null, 2500); statement and clicks the execute icon. The Script Output tab displays the message: 1 row inserted.</em> [Video description ends]</p>
+<p>We get one row inserted, then we can reselect and verify that we have the new record, and it has incremented by the appropriate value.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS, ORDER BY department_id DESC; statement and clicks the execute icon. A table with DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Now, my initial sequence was created with an increment of 10, but we later changed the sequence to have an increment of 20.</p>
+<p>[Video description begins] <em> He points at the value 350 in the first row under the DEPARTMENT_ID column header.</em> [Video description ends]</p>
+<p>That is why we are seeing a jump of 20 here, okay? And in fact, that brings us to the final task of altering a sequence and finding out the information about it.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 2 tab.</em> [Video description ends]</p>
+<p>So the ALTER SEQUENCE statement simply allows you to make a change, and there is the change that I made previously.</p>
+<p>[Video description begins] <em> He highlights INCREMENT BY 20 from the ALTER SEQUENCE id_seq, INCREMENT BY 20, MAXVALUE 2000; statement.</em> [Video description ends]</p>
+<p>So the statement is simply ALTER SEQUENCE, name of sequence, and do take note that when you are altering, the START WITH, parameter is not supported, okay? It&#39;s already been defined with a starting value, so the alter does not allow you to change that, but you can change just about any other property. In my case, I changed the INCREMENT to 20 and then the MAXVALUE to 2000. And finally, we asked about ascertaining properties of the sequences, and you can use the user_sequences system view to see those properties. So we can first DESCRIBE it to see which columns can be queried.</p>
+<p>[Video description begins] <em> He selects the DESCRIBE user_sequences; statement and clicks the execute icon. A table with Name, Null, and Type column headers and several rows appears in the Script Output tab.</em> [Video description ends]</p>
+<p>Once we know that, we can retrieve a list of the sequences by their name, so we can select sequence_name from user_sequences. There they are. Then we can retrieve specific properties by selecting out just the columns that we want.</p>
+<p>[Video description begins] <em> He selects the SELECT sequence_name, FROM user_sequences; statement and clicks the execute icon. A table with SEQUENCE_NAME column header and four rows appears in the Query Result tab. He points at the values under the SEQUENCE_NAME column header.</em> [Video description ends]</p>
+<p>And we can supply a filter in the WHERE clause, such as its name. So I want the MAXVALUE and the INCREMENT BY from the user_sequences system view, where the sequence_name equals my sequence, in this case ID_SEQ. And remember that it is case sensitive. So we can execute, and we see that the MAX_VALUE is 2000, and the INCREMENT_BY is 20.</p>
+<p>[Video description begins] <em> He selects the SELECT max_value, increment_by, FROM user_sequences, WHERE sequence_name &#61; &#39;ID_SEQ&#39;; statement and clicks the execute icon. A table with MAX_VALUE and INCREMENT_BY column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises, and if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

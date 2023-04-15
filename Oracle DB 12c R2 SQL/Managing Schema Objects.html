@@ -1,0 +1,888 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Managing Schema Objects    </h1><div class="section_text"><p>Explore how to work with constraints and alter existing objects in Oracle Database 12c. Working with external tables and naming an index at time of creating a PRIMARY KEY constraint is also covered.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Adding a Constraint (it_dfosfd_08_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Dropping a Constraint (it_dfosfd_08_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Deleting Child Rows (it_dfosfd_08_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Cascading Constraints (it_dfosfd_08_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Disabling and Enabling Constraints (it_dfosfd_08_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Indexes (it_dfosfd_08_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Creating Indexes (it_dfosfd_08_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Index Information  (it_dfosfd_08_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Temporary Tables (it_dfosfd_08_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: External Tables (it_dfosfd_08_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: CREATE TABLE Statement (it_dfosfd_08_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Querying External Tables (it_dfosfd_08_enus_12)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_12">13. Video: Exercise: Work with Database Objects (it_dfosfd_08_enus_13)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Adding a Constraint (it_dfosfd_08_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/7ce814f0-3e54-4f4c-8a4d-6e6be4a022d6/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/7ce814f0-3e54-4f4c-8a4d-6e6be4a022d6/image001.jpg')();" /><div class="section_text">During this video, you will learn how to add a constraint.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">add a constraint</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Adding a Constraint. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at creating constraints. And perhaps among the more common types of constraints, the primary key and its associated foreign key. Now, before we get to the code, let&#39;s just quickly talk about the setup here.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. It is divided into two sections. The first section is divided into two subsections. The first subsection is titled as Connections. It contains the navigation pane. The second subsection is titled as Reports. It contains the navigation pane. The second section is the content pane. The HR tabbed file is open in the content pane. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements.</em> [Video description ends]</p>
+<p>I am working with a copy of the EMPLOYEES table because there are already several constraints in place on the original. And I don&#39;t want to interfere with those. But when you copy a table, although it does copy the structure in terms of the columns and their data types. It actually does not copy components such as constraints or triggers or indexes.</p>
+<p>[Video description begins] <em> In the Connections subsection, he clicks the EMPLOYEES subnode and the corresponding tabbed file opens in the content pane. The EMPLOYEES tabbed file includes the Columns, Data, and Constraints tabs. </em>[Video description ends]</p>
+<p>So if we look at the original EMPLOYEES table, we can go to the Constraints tab.</p>
+<p>[Video description begins]<em> The Constraints tabbed page opens. It contains a table with many columns and ten rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and SEARCH_CONDITION. He scrolls through the table. Below the content pane appears a pane, which contains the Columns tab.</em> [Video description ends]</p>
+<p>And you can see that there are ten constraints in place here. But if we look at my copy, there are only four.</p>
+<p>[Video description begins] <em> In the Connections subsection, he clicks the EMP_COPY subnode and the corresponding tabbed file opens. It includes the Columns, Data, Columns, and Constraints tabs. The Constraints tabbed page is open. It contains a table with many columns and four rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and SEARCH_CONDITION.</em> [Video description ends]</p>
+<p>And in fact, these are just system-generated constraints due to the fact that these columns are non-null columns. In other words, you cannot leave them blank. So if we go to the Columns tab here, you can see there are the not null columns.</p>
+<p>[Video description begins] <em> The Columns tabbed page contains a table with six columns and eleven rows. The column headers include COLUMN_NAME, DATA_TYPE, and NULLABLE. Under the NULLABLE column header, he points to the No values.</em> [Video description ends]</p>
+<p>So by definition, that is a constraint, you must enter something. So you are constraint, so they get created simply because of that property,</p>
+<p>[Video description begins] <em> He clicks the Constraints tab.</em> [Video description ends]</p>
+<p>but none of the other user-defined constraints were copied over. So we can create the primary key</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>on this copy table using one of two methods. Now, this first option here is certainly the quickest and easiest code and does work just fine.</p>
+<p>[Video description begins] <em> He highlights the first statement, which is ALTER TABLE EMP_COPY MODIFY employee_id PRIMARY KEY;.</em> [Video description ends]</p>
+<p>But you get a little more control with the second option. So I&#39;ll come to that in a moment. So when working with constraints, these are actually table-level objects. So you use the ALTER TABLE statement, and then as such, you specify which table you are working with.</p>
+<p>[Video description begins] <em> In the first statement, he highlights EMP_COPY.</em> [Video description ends]</p>
+<p>Then you can use the MODIFY keyword to assign the PRIMARY KEY to the employee_id column, okay? And again, that will work just fine. But note in my comment here, it receives a system generated name if you use this option. That&#39;s fine, but if you then later wanted to, for example, drop the constraint, you&#39;d have to find out what its name was first before you could reference it. So I tend to prefer the alternate code here,</p>
+<p>[Video description begins] <em> He points to the second statement, which is ALTER TABLE EMP_COPY ADD CONSTRAINT emp_id_pk PRIMARY KEY (employee_id);.</em> [Video description ends]</p>
+<p>which allows you to define the name yourself. So it&#39;s still ALTER TABLE, and then which table? So EMP_COPY, then ADD CONSTRAINT. And that itself is a little more explicit as well. This then is simply a name of the constraint, so emp_id_pk indicating of course that it&#39;s being placed on the employee_ID column.</p>
+<p>And it&#39;s a primary key constraint. Now, you can use any naming convention you want, it&#39;s just a name. But that&#39;s of course something that is indicative of what this constraint is all about. Then the type of constraint is PRIMARY KEY. And it&#39;s being placed on the employee_id column in parenthesis. So I&#39;m going to go ahead and execute this code.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The output pane appears below the content pane where the pane containing the Columns tab appeared. The Script Output tab opens in the output pane. The text Table EMP_COPY altered. is displayed.</em> [Video description ends]</p>
+<p>And that has been altered. And if we look at the properties now,</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. He selects the Constraints tab. A table with same column headers and five rows is displayed.</em> [Video description ends]</p>
+<p>and we again go to the Constraints tab, there you can see is the name. So these system-generated names, again,</p>
+<p>[Video description begins] <em> Under the CONSTRAINT_NAME column header, he points to the EMP_ID_PK, SYS_C0013445, SYS_C0013446, SYS_C0013447, and SYS_C0013448 values.</em> [Video description ends]</p>
+<p>would have been used if I went with that first option. So I&#39;d have to find out what the name was. But it would work, okay? So, then the foreign key, of course, relates back to the primary.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>And in most cases, a foreign key would be in a different table. But in this case, recall that this is the self-referencing relationship. The EMPLOYEES table has a column called manager_id. And that represents that person&#39;s boss but the boss is still an employee. So it simply means that the primary foreign key relationship exists within the same table, and that&#39;s perfectly fine. The code is no different if it were two different tables.</p>
+<p>[Video description begins] <em> He points to the third statement, which is ALTER TABLE EMP_COPY ADD CONSTRAINT emp_mgr_fk FOREIGN KEY (manager_id) REFERENCES EMP_COPY(employee_id);.</em> [Video description ends]</p>
+<p>So it&#39;s still ALTER TABLE, again, constraints are table-level objects, so ALTER TABLE EMP_COPY. ADD CONSTRAINT, and again, you can give it your own name, so in this case, emp_mgr_fk is employee to manager. That&#39;s the nature of the relationship, and fk for foreign key. But again, you can call it whatever you like.</p>
+<p>The type of constraint is, of course, FOREIGN KEY, and it is being placed on the manager_id column, again, in parentheses. Then it references the EMP_COPY table, employee_id column, okay? And you do need the name of the table because, again, in most cases, it&#39;s a different table. But it just doesn&#39;t matter in this case where it resides, you just have to qualify the name fully.</p>
+<p>[Video description begins] <em> In the third statement, he highlights EMP_COPY and employee_id.</em> [Video description ends]</p>
+<p>So table, column.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. </em>[Video description ends]</p>
+<p>So let&#39;s go ahead and execute, and that has been altered.</p>
+<p>[Video description begins]<em> In the Script Output tab, the text Table EMP_COPY altered. is displayed. He points to this text.</em> [Video description ends]</p>
+<p>So let&#39;s go back and look at properties.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens.</em> [Video description ends]</p>
+<p>And on the Constraints tab, now we have both constraints in place.</p>
+<p>[Video description begins] <em> He clicks the Constraints tab and the corresponding tabbed page opens. The table has same column headers and six rows. Under the CONSTRAINT_NAME column header, he points to the EMP_ID_PK and EMP_MGR_FK values.</em> [Video description ends]</p>
+<p>And again, named as per what we decided, and not just a system-generated name, okay?</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>So again, the primary key can be created using either code.</p>
+<p>[Video description begins] <em> He highlights the first and second statements. </em>[Video description ends]</p>
+<p>But then the foreign key must relate back to the primary key,</p>
+<p>[Video description begins]<em>He highlights the third statement.</em> [Video description ends]</p>
+<p>or at least to a unique value, but most commonly the primary key. And that is essentially how you can create your constraints. And that is how you can get started with creating primary and foreign key constraints.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Dropping a Constraint (it_dfosfd_08_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/9e895475-b629-4275-a4b4-320cc898830f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9e895475-b629-4275-a4b4-320cc898830f/image001.jpg')();" /><div class="section_text">In this video, you will remove a constraint.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">drop a constraint</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Dropping a Constraint. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll take a look at dropping constraints. And in particular, when you are working with primary and foreign key constraints, you actually do have two options. But we&#39;ll take a look at just an explicit drop of the foreign key first, and this is actually the correct sequence.</p>
+<p>In other words, if you were to drop a primary key, it would have to have no existing foreign keys that are referencing it. Otherwise it would not let you drop it. So you can drop the foreign key first, then you can drop the primary. So again, this is a table-level operation.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements. He points to the first statement, which is ALTER TABLE EMP_COPY DROP CONSTRAINT emp_mgr_fk;.</em> [Video description ends]</p>
+<p>So it is ALTER TABLE, then which table, and then simply DROP CONSTRAINT.</p>
+<p>[Video description begins] <em> In the first statement, he points to EMP_COPY.</em> [Video description ends]</p>
+<p>And all you have to do is reference it by its name. Recall that we created one earlier called emp_mgr_fk. That&#39;s all you have to do, just specify the name of the constraint and we can drop it, okay.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The output pane appears below the content pane. It contains the Script Output tab. The text Table EMP_COPY altered. is displayed.</em> [Video description ends]</p>
+<p>So that has now been altered.</p>
+<p>[Video description begins] <em> In the Connections subsection, he clicks the EMP_COPY subnode. The corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. </em>[Video description ends]</p>
+<p>Let&#39;s look at the properties, go to the Constraints tab, and</p>
+<p>[Video description begins]<em> The Constraints tabbed page opens. It contains a table with many columns and five rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and SEARCH_CONDITION.</em> [Video description ends]</p>
+<p>we can see the foreign key constraint has been removed.</p>
+<p>[Video description begins] <em> He points to the values under the CONSTRAINT_NAME column header. He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>Now, I&#39;m going to quickly recreate that just to show you the other option. So this is the original code to create the foreign key in the first place,</p>
+<p>[Video description begins] <em> He selects the third statement, which is ALTER TABLE EMP_COPY ADD CONSTRAINT emp_mgr_fk FOREIGN KEY (manager_id) REFERENCES EMP_COPY(employee_id);.</em> [Video description ends]</p>
+<p>so let&#39;s rebuild it.</p>
+<p>[Video description begins] <em> He clicks the execute button. In the Script Output tab, the text Table EMP_COPY altered. is displayed.</em> [Video description ends]</p>
+<p>Let&#39;s verify that it has been recreated,</p>
+<p>[Video description begins] <em> He closes the Script Output tab. </em>[Video description ends]</p>
+<p>and there it is.</p>
+<p>[Video description begins]<em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. He clicks the Constraints tab and the corresponding tabbed page opens. A table with same column headers and six rows is displayed. </em>[Video description ends]</p>
+<p>Okay, so again, this is just something that is specific to primary and</p>
+<p>[Video description begins]<em> In the second row, under the CONSTRAINT_NAME column header, he highlights the EMP_MGR_FK value.</em> [Video description ends]</p>
+<p>foreign keys.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>Because you tell Oracle that this foreign key relates back to or references the primary key, then it knows that this connection exists.</p>
+<p>[Video description begins] <em> In the third statement, he highlights REFERENCES EMP_COPY(employee_id);.</em> [Video description ends]</p>
+<p>So what you can do then is to drop the primary key and its associated foreign key all-in-one operation, okay.</p>
+<p>[Video description begins] <em> He points to the second statement, which is ALTER TABLE EMP_COPY DROP PRIMARY KEY CASCADE;.</em> [Video description ends]</p>
+<p>So again, it&#39;s still ALTER TABLE, then which table you want to work with, EMP_COPY in this case. And you can see the code is to DROP PRIMARY KEY. Then with the CASCADE option, that will actually go and locate the foreign key and drop that as well.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. He clicks the Constraints tab and the corresponding tabbed page opens. A table with same column headers and six rows is displayed.</em> [Video description ends]</p>
+<p>So again, let&#39;s just quickly reconfirm that both constraints are there,</p>
+<p>[Video description begins] <em> Under the CONSTRAINT_NAME column header, he points to the values in the first and second rows, which are EMP_ID_PK and EMP_MGR_FK respectively. </em>[Video description ends]</p>
+<p>the primary key and the foreign key, which they are.</p>
+<p>[Video description begins]<em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>And let&#39;s execute our code to drop both of them.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Script Output tab opens. The text Table EMP_COPY altered. is displayed.</em> [Video description ends]</p>
+<p>And notice that we do not need to specify the name of the primary key, it&#39;s an inherent property, if you will. So Oracle knows which column is the primary key, you can only have one per table, so I did not have to specify the name. So with that being executed, let&#39;s go back and verify.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. He clicks the Constraints tab and the corresponding tabbed page opens. A table with same column headers and four rows is displayed.</em> [Video description ends]</p>
+<p>And we should see both constraints have been removed.</p>
+<p>[Video description begins] <em> He points to the values under the CONSTRAINT_NAME column header.</em> [Video description ends]</p>
+<p>Okay, now again, that&#39;s up to you.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>You don&#39;t need to delete both of them, of course. But if you are dropping the primary, you can cascade to also drop the associated foreign and that will remove both.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Deleting Child Rows (it_dfosfd_08_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/1ba884f7-56ac-4c04-abd2-10075c47021b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1ba884f7-56ac-4c04-abd2-10075c47021b/image001.jpg')();" /><div class="section_text">In this video, find out how to delete child rows using the ON DELETE CASCADE and DELETE SET NULL clauses.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">delete child rows using the ON DELETE CASCADE and DELETE SET NULL clauses</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Deleting Child Rows. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at another option that you can specify when working with primary and foreign key constraints. Known as the on delete cascade option. Now, you actually have two options. It&#39;s on delete cascade or on delete set null. And you can see I have the code for both here.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>Now, I&#39;ve already executed all of this code just to save a bit of time but we&#39;ll still go through everything. But again, I&#39;m working with copies so that I don&#39;t affect the originals, and I&#39;m working with two different tables. In this particular example, I&#39;ve created the copy of the LOCATIONS table right here,</p>
+<p>[Video description begins] <em> In the Connections subsection, he clicks the LOC_COPY subnode and the corresponding tabbed file opens. </em>[Video description ends]</p>
+<p>and the DEPARTMENTS table right here, okay?</p>
+<p>[Video description begins]<em> He clicks the DEPT_COPY subnode and the corresponding tabbed file opens.</em> [Video description ends]</p>
+<p>And there is a relationship between locations and departments.</p>
+<p>[Video description begins] <em> He expands the LOC_COPY subnode. Below this subnode are the LOCATION_ID, STREET_ADDRESS, POSTAL_CODE, CITY, STATE_PROVINCE, and COUNTRY_ID subnodes.</em> [Video description ends]</p>
+<p>The location copy table has a LOCATION_ID as its primary key.</p>
+<p>[Video description begins] <em> He expands the DEPT_COPY subnode. Below this subnode are the DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID subnodes. </em>[Video description ends]</p>
+<p>Then that same column appears in the departments copy as a foreign key, okay?</p>
+<p>[Video description begins]<em> Under the DEPT_COPY subnode, he highlights the LOCATION_ID subnode.</em> [Video description ends]</p>
+<p>So if we look at the constraints that exist in each one, for the location copy under Constraints,</p>
+<p>[Video description begins] <em> He clicks the LOC_COPY subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. He clicks the Constraints tab and the corresponding tabbed page opens. It contains a table. The table has many columns and two rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and STATUS. The Columns tab opens below the content pane.</em> [Video description ends]</p>
+<p>there is a Primary_Key on the LOCATION_ID.</p>
+<p>[Video description begins] <em> In the LOC_COPY tabbed file under the CONSTRAINT_NAME column header in the first row, he highlights the LOC_COPY_PK value. The Columns tab gets populated with a table. The table has two columns and one row. The column headers are COLUMN_NAME and COLUMN_POSITION. The row values are LOCATION_ID and 1 respectively. He points to the LOCATION_ID value.</em> [Video description ends]</p>
+<p>And in the departments copy table, we see the Foreign_Key</p>
+<p>[Video description begins] <em> He clicks the DEPT_COPY subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. He clicks the Constraints tab and the corresponding tabbed page opens. It contains a table. The table has many columns and two rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and STATUS. The Columns tab opens below the content pane.</em> [Video description ends]</p>
+<p>constraint referencing that Primary_Key.</p>
+<p>[Video description begins] <em> In the DEPT_COPY tabbed file under the CONSTRAINT_NAME column header in the first row, he highlights the DEPT_LOC_COPY_FK value. The Columns tab gets populated with a table. The table has two columns and one row. The column headers are COLUMN_NAME and COLUMN_POSITION. The row values are LOCATION_ID and 1 respectively. He points to the LOCATION_ID value.</em> [Video description ends]</p>
+<p>So again, that has already been created, I executed that code already.</p>
+<p>[Video description begins] <em> He closes the DEPT_COPY tabbed file. </em>[Video description ends]</p>
+<p>And that again was this code right here.</p>
+<p>[Video description begins]<em> He highlights the second statement, which is ALTER TABLE DEPT_COPY ADD CONSTRAINT dept_loc_copy_fk FOREIGN KEY (location_id) REFERENCES LOC_COPY(location_id) ON DELETE SET NULL;.</em> [Video description ends]</p>
+<p>Now, I went with the SET NULL option just to be a little more on the safe side. The ON DELETE CASCADE would entirely remove the record,</p>
+<p>[Video description begins] <em> He points to the first statement, which is ALTER TABLE DEPT_COPY ADD CONSTRAINT dept_loc_fk FOREIGN KEY (location_id) REFERENCES LOC_COPY(location_id) ON DELETE CASCADE;.</em> [Video description ends]</p>
+<p>and in some cases, you just might not want that. So the two sets of code here are identical</p>
+<p>[Video description begins] <em> He highlights the first and second statements.</em> [Video description ends]</p>
+<p>with the exception of that ON DELETE CASCADE versus ON DELETE SET NULL, okay? And just to be safe, I used a different name. I didn&#39;t execute this code but department, location, foreign key, department, location, copy, foreign key. Just so that I wouldn&#39;t get a duplicate name error.</p>
+<p>[Video description begins] <em> In the first statement, he highlights dept_loc_fk. In the second statement, he highlights dept_loc_copy_fk.</em> [Video description ends]</p>
+<p>But again, this is just a name and you can call it whatever you want.</p>
+<p>[Video description begins] <em> He points to the second statement. </em>[Video description ends]</p>
+<p>So the syntax, again, is ALTER TABLE then the table on which you are operating.</p>
+<p>[Video description begins]<em> In the second statement, he points to DEPT_COPY.</em> [Video description ends]</p>
+<p>ADD CONSTRAINT, name of constraint, the FOREIGN KEY</p>
+<p>[Video description begins] <em> In the second statement, he highlights ADD CONSTRAINT dept_loc_copy_fk.</em> [Video description ends]</p>
+<p>is being placed on the location_id column of the departments copy table. But it references location copy table, the primary key of that table, and again, ON DELETE SET NULL, okay?</p>
+<p>[Video description begins] <em> In the second statement, he highlights (location_id).</em> [Video description ends]</p>
+<p>Now, let&#39;s look at the actual data and I&#39;ll go back to the original tables here.</p>
+<p>[Video description begins] <em> He points to the navigation pane in the Connections subsection.</em> [Video description ends]</p>
+<p>So under the original LOCATIONS table, if we select the Data tab,</p>
+<p>[Video description begins] <em> He clicks the LOCATIONS subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. He clicks the Data tab and the corresponding tabbed page opens. It contains a table. The table has six columns and many rows. The column headers include LOCATION_ID, POSTAL_CODE, and CITY.</em> [Video description ends]</p>
+<p>there is this location ID 2700, okay? And I chose this one simply because there was only one department in this location. Let&#39;s go to the original DEPARTMENTS table, and there it is right there.</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. The Data tabbed page is open. It contains a table. The table has four columns and many rows. The column headers include DEPARTMENT_ID and MANAGER_ID.</em> [Video description ends]</p>
+<p>Okay, the Public Relations department is the only one in that location.</p>
+<p>[Video description begins] <em> In the seventh row under the LOCATION_ID and DEPARTMENT_NAME column headers, he points to the 2700 and Public Relations values respectively.</em> [Video description ends]</p>
+<p>So again, that&#39;s the original data.</p>
+<p>[Video description begins] <em> He closes the DEPARTMENTS tabbed file.</em> [Video description ends]</p>
+<p>So what I&#39;ve already executed here was to delete location_id &#61; 2700 from the copy table.</p>
+<p>[Video description begins] <em> He highlights the third statement, which is DELETE FROM LOC_COPY WHERE location_id &#61; 2700;.</em> [Video description ends]</p>
+<p>So let&#39;s look at the locations copy table,</p>
+<p>[Video description begins] <em> He clicks the LOC_COPY subnode and the corresponding tabbed file opens. He clicks the Data tab and the corresponding tabbed page opens. It contains a table. The table has six columns and many rows. The column headers include LOCATION_ID, CITY, and COUNTRY_ID.</em> [Video description ends]</p>
+<p>and on the Data tab, you can see that 2700 is gone.</p>
+<p>[Video description begins] <em> He points to the values in the LOCATION_ID column.</em> [Video description ends]</p>
+<p>Okay, so again I&#39;ve already executed that code. Let&#39;s go to the department copy table and</p>
+<p>[Video description begins] <em> He clicks the DEPT_COPY subnode and the corresponding tabbed file opens. The Data tabbed page is open. It contains a table. The table has four columns and many rows. The column headers include LOCATION_ID and DEPARTMENT_ID.</em> [Video description ends]</p>
+<p>the Public Relations department which was in location 2700 is now null, okay?</p>
+<p>[Video description begins] <em> In the seventh row under the DEPARTMENT_NAME and LOCATION_ID column headers, he points to the Public Relations and (null) values respectively.</em> [Video description ends]</p>
+<p>So that&#39;s the option for setting the cascade to null instead of entirely removing it.</p>
+<p>[Video description begins] <em> He closes the DEPT_COPY tabbed file.</em> [Video description ends]</p>
+<p>But that of course is up to you. If you do feel that it is appropriate to delete the record entirely, then by all means. But chances are, at least in this example, you would not want to completely delete that department. It would more so be a case of the department just being relocated. Okay, so when you are creating those foreign keys, you have that option to decide what to do in the event that a primary key value has been deleted.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Cascading Constraints (it_dfosfd_08_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/bee2f60e-e93a-4661-bd13-30a354d6d32d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/bee2f60e-e93a-4661-bd13-30a354d6d32d/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the CASCADE CONSTRAINTS clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the CASCADE CONSTRAINTS clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Cascading Constraints. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll see another example of cascading delete operations but using a bit of a different approach. In an earlier demonstration, we saw how you could delete a primary key constraint. While at the same time cascading that to remove the foreign key constraint that referenced back to that primary key. In terms of the result, this really is the same but we aren&#39;t operating on the constraint in this case but rather just the column.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>So again, using my copy tables here, my location copy table has, as its primary key, the location_id column.</p>
+<p>[Video description begins] <em> He points to the first statement, which is ALTER TABLE LOC_COPY DROP COLUMN location_id;.</em> [Video description ends]</p>
+<p>So I&#39;m going to attempt to simply drop that column, not the constraint. So let&#39;s see what happens when we attempt to do this, of course, we get an error, okay?</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. An error message is displayed. He points to this message.</em> [Video description ends]</p>
+<p>So we see down here that it cannot drop a parent key column because it is a primary key. So you can see the Action here below, it says to drop all constraints referencing the parent key column. Or just specify the CASCADE CONSTRAINTS option in your statement, okay? So here we see I can use the CASCADE CONSTRAINTS option to successfully remove the primary key column.</p>
+<p>[Video description begins] <em> He points to the second statement, which is ALTER TABLE LOC_COPY DROP COLUMN location_id CASCADE CONSTRAINTS;.</em> [Video description ends]</p>
+<p>And the associated foreign key constraint. Now, do take note of that, it removes the foreign key constraint, not the column from the table, okay?</p>
+<p>[Video description begins] <em> He highlights the second statement. </em>[Video description ends]</p>
+<p>So let&#39;s go ahead and execute now the DROP COLUMN statement with CASCADE CONSTRAINTS.</p>
+<p>[Video description begins]<em> He clicks the execute button.</em> [Video description ends]</p>
+<p>And we can see that the table has now been altered.</p>
+<p>[Video description begins] <em> In the Script Output tab, the text Table Loc_Copy altered. is displayed. He points to this text. </em>[Video description ends]</p>
+<p>So let&#39;s actually go and examine the location copy table itself.</p>
+<p>[Video description begins]<em> In the navigation pane, he expands the LOC_COPY subnode.</em> [Video description ends]</p>
+<p>We can see the LOCATION_ID column has been removed.</p>
+<p>[Video description begins] <em> He expands the DEPT_COPY subnode.</em> [Video description ends]</p>
+<p>But if we go and look at the department copy table, the foreign key column itself is still there, okay?</p>
+<p>[Video description begins] <em> He points to the LOCATION_ID subnode.</em> [Video description ends]</p>
+<p>But if we look at the table itself,</p>
+<p>[Video description begins] <em> He clicks the DEPT_COPY subnode and the corresponding tabbed file opens. </em>[Video description ends]</p>
+<p>and go to the Constraints tab,</p>
+<p>[Video description begins]<em> The Constraints tabbed page opens. It contains a table with many columns and one row. The column header includes CONSTRAINT_ NAME and DELETE_RULE.</em> [Video description ends]</p>
+<p>we can see the foreign key constraint is no longer present, okay?</p>
+<p>[Video description begins] <em> He closes the DEPT_COPY tabbed file.</em> [Video description ends]</p>
+<p>So again, this was very similar to the drop constraint statement but in this case we are dropping the column, not the constraint. But again, because the primary key is essentially a component or a property of that column, then Oracle realizes, wait a second, there are constraints that reference back to that column, therefore, they have to be dealt with. And the CASCADE CONSTRAINTS option will allow you to do exactly that.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Disabling and Enabling Constraints (it_dfosfd_08_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/a58cfd3e-ceef-4a8b-9a22-a984fb9412ed/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a58cfd3e-ceef-4a8b-9a22-a984fb9412ed/image001.jpg')();" /><div class="section_text">In this video, you will learn how to enable and disable constraints.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">disable and enable constraints</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Disabling and Enabling Constraints. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once your database has been implemented in a production environment, chances are you aren&#39;t going to delete your constraints all that often. They typically should be in place. But there are scenarios where you may want to simply turn them off or disable them. This is fairly common when doing large scale imports, because it is possible that the data coming in might violate some of your constraints.</p>
+<p>So what you can do is to just disable them while that import is happening. Then you can re-enable them and deal with any issues after the fact. Now, you don&#39;t have to do that either. You can leave them on to prevent any problems from happening, but sometimes you need to just get that data in. So in this demonstration, we&#39;ll see how you can disable, and of course then re-enable, your constraints.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains five statements.</em> [Video description ends]</p>
+<p>So our first example is to just disable the foreign key, again, just temporarily. So I&#39;ve removed my copy tables, because I don&#39;t really have to worry about anything here. I&#39;m just turning them off and back on again. So the DEPARTMENTS table has a foreign key relating back to the LOCATIONS table.</p>
+<p>[Video description begins] <em> He points to the first statement, which is ALTER TABLE DEPARTMENTS DISABLE CONSTRAINT DEPT_LOC_FK;.</em> [Video description ends]</p>
+<p>So again, these are table-level operations. So we ALTER TABLE, then the table that we want to operate on.</p>
+<p>[Video description begins] <em> In the first statement, he highlights DEPARTMENTS.</em> [Video description ends]</p>
+<p>And it is simply DISABLE CONSTRAINT, and then you can just reference it by its name. And if you don&#39;t know the name, again you can just select the table</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs.</em> [Video description ends]</p>
+<p>and go to Constraints tab.</p>
+<p>[Video description begins] <em> The Constraints tabbed page opens. It contains a table. It has many columns and four rows. The column headers include CONSTRAINT_NAME and STATUS.</em> [Video description ends]</p>
+<p>And this is the constraint that I&#39;m working with at the moment,</p>
+<p>[Video description begins] <em> In the second row under the CONSTRAINT_NAME column header, he highlights the DEPT_LOC_FK value.</em> [Video description ends]</p>
+<p>the foreign key constraint between the department and the location. Now, while I&#39;m in here, also take note that you can see there&#39;s a STATUS column, and we see that all of them are currently ENABLED. Okay, so we&#39;ll close out of here and we&#39;ll go ahead and disable that constraint, okay?</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. In the Script Output tab, the text Table DEPARTMENTS altered. is displayed.</em> [Video description ends]</p>
+<p>So that table has now been altered.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>Let&#39;s go back and examine the Constraints tab,</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens. He clicks the Constraints tab. A table with same column headers and four rows appears.</em> [Video description ends]</p>
+<p>and we can see now that it has been DISABLED.</p>
+<p>[Video description begins] <em> In the second row under the STATUS column header, he points to the DISABLED value.</em> [Video description ends]</p>
+<p>So this would now allow us to enter a value into the departments table that might possibly violate the referential integrity. But as mentioned, sometimes you do need to do that with something like a large scale import, so the constraint is still there but it&#39;s just turned off.</p>
+<p>[Video description begins] <em> He closes the DEPARTMENTS tabbed file.</em> [Video description ends]</p>
+<p>Now, we can re-enable that with the exact opposite statement. So again, ALTER TABLE, name of table,</p>
+<p>[Video description begins] <em> He points to the second statement, which is ALTER TABLE DEPARTMENTS ENABLE CONSTRAINT DEPT_LOC_FK;.</em> [Video description ends]</p>
+<p>ENABLE CONSTRAINT, and then simply specify the name. So let&#39;s go ahead and turn it back on again,</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the Script Output tab, the text Table DEPARTMENTS altered. is displayed.</em> [Video description ends]</p>
+<p>and we can see that has successfully altered.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>Let&#39;s go back into the Constraints tab,</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens. He clicks the Constraints tab and the corresponding tabbed page opens. It contains a table with same column headers and four rows.</em> [Video description ends]</p>
+<p>and we see now that it has been re-enabled.</p>
+<p>[Video description begins] <em> He points to the values in the STATUS column. He closes the DEPARTMENTS tabbed file.</em> [Video description ends]</p>
+<p>Okay, so that in and of itself is fairly simple, but there is another option again where you can use the cascade feature.</p>
+<p>[Video description begins] <em> He points to the third statement, which is ALTER TABLE LOCATIONS DISABLE PRIMARY KEY CASCADE;.</em> [Video description ends]</p>
+<p>So what we can do is disable the primary key of this relationship and then cascade that to disable any associated foreign keys. And this is helpful if there are multiple foreign keys pointing back to this primary and maybe you aren&#39;t entirely certain what their names are or where they are. Because you could have multiple foreign keys in many different tables. So this will handle all of them in a single operation.</p>
+<p>So again it&#39;s ALTER TABLE, and in this case it&#39;s the primary key. So again, this is a different table. Location ID is the primary key in the LOCATIONS table, it&#39;s the foreign key in the DEPARTMENTS table. So we are turning off the primary key in this case, and we can cascade that to all foreign keys. Okay, so DISABLE PRIMARY KEY CASCADE. Let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. The Script Output tab opens. The text Table LOCATIONS altered. is displayed.</em> [Video description ends]</p>
+<p>The LOCATIONS table has been altered, but let&#39;s just examine the foreign key.</p>
+<p>[Video description begins] <em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>So from the DEPARTMENTS table, again the Constraints tab, sure enough,</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens. He clicks the Constraints tab and the corresponding tabbed page opens. It contains a table with same column headers and four rows.</em> [Video description ends]</p>
+<p>the foreign key has been disabled along with the primary key,</p>
+<p>[Video description begins] <em> In the second row under the STATUS column header, he points to the DISABLED value. </em>[Video description ends]</p>
+<p>okay?</p>
+<p>[Video description begins]<em> He closes the DEPARTMENTS tabbed file.</em> [Video description ends]</p>
+<p>So again, that&#39;s just helpful when you aren&#39;t entirely certain where all of those other foreign keys are or what their names are. Because in this DISABLE CONSTRAINT statement, you do have to explicitly list its name.</p>
+<p>[Video description begins] <em> In the first statement, he highlights DISABLE CONSTRAINT DEPT_LOC_FK;.</em> [Video description ends]</p>
+<p>So this saves a bit of time in that regard. Now, interestingly enough, if you want to re-enable these, you have to do it individually. The cascade is not supported for enabling.</p>
+<p>[Video description begins] <em> He points to the fourth statement, which is ALTER TABLE LOCATIONS ENABLE PRIMARY KEY;.</em> [Video description ends]</p>
+<p>Okay, so we have to re-enable the primary key. So ALTER TABLE LOCATIONS, ENABLE PRIMARY KEY, that alters the LOCATIONS table.</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. The Script Output tab opens. The text Table LOCATIONS altered. is displayed.</em> [Video description ends]</p>
+<p>Then we have to go back and explicitly re-enable the foreign key that references it.</p>
+<p>[Video description begins] <em> He highlights the fifth statement, which is ALTER TABLE DEPARTMENTS ENABLE CONSTRAINT DEPT_LOC_FK;. </em>[Video description ends]</p>
+<p>So this code, in fact, is identical to this code,</p>
+<p>[Video description begins]<em> He points to the fifth and second statements.</em> [Video description ends]</p>
+<p>either one,</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Script Output tab opens. The text Table DEPARTMENTS altered. is displayed. </em>[Video description ends]</p>
+<p>okay? </p>
+<p>[Video description begins]<em> He closes the Script Output tab.</em> [Video description ends]</p>
+<p>One last check back in the DEPARTMENTS table.</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS subnode and the corresponding tabbed file opens.</em> [Video description ends]</p>
+<p>View the Constraints tab, and it has been successfully re-enabled.</p>
+<p>[Video description begins] <em> The Constraints tabbed page opens. It contains a table with same column headers and four rows. </em>[Video description ends]</p>
+<p>Okay, now again, that is typically a much safer approach than entirely removing the constraints.</p>
+<p>[Video description begins]<em> In the second row under the STATUS column header, he highlights the ENABLED value. He closes the DEPARTMENTS tabbed file.</em> [Video description ends]</p>
+<p>But that is certainly done during testing and development. But once it hits production, unless you are looking to completely change the nature of the relationships, they generally don&#39;t get deleted all that often. But disabling them has the same effect. And you can, of course, turn it back on at any time.</p>
+<p>And then you can deal with any data issues that may have resulted from something like a large scale import. But it&#39;s not uncommon to need to just turn those constraints on and off.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Indexes (it_dfosfd_08_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/23f8fc0f-1666-4c97-87ac-6d6b04ccaf7c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/23f8fc0f-1666-4c97-87ac-6d6b04ccaf7c/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to describe indexes.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe indexes</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Indexes. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce indexes in Oracle. But before we even get to any of the bullet points here, with respect to what they are, well, let&#39;s think about a textbook. If you are looking for a particular term in a textbook, you have basically two choices. You can flip through every single page hoping to find that term, or in most cases you can just flip to the back of the book, and you&#39;ll find an index.</p>
+<p>You can then search alphabetically for that term, and the index will then tell you, here is where you can find it, this page, this page, and this page. So ultimately, what I&#39;m hoping to do is find that value much more rapidly. That&#39;s what indexes in Oracle can do for you.</p>
+<p>[Video description begins] <em> Indexes</em> [Video description ends]</p>
+<p>Now, with respect to it being a schema object, it just means that it&#39;s a little bit of a self-contained object, if you will, in that the data itself is not particularly affected by the index. I can create an index on this table and yes, it allows me to search through that data a little more efficiently. But I can delete the index at any time without affecting the data. So indexes can come and go and they really won&#39;t have any effect on the data itself, okay? But it&#39;s used by the Oracle server to speed up the retrieval of rows by using a pointer. So that, again, is the same process as flipping to the back of the book and being told you can find this value here, here, and here. That&#39;s exactly what happens in Oracle.</p>
+<p>So it can reduce the disk input/output by using a rapid path access method to locate data quickly. It quite literally tells you this value is located on this particular page of all of these records. You then no longer have to search through all of the pages to find that value. And that actually does happen if there are no indexes present, that&#39;s what&#39;s known as a table scan. Oracle will literally read every single record to attempt to locate the value that you are looking for. That&#39;s not so bad on very small tables, but once they get very large, that can take a long time. So the index points Oracle to the page where that record exists or where that value exists, and you no longer have to read all of them.</p>
+<p>So they can provide tremendous performance benefits. Now, they are dependent on the table that they index. In other words, if I create an index on a particular column in, let&#39;s say, the customer table and then I delete the entire table, then the index goes with it, okay? But again, you can delete the index without affecting the table or the data at all. And once it is created, they&#39;re used and maintained automatically by Oracle Server. So if I create a query looking for a particular value, let&#39;s just go with something fairly simple like a customer&#39;s last name. So if I&#39;m looking for a specific customer by their last name, then the index will automatically be used to retrieve the values I&#39;m looking for if present.</p>
+<p>And if I make changes, for example, maybe a new record, it gets inserted into the table, or an old one gets removed, then Oracle will also update the index to reflect those changes. So a lot of operations occur automatically. And again, the idea is just to dramatically reduce the amount of time it takes to locate certain values in certain tables. So in very general terms, when to use them typically comes down to which columns are referenced most often in things like your SELECT statements or your WHERE clauses, more to the point.</p>
+<p>So if I&#39;m looking for a specific customer and maybe I&#39;m searching by the last name, if there is an index on the last name column, then it will be able to locate that specific value very quickly. And it won&#39;t have to read every single record. So again, if you frequently search, or even sort, by that column, it&#39;s a good candidate for an index. And I say sort because the indexes themselves also sort the values that are being indexed.</p>
+<p>Again, think of the textbook, the index itself is in alphabetical order, so that you can find the value that you are looking for as quickly as possible. So again, in general, if any given column in any given table is frequently searched or sorted, then it&#39;s a good candidate or an index.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Creating Indexes (it_dfosfd_08_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/2069ea15-7e75-459c-97fe-74fc94455aa5/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/2069ea15-7e75-459c-97fe-74fc94455aa5/image001.jpg')();" /><div class="section_text">In this video, you will learn how to create an index.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create an index</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Creating Indexes. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration we&#39;ll take a look at some options for creating indexes. But again, before we get to the code, let&#39;s just take a quick look at the setup. And in fact, we&#39;ll see an option for creating indexes that does not use the code at all and will implement the index automatically.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>So I&#39;m going to work with a copy table again, just so that I don&#39;t interfere with the original EMPLOYEES table in this case. So I have regenerated a fresh copy of the EMPLOYEES table.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. It includes the Columns, Data, Indexes, and Details tabs. The Columns tab is selected.</em> [Video description ends]</p>
+<p>And if you go to the Indexes tab here,</p>
+<p>[Video description begins] <em> The Indexes tabbed page opens. It contains a table. It has eleven columns and no rows. The column headers include STATUS and COLUMNS.</em> [Video description ends]</p>
+<p>you can see that there are no indexes present.</p>
+<p>[Video description begins] <em> He clicks the Constraints tab and the corresponding tabbed page opens. It contains a table. It has many columns and four rows. The column headers include CONSTRAINT_NAME and DELETE_RULE.</em> [Video description ends]</p>
+<p>Now, similarly, there are no constraints that have been created on this table. Because when you generate a copy, it does not copy the constraints, nor does it copy the indexes. So if we look at the original EMPLOYEES table, we see</p>
+<p>[Video description begins] <em> He clicks the EMPLOYEES subnode and the corresponding tabbed file opens. It includes the Columns, Data, Indexes, and Details tabs. The Constraints tabbed page is open.</em> [Video description ends]</p>
+<p>Indexes already present, we see Constraints already present.</p>
+<p>[Video description begins] <em> He clicks the Indexes tab.</em> [Video description ends]</p>
+<p>But again, the copy operation does not copy those characteristics.</p>
+<p>[Video description begins] <em> He clicks the Constraints tab.</em> [Video description ends]</p>
+<p>So let&#39;s go back to the copy table.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode. The Constraints tab is selected. It contains a table with many columns and four rows. The column headers include CONSTRAINT_NAME, DELETE_RULE, and STATUS.</em> [Video description ends]</p>
+<p>And one of the methods by which you can create an index is to simply assign a primary key that is actually implemented and maintained as an index. So let&#39;s take a look at creating a constraint right in here. We can just go to our Actions button here, choose Constraint.</p>
+<p>[Video description begins] <em> In the EMP_COPY tabbed file, he clicks the Actions drop-down button present below the various tabs such as Constraints, Data, and Indexes.</em> [Video description ends]</p>
+<p>Then choose Add Primary Key.</p>
+<p>[Video description begins] <em> The Add Primary Key pop-up box opens. It contains the Prompts and SQL tabs. The Prompts tab is selected.</em> [Video description ends]</p>
+<p>All we have to do is give it a name. Let&#39;s call it, emp_copy_pk.</p>
+<p>[Video description begins] <em> In the Primary Key Name text box, he types emp_copy_pk. </em>[Video description ends]</p>
+<p>And then of course specify the column on which it is being created.</p>
+<p>[Video description begins]<em> In the Column 1 drop-down list, he selects the EMPLOYEE_ID option.</em> [Video description ends]</p>
+<p>Click Apply.</p>
+<p>[Video description begins] <em> The Add Primary Key pop-up box closes. The Confirmation message box opens.</em> [Video description ends]</p>
+<p>And we have our primary key. Click on OK.</p>
+<p>[Video description begins] <em> The Confirmation message box closes.</em> [Video description ends]</p>
+<p>And we&#39;ll just refresh.</p>
+<p>[Video description begins] <em> He clicks the refresh icon adjacent to the Actions drop-down button.</em> [Video description ends]</p>
+<p>And there is our primary key.</p>
+<p>[Video description begins] <em> In the first row under the CONSTRAINT_NAME column header, he highlights the EMP_COPY_PK value.</em> [Video description ends]</p>
+<p>But that actually created an index automatically. Every primary key is an index in Oracle. So let&#39;s go to the Indexes tab and sure enough, we have an index now.</p>
+<p>[Video description begins] <em> The table is populated with one row.</em> [Video description ends]</p>
+<p>And you can see its main property is that it is a UNIQUE index.</p>
+<p>[Video description begins] <em> Under the UNIQUENESS column header, he highlights the UNIQUE value.</em> [Video description ends]</p>
+<p>That&#39;s how primary keys maintain the uniqueness of each value, it uses an index. Okay, so that again is just simply a default behavior of Oracle. As soon as you establish a primary key column on any table, it creates an index automatically to essentially implement the primary key. Now, once you have that done, you may, of course, want to add other indexes.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file. </em>[Video description ends]</p>
+<p>And if we go back and look at the original EMPLOYEES table,</p>
+<p>[Video description begins]<em> He clicks the EMPLOYEES subnode and the corresponding tabbed file opens. The Columns tab is selected.</em> [Video description ends]</p>
+<p>again there are several.</p>
+<p>[Video description begins] <em> He clicks the Indexes tab and the corresponding tabbed page opens. It contains a table. It has many columns and six rows. The column headers include INDEX_OWNER, INDEX_NAME, and INDEX_TYPE.</em> [Video description ends]</p>
+<p>And this is up to you, okay? But there is an index, in this case, on the employee job column, the name column, the e-mail column, the ID, the manager, and the department, they all have indexes.</p>
+<p>[Video description begins] <em> In the INDEX_NAME column, he points to the values EMP_JOB_IX, EMP_NAME_IX, EMP_EMAIL_UK, EMP_EMP_ID_PK, EMP_MANAGER_IX, and EMP_DEPARTMENT_IX.</em> [Video description ends]</p>
+<p>But you can decide for yourself where to place the indexes. And it was mentioned previously that good candidate columns</p>
+<p>[Video description begins] <em> He closes the EMPLOYEES tabbed file.</em> [Video description ends]</p>
+<p>are those that are searched or sorted by frequently, okay? So back in my copy table,</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. He clicks the Indexes tab and the corresponding tabbed page opens.</em> [Video description ends]</p>
+<p>the only index currently present is that primary key index.</p>
+<p>[Video description begins] <em> He closes the EMP_COPY tabbed file. </em>[Video description ends]</p>
+<p>So to create your own, we have the CREATE INDEX statement.</p>
+<p>[Video description begins]<em> He points to the first statement, which is CREATE INDEX emp_copy_last_name_idx ON EMP_COPY(last_name);.</em> [Video description ends]</p>
+<p>So it&#39;s just CREATE INDEX, and again, the first aspect of that is always just the name. So this is a fairly lengthy name, but it&#39;s just emp_copy. Then it&#39;s not uncommon to specify the column on which the index is being placed right in the name. And then IDX is just something to indicate that this is an index. Again, the name can be whatever you want, but that&#39;s a fairly common naming convention.</p>
+<p>[Video description begins] <em> In the first statement, he highlights emp_copy_last_name_idx.</em> [Video description ends]</p>
+<p>Then it is created ON, then the table first,</p>
+<p>[Video description begins] <em> In the first statement, he highlights EMP_COPY.</em> [Video description ends]</p>
+<p>then the column in that table, okay?</p>
+<p>[Video description begins] <em> In the first statement, he highlights (last_name).</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text Index EMP_COPY_LAST_NAME_IDX created. is displayed.</em> [Video description ends]</p>
+<p>That has been created.</p>
+<p>[Video description begins] <em> He clicks the EMP_COPY subnode and the corresponding tabbed file opens. </em>[Video description ends]</p>
+<p>So now if we go back to view the properties and go to the Indexes tab,</p>
+<p>[Video description begins]<em> The Indexes tabbed page opens.</em> [Video description ends]</p>
+<p>now we see our additional index in place,</p>
+<p>[Video description begins] <em> The table gets populated with another row. In the second row under the INDEX_NAME column header, he points to the EMP_COPY_LAST_NAME_IDX value. </em>[Video description ends]</p>
+<p>okay?</p>
+<p>[Video description begins]<em> He closes the EMP_COPY tabbed file.</em> [Video description ends]</p>
+<p>Now you can also create indexes during the creation of the table itself.</p>
+<p>[Video description begins] <em> He points to the second statement, which is CREATE TABLE TEST_TABLE ( test_id integer PRIMARY KEY USING INDEX (CREATE INDEX id_idx ON test_table(test_id)), test_name VARCHAR(20), test_address VARCHAR(30) );.</em> [Video description ends]</p>
+<p>So you can see here that I&#39;m creating a new table simply called TEST_TABLE with a column called test_id, which is going to be the primary key. Then I can specify using an index and then separately define the index, okay? So CREATE INDEX id_idx is just the name,</p>
+<p>[Video description begins] <em> In the second statement, he highlights (CREATE INDEX id_idx ON test_table(test_id)),.</em> [Video description ends]</p>
+<p>ON the table name then in parenthesis the column name.</p>
+<p>[Video description begins] <em> In the second statement, he highlights test_table. </em>[Video description ends]</p>
+<p>That will create the index and the primary key,</p>
+<p>[Video description begins]<em> In the second statement, he highlights test_id.</em> [Video description ends]</p>
+<p>essentially at the same time. And then these are just two additional columns.</p>
+<p>[Video description begins] <em> In the second statement, he highlights test_name VARCHAR(20), test_address VARCHAR(30).</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and just create this simple TEST_TABLE.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Script Output tab opens. The text Table TEST_TABLE created. is displayed.</em> [Video description ends]</p>
+<p>And we should see that the primary key and its associated index are already in place. Okay, so let&#39;s just refresh our tables here.</p>
+<p>[Video description begins] <em> In the Connections subsection, he selects the Tables (Filtered) subnode and clicks the refresh icon. The TEXT_TABLE subnode gets added under the Tables (Filtered) subnode.</em> [Video description ends]</p>
+<p>There is test table and if we go to the Indexes tab, </p>
+<p>[Video description begins] <em> He clicks the TEST_TABLE subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Indexes tabs. The Columns tab is selected. </em>[Video description ends]</p>
+<p>there it is,</p>
+<p>[Video description begins]<em> The Indexes tabbed page opens. It contains a table with many columns and one row. The column headers include INDEX_OWNER, UNIQUENESS, and COLUMNS. </em>[Video description ends]</p>
+<p>okay?</p>
+<p>[Video description begins]<em> Under the INDEX_NAME column header, he points to the ID_IDX value.</em> [Video description ends]</p>
+<p>So it&#39;s up to you.</p>
+<p>[Video description begins] <em> He closes the TEST_TABLE tab.</em> [Video description ends]</p>
+<p>It&#39;s no problem to create the table first and then go back and create the indexes later. Indexes can come and go. You can create them at any time, you can remove them at any time without ever affecting the underlying data.</p>
+<p>So I tend to find that it&#39;s a little more common that they are created after the table has been created, but it doesn&#39;t matter. It&#39;s up to you. But again, you can automatically create them by simply assigning a primary key or you can manually create them with the CREATE INDEX statement.</p>
+<p>[Video description begins] <em> He highlights the first statement.</em> [Video description ends]</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Index Information  (it_dfosfd_08_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/21c42088-547f-4474-a29f-25b0849b062c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/21c42088-547f-4474-a29f-25b0849b062c/image001.jpg')();" /><div class="section_text">Learn how to retrieve index information using the USER_INDEXES view.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">retrieve index information using USER_INDEXES</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Index Information. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Once your database has been designed and implemented in production, you will find often that you have a number of indexes in place. So in this demonstration we&#39;ll see how you can obtain some information about those indexes. By querying the data dictionary tables of user indexes and user ind or index columns. Now, we&#39;ll begin with using the DESCRIBE statement to simply determine</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains four statements.</em> [Video description ends]</p>
+<p>that structure of the table itself, to see which columns are available.</p>
+<p>[Video description begins] <em> He highlights the first statement, which is DESCRIBE USER_INDEXES;.</em> [Video description ends]</p>
+<p>So we can simply issue DESCRIBE USER_INDEXES as our statement here</p>
+<p>[Video description begins] <em> He clicks the execute button. The Script Output tab opens. A table with three columns and many rows is displayed. The column headers are Name, Null, and Type. He scrolls through the table.</em> [Video description ends]</p>
+<p>and we see which columns exist in this table. So you can decide for yourself which columns are of interest to you. And you could see that there are quite a few, but now we know what to query. So we can View specific index properties, we can select the index name.</p>
+<p>[Video description begins] <em> He points to the second statement, which is SELECT index_name, index_type, uniqueness, table_name FROM USER_INDEXES WHERE table_name &#61; &#39;EMPLOYEES&#39;;.</em> [Video description ends]</p>
+<p>The index type, the uniqueness of the index and the table name from this table. And those columns you can see are listed right there in the first five or six.</p>
+<p>[Video description begins] <em> In the Script Output tab, he points to the values in the Name column.</em> [Video description ends]</p>
+<p>So, again, FROM USER_INDEXES and then I am just going to limit the results to just the EMPLOYEES table. But recall that when you use a WHERE clause against the data dictionary tables, the data is case-sensitive. So this needs to be in uppercase.</p>
+<p>[Video description begins] <em> In WHERE table_name &#61; &#39;EMPLOYEES&#39;;, he highlights EMPLOYEES.</em> [Video description ends]</p>
+<p>So let&#39;s execute this, and there they are.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. In the output pane, the Query Result tab opens. A table with four columns and six rows is displayed. The column headers are INDEX_NAME, INDEX_TYPE, UNIQUENESS, and TABLE_NAME.</em> [Video description ends]</p>
+<p>So these are all of the indexes placed on the EMPLOYEES table. And we see the type and the uniqueness. And again, things like an employee ID are going to be unique but</p>
+<p>[Video description begins] <em> In the second row where the value under the INDEX_NAME column header is EMP_EMP_ID_PK, he points to the value UNIQUE under the UNIQUENESS column header.</em> [Video description ends]</p>
+<p>so is the e-mail address, that is also unique.</p>
+<p>[Video description begins] <em> In the first row where the value under the INDEX_NAME column header is EMP_EMAIL_UK, he points to the value UNIQUE under the UNIQUENESS column header.</em> [Video description ends]</p>
+<p>But things like the department, the job ID, who their manager is and their name can clearly repeat, okay?</p>
+<p>[Video description begins] <em> Under the INDEX_NAME column header, he points to the EMP_DEPARTMENT_IX, EMP_JOB_IX, EMP_MANAGER_IX, and EMP_NAME_IX values and their corresponding value under the UNIQUENESS column header is NONUNIQUE.</em> [Video description ends]</p>
+<p>Those are non-unique, you can see the same value more than one time. Perfectly fine, it&#39;s just useful to know that information. Now, this only tells us that these indexes exist within this table.</p>
+<p>[Video description begins] <em> He highlights the TABLE_NAME column. It contains the EMPLOYEES value for all the rows.</em> [Video description ends]</p>
+<p>So we can describe the USER_IND_COLUMNS data dictionary table</p>
+<p>[Video description begins] <em> He points to the third statement, which is DESCRIBE USER_IND_COLUMNS.</em> [Video description ends]</p>
+<p>to find out which properties are available to be queried. And we see that we have things like, again,</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. The output is displayed in the Script Output tab in a tabular form. The table has three columns and many rows. The column headers are Name, Null, and Type. He points to the values in the Name column.</em> [Video description ends]</p>
+<p>such as the INDEX_NAME, the TABLE_NAME. But the COLUMN_NAME and various other characteristics available to be queried here.</p>
+<p>[Video description begins] <em> He closes the Script Output and Query Result tabs. He points to the fourth statement, which is SELECT index_name, table_name, column_name FROM USER_IND_COLUMNS WHERE table_name &#61; &#39;EMPLOYEES&#39;;.</em> [Video description ends]</p>
+<p>But let&#39;s select out now the index_name, the table_name and the column_name. From our USER_IND_COLUMNS data dictionary table again, where the table_name &#61; &#39;EMPLOYEES&#39;.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. The Query Result tab opens. A table with three columns and seven rows is displayed. The column headers are INDEX_NAME, TABLE_NAME, and COLUMN_NAME.</em> [Video description ends]</p>
+<p>And now we see the column as well. Now, clearly it&#39;s quite evident from the name which column was used EMP_EMAIL_UK, which is unique. Clearly means that there is an index on the e-mail column.</p>
+<p>[Video description begins] <em> In the first row under the INDEX_NAME column header, he highlights the EMP_EMAIL_UK value.</em> [Video description ends]</p>
+<p>But sometimes it&#39;s not always that obvious, it depends on the naming convention that has been used. But now, we do see that this index exists on that column of that table.</p>
+<p>[Video description begins] <em> He refers to the values in the third row, which are EMP_DEPARTMENT_IX, EMPLOYEES, and DEPARTMENT_ID respectively.</em> [Video description ends]</p>
+<p>Okay, so again, it&#39;s just useful to be able to determine some index properties from time to time.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>And by describing the table first, you can find out what is available to query.</p>
+<p>[Video description begins] <em> He highlights the first statement.</em> [Video description ends]</p>
+<p>Then you can issue the specific query to ascertain the information about those indexes.</p>
+<p>[Video description begins] <em> He refers to the second statement.</em> [Video description ends]</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Temporary Tables (it_dfosfd_08_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/cd219e80-0e64-40b5-94d9-74dcb3d860f5/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/cd219e80-0e64-40b5-94d9-74dcb3d860f5/image001.jpg')();" /><div class="section_text">In this video, you will create a table that will only exist for the duration of the session.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create a temporary table</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Temporary Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll introduce the concept of using a temporary table. Now, the primary aspect of a temporary table is given away in its name. It holds data temporarily, only for the duration of a transaction or a session in fact. So there are several situations where you might want this, and a very common example is something like a shopping cart.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>Now, what we are about to see here is really only half of the picture, if you will, and I&#39;ll clarify what I mean by that in a moment. But if you think about a shopping cart, it allows a user to choose various items to purchase, but they can make changes, really, at any time. They might decide to add an extra item or remove a particular item before they ultimately settle on what the order is actually going to be. So if you have a table such as an order details table, that&#39;s certainly fine, but that table should only store completed orders. In other words, the user has decided on exactly what they want, everything has been confirmed, and the payment has been processed.</p>
+<p>But up until that point, you don&#39;t want records coming and going in your order details table. You don&#39;t want things changing all the time. So again, the order details table is the completed and processed orders. So where do we hold the information while it&#39;s in that sort of unknown state? Well, that is the temporary table. So I mentioned that this is only really a part of the picture. And what I mean by that is that there needs to be, of course, an application developer who is building the application to allow users to generate these orders in the first place. So you might construct the table for that application, that&#39;s certainly fine. But it is then up to the application developer to ensure that the application is accessing this table, that it&#39;s putting the orders into this temporary table while they are shopping.</p>
+<p>And then of course to ultimately ensure that the record is moved to the correct order details table or the permanent table once everything has been processed. So again, this only creates the temporary table itself. An awful lot would have to be done to ensure that the orders are being moved to the correct table in the correct manner once everything has been confirmed. So this example does create the shopping cart for an order application or at least the table that supports the records in the shopping cart while they are still shopping, essentially is what it comes down to, okay, so before committing the order.</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE GLOBAL TEMPORARY TABLE shopping_cart (item VARCHAR(25), qty INT, order_date DATE) ON COMMIT DELETE ROWS;.</em> [Video description ends]</p>
+<p>So the syntax is CREATE GLOBAL TEMPORARY TABLE, bit of a long statement, but that creates the table. And I&#39;m calling it shopping_cart, you can call it whatever you want. And then these are the columns, and this is fairly simple, of course. Just item, which is going to be of VARCHAR data type, qty, which is an INT data type, and order_date, which is a DATE data type. And that all goes in parenthesis separated by commas, so that&#39;s just the structure of the table, the columns.</p>
+<p>And then you can see ON COMMIT DELETE ROWS. So again, this means that the data itself will never permanently reside in this table. It&#39;s just temporary. So once the user hits confirm or purchase or go in the application, it processes the payment. And ensures that everything is in stock and, you know, all of the things that have to happen in order for this record to be committed. And then once it is committed, then it is deleted from the temporary table. It clears out and it&#39;s ready for the next order, okay? So let&#39;s go ahead and just create it, and we&#39;ll see that this creates the table, and we can refresh our browser here.</p>
+<p>[Video description begins] <em> He selects the first statement and clicks the execute button. The Script Output tab opens. The text Global temporary TABLE created. is displayed.</em> [Video description ends]</p>
+<p>And in fact we will see it, and it might be hard to see,</p>
+<p>[Video description begins] <em> He selects the Tables (Filtered) subnode and clicks the refresh icon. The SHOPPING_CART subnode is added under the Tables (Filtered) subnode. </em>[Video description ends]</p>
+<p>but there&#39;s a little X</p>
+<p>[Video description begins]<em> He clicks the SHOPPING_CART subnode and the corresponding tabbed file opens.</em> [Video description ends]</p>
+<p>in the icon there indicating that quite simply, this is a temporary table.</p>
+<p>[Video description begins] <em> He points to the icon adjacent to the SHOPPING_CART subnode.</em> [Video description ends]</p>
+<p>But it can be accessed.</p>
+<p>[Video description begins] <em> He closes the SHOPPING_CART tab.</em> [Video description ends]</p>
+<p>Now, obviously, I don&#39;t have the application to generate this order, but you can still select from it. So if there was a transaction currently in progress, for lack of a better word.</p>
+<p>[Video description begins] <em> He highlights the second statement, which is SELECT * FROM shopping_cart;.</em> [Video description ends]</p>
+<p>If somebody was building an order right now, I could select from this table, and</p>
+<p>[Video description begins] <em> He clicks the execute button. The Query Result tab opens. A table with three columns and no rows is displayed. The column headers include ITEM and QTY.</em> [Video description ends]</p>
+<p>I could see what has been selected, okay? So it&#39;s still, you know, like any other table, in that you can still ascertain records from it, but they just don&#39;t stay there. Once the transaction commits, the rows of the temporary table are deleted</p>
+<p>[Video description begins] <em> In the first statement, he highlights ON COMMIT DELETE ROWS;.</em> [Video description ends]</p>
+<p>and again it&#39;s ready for the next order. So again, we just wanted to introduce the concept at this point. As mentioned, this requires an application developer to sort of construct everything necessary for someone to be able to get into an interface. But the temporary table is very useful for holding that information until everything has been set. I have all of the correct items, all of the correct quantities, and the payment has been processed. Then move that record to the official order details table, clear it out from the temporary table. And everything is ready to go for the next order.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: External Tables (it_dfosfd_08_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/09c275b8-47a3-4628-b369-6ebef3104f3c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/09c275b8-47a3-4628-b369-6ebef3104f3c/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to describe the benefits of external tables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the benefits of external tables</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: External Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at what&#39;s known as external tables. And these allow you to access data that is quite simply external to the database.</p>
+<p>[Video description begins] <em> External Tables. In the diagram displayed, the External table is bidirectionally connected to the user and External directory.</em> [Video description ends]</p>
+<p>Now there are many scenarios where you might need to access data that resides outside of the database. And one common example is using a process known as ETL, extract, transform, and load. And this means that you extract data from any other source. You transform it, meaning that you might need to change up the data type of a particular column. Or maybe just the format or just do anything so that it&#39;s compatible with your tables. And then you load it. So again, ETL, extract, transform, and load. But the load aspect actually moves the data into your database. So it&#39;s no longer external. You just got the data from somewhere else, now it is actually in your tables.</p>
+<p>That&#39;s perfectly fine but you might not need to do that if the data itself exists outside of the database in a compatible format. And you don&#39;t really want to bother with that whole ETL process. You can possibly use an external table. Now the table itself does reside within your database in Oracle, but it&#39;s only the structure, just the metadata. It&#39;s the actual data that resides outside of Oracle. So it&#39;s a link if you will, it&#39;s a bridge, a means to access that external information through an object that does exist in your database. So you can almost think of it as a view that is projected onto this external directory. But it ultimately comes down to the fact that you don&#39;t have to load that data into your database. So again that might be a simpler approach if you just aren&#39;t concerned with getting it into the database.</p>
+<p>Now there are some considerations. You do have to have what&#39;s known as an access driver, and there is one that is provided by default known as the Oracle loader. And we&#39;ll see that in an upcoming demonstration. But depending on what the external source is, that may or may not work. But it has built-in functionality to be able to access various different types of data. And the external table is also set up as read-only, so that&#39;s another major consideration.</p>
+<p>If you only need to see the data then of course this will work just fine. But if you need to actually make changes to it, an external table in its default configuration is a read-only object, okay? But, if again, that is all you need to do, then you can set up the external table to essentially match the structure of the external data. And then you can query that data really like any other table. Now, one thing you also have to set up is what&#39;s known as a directory.</p>
+<p>[Video description begins] <em> Creating a Directory for the External Table</em> [Video description ends]</p>
+<p>And this is an object in Oracle that corresponds to the directory on the file system where the external data source resides. So you can see the syntax example here is to CREATE OR REPLACE if it already exists, then DIRECTORY.</p>
+<p>[Video description begins] <em> The following statements are displayed: CREATE OR REPLACE DIRECTORY emp_dir AS &#39;/.../emp_dir&#39;; and GRANT READ ON DIRECTORY emp_dir TO ora_21;.</em> [Video description ends]</p>
+<p>And then that is simply the name of the directory. Now that&#39;s the name in Oracle. So you can call that whatever you want. Okay, then AS is the definition of the actual directory on the file system. So whatever that is and it&#39;s just defined by the slashes and of course the names of the directory. And that stops at the directory that is the parent directory to the file itself. Okay, so you don&#39;t have to go as far as the file name when you create the directory.</p>
+<p>That essentially points the external table to that location when it has to read the data. Now, you may optionally grant read permissions to that directory to any given user, so that ora_21 is just an arbitrary user name. But the user who is accessing that directory, of course, needs to have permission to read the contents. Otherwise, you&#39;ll get an access denied error message. So just be mindful of who is accessing that data and ensure that they do have the appropriate permissions.</p>
+<p>But once the directory object exists, then the temporary table can be instructed to read from that directory. And that gives you the ability to actually query out the data. Now as mentioned we&#39;ll see an example of how this all comes together in our upcoming demonstrations.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: CREATE TABLE Statement (it_dfosfd_08_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/24ca04cc-03eb-4e93-ae3d-c0955dd3548b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/24ca04cc-03eb-4e93-ae3d-c0955dd3548b/image001.jpg')();" /><div class="section_text">In this video, you will learn how to create external tables using the CREATE TABLE statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create external tables using the CREATE TABLE statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: CREATE TABLE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll see how to create an external table. But before we get into the code here, I do want to mention that this is only one approach. There are, in fact, several different approaches you can take when working with external tables. And it mostly comes down to the original data source itself in terms of what kind of file is it or quite simply, where does the data come from in the first place?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements. </em>[Video description ends]</p>
+<p>So in this particular example, I&#39;m just using a fairly basic data file.</p>
+<p>[Video description begins]<em> He clicks the Emp_Dir tab and the corresponding dialog box opens. It includes the Home and Emp_Dir tabs. The Emp_Dir tab is selected. The Emp_Dir tabbed page is divided in two sections. The first section includes various options. The second section contains the Old_Emps.dat file.</em> [Video description ends]</p>
+<p>So I&#39;ve created this Old.Emps, which represents old employees. And it&#39;s just a data file, and I&#39;ve just placed it in this Documents directory here. And let&#39;s go ahead and open it up and you can see it&#39;s very simple.</p>
+<p>[Video description begins] <em> The Old_Emps.dat (~/Documents/Emp_Dir) - gedit window opens. The Old_Emps.dat tabbed file is open. It contains the following information: 1, Andrews, Jeffery 2, Smith, Susan 3, Fletcher, Henry 4, Baker, Jessica 5, Jonathan, Gaines.</em> [Video description ends]</p>
+<p>This just represents an ID, a last name and a first name, with commas separating each field.</p>
+<p>[Video description begins] <em> He refers to the following record: 1, Andrews, Jeffery.</em> [Video description ends]</p>
+<p>So we just have five records, if you will, in this data file. So again, there are many different types of sources that you can use in terms of external table.</p>
+<p>[Video description begins] <em> He closes the Old_Emps.dat (~/Documents/Emp_Dir) - gedit window. </em>[Video description ends]</p>
+<p>So this is only specific to this type of file.</p>
+<p>[Video description begins]<em> He switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>But looking at the code, what you have to do first is to create an object in the database that represents the directory. So you create a directory object, which essentially maps it to the file system directory or simply put the path to the data file. So that is the CREATE DIRECTORY statement. This is simply the name, I&#39;m calling it old_emps, and</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE DIRECTORY old_emps AS &#39; /home/oracle/Documents/Emp_Dir&#39;;.</em> [Video description ends]</p>
+<p>this represents where Oracle can look in order to find that file. Then AS, allows us to specify the path to the directory, and this goes in single quotes.</p>
+<p>[Video description begins] <em> In the first statement, he highlights /home/oracle/Documents/Emp_Dir.</em> [Video description ends]</p>
+<p>Okay, now if you aren&#39;t certain, I can go to my file here, I can right-click and</p>
+<p>[Video description begins] <em> He switches to the Emp_Dir dialog box.</em> [Video description ends]</p>
+<p>choose Properties, and just make sure that you copy that exact location,</p>
+<p>[Video description begins] <em> He right-clicks the Old_Emps.dat file. A shortcut menu appears. He selects the Properties option. The Old_Emps.dat Properties dialog box opens. It includes the Basic and Permissions tabs. The Basic tab is selected. </em>[Video description ends]</p>
+<p>okay?</p>
+<p>[Video description begins]<em> He highlights the value of the Location field, which is /home/oracle/Documents/Emp_Dir. He clicks the Close button. The Old_Emps.dat Properties dialog box closes. He switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>So that is the location right there, again, in single quotes. So now, I can optionally grant permission on that directory.</p>
+<p>[Video description begins] <em> In the first statement, he highlights &#39;/home/oracle/Documents/Emp_Dir&#39;.</em> [Video description ends]</p>
+<p>So in my case, I don&#39;t need to do that. I created it with an administrative account. I&#39;m using an administrative account here in Oracle, so I already have access to that directory. But you do need to make sure that whoever is executing this would have at least read access to that file and to the directory here in Oracle itself as well. So that would be GRANT READ ON DIRECTORY,</p>
+<p>[Video description begins] <em> He points to the second statement, which is GRANT READ ON DIRECTORY old_emps TO User1;.</em> [Video description ends]</p>
+<p>then the directory that you just created, then TO whomever.</p>
+<p>[Video description begins] <em> In the second statement, he highlights old_emps.</em> [Video description ends]</p>
+<p>So user1 is just an arbitrary name in this case. So again, I don&#39;t need to do that for the purposes of this demonstration. So then we can look at creating the table. And about the only thing that you really need to pay attention to here is the fact that the column order must match the order in the data file. So again, let&#39;s go back to the data file itself, and this represents an ID.</p>
+<p>[Video description begins] <em> He switches to the Emp_Dir dialog box. He double-clicks the Old_Emps.dat file and the corresponding file opens.</em> [Video description ends]</p>
+<p>This is a last name and this is a first name.</p>
+<p>[Video description begins] <em> He points to the record 1, Andrews, Jeffery. He refers 1 as ID, Andrews as first name, and Jeffery as last name. </em>[Video description ends]</p>
+<p>So I just need to match that sequence, okay?</p>
+<p>[Video description begins]<em> He closes the Old_Emps.dat (~/Documents/Emp_Dir) - gedit window. He switches to the HR tabbed file. He points to the third statement, which is CREATE TABLE old_emps (emp_id INTEGER, last_name VARCHAR(20), first_name VARCHAR(20)) ORGANIZATION EXTERNAL ( TYPE ORACLE_LOADER DEFAULT DIRECTORY old_emps LOCATION (&#39;Old_Emps.dat&#39;) ).</em> [Video description ends]</p>
+<p>So it&#39;s still just a CREATE TABLE statement. This is simply the name of the table, old_emps. And then these are the columns that I want to define in that table. So I&#39;m going to call my first column emp_id. It will be an INTEGER, then last_name will be a VARCHAR(20), and first_name also will be a VARCHAR(20). And just make sure that all of that goes in parentheses.</p>
+<p>[Video description begins] <em> In the third statement, he highlights (emp_id INTEGER, last_name VARCHAR(20), first_name VARCHAR(20)).</em> [Video description ends]</p>
+<p>Then we see the definition of this as an external table. So the ORGANIZATION is EXTERNAL, so we are basically just defining the structure, the data already exists external to the database. The TYPE is how that can be accessed, now all of this goes in parentheses as well, so you can see the open and close parentheses there. So the type is ORACLE_LOADER. Now, I actually wouldn&#39;t have to specify that. If I don&#39;t, ORACLE_LOADER is the default. And that is simply the means to be able to get to that external location and open that file. The DEFAULT DIRECTORY then is old_emps which was defined right here, okay?</p>
+<p>[Video description begins] <em> He points to the first statement. He highlights CREATE DIRECTORY.</em> [Video description ends]</p>
+<p>So this table defaults to go to the old_emps directory, and of course, ultimately this maps to this path, okay?</p>
+<p>[Video description begins] <em> In the first statement, he highlights old_emps and /home/oracle/Documents/Emp_Dir.</em> [Video description ends]</p>
+<p>So I&#39;m simply telling the table this is where it should look by default.</p>
+<p>[Video description begins] <em> In the third statement, he highlights DEFAULT DIRECTORY old_emps.</em> [Video description ends]</p>
+<p>Then the LOCATION is the specific file, and note that this is in parentheses as well and in single quotes, so Old_Emps.dat is the actual file itself, okay?</p>
+<p>[Video description begins] <em> He switches to the Emp_Dir dialog box. He points to Old_Emps.dat file. He switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>And I just close off my parentheses, and we can go ahead and execute the code. Now, I&#39;ve already executed the CREATE DIRECTORY statement, so</p>
+<p>[Video description begins] <em> He highlights the first statement.</em> [Video description ends]</p>
+<p>let&#39;s just create the table, and we should see the table has been created.</p>
+<p>[Video description begins] <em> He selects the third statement and clicks the execute button. The Script Output tab opens. The text Table OLD_EMPS created. is displayed.</em> [Video description ends]</p>
+<p>So we can close this and we can refresh,</p>
+<p>[Video description begins] <em> He closes the Script Output tab. </em>[Video description ends]</p>
+<p>and</p>
+<p>[Video description begins]<em> In the Connections subsection, he clicks the refresh icon. The OLD_EMPS subnode appears under the Tables (Filtered) subnode.</em> [Video description ends]</p>
+<p>there we see the Old_Emps table and we see the structure, okay?</p>
+<p>[Video description begins] <em> He clicks the OLD_EMPS subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. The Columns tab is selected. A table with six columns and three rows is displayed. The column headers are COLUMN_NAME, DATA_TYPE, NULLABLE, DATA_DEFAULT, COLUMN_ID, and COMMENTS. The values in the first row are EMP_ID, NUMBER(38, 0), Yes, (null), 1, and (null) respectively. The values in the second row are LAST_NAME, VARCHAR2(20 BYTE), Yes, (null), 2, and (null) respectively. The values in the third row are FIRST_NAME, VARCHAR2(20 BYTE), Yes, (null), 3, and (null) respectively.</em> [Video description ends]</p>
+<p>There is the EMP_ID, the LAST_NAME, and the FIRST_NAME.</p>
+<p>[Video description begins] <em> He points to the values in the COLUMN_NAME column.</em> [Video description ends]</p>
+<p>We have, of course, the associated data types and</p>
+<p>[Video description begins] <em> He points to the values in the DATA_TYPE column.</em> [Video description ends]</p>
+<p>basically, our table is now set.</p>
+<p>[Video description begins] <em> He closes the OLD_EMPS tab.</em> [Video description ends]</p>
+<p>Okay, so in our next demonstration, we&#39;ll see how we can actually access the data. But again, when defining external tables, you really are only concerned with the structure. The data already exists. So you just need to make sure that it matches that particular type. And again I reiterate, there are several options with respect to what that original data source is, such as a CSV file or other types of databases.</p>
+<p>So I do recommend you do a little extra research on the CREATE TABLE with the organization external option to find out what some of those other options are because based on that, you will get some variances in how you define the table in here. Things such as delimiters for the fields or terminators for each row.</p>
+<p>[Video description begins] <em> In the third statement, he highlights TYPE ORACLE_LOADER DEFAULT DIRECTORY old_emps LOCATION (&#39;Old_Emps.dat&#39;).</em> [Video description ends]</p>
+<p>So again, a lot of variance there but this one has created for us our Old_Emps table, and you can see the icon here indicating that it is an external.</p>
+<p>[Video description begins] <em> He clicks the OLD_EMPS subnode and points to its icon.</em> [Video description ends]</p>
+<p>That little tiny green arrow indicates this is an external table and it is accessing data from an external source.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Querying External Tables (it_dfosfd_08_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/27a74073-75ac-4bfd-82bd-3d30b46a8881/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/27a74073-75ac-4bfd-82bd-3d30b46a8881/image001.jpg')();" /><div class="section_text">In this video, you will learn how to query external tables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">query external tables</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Querying External Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in our previous demonstration, we saw how to create an external table.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains four statements.</em> [Video description ends]</p>
+<p>And I still have all of that exact same code right here.</p>
+<p>[Video description begins] <em> He highlights the third statement, which is CREATE TABLE old_emps (emp_id INTEGER, last_name VARCHAR(20), first_name VARCHAR(20)) ORGANIZATION EXTERNAL ( TYPE ORACLE_LOADER DEFAULT DIRECTORY old_emps LOCATION (&#39;Old_Emps.dat&#39;) ).</em> [Video description ends]</p>
+<p>But recall that this only creates the structure, the data itself again resides in the external file. Which in my case is this Old_Emps.dat file, which again is right here in the file system.</p>
+<p>[Video description begins] <em> He clicks the Emp_Dir tab and the corresponding dialog box opens. The Emp_Dir tab is selected. The Emp_Dir tabbed page is divided in two sections. The first section includes various options. The second section contains the Old_Emps.dat file.</em> [Video description ends]</p>
+<p>So let&#39;s just quickly double-click,</p>
+<p>[Video description begins] <em> He double-clicks the Old_Emps.dat file. The Old_Emps.dat (~/Documents/Emp_Dir) - gedit window opens. The Old_Emps.dat tabbed file opens. It contains the following information: 1, Andrews, Jeffery 2, Smith, Susan 3, Fletcher, Henry 4, Baker, Jessica 5, Jonathan, Gaines. </em>[Video description ends]</p>
+<p>and we can see there are five records in this table.</p>
+<p>[Video description begins]<em> He closes the Old_Emps.dat (~/Documents/Emp_Dir) - gedit window and switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>But since we have the external table defined now, well, in terms of querying it, you can query it like any other table. The structure is exactly the same as any other table.</p>
+<p>[Video description begins] <em> He points to the fourth statement, which is SELECT * FROM old_emps;.</em> [Video description ends]</p>
+<p>We have our standard columns with standard data types. So we can simply issue a query against the table as defined. SELECT * FROM old_emps, and there are the records.</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. The Query Result tab opens. A table with three columns and five rows is displayed. The column headers are EMP_ID, LAST_NAME, and FIRST_NAME.</em> [Video description ends]</p>
+<p>And as long as that file exists in that location, you can make changes to it, no problem. You can query it using where clauses or order bys or joins or anything else. So let&#39;s go ahead and make a change here.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>You can see there&#39;s a log file now,</p>
+<p>[Video description begins] <em> He clicks the Emp_Dir tab and the corresponding dialog box opens. The second section contains the OLD_EMPS_22486.log and Old_Emps.dat files. </em>[Video description ends]</p>
+<p>since it has be accessed,</p>
+<p>[Video description begins]<em> He highlights the OLD_EMPS_22486.log file.</em> [Video description ends]</p>
+<p>but let&#39;s go ahead and add a new record, for example.</p>
+<p>[Video description begins] <em> He double-clicks the Old.Emps.dat file and the corresponding tabbed file opens.</em> [Video description ends]</p>
+<p>So let&#39;s put in 6, John, Doe, we&#39;ll save that,</p>
+<p>[Video description begins] <em> He adds the record: 6, John, Doe. </em>[Video description ends]</p>
+<p>close.</p>
+<p>[Video description begins]<em> He switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>We&#39;ll go back in and reselect,</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. The Query Result tab opens. A table with same column headers and six rows is displayed. </em>[Video description ends]</p>
+<p>and we should have six employees.</p>
+<p>[Video description begins]<em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>We can filter like any other query, so WHERE, and our first column is EMP_ID, let&#39;s go with that one, equals 3.</p>
+<p>[Video description begins] <em> He alters the fourth statement from SELECT * FROM old_emps; to SELECT * FROM old_emps WHERE EMP_ID &#61; 3;.</em> [Video description ends]</p>
+<p>And let&#39;s re-execute,</p>
+<p>[Video description begins] <em> He selects the fourth statement and clicks the execute button. </em>[Video description ends]</p>
+<p>and we should only see that one employee.</p>
+<p>[Video description begins]<em> The Query Result tab opens. A table with same column headers and one row is displayed. He closes the Query Result tab.</em> [Video description ends]</p>
+<p>Or we could ORDER BY Last_name,</p>
+<p>[Video description begins] <em> He alters the fourth statement from SELECT * FROM old_emps WHERE EMP_ID &#61; 3; to SELECT * FROM old_emps ORDER BY Last_name;. </em>[Video description ends]</p>
+<p>and reselect.</p>
+<p>[Video description begins]<em> He selects the fourth statement and clicks the execute button. The Query Result tab opens. A table with same column headers and six rows is displayed. He points to the values in the LAST_NAME column.</em> [Video description ends]</p>
+<p>And basically we have everything in the correct order now. So again, once you have it defined as a table, then</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>the data is being accessed really like any other table presents you with data. It just has to go outside of the database to get it. So as long as that file is intact,</p>
+<p>[Video description begins] <em> He clicks the Emp_Dir tab and the corresponding dialog box opens.</em> [Video description ends]</p>
+<p>then you shouldn&#39;t have any issues in terms of querying that data.</p>
+<p>[Video description begins] <em> He switches to the HR tabbed file.</em> [Video description ends]</p>
+<p>Because as far as Oracle is concerned, it&#39;s a table here like any other table, so treat it as such.</p>
+<p>[Video description begins] <em> He clicks the OLD_EMPS subnode and the corresponding tabbed file opens. The Columns tabbed page is open and a table is displayed.</em> [Video description ends]</p>
+<p>And you should be able to access your data without issue.</p>
+<p>[Video description begins] <em> He closes the OLD_EMPS tab.</em> [Video description ends]</p></div></div></div><div class="section"><a name="section_12" /><h2 class="section_title">13. Video: Exercise: Work with Database Objects (it_dfosfd_08_enus_13)</h2><img src="https://cdn2.percipio.com/public/b/a87c806f-e90c-4101-90b3-59650f4d6429/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a87c806f-e90c-4101-90b3-59650f4d6429/image001.jpg')();" /><div class="section_text">In this video, you will learn how to work with database objects.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">work with database objects</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Work with Database Objects. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>For our exercise this time, we&#39;ll ask you to add a primary key constraint to a table. Then to disable and enable constraints. Then to create an index. Then to retrieve index information using the USER_INDEXES data dictionary view. And finally, to create an external table using the CREATE TABLE statement. So again, as always, we would like you to take a few minutes and try these exercises on your own. Then come back and we&#39;ll review to see how you made out, so we&#39;ll see you in a few minutes.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The content pane includes the HR, HR ~ 1, and HR ~ 2 tabs. The HR tabbed file is open. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>All right, so, to review some possible solutions, our first task was to create a primary key.</p>
+<p>[Video description begins] <em> Solution</em> [Video description ends]</p>
+<p>And there are a few different approaches that you can take to performing this task, but we saw a few examples whereby you can just use the ALTER TABLE statement,</p>
+<p>[Video description begins] <em> He highlights the first statement, which is ALTER TABLE EMP_COPY MODIFY employee_id PRIMARY KEY;. </em>[Video description ends]</p>
+<p>then specify the table you are altering.</p>
+<p>[Video description begins]<em> In the first statement, he highlights EMP_COPY.</em> [Video description ends]</p>
+<p>Then use the MODIFY statement on the column that will become the PRIMARY KEY.</p>
+<p>[Video description begins] <em> In the first statement, he highlights the employee_id.</em> [Video description ends]</p>
+<p>But that generates a system name, so you can get a little more control using the ADD CONSTRAINT statement.</p>
+<p>[Video description begins] <em> In the second statement, which is ALTER TABLE EMP_COPY ADD CONSTRAINT emp_id_pk PRIMARY KEY (employee_id);, he highlights ADD CONSTRAINT emp_id_pk PRIMARY KEY (employee_id);. </em>[Video description ends]</p>
+<p>So ADD CONSTRAINT name of constraint allows you to specify what the name is.</p>
+<p>[Video description begins]<em> In the second statement, he highlights emp_id_pk.</em> [Video description ends]</p>
+<p>Then the type of constraint is PRIMARY KEY. And then it is placed on the employee_id column, and again, that&#39;s just one example. You can in fact also do it graphically if you just select the table here.</p>
+<p>[Video description begins] <em> He clicks the EMPLOYEES subnode and the corresponding tabbed file opens. It includes the Columns, Data, and Constraints tabs. The Columns tab is selected. </em>[Video description ends]</p>
+<p>You can go to Constraints, you can then choose Actions, and you can choose,</p>
+<p>[Video description begins]<em> The Constraints tabbed page opens. It contains a table with many columns and many rows. The column headers include CONSTRAINT_NAME, CONSTRAINT_TYPE, and DELETE_RULE. </em>[Video description ends]</p>
+<p>Constraint,</p>
+<p>[Video description begins]<em> He clicks the Actions drop-down button. Some options such as Constraint, Export, and Column are displayed.</em> [Video description ends]</p>
+<p>and you can choose to add a primary key right</p>
+<p>[Video description begins] <em> A flyout appears. It includes the Disable all and Add Primary Key options. </em>[Video description ends]</p>
+<p>in here as well.</p>
+<p>[Video description begins]<em> He closes the EMPLOYEES tabbed file.</em> [Video description ends]</p>
+<p>In our next example,</p>
+<p>[Video description begins] <em> He switches to the HR ~ 1 tabbed file. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains four statements.</em> [Video description ends]</p>
+<p>we asked you to disable constraints and then re-enable them. And again, you have a few different options here. But to disable any particular constraint, you can just specify, of course, which constraint it is, but it is again, the ALTER TABLE statement.</p>
+<p>[Video description begins] <em> He points to the first statement, which is ALTER TABLE DEPARTMENTS DISABLE CONSTRAINT DEPT_LOC_FK;. In the first statement, he highlights ALTER TABLE DEPARTMENTS.</em> [Video description ends]</p>
+<p>So locate the table that contains the constraint first, that is altered. Then disable constraint, and you need only specify its name.</p>
+<p>[Video description begins] <em> In the first statement, he highlights DISABLE CONSTRAINT DEPT_LOC_FK;.</em> [Video description ends]</p>
+<p>This just turns it off, and of course it can be re-enabled later on. You can also disable the primary key and all associated foreign keys by again altering the table.</p>
+<p>[Video description begins] <em> In the second statement, which is ALTER TABLE LOCATIONS DISABLE PRIMARY KEY CASCADE;, he highlights ALTER TABLE LOCATIONS.</em> [Video description ends]</p>
+<p>But then DISABLE PRIMARY KEY with CASCADE, and</p>
+<p>[Video description begins] <em> In the second statement, he highlights DISABLE PRIMARY KEY CASCADE;.</em> [Video description ends]</p>
+<p>that will find all of the associated foreign keys, because it might be difficult to know where they all are. So that will disable all of them. When it comes time to re-enable, you actually can&#39;t cascade when enabling. So re-enable the primary key using the ALTER TABLE statement again,</p>
+<p>[Video description begins] <em> He highlights the third statement, which is ALTER TABLE LOCATIONS ENABLE PRIMARY KEY;.</em> [Video description ends]</p>
+<p>then simply ENABLE PRIMARY KEY.</p>
+<p>[Video description begins] <em> He highlights ENABLE PRIMARY KEY;.</em> [Video description ends]</p>
+<p>Then find all of the foreign keys and enable each one individually.</p>
+<p>[Video description begins] <em> He highlights the fourth statement, which is ALTER TABLE DEPARTMENTS ENABLE CONSTRAINT DEPT_LOC_FK;. He switches to the HR ~ 2 tabbed file. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains one statement.</em> [Video description ends]</p>
+<p>Then we asked about manually creating an index, and in this case, we&#39;ll just create one on a last name column.</p>
+<p>[Video description begins] <em> He points to the statement, which is CREATE INDEX emp_last_name_idx ON EMP_COPY(last_name);.</em> [Video description ends]</p>
+<p>So it is simply CREATE INDEX, then the name of the index, and you can call whatever you want.</p>
+<p>[Video description begins] <em> He highlights emp_last_name_idx.</em> [Video description ends]</p>
+<p>Then ON, then which table,</p>
+<p>[Video description begins] <em> He highlights EMP_COPY. </em>[Video description ends]</p>
+<p>and then which column.</p>
+<p>[Video description begins]<em> He highlights (last_name);.</em> [Video description ends]</p>
+<p>So again, of course that can be any table, any column. Recall, however, that if you create a primary key, that already creates an index automatically. So this would be for non-primary key indexes. But that can be done at any time without affecting the data at all. You can drop the index as well, that still will not harm the data.</p>
+<p>[Video description begins] <em> He switches to the HR ~ 3 tabbed file. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains two statements.</em> [Video description ends]</p>
+<p>Then we asked about determining information about your indexes, using the USER_INDEXES data dictionary table. So you can first issue the DESCRIBE statement to simply see what the structure is, so that you know which columns are of interest to you,</p>
+<p>[Video description begins] <em> He selects the first statement, which is DESCRIBE USER_INDEXES; and clicks the execute button. The Script Output tab opens. A table with three columns and many rows is displayed. The column headers are Name, Null, and Type. He scrolls through the table.</em> [Video description ends]</p>
+<p>then you can simply select like any other table.</p>
+<p>[Video description begins] <em> He points to the second statement, which is SELECT index_name, index_type, table_name FROM USER_INDEXES WHERE table_name &#61; &#39;EMPLOYEES&#39;;. </em>[Video description ends]</p>
+<p>So select out the desired columns from USER_INDEXES,</p>
+<p>[Video description begins] <em>In the second statement, he highlights SELECT index_name, index_type, table_name.</em> [Video description ends]</p>
+<p>WHERE, and then simply supply your criteria. So it doesn&#39;t really matter what that criteria is.</p>
+<p>[Video description begins] <em> He selects the second statement and clicks the execute button. The Query Result tab opens. A table with three columns and six rows is displayed. The column headers are INDEX_NAME, INDEX_TYPE, and TABLE_NAME.</em> [Video description ends]</p>
+<p>You can simply ascertain that information by querying that USER_INDEXES table at any time. And finally, we asked about creating an external table.</p>
+<p>[Video description begins] <em> He switches to the HR ~ 4 tabbed file. It contains the Worksheet and Query Builder tabs. The Worksheet tabbed page is open. It contains three statements.</em> [Video description ends]</p>
+<p>So first you need to create a directory, then call it whatever you want,</p>
+<p>[Video description begins] <em> He points to the first statement, which is CREATE DIRECTORY old_emps AS &#39;/home/oracle/Documents/Emp_Dir&#39;;.</em> [Video description ends]</p>
+<p>this is an Oracle object, so you can have any name here.</p>
+<p>[Video description begins] <em> In the first statement, he highlights old_emps. </em>[Video description ends]</p>
+<p>But then AS is the explicit path in the file system.</p>
+<p>[Video description begins]<em> In the first statement, he highlights &#39;/home/oracle/Documents/Emp_Dir&#39;;.</em> [Video description ends]</p>
+<p>And this goes in single quotes, and again, that stops at the parent directory where the data actually resides. If necessary, grant read permissions on that directory to any user who needs it.</p>
+<p>[Video description begins] <em> He highlights the second statement, which is GRANT READ ON DIRECTORY old_emps TO User1;.</em> [Video description ends]</p>
+<p>Then you can create the external table.</p>
+<p>[Video description begins] <em> He highlights the third statement, which is CREATE TABLE old_emps (emp_id INTEGER, last_name VARCHAR(20), first_name VARCHAR(20)) ORGANIZATION EXTERNAL ( TYPE ORACLE_LOADER DEFAULT DIRECTORY old_emps LOCATION (&#39;Old_Emps.dat&#39;) ).</em> [Video description ends]</p>
+<p>So it&#39;s a standard CREATE TABLE statement, then just the name,</p>
+<p>[Video description begins] <em> In the third statement, he highlights old_emps. </em>[Video description ends]</p>
+<p>whatever you want to call it, and the structure, okay?</p>
+<p>[Video description begins]<em> In the third statement, he highlights (emp_id INTEGER, last_name VARCHAR(20), first_name VARCHAR(20)).</em> [Video description ends]</p>
+<p>And those columns need to match the original source data. But then we specify ORGANIZATION EXTERNAL, and this of course informs Oracle it has to go out to our directory to find the data itself.</p>
+<p>[Video description begins] <em> He points to the first statement.</em> [Video description ends]</p>
+<p>You can specify the type of ORACLE_LOADER although that is the default, so if you were to leave that out, it would be fine.</p>
+<p>[Video description begins] <em> In the third statement, he highlights TYPE ORACLE_LOADER.</em> [Video description ends]</p>
+<p>Then the DEFAULT DIRECTORY is what you just defined right here. And that instructs Oracle where to look to find the data, and then the LOCATION</p>
+<p>[Video description begins] <em> In the first statement, he highlights CREATE DIRECTORY old_emps.</em> [Video description ends]</p>
+<p>is the specific file in that directory, okay?</p>
+<p>[Video description begins] <em> In the third statement, he highlights LOCATION (&#39;Old_Emps.dat&#39;).</em> [Video description ends]</p>
+<p>And once that is executed, you can query against that table like any other table. So hopefully you made out all right with those exercises, and if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

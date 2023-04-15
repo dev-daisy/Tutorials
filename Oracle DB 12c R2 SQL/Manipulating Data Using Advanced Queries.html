@@ -1,0 +1,515 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Manipulating Data Using Advanced Queries</h1><div class="section_text"><p>Discover how to use the DEFAULT keyword in INSERT and UPDATE statements. Multitable INSERT statements, the MERGE statement, performing flashback operations, and tracking changes are also covered.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Explicit Default (it_dfosfd_17_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Multitable INSERT Statements (it_dfosfd_17_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Unconditional INSERT (it_dfosfd_17_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Conditional INSERT ALL (it_dfosfd_17_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Conditional INSERT FIRST (it_dfosfd_17_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Pivoting INSERT (it_dfosfd_17_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: MERGE Statement (it_dfosfd_17_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: FLASHBACK TABLE Statement (it_dfosfd_17_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Tracking Changes in Data (it_dfosfd_17_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: VERSIONS BETWEEN Clause (it_dfosfd_17_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Exercise: Perform Advanced Queries (it_dfosfd_17_enus_11)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Explicit Default (it_dfosfd_17_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/02ab3f1f-0276-4c62-a51a-c2594a458524/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/02ab3f1f-0276-4c62-a51a-c2594a458524/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to specify explicit default values in INSERT and UPDATE statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">specify explicit default values in INSERT and UPDATE statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Explicit Default. The presenter is Aaron Sampson. Explicit Default Feature: Overview.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll overview the explicit default feature. Which means that you can literally use the keyword of DEFAULT as a column value, where the default column value is desired. Now, we did discuss default values on columns back in course 9. But when we entered a record, we simply ignored the column that had the DEFAULT defined. We skipped right over it in terms of data entry, and that does insert the default value. And that works and that&#39;s fine. But the explicit default feature quite literally means that you use the word DEFAULT for that column to ensure that the default value is applied.</p>
+<p>Now, in terms of inserting a record, the end result really isn&#39;t much different. But it does give you that little bit of extra control, so that you are explicitly stating that this value should be the default value. But the difference is that it can be used in an INSERT statement but also an UPDATE statement. And UPDATEs do not apply in terms of updating a default column by just leaving it blank. If you were to just leave it blank in an UPDATE statement, it would become a null. So, again, when inserting, you can say INSERT DEFAULT.</p>
+<p>The word DEFAULT, and it will put whatever value is supposed to go into that column. And then the same for the update, you can say UPDATE DEFAULT. And both will insert the default value. So here we have two examples of using the explicit default values,</p>
+<p>[Video description begins] <em> Using Explicit Default Values.</em> [Video description ends]</p>
+<p>a DEFAULT with an INSERT and a DEFAULT with an UPDATE. So with the INSERT statement, it&#39;s still INSERT INTO, name of table. Then the list of columns below that, in this case department_id, department_name and manager_id, then the VALUES. So for department_id, the value is 300, for department_name, the value is Engineering. And then for manager_id, the value is the keyword of DEFAULT. And note that there are no single quotes around the word DEFAULT. You just quite literally type in the word DEFAULT.</p>
+<p>[Video description begins] <em> The statement for DEFAULT with INSERT is INSERT INTO deptm3, (department_id, department_name, manager_id), VALUES (300, &#39;Engineering&#39;, DEFAULT);.</em> [Video description ends]</p>
+<p>Then, using a DEFAULT with an UPDATE, we update. Again, the table first, deptm3, in this case.</p>
+<p>[Video description begins] <em> The statement for DEFAULT with UPDATE is UPDATE deptm3, SET manager_id &#61; DEFAULT, WHERE department_id &#61; 10;.</em> [Video description ends]</p>
+<p>And then SET manager_id &#61; DEFAULT. WHERE department_id &#61; 10. So again, this is what you could not do with the implicit default that we saw earlier. The update allows you to explicitly state, insert whatever the default value is in your update. Now the other nice thing is that if you do explicitly state default and no default has been defined. Rather than throw an error, Oracle will insert a null.</p>
+<p>Now, you should be mindful of that because, of course, you might be expecting a value to go in. But maybe it was removed. Maybe it has not yet been defined. But at least it won&#39;t throw an error. You&#39;ll get a null instead of a default. So again, the explicit default just gives you that little bit of extra control, you don&#39;t have to hard code it into any kind of application either. You can simply pass in the word default and that will be accepted by Oracle to insert whatever the default value is. And again, it works with both the INSERT and the UPDATE statements.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Multitable INSERT Statements (it_dfosfd_17_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/e7dc5758-17a3-4491-8b99-ffa827cd9024/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e7dc5758-17a3-4491-8b99-ffa827cd9024/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe when to use INSERT statements with multiple tables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe when to use multitable INSERT statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Multitable INSERT Statements. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll overview Multi-Table Insert Statements. Whereby you insert computed rows into one or more tables. Now, computed rows are derived from the results of a subquery.</p>
+<p>[Video description begins] <em> Multitable INSERT Statements: Overview.</em> [Video description ends]</p>
+<p>So you select data out from some kind of source. Then those results are placed into multiple tables. Now this is particularly common in a data warehouse scenario. Often, you need to load your data warehouse regularly so that it can serve its purpose of facilitating analysis on current data. So this is why you perform it regularly. So this process generally involves bringing data in from any number of operational sources. It does not have to be just a single source, but whatever is brought in is done so through the subquery.</p>
+<p>Once you have the data in, then you can insert it into the appropriate tables, and again, it can of course be multiple tables. So target table a, target table b and target table c, and all have records inserted into them from this source set of data. Now in many cases there may be some level of manipulation that has to be done. This process is generally refered to as ETL. Extraction, transformation and loading. So the extraction is just getting it. But often times you might need to adjust the format, the data type, certain characteristics to make it match your targets. So that&#39;s where you do the transformation aspect and then you load it. But, because of multitable INSERTs, this allows you to streamline the process.</p>
+<p>Once everything is done, all of the extraction, all of the transformations, we can then load simultaneously to multiple target tables. Now there is still the INSERT...SELECT statement and we did talk about this earlier. And in fact this also allows you to insert into multiple tables as part of a single DML statement. So again, I can select multiple rows from anywhere. And, in fact, you can still insert them into multiple tables. So that&#39;s fine, but the multitable INSERT statements typically are better designed, better used in a data warehousing system. To transfer data from one or more operational sources to the set of target tables. And in fact, they do provide significant performance improvement over the single DML versus multiple INSERT...SELECT statements.</p>
+<p>And single DML versus a procedure to perform multiple inserts. Because what ends up happening with these INSERT...SELECT statements being performed multiple times. You&#39;re essentially examining the same source data several times for each INSERT into the target table. Even if it is a procedure, it is still doing the same thing. You&#39;re going through the source data several times to determine what goes into target table one, and target table two, and target table three. And you might also include something like an IF...THEN syntax to examine additional conditions. Quite simply, it results in more processing. So the multitable INSERT statements reduce the amount of processing that has to be done and generally will result in better performance. Now we&#39;ll see some examples of using these. But, if you are in a data warehousing scenario, then chances are you will get better performance out of using multitable INSERTs. Compared to something like multiple INSERT...SELECT statements.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Unconditional INSERT (it_dfosfd_17_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/334e2cf2-e047-49ba-b63b-cc9d798fda71/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/334e2cf2-e047-49ba-b63b-cc9d798fda71/image001.jpg')();" /><div class="section_text">In this video, find out how to use the INSERT statement without any conditions.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the unconditional INSERT statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Unconditional INSERT. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Okay, in this demonstration we&#39;ll take a look at our first Multi-Table Insert Statement. And this is known as an Unconditional INSERT ALL Multi-table Insert. Now, it&#39;s referred to as unconditional. Because every row that is retrieved by the query will be inserted into, in this case, the two separate tables unconditionally. No further processing, no further restrictions. Now, it might appear as though there is a restriction because there&#39;s a WHERE clause here, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. It includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part contains the Start Page and HR tabs. The HR tab is selected. It is divided into two sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder tabs. The Worksheet tab is selected. He highlights WHERE employee_id &gt; 200; from the SELECT employee_id empid, hire_date hiredate, salary sal, manager_id mgr, FROM EMPLOYEES, WHERE employee_id &gt; 200; statement in the Worksheet tab.</em> [Video description ends]</p>
+<p>So that&#39;s a condition, but that&#39;s in the SELECT portion, okay? This is simply to retrieve the desired records that I want to place into the two tables. So yes, a WHERE clause is a condition, but it&#39;s not on the INSERT, it&#39;s on the SELECT, okay? Clearly, I don&#39;t want every single row from every table going into my two target tables. So it&#39;s just a filter to locate the desired records. All rows that are returned by the query are then inserted into the table unconditionally.</p>
+<p>No further processing or conditions exist on the insert statement itself. Now, in terms of setting this up, I have created two simple tables, a SAL_HISTORY, salary history, and an MGR_HISTORY, manager history. So it just tracks the history of salaries and managers. Now, I&#39;m just fairly arbitrarily selecting records out from the EMPLOYEES table to place into these two tables. But let&#39;s look at the SELECT statement first. I&#39;m selecting out employee_id, then notice it says empid afterward and empid matches the column name of the two target tables. In both SAL_HISTORY and manager history, the first column is empid, with no underscores, no spaces, okay?</p>
+<p>So employee_id will be selected out and then placed into empid, so that&#39;s the syntax you use. The one that you want to select, the one that you want to place it into immediately after it. Then I select hire_date, that is being placed into hiredate with no underscore. And notice that hiredate with no underscore matches the second column of the salary history table. And it&#39;s not necessary that you give these columns different names. But it&#39;s good at least for demonstration purposes here, and really it might be a good idea just to try to keep them straight. You know that this represents a different column in a different target table. And then salary in the SELECT statement goes into sal in both target tables.</p>
+<p>But here is where we have a difference now. Salary exists in both tables, empid exists in both tables. But hiredate only exists in the SAL_HISTORY table and manager_id, which equates to mgr, only exists in the manager history table. So we&#39;ve got variations in the columns with the respect to the targets. Again, both have empid, both have sal, but hiredate is only in one target table, manager is only in the other target table. But the SELECT statement can retrieve all of them in a single shot, okay? So there&#39;s four columns in total being selected out, but only three will go into each target table. Now, again, we are just selecting from the EMPLOYEES table where employee_id is greater than 200. Now we can still execute just the SELECT statement here, because the names after the column names will be treated simply as aliases. So this will still work, so let&#39;s try to execute.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id empid, hire_date hiredate, salary sal, manager_id mgr, FROM EMPLOYEES, WHERE employee_id &gt; 200; statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with the EMPID, HIREDATE, SAL, and MGR column headers and six rows.</em> [Video description ends]</p>
+<p>And we can verify the records, so notice the column headers say EMPID with no underscore. They say HIREDATE with no underscore, SAL and MGR. So again,they&#39;re just being treated as aliases if you just run the query by itself. But when we execute the entire statement, they map up the column. So again, employee_id maps to empid, hire_date maps to hiredate, no underscore, salary maps to sal, manager_id maps to mgr. Notice that it is INSERT ALL, so again, this really is the unconditional aspect. All rows retrieved by the query will be inserted into the target tables.</p>
+<p>So INSERT ALL, then INTO target table 1, SAL_HISTORY in my case, then VALUES. Then the three columns that I want to insert into for this particular statement empid, hiredate, and sal. And again, they&#39;re coming back from the query. Then on the next line, another INTO, then the other target table, MGR_HISTORY, my VALUES keyword. And again, the list of columns I want going into this table, empid, mgr, and sal, okay? So you can keep listing tables if you wanted to. As long as the columns match up from the SELECT statement, you can really have as many as you want. So a single SELECT will pull all of these records out and then insert them all into these two target tables. So let&#39;s go ahead and execute the entire statement.</p>
+<p>[Video description begins] <em> He selects the INSERT ALL, INTO SAL_HISTORY VALUES (empid, hiredate, sal), INTO MGR_HISTORY VALUES (empid, mgr, sal), SELECT employee_id empid, hire_date hiredate, salary sal, manager_id mgr, FROM EMPLOYEES, WHERE employee_id &gt; 200; statement and clicks the execute icon. The Script Output tab opens. It is divided into two parts. The first part is the toolbar. The second part displays the message: 12 rows inserted.</em> [Video description ends]</p>
+<p>And notice that we get 12 rows inserted. When we executed the query, we only got 6 rows, but 6 went into each table, so a total of 12 rows were inserted. Now let&#39;s verify, let&#39;s SELECT * FROM SAL_HISTORY and we should get six rows.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_HISTORY; statement and clicks the execute icon. A table with EMPID, HIREDATE, and SAL column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>There they are, and SELECT FROM MGR_HISTORY and we should get six rows again, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM MGR_HISTORY; statement and clicks the execute icon. A table with EMPID, MGR, and SAL column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And there we have it. So again, the single SELECT statement has to retrieve all of the columns that you want to go into all of the tables. But as long as all of them are there and correctly mapped up, they will go into their target tables using the results of that single select statement.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Conditional INSERT ALL (it_dfosfd_17_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/6593d534-4931-4691-abc0-ab06c8a29c96/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/6593d534-4931-4691-abc0-ab06c8a29c96/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the conditional INSERT ALL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the conditional INSERT ALL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Conditional INSERT ALL. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this example we&#39;ll see another Multi-Table Insert, but in this case it&#39;s known as the Conditional INSERT ALL. Because the conditions are being placed on the INSERT. Recall from our previous demonstration, there was still a condition, for lack of a better word, it was a WHERE clause. But the WHERE clause was on the SELECT statement.</p>
+<p>And that simply filters which rows are returned by the query. Once they have been returned, the INSERT itself was unconditional from that point. Every row returned got inserted into the target tables. In this case, we don&#39;t have a WHERE clause.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now that&#39;s still a condition. But it still doesn&#39;t count as a conditional insert because nothing is preventing any record from going in using the INSERT statement. In this case, we have when and then statements, they constitute the conditions and notice that they are placed on the INSERT statement. In fact, notice that we don&#39;t even have a WHERE clause in the SELECT statement in this example.</p>
+<p>[Video description begins] <em> He highlights the SELECT employee_id empid, hire_date hiredate, salary sal, commission_pct comm, FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>So again, the WHERE clause is simply used to determine which rows will be inserted later. In this case with no WHERE clause on the SELECT statement, every employee will be returned, and there are 107 employees in this table. So again, we can execute just the query and if I scroll to the bottom, 107 rows, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id empid, hire_date hiredate, salary sal, commission_pct comm, FROM EMPLOYEES; statement and clicks the execute icon. A table with EMPID, HIREDATE, SAL, and COMM column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>But look at the insert conditions, WHEN hiredate is less than January 15th, 2003, then perform the INSERT, okay?</p>
+<p>[Video description begins] <em> He points at the INSERT ALL, WHEN hiredate &lt; &#39;03-JAN-15&#39; THEN, INTO EMP_HISTORY VALUES (empid, hiredate, sal) statement.</em> [Video description ends]</p>
+<p>So only rows that match this condition will be inserted. In the second target table, when commission is not null, then perform the INSERT, okay?</p>
+<p>[Video description begins] <em> He points at the WHEN COMM IS NOT NULL THEN, INTO EMP_SALES VALUES (empid, comm, sal) statement.</em> [Video description ends]</p>
+<p>So again, those are the conditions, they&#39;re placed on the INSERT. Now, you could still have a WHERE clause in the SELECT. But you would just want to make sure that it&#39;s not filtering out the rows that you want to insert, okay? So you need to be a little bit careful. But for example, maybe you were doing this for just a particular region or country or something like that. Then the WHERE clause could specify just this country or list of regions, things along those lines.</p>
+<p>But again, you just want to make sure that you are not filtering out the records that you are looking to insert. So in terms of the set up, again, I&#39;ve created two simple tables, an EMP_HISTORY table and an EMP_SALES table. So anyone who, again, matches this condition of hiredate less than January 15th, 2003 gets inserted into the employees history table. The EMP_SALES table is for those who earn commission. So when commission is not null then they go into this EMP_SALES table. And the SELECT statement again retrieves all of the columns that I want to insert.</p>
+<p>So empid is common to both, salary is common to both, but in EMP_HISTORY we have a hiredate column. In EMP_SALES we have a comm column. And again, they are all different names just so we can keep them straight. So the SELECT statement retrieves the original employee_id, from the EMPLOYEE table. And maps it, if you will, to the empid column, in the two target tables. hire_date maps to hiredate in only the EMP_HISTORY table. salary maps to sal in both tables and commission_pct maps to comm in only the EMP_SALES table.</p>
+<p>So we still need to extract all columns that are going to be inserted. But once again, it&#39;s a single select that will then insert into each target table, okay? So again, there were 107 employees in total. Let&#39;s execute the entire statement now. 43 rows inserted, those are the conditions at work, okay?</p>
+<p>[Video description begins] <em> He selects the INSERT ALL, WHEN hiredate &lt; &#39;03-JAN-15&#39; THEN, INTO EMP_HISTORY VALUES (empid, hiredate, sal), WHEN COMM IS NOT NULL THEN, INTO EMP_SALES VALUES (empid, comm, sal), SELECT employee_id empid, hire_date hiredate, salary sal, commission_pct comm, FROM EMPLOYEES; statement and clicks the execute icon. The Script Output displays the message: 43 rows inserted.</em> [Video description ends]</p>
+<p>So let&#39;s see what the breakdown was here. Let&#39;s see how many got inserted into EMP_HISTORY. We&#39;ll select star from EMP_HISTORY, and eight rows were returned.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMP_HISTORY; statement and clicks the execute icon. A table with EMPID, HIREDATE, and SAL column headers and eight rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>All matching the condition of less than January 15th, 2003.</p>
+<p>[Video description begins] <em> He points at the values displayed under the HIREDATE column header.</em> [Video description ends]</p>
+<p>And SELECT * from EMP_SALES, and 35 rows, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMP_SALES; statement and clicks the execute icon. A table with EMPID, COMM, and SAL column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Scroll to the bottom just to make sure. Yes, 35 rows, and we see nothing but actual values in the COMM column. In other words, the values that are not null. So again, that&#39;s the idea of the conditional insert. The conditions are placed on the INSERT statements. Therefore the SELECT statement does not necessarily have to include a WHERE clause. We rely on the INSERT conditions to filter the records appropriately.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Conditional INSERT FIRST (it_dfosfd_17_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/b5ed6a52-351c-4b45-a7a9-8379dd696f10/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b5ed6a52-351c-4b45-a7a9-8379dd696f10/image001.jpg')();" /><div class="section_text">Learn how to use the conditional INSERT statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the conditional INSERT FIRST statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Conditional INSERT FIRST. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, now in this demonstration we&#39;ll see another example of using a conditional Multi-Table Insert. But in this case it&#39;s known as the Conditional INSERT FIRST. So we still have conditions placed on the INSERTs, but in terms of what first means. The results of the SELECT statement will be inserted into the first table where the role value matches the condition of the insert, okay?</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Now, in terms of setup, I&#39;ve created three tables here, salary low, salary mid and salary high with the exact same three columns in all three tables.</p>
+<p>[Video description begins] <em> He points at these subnodes displayed under the Tables(Filtered) subnode.</em> [Video description ends]</p>
+<p>And this is just to divide up employees by their salary, again, for various analysis purposes. But I&#39;m selecting out from the original EMPLOYEES table, their ID, the last name and salary. And also take note in this case, I have used the exact same column names, which is perfectly fine, okay?</p>
+<p>[Video description begins] <em> He highlights the SELECT employee_id, last_name, salary, FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>You don&#39;t need different names in the target tables. It&#39;s just sometimes is easier to keep them distinguishable. But you can absolutely keep them the same if you want to. And in that case I don&#39;t need the mappings that we saw in the earlier demonstrations. employee_id will go straight to employee_id of the target tables. last_name will go straight to last_name of the target tables and salary, of course, will do the same thing.</p>
+<p>But the three tables are divided up by these conditions. So salary low has to meet the condition of WHEN salary is less than 5,000. Then insert INTO the salary low table. When the salary is between 5,000 and 10,000 and then the ELSE condition is everything else, okay? So I don&#39;t need to specify another WHEN clause. This is all remaining records, therefore must be higher than 10,000 will go into the high salary table, okay?</p>
+<p>And again, the SELECT statement is selecting every employee because I want to divide them all up. So, as per usual, you could run just the SELECT statement if you wanted to.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, salary, FROM EMPLOYEES; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And you will get back every employee, 107 in this case, but they&#39;ll be divided up now into these three separate tables. Let&#39;s execute the entire code, 107 rows were inserted and that&#39;s exactly what I expected to see in this case.</p>
+<p>[Video description begins] <em> He selects the INSERT FIRST, WHEN salary &lt; 5000 THEN, INTO SAL_LOW VALUES (employee_id, last_name, salary), WHEN salary BETWEEN 5000 and 10000 THEN, INTO SAL_MID VALUES (employee_id, last_name, salary), ELSE, INTO SAL_HIGH VALUES (employee_id, last_name, salary), SELECT employee_id, last_name, salary, FROM EMPLOYEES; statement and clicks the execute icon. The Script Output tab displays the message: 107 rows inserted.</em> [Video description ends]</p>
+<p>We weren&#39;t creating any sort of filters to get rid of any records. We were just dividing them up into groups. So every employee has now been placed into the appropriate target table based on their salary. But now let&#39;s see how they were divided up. So let&#39;s SELECT * FROM salary low and 49 records came back.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_LOW; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Let&#39;s SELECT FROM salary mid, And 43 records came back.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_MID; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And salary high, 15, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_HIGH; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So that&#39;s every employee. They have now just been divided up as per the conditions, and again, it&#39;s the first table that matches the conditions. So clearly, the salary high employees examined the condition of the first target table and said, well that doesn&#39;t match.</p>
+<p>[Video description begins] <em> He highlights WHEN salary &lt; 5000 THEN.</em> [Video description ends]</p>
+<p>Then they examined the condition of the second target table and say, well that didn&#39;t match either.</p>
+<p>[Video description begins] <em> He highlights WHEN salary BETWEEN 5000 and 10000 THEN.</em> [Video description ends]</p>
+<p>The ELSE scenario was the first table that matched the condition, okay?</p>
+<p>[Video description begins] <em> He highlights INTO SAL_HIGH VALUES (employee_id, last_name, salary).</em> [Video description ends]</p>
+<p>So again, useful for when you just want to create these divisions based on some kind of criteria. And that can be anything, certainly doesn&#39;t have to be salary. But as long is it matches one of the conditions, it will go into the appropriate table.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Pivoting INSERT (it_dfosfd_17_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/c83f014f-7a08-48ad-80da-872ceac592bf/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c83f014f-7a08-48ad-80da-872ceac592bf/image001.jpg')();" /><div class="section_text">In this video, find out how to use the INSERT statement with a pivot.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the pivoting INSERT statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Pivoting INSERT. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at using what&#39;s known as a pivoting INSERT. And this is something that you might encounter if you are receiving data from a source. And its structure does not really match what you need in terms of where you are going to store that data in a target table.</p>
+<p>Now, pivoting is something that is very common in spreadsheet applications. You may have worked with pivot tables before. And really, it&#39;s just another way to structure or present the information. So in terms of setting this up, I&#39;ve created this sort of fake source data table, if you will.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>And if we look at the column structure for this table, it does store the employee id and a week_id. But then it has five separate days for the week, Monday, Tuesday, Wednesday, Thursday, and Friday. So let&#39;s just select everything out from the SALES_SOURCE_DATA table.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SALES_SOURCE_DATA; statement and clicks the execute icon. A table with EMP_ID, WEEK_ID, MON, TUE, WED, THU, and FRI column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And I&#39;ve created a single record where employee id 176 in week 30, sold 2000 on Monday, 3000 on Tuesday, 1500 on Wednesday, 2500 on Thursday and 4000 on Friday. So we&#39;re seeing each day of the week, but in the target table of our database, which I&#39;ve called SALES_INFO, there are only three columns. So if we look at the structure of that one, we just see employee id, WEEK_ID, then this DAILY_SALES column.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SALES_INFO; statement and clicks the execute icon. A table with EMP_ID, WEEK_ID, and DAILY_SALES column headers appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So we don&#39;t have Monday, Tuesday, Wednesday, Thursday, Friday. So we are receiving a total of seven columns but they need to be stored in a table where there&#39;s only three. So we need to restructure the source data to match what our target table can accommodate. So the pivot INSERT can do this for us.</p>
+<p>Now at the bottom of my code here, again, this is the query that will feed the INSERT statement. So we can execute this, and again, it just selects out the employee id, the week_id, then monday, tuesday, wednesday, thursday, friday from that source data.</p>
+<p>[Video description begins] <em> He selects the SELECT emp_id, week_id, mon, tue, wed, thu, fri, FROM SALES_SOURCE_DATA; statement and clicks the execute icon. A table with EMP_ID, WEEK_ID, MON, TUE, WED, THU, and FRI column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So there&#39;s our single record again, so take note that this is only a single record. But what we need in our SALES_INFO table and this structure is effectively five records, one record for each day of the week. So that&#39;s the restructuring that&#39;s happening here.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SALES_INFO; statement and clicks the execute icon. He points at the table with EMP_ID, WEEK_ID, and DAILY_SALES column headers that appears in the Query Result tab.</em> [Video description ends]</p>
+<p>We&#39;re taking one record and turning it into five and really again it&#39;s just a different way to present it but that&#39;s what pivoting is all about. Okay, so the SELECT statement again, simply retrieves the information that needs to be sent to the target table. So in the INSERT ALL statement, we have five separate INTO statements.</p>
+<p>So everyone of of them is INTO SALES_INFO, then the VALUES. Then it&#39;s still the employee id and the week_id but notice the last value is for each day of the week, okay? So those values will get restructured into that DAILY_SALES column that I have in my target table. Okay, so again, only one record is being fed to the target table. But once we execute all of these, we will see five records.</p>
+<p>[Video description begins] <em> He selects the SELECT emp_id, week_id, mon, tue, wed, thu, fri, FROM SALES_SOURCE_DATA; statement and clicks the execute icon. A table with EMP_ID, WEEK_ID, MON, TUE, WED, THU, and FRI column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He selects the INSERT ALL, INTO SALES_INFO VALUES (emp_id, week_id, mon), INTO SALES_INFO VALUES (emp_id, week_id, tue), INTO SALES_INFO VALUES (emp_id, week_id, wed), INTO SALES_INFO VALUES (emp_id, week_id, thu), INTO SALES_INFO VALUES (emp_id, week_id, fri), SELECT emp_id, week_id, mon, tue, wed, thu, fri, FROM SALES_SOURCE_DATA; statement and clicks the execute icon. The Script Output tab displays the message: 5 rows inserted.</em> [Video description ends]</p>
+<p>Five rows inserted, okay, from that single row we generated five rows. Now, let&#39;s select everything from the target SALES_INFO table and there are the five rows.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SALES_INFO; statement and clicks the execute icon. A table with EMP_ID, WEEK_ID, and DAILY_SALES column headers and five rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So employee id now shows up five separate times. The week_id shows up five separate times but now we see the DAILY_SALES column simply holds those totals of 2000, 3000, 1500, 2500 and 4000. So we&#39;ve restructured the way these records appear, that&#39;s pivoting. Now, again, this is typically done in data analysis scenarios where you receive values in one format. And it really just doesn&#39;t match the relational format that you have.</p>
+<p>But even though I have now stored it in somewhat of a non-relational format, you could send that SALES_INFO from my target table out to any kind of analysis application such as a spreadsheet. And you could effectively un-pivot it back into those Monday, Tuesday, Wednesday, Thursday, Friday breakdowns, okay? So really, whether or not you need to pivot, depends on the structure of what you are receiving, versus the structure of how you are storing it in your tables.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: MERGE Statement (it_dfosfd_17_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/2d724ce6-77ea-40fc-bc02-e9d0a874620d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/2d724ce6-77ea-40fc-bc02-e9d0a874620d/image001.jpg')();" /><div class="section_text">In this video, find out how to use the MERGE statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the MERGE statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: MERGE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in our next demonstration, we&#39;ll take a look at using a MERGE statement. And a MERGE allows you to perform different actions based on the current state of a source table compared to a destination table. And what we can do is update values if they need updating, but if a value does not exist, then we can insert a new record. So again, depending on the results of a comparison, we can do different operations. So to set this up, I still have an employee copy table just called EMP_COPY.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>So let&#39;s just consider that to be some sort of archived table, something along the lines of an employee history table or really anything. But the point is, it has the same structure. The same columns exist in EMP_COPY as those in the original EMPLOYEES table. So what I&#39;m going to do, in fact, I&#39;ve already executed this first line of code, is to delete approximately half of the records.</p>
+<p>Okay, so there&#39;s a DELETE statement here, DELETE FROM EMP_COPY where employee_id is greater than 150, okay? That&#39;s approximately half of the records. So again, I&#39;ve already executed that, so let&#39;s take a look now at the records that are there. So SELECT * FROM EMP_COPY, we&#39;ll execute. And the total number of records now is 51, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMP_COPY; statement and clicks the execute icon. A table with 11 column headers and several rows appears in the Query Result tab. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, and PHONE_NUMBER.</em> [Video description ends]</p>
+<p>Now, I&#39;ve also made a change. This tree of the archive table and note the phone number of the first employee, Steven King, is 123 4567, okay? So I&#39;ve made a change in the original table to this phone number. Let&#39; take a look at that. I have the comparison here in my code for the MERGE statement to select everything from the original EMPLOYEES table. So let&#39;s highlight just that and execute.</p>
+<p>[Video description begins] <em> He selects SELECT * FROM EMPLOYEES from the MERGE INTO EMP_COPY c, USING (SELECT * FROM EMPLOYEES) e, ON (c.employee_id &#61; e.employee_id) statement and clicks the execute icon. A table with 11 column headers and several rows appears in the Query Result tab. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, and PHONE_NUMBER.</em> [Video description ends]</p>
+<p>And notice I have changed the phone number for Steven King to 555 5555, okay? So what that represents is the history table, the copy is out of date, okay? The record for that employee is obsolete now, for lack of a better word. So I have the condition whereby certain records need updating, and other records simply don&#39;t exist because I&#39;ve deleted approximately half of the employees. So this is where the MERGE comes into play. I can merge into the COPY table and this is just an alias, c in this case for COPY using SELECT * FROM the original EMPLOYEES table, aliased as e, okay?</p>
+<p>And again, this creates two virtual tables because now I can perform a comparison. ON states the comparison or the join, if you will. c.employee_id &#61; e.employee_id, so that&#39;s the COPY employee_id equaling the original employee_id from the EMPLOYEES table. So that&#39;s what I want to do. SELECT out everything from the original EMPLOYEES table and then based on this comparison, are there matching values between these two sets? If there is, WHEN MATCHED THEN UPDATE, okay? That handles that obsolete value.</p>
+<p>The phone number of the first employee in the COPY table is out of date. So I can set all of the values in the entire table equal to whatever comes back from the SELECT * statement of the original EMPLOYEES table. So it will realize that the phone_number is different in the COPY table than it is in the original table and it will update that value. If they already match, well then there&#39;s nothing to do, that&#39;s fine. Just leave the record as it is. But if there&#39;s no match on the employee_id between the two sets, then we see an INSERT, okay?</p>
+<p>WHEN NOT MATCHED THEN INSERT the record and then we just specify the values. And notice that&#39;s its e the alias for the original EMPLOYEES table then just every column. employee_id, first_name, last_name, email, phone_number, hire_date and it just keeps going its every column of the table, okay? But ultimately, it breaks down to compare the records currently in the COPY table to a SELECT * FROM the original table. If there are matches on the employee_id column, then perform some updates if necessary, okay?</p>
+<p>Now that&#39;s implied, you don&#39;t have to state that. If the values are already equal, then there&#39;s nothing to update. If they aren&#39;t, then update them. If the record doesn&#39;t exist at all, the WHEN NOT MATCHED THEN INSERT the unmatched record. Okay, so I have deleted approximately half of the records and I&#39;ve made a change. So by performing this merge, what I&#39;m doing is bringing the COPY table into a consistent state with the original table.</p>
+<p>And again, archive tables may need this from time to time. So this helps you to keep them current. Original table values will change, a person&#39;s phone number, for example, certainly could change quite easily, or any other value. So this ensures that your archive copy that you might use for analyses or queries or reports remains current with what is in the, we&#39;ll call it the standard day-to-day database, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMP_COPY; statement and clicks the execute icon. A table with 11 column headers and several rows appears in the Query Result tab. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, and PHONE_NUMBER.</em> [Video description ends]</p>
+<p>So one more time, let&#39;s SELECT everything FROM EMP_COPY. And take note that there are 51 rows, and the phone number for employee 100 is 123 4567, okay?</p>
+<p>[Video description begins] <em> He points at the value in the first row under the PHONE_NUMBER column header.</em> [Video description ends]</p>
+<p>In the SELECT * FROM EMPLOYEES, of course there are all 107 employees.</p>
+<p>[Video description begins] <em> He selects SELECT * FROM EMPLOYEES from the MERGE INTO EMP_COPY c, USING (SELECT * FROM EMPLOYEES) e, ON (c.employee_id &#61; e.employee_id) statement and clicks the execute icon. A table with 11 column headers and several rows appears in the Query Result tab. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, and PHONE_NUMBER.</em> [Video description ends]</p>
+<p>Okay, and employee 100 now has a phone number of 555 5555. So let&#39;s execute the entire MERGE and we&#39;ll see what happens.</p>
+<p>[Video description begins] <em> He points at the value in the first row under the PHONE_NUMBER column header.</em> [Video description ends]</p>
+<p>Okay, 107 rows merged.</p>
+<p>[Video description begins] <em> He selects the MERGE INTO EMP_COPY c, USING (SELECT * FROM EMPLOYEES) e, ON (c.employee_id &#61; e.employee_id), WHEN MATCHED THEN, UPDATE, SET, c.first_name &#61; e.first_name,, c.last_name &#61; e.last_name,, c.email &#61; e.email,, c.phone_number &#61; e.phone_number,, c.hire_date &#61; e.hire_date,, c.job_id &#61; e.job_id,, c.salary &#61; e.salary,, c.commission_pct &#61; e.commission_pct,, c.manager_id &#61; e.manager_id,, c.department_id &#61; e.department_id, WHEN NOT MATCHED THEN, INSERT, VALUES (e.employee_id, e.first_name, e.last_name, e.email, e.phone_number, e.hire_date, e.job_id, e.salary, e.commission_pct, e.manager_id, e.department_id); statement and clicks the execute icon. The Script Output displays the message: 107 rows merged.</em> [Video description ends]</p>
+<p>That&#39;s perfect because there are 107 employees total. Let&#39;s close the output here, and now let&#39;s select everything from EMP_COPY. So where only half of the records existed just a moment ago, now there should be all 107. Execute, let&#39;s verify, scroll to the bottom 107 rows.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM EMP_COPY; statement and clicks the execute icon. A table with 11 column headers and several rows appears in the Query Result tab. The column headers include EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, and PHONE_NUMBER.</em> [Video description ends]</p>
+<p>So the rows that did not match were inserted, and I have EMPLOYEE_IDs that are greater than 150 now, which were deleted previously. So the INSERT worked, let&#39;s go back to the very first employee, Steven King employee 100 now has a phone number of 555 5555. So my update worked as well, okay? Now, one final note. When you do perform the MERGE operation, note that the column used for the join condition, which is this, employee_id and my ON clause, that one is not included in the update statement.</p>
+<p>[Video description begins] <em> He highlights ON (c.employee_id &#61; e.employee_id) from the MERGE INTO EMP_COPY c, USING (SELECT * FROM EMPLOYEES) e, ON (c.employee_id &#61; e.employee_id) statement.</em> [Video description ends]</p>
+<p>For all intents and purposes, this counts as being in the UPDATE statement. Okay, so just notice that the update begins with first_name, not employee_id because it&#39;s already comparing these looking for the match, okay? So update everything else, don&#39;t perform any updates on the employee_id column. If you tried to include this one, the employee_id comparison in the update statement, it would actually throw an error, okay?</p>
+<p>So again, useful for when you have those archived tables that matched the structure of an existing table. But they simply need to be kept current. Because if you export the records, let&#39;s say six months ago, that&#39;s fine. But as the current records change, you want those updates to be reflected in the archived copy. That&#39;s where your MERGE comes into play.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: FLASHBACK TABLE Statement (it_dfosfd_17_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/21d17fc3-808a-4266-a418-b08dd39afcbd/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/21d17fc3-808a-4266-a418-b08dd39afcbd/image001.jpg')();" /><div class="section_text">In this video, you will use the FLASHBACK TABLE statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the FLASHBACK TABLE statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: FLASHBACK TABLE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at using the FLASHBACK TABLE statement which can act as a safety net really if you happen to drop an object mistakenly. And in Oracle, dropped objects are not permanently and irrevocably removed.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>There is an object which is known as the RECYCLEBIN which effectively stores those objects and allows you to flash them back. So you can query the RECYCLEBIN to determine which objects can be restored. Now, there are a number of columns. So if you prefer, you could just SELECT * but I&#39;m just selecting the original_name and the operation from RECYCLEBIN. And this allows me to see what is available to FLASHBACK.</p>
+<p>[Video description begins] <em> He selects the SELECT original_name, operation, FROM RECYCLEBIN; statement and clicks the execute icon. A table with ORIGINAL_NAME and OPERATION column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So I have several tables that I&#39;ve dropped throughout these demonstrations. There&#39;s a CUSTOMERS table there.</p>
+<p>[Video description begins] <em> He points at the value under the ORIGINAL_NAME column header.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and FLASHBACK the CUSTOMERS table, and it is simply FLASHBACK TABLE, name of table, TO BEFORE DROP. This will restore the dropped object. Let&#39;s execute, Flashback succeeded.</p>
+<p>[Video description begins] <em> He selects the FLASHBACK TABLE CUSTOMERS TO BEFORE DROP; statement and clicks the execute icon. The Script Output tab displays the message: Flashback succeeded.</em> [Video description ends]</p>
+<p>And we should now be able to select from that table and actually, if we go to our table browser over on the left and refresh, the CUSTOMERS table reappears. Let&#39;s SELECT * and there we have it, the table is back exactly as it was in its original state.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM CUSTOMERS; statement and clicks the execute icon. A table seven column headers and two rows appears in the Query Result tab. The column headers include FIRST_NAME, LAST_NAME, and CITY.</em> [Video description ends]</p>
+<p>Now, that said, if the table is residing, for lack of a better word, in the RECYCLEBIN in a fully recoverable state, then that should indicate that it is still taking up space, okay? So depending on the state of what is in the RECYCLEBIN, you may want to clear it out. If you know that the objects in there can be fully purged, then you can PURGE RECYCLEBIN, okay? I&#39;ll go ahead and execute, that purges it.</p>
+<p>[Video description begins] <em> He selects the PURGE RECYCLEBIN; statement and clicks the execute icon. The Script Output displays the message: PURGE RECYCLEBIN.</em> [Video description ends]</p>
+<p>Now if I SELECT FROM the RECYCLEBIN, I shouldn&#39;t see anything and of course that frees up the space.</p>
+<p>[Video description begins] <em> He selects the SELECT original_name, operation, FROM RECYCLEBIN; statement and clicks the execute icon. A table with ORIGINAL_NAME and OPERATION column headers appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Now, I should also note that the recycle bin is user sensitive, in other words, I can only see the objects that have dropped. So it&#39;s my RECYCLEBIN, if you will, then any other user would have their RECYCLEBIN. So just purging my RECYCLEBIN certainly would not purge out all of the objects in everyone&#39;s RECYCLEBIN. A SYSDBA could certainly do that. But you essentially have your own user account and that allows you to either FLASHBACK or PURGE your objects that have been dropped.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Tracking Changes in Data (it_dfosfd_17_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/c0c3d75b-84c5-4672-ac86-aaf31ee9090e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c0c3d75b-84c5-4672-ac86-aaf31ee9090e/image001.jpg')();" /><div class="section_text">Learn how to track changes in data.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">track changes in data</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Tracking Changes in Data. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration we&#39;ll take a look at performing what&#39;s known as a Flashback Query to see a value before a change. Now, in my comment here, I have the word flashback in double quotes really to indicate that this is just a nickname.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>In our previous demonstration, we saw the use of a flashback table, so this is not the same thing, okay? There&#39;s no actual keyword of flashback any where in this code. It just allows us to sort of roll back the time to see what a value was prior to some kind of change, okay? So to set this up, I&#39;m going to select the salary of this employee, Chung. And I&#39;ll use my employee copy table again just so that I don&#39;t affect any original records. And the current salary of employee Chung is 3800.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 3800 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>Okay, so that&#39;s our base value. Now, let&#39;s give employee Chung a raise, we&#39;ll perform an update. So we&#39;ll update EMP_COPY, set salary &#61; 4300, $500 higher WHERE last_name &#61; &#39;Chung&#39;. So we&#39;ll perform the update.</p>
+<p>[Video description begins] <em> He selects the UPDATE EMP_COPY, SET salary &#61; 4300, WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated.</em> [Video description ends]</p>
+<p>That has now been updated. Okay, let&#39;s verify the update, let&#39;s re-select the salary, and now it shows as 4300, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 4300 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>So the update has occurred, it&#39;s been applied but I might be curious now. This is effectively the flashback query. So we can query the value using the AS OF TIMESTAMP parameter. Then you can specify the desired interval to see what the original value was, in other words, before the update. Now you would need to have a little bit of an idea as to when the change occurred but you can specify quite a variety of intervals. In my case, I&#39;m specifying the interval here is 1 minute ago. So what I do is I specify AS OF TIMESTAMP.</p>
+<p>And in parenthesis &#34;SYSTIMESTAMP&#34;, the current time stamp minus an INTERVAL of 1 MINUTE, okay? And that quite literally means go back 1 minute in time, at least in terms of the records here, and retrieve what the value was then. So as mentioned, you would need to have a little bit of an idea as to what interval you want to specify. But as long as you do have a general idea, you can see what the value was. And maybe track a little bit of history if that value has changed a few times over the last few minutes or the last few days or the last few months. Really, whatever interval you want to specify.</p>
+<p>Okay, so again, I&#39;m just selecting the salary from the EMP_COPY table. AS OF TIMESTAMP, in parentheses, SYSTIMESTAMP minus an INTERVAL of 1 MINUTE. And note that the 1 is in single quotes and certainly where the last_name is still &#61; Chung. So now I&#39;m expecting to see the old value. Let&#39;s execute, there it is, 3800.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, AS OF TIMESTAMP (SYSTIMESTAMP – INTERVAL ‘1’ MINUTE), WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 3800 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>Lets re-select the current value just to verify and it&#39;s still 4300. As long as we go back to at least 1 minute ago, I&#39;m seeing the old value.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 4300 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>Okay, so again, really the only thing that you need to have a reasonable idea of is that interval.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, AS OF TIMESTAMP (SYSTIMESTAMP – INTERVAL ‘1’ MINUTE), WHERE last_name &#61; ‘Chung’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 3800 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>But had I gone back an hour or a day or a month, I still would&#39;ve seen the old value. This is only used because obviously I just made that change, that&#39;s all I really needed to specify.</p>
+<p>[Video description begins] <em> He highlights INTERVAL ‘1’ MINUTE) from the SELECT salary, FROM EMP_COPY, AS OF TIMESTAMP (SYSTIMESTAMP – INTERVAL ‘1’ MINUTE), WHERE last_name &#61; ‘Chung’; statement.</em> [Video description ends]</p>
+<p>But if you go back too far, you might skip over several changes. So that could be a little bit tricky in terms of which interval to use but you can just try a few different ones and see what comes back. But again, that flashback query allows you to see those historical values.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: VERSIONS BETWEEN Clause (it_dfosfd_17_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/a682953e-0f4d-42b7-a4ef-c6693202a865/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a682953e-0f4d-42b7-a4ef-c6693202a865/image001.jpg')();" /><div class="section_text">In this video, learn how to use the BETWEEN Clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the VERSIONS BETWEEN Clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: VERSIONS BETWEEN Clauses. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, for our final demonstration. We&#39;ll see how you can use the VERSIONS BETWEEN clause to track the history of changes to a value in a table. Now this involves selecting out some system columns that are known as versions_starttime, and note, there&#39;s an underscore there.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. He highlights versions_endtime from SELECT versions_starttime AS “Start Date”, versions_endtime AS “End Date”, salary, FROM EMP_COPY, VERSIONS BETWEEN SCN MINVALUE AND MAXVALUE, WHERE last_name &#61; ‘Landry’; statement.</em> [Video description ends]</p>
+<p>So versions_starttime, and you could alias that if you want, I&#39;m calling it Start Date. Then we have versions_endtime, and I&#39;m aliasing that as End Date. And then I actually want to see the salary column. So what this is going to return is the point at which a record was entered. Then, the point at which the record was changed, okay? Now we&#39;ll see that in a moment. So I&#39;m still selecting from my EMP_COPY table but then here is the VERSIONS BETWEEN clause. VERSIONS BETWEEN SCN is the System Change Number.</p>
+<p>And I want to see its minimum value, which is effectively when the record was created. And the MAXVALUE, which is the last time it was changed. Okay, so the whole thing, VERSIONS BETWEEN SCN MINVALUE AND MAXVALUE. Then, WHERE last_name &#61; &#39;Landry&#39; is just the employee I&#39;ll use this time. So what I&#39;m going to do here is make several updates so we can track the history. Landry, SELECT salary, FROM EMP_COPY, WHERE last_name &#61; &#39;Landry&#39;, we&#39;ll execute, 2400.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. He points at the value 2400 displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>Okay, let&#39;s do an update and change it to 2600, and we&#39;ll make sure we commit every one of these changes. So let&#39;s perform the update. UPDATE EMP_COPY, SET salary &#61; 2600, WHERE last_name &#61; &#39;Landry&#39;. Execute, COMMIT.</p>
+<p>[Video description begins] <em> He selects the UPDATE EMP_COPY, SET salary &#61; 2600, WHERE last_name &#61; ‘Landry’;, COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated. Commit complete.</em> [Video description ends]</p>
+<p>Let&#39;s verify that 2600 is now the value.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; &#39;Landry&#39;; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 2600 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>It is. Let&#39;s do another update. Let&#39;s change it to 2800.</p>
+<p>[Video description begins] <em> He alters 2600 to 2800 in the UPDATE EMP_COPY, SET salary &#61; 2600, WHERE last_name &#61; ‘Landry’;, COMMIT; statement.</em> [Video description ends]</p>
+<p>And commit that, that succeeded, let&#39;s re-select again and verify, now it shows 2800, let&#39;s do one more, and make it 3000.</p>
+<p>[Video description begins] <em> He selects the UPDATE EMP_COPY, SET salary &#61; 2800, WHERE last_name &#61; ‘Landry’;, COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated. Commit complete.</em> [Video description ends]</p>
+<p>And again, making sure that all of these are committed.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; &#39;Landry&#39;; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 2800 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>One final select to verify, okay, so 3000 is now showing as the current value.</p>
+<p>[Video description begins] <em> He alters 2800 to 3000 in the UPDATE EMP_COPY, SET salary &#61; 2800, WHERE last_name &#61; ‘Landry’;, COMMIT; statement. He selects the UPDATE EMP_COPY, SET salary &#61; 3000, WHERE last_name &#61; ‘Landry’;, COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated. Commit complete.</em> [Video description ends]</p>
+<p>But since we have now made a few changes, we can query out that history.</p>
+<p>[Video description begins] <em> He selects the SELECT salary, FROM EMP_COPY, WHERE last_name &#61; &#39;Landry&#39;; statement and clicks the execute icon. A table with SALARY column header and one row appears in the Query Result tab. The value 3000 is displayed under the SALARY column header.</em> [Video description ends]</p>
+<p>So again, it is SELECT versions_starttime. Give it an alias if you want, versions_endtime, again, alias if you like, then I actually want to see the salary. FROM EMP_COPY, VERSIONS BETWEEN system change number, SCN, MINVALUE and MAXVALUE. WHERE last_name &#61; &#39;Landry&#39;. I&#39;ll execute and there is the history.</p>
+<p>[Video description begins] <em> He selects the SELECT versions_starttime AS “Start Date”, versions_endtime AS “End Date”, salary, FROM EMP_COPY, VERSIONS BETWEEN SCN MINVALUE AND MAXVALUE, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. A table with Start Date, End Date, and SALARY column headers and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so notice that in the last record, the Start Date is null. That indicates that this was the entry point, okay? It came in at 2400, so there&#39;s no Start Date. But it was changed from 2400, the End Date at 15.06.16. This also, of course, is the point where it changed to 2600. So it stopped being 2400 at this time, and if we look at the Start Date immediately above it, it&#39;s the same time. 15:06:16, that&#39;s when it became 2600. But it stopped being 2600 at well, roughly 15 seconds later, okay? 15:06:34. But that&#39;s also the start time of 2800.</p>
+<p>[Video description begins] <em> He points at the values displayed in the third row of the table.</em> [Video description ends]</p>
+<p>Then it changed to 2800, or I should say it stopped being 2800. Again, just a few seconds later. So it was 34 in its start time. Now it&#39;s 52 at its end time. So just shy of 20 seconds, at which point, it changed to 3000 at the same time.</p>
+<p>[Video description begins] <em> He points at the values displayed in the second row of the table.</em> [Video description ends]</p>
+<p>Okay, again, the stop time of any given value is always the same as the start time of the next value. But notice the End Date is null because of course, that&#39;s its current value. It has not stopped being 3,000 yet.</p>
+<p>[Video description begins] <em> He points at the values displayed in the first row of the table.</em> [Video description ends]</p>
+<p>So that&#39;s very nice in terms of seeing that whole historical path for that value. And again, that&#39;s using your versions_starttime, versions_endtime. And of course, the versions between SCN MIN and MAX values, MINVALUE and MAXVALUE, so that you can retrieve that. And you can do that for just about any value, okay? So very useful when you do want to see what&#39;s been happening to a value over time.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Exercise: Perform Advanced Queries (it_dfosfd_17_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/3ca3a1a4-e071-4cb2-b97a-9e782ee287bc/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3ca3a1a4-e071-4cb2-b97a-9e782ee287bc/image001.jpg')();" /><div class="section_text">Learn how to perform more complex queries.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">perform advanced queries</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Perform Advanced Queries. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, time for our final exercise. And this time we&#39;d like you to try to use the unconditional INSERT ALL statement. Then to use the conditional INSERT FIRST statement, then to use the FLASHBACK TABLE statement to recover a table. And finally, to use the VERSIONS BETWEEN clause to track the history of changes to a table.</p>
+<p>So, once again, we&#39;d like you to take a few minutes and try these exercises on your own. Then we&#39;ll come back to review some possible solutions, and we&#39;ll see how you made out. So we&#39;ll see you soon.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The fourth part contains four tabs: HR, HR ~ 1, HR ~ 2, and HR ~ 3. TheHR tab is selected.</em> [Video description ends]</p>
+<p>All right, so to review some possible solutions, in our first task we asked to use the unconditional INSERT ALL multi-table insert. So in this case, again, you can begin with the query to ensure that you are retrieving the appropriate records. So I&#39;m selecting the employee_id which will map to empid in the target tables, hire_date with an underscore, which will map to hiredate with no underscore in only the SAL_HISTORY table.</p>
+<p>Then salary mapped to sal in both tables. And manager_id with an underscore which will map to mgr in the manager history table only. So all of the target table columns need to be included in the SELECT statement, but they don&#39;t have to be in any particular order. So we can still execute the SELECT statement because those mappings, if you will, will simply be treated as aliases. So we see that there are a total of six records being retrieved.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id empid, hire_date hiredate, salary sal, manager_id mgr, FROM EMPLOYEES, WHERE employee_id &gt; 200; statement and clicks the execute icon. A table with EMPID, HIREDATE, SAL, and MGR column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>But the INSERT ALL will insert them into the SAL_HISTORY table with again, the values of empid, hiredate and sal. And then into manager history table with the values of empid, manager and sal. And we can execute the entire statement. And since six rows were inserted into each table, we get a total of 12.</p>
+<p>[Video description begins] <em> He selects the INSERT ALL, INTO SAL_HISTORY VALUES (empid, hiredate, sal), INTO MGR_HISTORY VALUES (empid, mgr, sal), SELECT employee_id empid, hire_date hiredate, salary sal, manager_id mgr, FROM EMPLOYEES, WHERE employee_id &gt; 200; statement and clicks the execute icon. The Script Output tab displays the message: 12 rows inserted.</em> [Video description ends]</p>
+<p>We can SELECT * FROM SAL_HISTORY to confirm, six rows went in.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_HISTORY; statement and clicks the execute icon. A table with EMPID, HIREDATE, and SAL column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And we can confirm MGR_HISTORY, SELECT * FROM MGR_HISTORY and six rows went in.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM MGR_HISTORY; statement and clicks the execute icon. A table with EMPID, MGR, and SAL column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so again, it&#39;s referred to as the unconditional insert because there are no conditions on the insert. The SELECT statement has a WHERE clause which is a condition but it&#39;s just to retrieve the appropriate records. Then all of the records that are retrieved by the SELECT statement are inserted into their appropriate target tables.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 1 tab.</em> [Video description ends]</p>
+<p>Then we asked about using a conditional INSERT FIRST. And in this case, the condition is placed on the INSERT. So it&#39;s kind of the reverse. The SELECT statement does not have a condition, there&#39;s no WHERE clause. You could have one but in this case, we are relying on the INSERT statements to filter the records appropriately. So we use an INSERT FIRST which means the value will go into the first table where the condition matches the value. Or I should say the value matches the condition.</p>
+<p>But we have those conditions in WHEN and THEN scenarios here. So WHEN condition, in this case, salary less than 5000, THEN insert into the salary low table with the appropriate values. WHEN salary BETWEEN 5000 and 10000, THEN insert INTO the salary mid table, same columns. ELSE is the catchall for everything that does not satisfy those first two conditions. They will be inserted INTO salary high. And again, the same columns. So the SELECT statement selects only the employee_id, the last_name and the salary FROM EMPLOYEES with no conditions. Because we can rely on the INSERT FIRST to handle the conditions. Let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the INSERT FIRST, WHEN salary &lt; 5000 THEN, INTO SAL_LOW VALUES (employee_id, last_name, salary), WHEN salary BETWEEN 5000 and 10000 THEN, INTO SAL_MID VALUES (employee_id, last_name, salary), ELSE, INTO SAL_HIGH VALUES (employee_id, last_name, salary), SELECT employee_id, last_name, salary, FROM EMPLOYEES; statement and clicks the execute icon. The Script Output tab displays the message: 107 rows inserted.</em> [Video description ends]</p>
+<p>107 rows in total were inserted and that matches the number of employees but they were broken up into SAL_LOW, SAL_MID and SAL_HIGH.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_LOW; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So we can select from each to see the breakdown, 49 in the SAL_LOW, in SAL_MID, 43 and SAL_HIGH, 15, and that totals 107.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_MID; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Then we asked about recovering dropped objects FROM the RECYCLEBIN.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM SAL_HIGH; statement and clicks the execute icon. A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And this quite literally stores an object that has been dropped intact so it can be recovered using the FLASHBACK TABLE statement.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 2 tab.</em> [Video description ends]</p>
+<p>So we can select out various columns from the RECYCLEBIN to see what is there.</p>
+<p>[Video description begins] <em> He selects the SELECT original_name, operation, FROM RECYCLEBIN; statement and clicks the execute icon. A table with ORIGINAL_NAME and OPERATION column headers and onerow appears in the Query Result tab. </em>[Video description ends]</p>
+<p>And my CUSTOMERS table was recently dropped.</p>
+<p>[Video description begins] He<em> points at the values CUSTOMERS and DROP under the ORIGINAL_NAME and OPERATION column headers.</em> [Video description ends]</p>
+<p>So we can FLASHBACK TABLE CUSTOMERS TO BEFORE DROP, and this quite literally will restore the table.</p>
+<p>[Video description begins] <em> He selects the FLASHBACK TABLE CUSTOMERS TO BEFORE DROP; statement and clicks the execute icon. The Script Output tab displays the message: Flashback succeeded.</em> [Video description ends]</p>
+<p>Flashback succeeded, we can then SELECT * FROM CUSTOMERS to verify that everything has been recovered, and sure enough it has.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM CUSTOMERS; statement and clicks the execute icon. A table seven column headers and two rows appears in the Query Result tab. The column headers include FIRST_NAME, LAST_NAME, and CITY.</em> [Video description ends]</p>
+<p>And finally, we asked about using the VERSIONS BETWEEN clause to track the history of changes to a table.</p>
+<p>[Video description begins] <em> He clicks the HR ~ 3 tab.</em> [Video description ends]</p>
+<p>So in this case, you can SELECT out the system columns known as versions_starttime and versions_endtime. They could be aliased if you like from any given table. Then use the VERSIONS BETWEEN clause with SCN MINVALUE AND MAXVALUE. So it tracks the history, and again, it&#39;s not the minimum value in terms of the value of the data. It&#39;s the minimum value as to when the value was inserted into the table originally. Then when the value was changed. And it tracks each change, okay? Now before doing this, we&#39;ll run some updates to make sure that there are recent changes.</p>
+<p>[Video description begins] <em> He selects the UPDATE EMP_COPY, SET salary &#61; 3200, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated.</em> [Video description ends]</p>
+<p>Let&#39;s update the salary for employee Landry.</p>
+<p>[Video description begins] <em> He alters 3200 to 3500 in the UPDATE EMP_COPY, SET salary &#61; 3200, WHERE last_name &#61; ‘Landry’;, COMMIT; statement. </em>[Video description ends]</p>
+<p>In this case I updated it by $200, we&#39;ll wait a few seconds and we&#39;ll increment again to $500 and we&#39;ll run another update.</p>
+<p>[Video description begins] He<em> selects the UPDATE EMP_COPY, SET salary &#61; 3500, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated.</em> [Video description ends]</p>
+<p>So now there have been two more changes added to this salary value. Make sure that we commit those.</p>
+<p>[Video description begins] <em> He selects the COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: Commit complete.</em> [Video description ends]</p>
+<p>And now we can select, The versions between an execute and we see the history of those changes.</p>
+<p>[Video description begins] <em> He selects the SELECT versions_starttime AS “Start Date”, versions_endtime AS “End Date”, salary, FROM EMP_COPY, VERSIONS BETWEEN SCN MINVALUE AND MAXVALUE, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. A table with Start Date, End Date, and SALARY column headers and two rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And finally we asked about using the VERSIONS BETWEEN clause to track the history of changes to a value. So we can select these system columns known as versions_starttime and versions_endtime. And then in my case the salary column and the two system columns can be aliased if you like, I aliased them as Start Date and End Date. FROM whichever table you want. And then we specify VERSIONS BETWEEN SCN, System Change Number, MINVALUE and MAXVALUE.</p>
+<p>So again, it has nothing to do with the actual data value. Rather just those changes. What was the minimum value for this change, then what was the maximum value for any given change? And we see the history of everything in-between. And WHERE the last_name, in this case, is equal to Landry, just to focus in on a specific employee. Now we&#39;ll run a few more updates to make sure that we have recent changes. So for this employee, I&#39;ll increment the salary again.</p>
+<p>[Video description begins] <em> He alters 3500 to 3800 in the UPDATE EMP_COPY, SET salary &#61; 3500, WHERE last_name &#61; ‘Landry’;, COMMIT; statement.</em> [Video description ends]</p>
+<p>We&#39;ll update and commit.</p>
+<p>[Video description begins] <em> He selects the UPDATE EMP_COPY, SET salary &#61; 3800, WHERE last_name &#61; ‘Landry’;, COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated. Commit complete.</em> [Video description ends]</p>
+<p>Then we&#39;ll do another increment, Up to 4,000. UPDATE and COMMIT. So now we have some recent changes in there.</p>
+<p>[Video description begins] <em> He alters 3800 to 40000 in the UPDATE EMP_COPY, SET salary &#61; 3800, WHERE last_name &#61; ‘Landry’;, COMMIT; statement. He selects the UPDATE EMP_COPY, SET salary &#61; 40000, WHERE last_name &#61; ‘Landry’;, COMMIT; statement and clicks the execute icon. The Script Output tab displays the message: 1 row updated. Commit complete.</em> [Video description ends]</p>
+<p>Now we can select out our version start time, versions_endtime, and the salary with our VERSIONS BETWEEN clause. And there are the changes.</p>
+<p>[Video description begins] <em> He selects the SELECT versions_starttime AS “Start Date”, versions_endtime AS “End Date”, salary, FROM EMP_COPY, VERSIONS BETWEEN SCN MINVALUE AND MAXVALUE, WHERE last_name &#61; ‘Landry’; statement and clicks the execute icon. A table with Start Date, End Date, and SALARY column headers and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, the null in the Start Date is essentially when it was entered. Then we see the time that it stopped being that value.</p>
+<p>[Video description begins] <em> He points at the values displayed in the fourth row of the table.</em> [Video description ends]</p>
+<p>So it changed and then the start time of the record above it matches that same time. So it stopped being 3000 at any given time, it started being 3500 at the same time. It remained that value for the difference between these two, then it stopped being 3500 at this time and started being 3800 at the next time.</p>
+<p>[Video description begins] <em> He points at the values displayed in the third row of the table.</em> [Video description ends]</p>
+<p>Then it remained that value for the difference between these two.</p>
+<p>[Video description begins] <em> He points at the values displayed in the second row of the table.</em> [Video description ends]</p>
+<p>Finally, it was changed again. And since this is the current value, there is no End Date. So you will always see a null in the very first entry date column and a null for its End Date because that&#39;s the current value, okay?</p>
+<p>[Video description begins] <em> He points at the values displayed in the first row of the table.</em> [Video description ends]</p>
+<p>Looks like I incremented too far. Went to 40,000 but that&#39;s fine. The idea simply being that you can capture the history of those changes. So hopefully you made out all right with those exercises, and that completes this course. So I hope you enjoyed it and I hope it proves to be useful and hopefully we&#39;ll see you again in the future.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

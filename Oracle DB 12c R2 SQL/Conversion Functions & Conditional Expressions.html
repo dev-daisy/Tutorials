@@ -1,0 +1,526 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Conversion Functions & Conditional Expressions</h1><div class="section_text"><p>Frequently when retrieving data stored in an Oracle database, the data needs to be converted, manipulated, or aggregated. Discover Oracle conversion functions and conditional expressions.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Implicit and Explicit Data Type Conversion (it_dfosfd_04_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Use the TO_CHAR Function with Dates (it_dfosfd_04_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Date Format Model (it_dfosfd_04_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Use the TO_CHAR Function with Numbers (it_dfosfd_04_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: TO_NUMBER and TO_DATE Functions (it_dfosfd_04_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Use TO_CHAR and TO_DATE with RR Date Format (it_dfosfd_04_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: General Functions (it_dfosfd_04_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: NVL and NVL2 Functions (it_dfosfd_04_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: NULLIF and COALESCE Functions (it_dfosfd_04_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Conditional Expressions (it_dfosfd_04_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: CASE Expression (it_dfosfd_04_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Using the DECODE Function (it_dfosfd_04_enus_12)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_12">13. Video: Exercise: Apply Conversions  (it_dfosfd_04_enus_13)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Implicit and Explicit Data Type Conversion (it_dfosfd_04_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/1855bfe4-1918-4d1d-9749-647ab435b9c3/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1855bfe4-1918-4d1d-9749-647ab435b9c3/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe the use of implicit and explicit data conversion within SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the use of implicit and explicit data conversion within SQL statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Implicit and Explicit Data Type Conversion. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll introduce conversion functions, which allow Oracle to convert one data type to another. Now, this is quite common. And you can see that there are two different types of conversions,</p>
+<p>[Video description begins] <em> Conversion Functions.</em> [Video description ends]</p>
+<p>an implicit data type conversion and an explicit. And quite simply, an implicit conversion is performed by the Oracle Server itself automatically. An explicit data type conversion is performed by the user. So you explicitly state, convert from this type to a different type. Now, to give you an idea of why this is necessary, imagine that you had a table that stored order information. And one of the columns was a quantity, which was just a simple integer, 1, 2, 5, 10, for example. And then you had another column that was a unit price. And the unit price could be any monetary value, such as $1.50. Well, the quantity column might have a data type of just integer, as mentioned. But while the unit price is inherently numeric, it does have the two decimal places, and it stores a currency value. So when you multiply those two together to generate something like a subtotal or a line total, the data types officially are not the same. But they are at least compatible. But Oracle, again, is capable of recognizing that those two data types are very similar or at least compatible. And it can implicitly convert the integer to a value that has maybe two decimal places. So even though you order 5 of something, it would convert the value to 5.00 so that it could be effectively multiplied against something like $1.50 and maintain the two decimal places for the answer. So this is why the conversions are necessary. You&#39;re working with two different types to produce a new value.</p>
+<p>And that new value also needs a data type, even though it might be temporary. You know you aren&#39;t storing the subtotal or the line total. But it needs to be presented to you so it temporarily does store as a particular data type. Now, again, that will generally work just fine. But in some cases, you want to handle the conversion yourself. Again, that&#39;s the explicit. And you tell Oracle, convert this type to this type, just so that you know you get a little better control. So here&#39;s an example of implicit data type conversions when working with strings or character-based data. An Oracle server can automatically convert these. So you can see that VARCHAR2 or CHAR character-based data can be converted to numbers or even dates. Now, there may be some limitations on this. You know, it depends, really, on what the actual value is. So you may not be able to always convert successfully when working with conversions. But in general, a VARCHAR or a CHAR can be converted to numbers or dates so that, again, you can produce a third value that shows or displays appropriately. Now, you can also go the other way. Implicit data type conversions when working with strings can go from numbers or</p>
+<p>[Video description begins] <em> Implicit Data Type Conversion to Strings.</em> [Video description ends]</p>
+<p>dates to VARCHARs or CHARs. So again, these are the automatic conversions that Oracle will handle automatically. But you&#39;re not guaranteed that it will always work. So an explicit data type is quite simply you specifying.</p>
+<p>[Video description begins] <em> Explicit Data Type Conversion.</em> [Video description ends]</p>
+<p>And you use a particular function, and these are some of the examples. TO_NUMBER, TO_DATE and TO_CHAR are the names of the functions that you use to make those conversions. So you create a little expression in your SQL statement that says, convert this value to this other type of value using this function. And that gives you the control. So again, you can see that numbers can go to characters. Characters can go to numbers. Characters can go to dates. Dates can go to characters, and those are just some examples. There are a tremendous number of conversion functions that you can use.</p>
+<p>[Video description begins] <em> NUMBER can change to CHARACTER, CHARACTER can change to NUMBER, CHARACTER can change to DATE, and DATE can change to CHARACTER through TO_CHAR, TO_NUMBER, TO_DATE, and TO_CHAR functions respectively.</em> [Video description ends]</p>
+<p>So this is a very short list, but the idea is the same for all of them. Take these two values that essentially have different data types and convert to something that is consistent in terms of the result that you want to see. Now, we&#39;ll see examples of this, of course. But you will find very often that there are cases where you do need to convert data types simply because that third value, if you will. The answer that you are wanting to produce needs to match, needs to display correctly in terms of whatever that value actually is. And conversions will help you to achieve that.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Use the TO_CHAR Function with Dates (it_dfosfd_04_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/f4e66e29-f20d-49f9-a123-deb86ed7038d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f4e66e29-f20d-49f9-a123-deb86ed7038d/image001.jpg')();" /><div class="section_text">In this video, find out how to use the TO_CHAR function to convert a date to a character data type in an SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the TO_CHAR function to convert a date to a character data type in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Use the TO_CHAR Function with Dates. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at using a function that allows you to alter the way a particular value is presented. Now we will talk about functions in much greater detail.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. It is divided into two parts. The first part is the navigation pane which is divided into two sections, Connections and Reports. The second part is the content pane. It is also divided into two sections. The first section includes two tabs, Start Page and HR. The HR tab is selected. It includes a toolbox, two tabs Worksheet and Query Builder, and SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES; and SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statements. The second section includes the output of the statements in the output pane.</em> [Video description ends]</p>
+<p>But for this particular function known as the to_char function, this allows you to implement the function against an existing column. Simply so that you can present the value as characters, hence the name to_char. Now, in this case, I&#39;m going to use it on the HIRE_DATE column. And the value that is stored in the HIRE_DATE column for</p>
+<p>[Video description begins] <em> He highlights HIRE_DATE from the SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>the EMPLOYEES table is stored as a date value. And I strongly recommend that you do that. Whenever you are storing date values, their data type should be date based. Because you can calculate and you can really present them in any manner that you feel appropriate when you are retrieving the values. But they should be stored as those date values. But sometimes it&#39;s a little more readable, a little more understandable, to present it in a different format. And I&#39;ll show you what I mean by executing this first statement here which just selects out the HIRE_DATE as it is in its native format. So let&#39;s go ahead and execute this first statement, it simply retrieves the ID,</p>
+<p>[Video description begins] <em> He highlights SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES;.</em> [Video description ends]</p>
+<p>the last name, and the hire date from the EMPLOYEES table. And we can see here in the HIRE_DATE column,</p>
+<p>[Video description begins] <em> He clicks the Run Statement button from the toolbox, and the output is displayed in the output pane. It includes a tab Query Result which is selected. This tab includes a table including column headers EMPLOYEE_ID, LAST_NAME, and HIRE_DATE.</em> [Video description ends]</p>
+<p>that the values aren&#39;t particularly clear. Now, we can see the value such as 21, and we can assume, of course,</p>
+<p>[Video description begins] <em> He highlights the value, 05-09-21 in the HIRE_DATE column.</em> [Video description ends]</p>
+<p>that this is not the year. We have not reached that year yet. So that would be the day, but the first two values, it&#39;s not really clear which one is the month and which one is the year. In fact, if you scroll through the entire record set, there is not a single entry that for certain tells you this one is the month and this one is the year. Because we never see a value higher than 12, so of course, or 12 months, that could be the month. So I&#39;m not certain if that was done intentionally or not but the point is, it&#39;s not really clear which one is the month, which one is the year. So by using the to_char function, we can present this in really any format that you want. And we can also use an alias to help identify to the user how it is being displayed. So the second statement here uses the to_char function to format a date value as characters. So it&#39;s still the same SELECT statement. I&#39;m selecting out the EMPLOYEE_ID, the LAST_NAME, and then the HIRE_DATE, but notice the function is operating against that column.</p>
+<p>[Video description begins] <em> He highlights the To_CHAR function against the HIRE_DATE column.</em> [Video description ends]</p>
+<p>And this is always the syntax. It&#39;s the function first then, in parenthesis, the column against which the function is operating, then a comma, then the format that I want to see. Now we&#39;ll talk about the variety of formats in the next demonstration, but this is a two-digit month with a slash, then a two-digit year. Then I&#39;m also including an alias, now this would not be necessary, but the alias says that it&#39;s Month/Year Hired, okay? Because that&#39;s what I&#39;m telling it to return it as month, year. So let&#39;s execute this, and now we see in fact the month and the year.</p>
+<p>[Video description begins] <em> He executes the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement. The column header HIRE_DATE changes to Month/Year Hired and the format of the values gets changed into MM/YY format.</em> [Video description ends]</p>
+<p>And let me just quickly rerun the original statement.</p>
+<p>[Video description begins] <em> He highlights the SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>Notice that it&#39;s 03-06 for the first record.</p>
+<p>[Video description begins] <em> He highlights the value 03-06-17 under the HIRE_DATE column header.</em> [Video description ends]</p>
+<p>In fact, that&#39;s year-month, because when we display it as month-year, it comes back in the opposite order. Okay, so again, it&#39;s 03-06 right now, but I told it to display month-year, and note that it&#39;s 06/03.</p>
+<p>[Video description begins] <em> He again executes the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and points to the value 06/03 under the column header Month/Year Hired.</em> [Video description ends]</p>
+<p>So now that ambiguity has been removed, I am explicitly telling my users that these are the results in terms of Month/Year. And now it&#39;s much clearer with respect to what the actual date was. And in this case, I&#39;m just not concerned with the day, but I could have included that in the format as well. And again, we&#39;ll see a variety of formats in our next demonstration. But the to_char function, in this case, against a date column can help to alleviate some of that ambiguity and or uncertainty as to what that value actually is.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Date Format Model (it_dfosfd_04_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/d37371df-fd2a-4603-99a9-5f76f8d13cbc/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d37371df-fd2a-4603-99a9-5f76f8d13cbc/image001.jpg')();" /><div class="section_text">Learn about elements of the Date Format Model in SQL.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate elements of the Date Format Model in SQL</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Date Format Model. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>So we&#39;ve seen now that you can use the TO_CHAR function against something like a date-based column to reformat the way the date appears. But we&#39;ve only seen one example. So in this demonstration, we&#39;ll take a look at all of the other available options to create a very customized format. So I have a list of all of those other options right here.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window opens. The HR tab includes SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and few comments. He highlights the --Other available format options; comment. He highlights Other available format options.</em> [Video description ends]</p>
+<p>And you can see that, for example, you can include four Ys instead of two for the full year in numbers.</p>
+<p>[Video description begins] <em> He points to the another comment.</em> [Video description ends]</p>
+<p>So even though I have an alias here that says Month/Year, as you look at these values, it can still get a little confusing as to which one is the month and which one is the year.</p>
+<p>[Video description begins] <em> He points to the Month/Year Hired column header and then points to values under it.</em> [Video description ends]</p>
+<p>So if we include four Ys, then we&#39;ll see the results with the full year laid out in four digits.</p>
+<p>[Video description begins] <em> He alters the text YY to YYYY in the SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then he clicks the Run Statement button to execute this statement. The format of the values gets changed into MM/YYYY under the Month/Year Hired column header in the output pane. For example, 06/2003.</em> [Video description ends]</p>
+<p>So it’s very clear now which is the month and which is the year. So again, the idea is to just try to make this as clear as possible. We can also spell out the year entirely by putting in the word YEAR.</p>
+<p>[Video description begins] <em> He points to the comment --YEAR: Year spelled out.</em> [Video description ends]</p>
+<p>Now, that&#39;s certainly not as common, but perhaps in legal documentation, you might see it. So if we actually put in the word YEAR and re-execute, you can see what it looks like now.</p>
+<p>[Video description begins] <em> He alters the text YYYY to YEAR in the SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES;statement and then clicks the Run Statement button. The format of the values gets changed into MM/YEAR under the Month/Year Hired column header. For example, 06/TWO THOUSAND THREE.</em> [Video description ends]</p>
+<p>That&#39;s not particularly readable in most cases, but again, legal documents often spell out the entire date. So let&#39;s just set it back to a four digit year. But one that I do like is the three letter abbreviation of the month. We are currently seeing the two digit month and that&#39;s fine. But again, this really helps to avoid ambiguity by putting in this three letter abbreviation. So let&#39;s change this to MON and we&#39;ll leave the four digit year, and now we see this.</p>
+<p>[Video description begins] <em> He again alters the text MM to MON in the SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES;statement and then clicks the Run Statement button. The format of the values gets changed into MON/YYYY under the Month/Year Hired column header. For example, JUN/2003.</em> [Video description ends]</p>
+<p>So again, this is entirely clear. There&#39;s no way you can confuse one for the other. And then you can put in the full word MONTH to get the full name of the month. And of course, you can also include the day. We didn&#39;t include the day at all, so let&#39;s go ahead and add that. And we can just stick with a two digit day with DD then another slash and we execute, and now we see of course the day as well.</p>
+<p>[Video description begins] <em> He alters the text MON/YYYY to DD/MON/YYYY in the SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR(HIRE_DATE, &#39;MM/YYYY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DD/MON/YYYY under the Month/Year Hired column header. For example, 17/JUN/2003.</em> [Video description ends]</p>
+<p>And I should also mention it does not have to be a slash, you could use a dash if you prefer.</p>
+<p>[Video description begins] <em> He alters the text DD/MON/YYYY to DD-MON-YYYY in the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, &#39;DD/MON/YYYY&#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DD-MON-YYYY under the Month/Year Hired column header. For example, 17-JUN-2003.</em> [Video description ends]</p>
+<p>You could use really any character as a separator, so that&#39;s up to you. And then again, with the day, you can put in the word DAY or the full name of the day, if you prefer, but that would be the weekday. So Monday, Tuesday, Wednesday and so forth. But you can see what that looks like, of course. Now we don&#39;t know what the number is, but you could still include that as well.</p>
+<p>[Video description begins] <em> He alters the text DD-MON-YYYY to DAY-MON-YYYY in the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, ‘DD-MON-YYYY &#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DAY-MON-YYYY under the Month/Year Hired column header. For example, TUESDAY -JUN-2003.</em> [Video description ends]</p>
+<p>So we could put in DAY-DD. Now we know the day of the week and the number, okay?</p>
+<p>[Video description begins] <em> He alters the text DAY-MON-YYYY to DAY-DD-MON-YYYY in the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(HIRE_DATE, ‘DAY-MON-YYYY &#39;) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DAY-DD-MON-YYYY under the Month/Year Hired column header. For example, TUESDAY -17-JUN-2003.</em> [Video description ends]</p>
+<p>But you can see it automatically includes a space here after the word. So again, that&#39;s not as readable but you could put the DD first, then the word DAY, again really whatever you like in terms of formatting. Just whatever you feel is more readable, okay?</p>
+<p>[Video description begins] <em> He alters the text DAY-DD-MON-YYYY to DD-DAY-MON-YYYY in the SELECT EMPLOYEE_ID, LAS T_NAME, TO_CHAR(HIRE_DATE, ‘DAY-DD-MON-YYYY’) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DD-DAY-MON-YYYY under the Month/Year Hired column header. For example, 17-TUESDAY -JUN-2003.</em> [Video description ends]</p>
+<p>But you can certainly combine them, that&#39;s no problem.</p>
+<p>[Video description begins] <em> He alters the text DD-DAY-MON-YYYY to DD-MON-YYYY in the SELECT EMPLOYEE_ID, LAS T_NAME, TO_CHAR(HIRE_DATE, ‘DAY-DD-MON-YYYY’) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>And, in fact, you can also include literal characters in double quotes, so for example, 10 of April. So if we want that, we can get rid of the dash for example and in double quotes put in the word of, re-execute. Now we see the result here.</p>
+<p>[Video description begins] <em> He alters the text DD-MON-YYYY to DD “of” MON-YYYY in the SELECT EMPLOYEE_ID, LAS T_NAME, TO_CHAR(HIRE_DATE, ‘DD-MON-YYYY’) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DD “of” MON-YYYY under the Month/Year Hired column header. For example, 17 of JUN-2003.</em> [Video description ends]</p>
+<p>And you can also add th to the day value for the numeric suffix, so 14th. So if I do DDth, we get this.</p>
+<p>[Video description begins] <em> He alters the text DD “of” MON-YYYY to DDth “of” MON-YYYY in the SELECT EMPLOYEE_ID, LAS T_NAME, TO_CHAR(HIRE_DATE, ‘DD “of” MON-YYYY’) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DDth “of” MON-YYYY under the Month/Year Hired column header. For example, 17TH of JUN-2003.</em> [Video description ends]</p>
+<p>And you can see it updates appropriately with TH, or ST, or RD, when it&#39;s appropriate. So everything is automatic in that regard. Or again just going back to sort of the legal documentation, if you add spth, it means to spell out the suffix, such as the word fourteenth. So we can do that spth, and reexecute and then this is what we see. So again, very common in legal documentation.</p>
+<p>[Video description begins] <em> He alters the text DDth “of” MON-YYYY to DDspth “of” MON-YYYY in the SELECT EMPLOYEE_ID, LAS T_NAME, TO_CHAR(HIRE_DATE, ‘DDth “of” MON-YYYY’) AS &#34;Month/Year Hired&#34; FROM EMPLOYEES; statement and then clicks the Run Statement button. The format of the values gets changed into DDspth “of” MON-YYYY under the Month/Year Hired column header. For example, SEVENTEENTH of JUN-2003.</em> [Video description ends]</p>
+<p>Ultimately, it is up to you. Whatever you feel will suit your needs the best, is perfectly fine. But I at least do highly recommend that you remain consistent. So that one set of results does not present you with a different format than another set of results. Again, perhaps in a circumstance where you do need to create a legal document, then you might want to go with something like this where everything is spelled out. And then for just maybe regular reports, you can just go with something a little simpler. But try to keep it as consistent as possible so that your users are always aware of what the format is.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Use the TO_CHAR Function with Numbers (it_dfosfd_04_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/6b37560d-7dfe-48ad-99b7-94cff1700bc0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/6b37560d-7dfe-48ad-99b7-94cff1700bc0/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the TO_CHAR function to convert a number to a character data type in an SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the TO_CHAR function to convert a number to a character data type in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Use the TO_CHAR Function with Numbers. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we&#39;ll see another example of using the TO_CHAR function, but in this case, against a numeric column as opposed to a date column. So to begin, let&#39;s select out the SALARY column in this case, which is numeric.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected. It includes SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES; and SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(SALARY, &#39;$99,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>And we&#39;ll just select it as it is, in its native format.</p>
+<p>[Video description begins] <em> He selects the text, SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES; and then clicks the Run Statement button to execute the statement. The output is displayed in the output pane in the form of the table. The table contains the EMPLOYEE_ID, LAST_NAME, SALARY as the column headers and it includes 100, King, 24000 and 101 Kochhar 17000 as the row entries respectively.</em> [Video description ends]</p>
+<p>And we can see that the value is certainly understandable enough. But particularly when dealing with currency values, we tend to want to see things like a dollar sign, a comma separator, maybe a decimal followed by two zeros, you know things that we generally just expect when dealing with currencies. Now, this does not have to be done against currency values. You can format really any number in any manner that you like. But for an example, we&#39;ll select out the same columns, EMPLOYEE_ID, LAST_NAME, and then the TO_CHAR function against the SALARY column.</p>
+<p>[Video description begins] <em> He highlights the text TO_CHAR and SALARY.</em> [Video description ends]</p>
+<p>And then you can see that you can assemble a formula to represent the manner in which you want to present this data.</p>
+<p>[Video description begins] <em> He highlights $99,999.00 from the statement.</em> [Video description ends]</p>
+<p>So you can see by the table here, we have several available formatting options.</p>
+<p>[Video description begins] <em> He highlights the Available numeric formatting options; comment in the content pane.</em> [Video description ends]</p>
+<p>So a 9 represents any digit, 0 through 9, okay? So that can be anything. A 0 will force a 0. So if by chance there happened to be, let&#39;s say 50 cents on the end, maybe we aren&#39;t concerned with that, we just want to see zeros.</p>
+<p>[Video description begins] <em> He points 00 from $99,999.00.</em> [Video description ends]</p>
+<p>The dollar sign will actually place a dollar sign into the value. And if you are dealing with multinational currencies, an L places in whatever the local currency symbol is as per the regional settings of that system. A period places in a decimal. And a comma places the comma separator. So in this case, you can see that I want the dollar sign, then two digits or up to two digits, then the comma, three digits, and then decimal place, 00. And again, I’m using an alias and simply calling this Salary. And I should have mentioned this before. But whenever you are using functions, you really should use an alias.</p>
+<p>[Video description begins] <em> He highlights the text, TO_CHAR(SALARY, &#39;$99, 999. 00&#39;) from the statement SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(SALARY, &#39;$99,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; in the content pane.</em> [Video description ends]</p>
+<p>Otherwise, the name of the column displays exactly as what I have highlighted here. So you don&#39;t want your users to see that as the column header. So, AS Salary, and again, the AS keyword is actually optional. But let&#39;s take a look to see what our results come back as. And there we see the dollar sign, the values, and</p>
+<p>[Video description begins] <em> He highlights the text, SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(SALARY, &#39;$99,999,00&#39;) AS &#34;Salary&#34; FROM EMPLOYEES; and clicks the Run Statement button to execute the statement. The table is displayed in the output pane.</em> [Video description ends]</p>
+<p>then the comma, and of course, the values after, with the decimal place.</p>
+<p>[Video description begins] <em> He points the value under the Salary column header.</em> [Video description ends]</p>
+<p>So again, just a little more readable, and what we might tend to expect to see. Now, I do want to point out one other consideration here, just in this database anyway. The salary is a monthly value. So we can, of course, create an annual value by just multiplying this by 12. So I can just put in times 12. And that would work, but it doesn&#39;t hurt to keep that in its own set of parentheses. So you would need another parentheses on either side. Again, that&#39;s not necessary, but I like to keep calculations within parentheses.</p>
+<p>[Video description begins] <em> He alters SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR(SALARY, &#39;$99,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; statement to SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR((SALARY*12), &#39;$99,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>But what&#39;s going to happen now is that these values are going to exceed two digits, okay, once it&#39;s multiplied by 12. So let&#39;s go ahead and execute as is. And you can see what happens, selecting my code here, okay?</p>
+<p>[Video description begins] <em> He selects SELECT EMPLOYEE_ID, LAST_NAME, TO _CHAR((SALARY*12), &#39;$99,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; statement and clicks the Run Statement button to execute it.</em> [Video description ends]</p>
+<p>So you can see, we get these pound signs showing up.</p>
+<p>[Video description begins] <em> The Pound signs are displayed under the Salary column header in the table.</em> [Video description ends]</p>
+<p>This is indicating that I did not include enough placeholder characters, okay? In other words, these values have gone beyond the two placeholder digits here. So that&#39;s not really an error, per se.</p>
+<p>[Video description begins] <em> He points at &#39;$99,999.00&#39; value and then highlights the first two 9s after the dollar sign.</em> [Video description ends]</p>
+<p>You just need to add another character in. So you can have more than are necessary, these ones will still show just fine.</p>
+<p>[Video description begins] <em> He alters the &#39;$99,999.00&#39; value to &#39;$999,999.00&#39; value.</em> [Video description ends]</p>
+<p>So again, let&#39;s highlight, execute. And there, we do see of course the third character showing up.</p>
+<p>[Video description begins] <em> He selects the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR((SALARY*12), &#39;$999,999.00&#39;) AS &#34;SALARY&#34; FROM EMPLOYEES; statement and clicks the Run Statement button to execute it.</em> [Video description ends]</p>
+<p>Now appropriately, and where there are only two, Oracle adjusts automatically.</p>
+<p>[Video description begins] <em> The executed result is displayed in the output pane. He points to the values under the Salary column header.</em> [Video description ends]</p>
+<p>So that&#39;s perfectly fine. It&#39;s no big deal to put in more characters than are necessary. But if you don&#39;t have enough, it simply does not have a placeholder for that character. Okay, so again, you can create your own custom numeric formats as well by using the TO_CHAR function against numeric columns.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: TO_NUMBER and TO_DATE Functions (it_dfosfd_04_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/5b4187a9-9a77-4fb4-b83e-63b14fca7b99/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5b4187a9-9a77-4fb4-b83e-63b14fca7b99/image001.jpg')();" /><div class="section_text">Learn how to use the TO_NUMBER and TO_DATE functions to convert character data types to number or date formats in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the TO_NUMBER and TO_DATE functions to convert a character data type to a number or date format in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: TO_NUMBER and TO_DATE Functions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Earlier we saw how you can use the TO_CHAR function against date values or numeric values to essentially reformat the results in a more meaningful character-based string. But in some cases you need to work in the opposite direction. In other words, I&#39;m not really concerned with what the data looks like as it comes out but rather what the data looks like as it&#39;s being passed in. In other words, as criteria of a WHERE clause. So in this first example, I&#39;m selecting out the EMPLOYEE_ID,</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected. The SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; TO_NUMBER (&#39;$10,000.00&#39;, &#39;$99,999.00&#39;); statement and SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO_DATE(&#39;01 Jan, 10&#39;, &#39;DD MON, YY&#39;); statement are displayed in the content pane.</em> [Video description ends]</p>
+<p>the LAST_NAME, and the SALARY. But again, I&#39;m not really concerned with what the salary looks like in the results. More so, I&#39;m not really sure of what it looks like currently in the actual table. So if you look at my WHERE clause, I&#39;m searching for a salary with a particular value.</p>
+<p>[Video description begins] <em> He highlights the WHERE clause from the SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; TO_NUMBER (&#39;$10,000.00&#39;, &#39;$99,999.00&#39;); statement.</em> [Video description ends]</p>
+<p>In this case greater than or equal to 10,000, but this as far as Oracle is concerned is not a number. $10,000.00 is simply not a number as far as Oracle is concerned. So I&#39;m saying well, this might be what the value actually looks like in the table, I don&#39;t really know. So I&#39;m passing in these characters, but I need Oracle to treat it as a number.</p>
+<p>[Video description begins] <em> He highlights TO_NUMBER in the WHERE clause of SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; TO_NUMBER (&#39;$10,000.00&#39;, &#39;$99,999.00&#39;); statement.</em> [Video description ends]</p>
+<p>So I use the TO_NUMBER function to say, treat these characters as this type of number. So not only do I have to specify the actual criteria,</p>
+<p>[Video description begins] <em> He highlights the &#39;$10,000.00&#39;, &#39;$99,999.00&#39; in the WHERE clause.</em> [Video description ends]</p>
+<p>but I have to tell Oracle this is the formula that I&#39;m giving you. So the dollar sign of course is just there to represent a currency-based value. Then this is any digit, any digit comma, any three digits, then a decimal place, then any zero values., in this case two of them. So that oracle can understand that these characters should be treated as that type of number. So if I execute this, the results come back.</p>
+<p>[Video description begins] <em> He selects SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; TO_NUMBER (&#39;$10,000.00&#39;, &#39;$99,999.00&#39;); and clicks the Run Statement button to execute it. The table with EMPLOYEE_ID LAST_NAME, and SALARY as the column headers is displayed in the output pane</em> [Video description ends]</p>
+<p>And again, I&#39;m not concerned with the format on the outcoming side but rather the format as I passed the value in. If I did not specify this, if I were to just say WHERE SALARY is greater than or equal to and then pass in this dollar sign, Well, you know what? Here, let&#39;s give it a shot. Let&#39;s remove all of this.</p>
+<p>[Video description begins] <em> He alters SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; TO_NUMBER (&#39;$10,000.00&#39;, &#39;$99,999.00&#39;); statement to SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; &#39;$10,000.00&#39;; statement.</em> [Video description ends]</p>
+<p>Okay, so now without the function, if I execute, you can see I get an error.</p>
+<p>[Video description begins] <em> He selects the SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES WHERE SALARY &gt;&#61; &#39;$10,000.00&#39;; statement and clicks the Run Statement button and the output with an error invalid number is displayed in the output pane.</em> [Video description ends]</p>
+<p>It&#39;s telling me that was not a valid number, okay? So clearly, I need all of that syntax to get Oracle to treat that character-based value as a number, okay? Now the same thing happens, in some cases, with dates.</p>
+<p>[Video description begins] <em> He points to SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO_DATE(&#39;01 Jan, 10&#39;, &#39;DD MON, YY&#39;); statement.</em> [Video description ends]</p>
+<p>In this case, I&#39;m looking for EMPLOYEES with a HIRE_DATE of less than or equal to a particular date. But I don&#39;t know what the dates look like so I&#39;m passing in characters. So 01 Jan, 10 is not a date as far as Oracle is concerned. I have to tell it that these characters represent this type of date.</p>
+<p>[Video description begins] <em> He highlights the &#39;DD MON, YY&#39; format of date in the WHERE clause.</em> [Video description ends]</p>
+<p>A two-digit day, a three-letter abbreviated month, a comma, and a two-digit year. Now Oracle knows what I&#39;m telling it. So I can execute this statement and I see the results.</p>
+<p>[Video description begins] <em> He selects the SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO_DATE(&#39;01 Jan, 10&#39;, &#39;DD MON, YY&#39;); statement and clicks the Run Statement button. The table with EMPLOYEE_ID, LAST_NAME, and HIRE_DATE column headers are displayed in the output pane and it also includes 100, King, 03-06-17, and 101, Kochhar, 05-09-21 row entries respectively.</em> [Video description ends]</p>
+<p>And again, clearly, the values in the table do not match the format that I passed in. This is a two-digit year, then a two-digit month followed by a two-digit day.</p>
+<p>[Video description begins] <em> He highlights the value under the HIRE_DATE column header.</em> [Video description ends]</p>
+<p>That clearly does not match up with what I passed in. Because I told Oracle that this is the format, it can compare the values appropriately, okay? So whenever you need to pass in values that may not match numeric or date-based columns and you&#39;re passing in characters, you can use those TO_NUMBER or TO_DATE functions to convert those values appropriately.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Use TO_CHAR and TO_DATE with RR Date Format (it_dfosfd_04_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/10800c0f-caa3-4e7e-a5ec-700a432187c9/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/10800c0f-caa3-4e7e-a5ec-700a432187c9/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the TO_CHAR and TO_DATE functions with the RR date format to return data for a previous century in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the TO_CHAR and TO_DATE functions with the RR date format to return data for a previous century in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Use TO_CHAR and TO_DATE with RR Date Format. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Another consideration when working with dates, particularly at this point in time, is quite literally the century. Because of course we aren&#39;t very far into the 2000s, so we could easily have dates that refer back to the 1900s. Birth dates of course or even hire dates could easily go back that far. So if you are working with something like the TO_DATE function then you&#39;re passing in characters still.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected. It includes SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO DATE (&#39;01 Jan, 99&#39;, &#39;DD MON, RR&#39;); statement and few comments.</em> [Video description ends]</p>
+<p>But you need to tell Oracle how to treat those characters. So in this demonstration, I&#39;m using the exact same statement as before, when we looked at the TO_DATE function, but look at the WHERE clause. WHERE HIRE_DATE is less than or equal to, then the TO_DATE function to essentially translate these characters into a date format. But the characters I&#39;m passing in are the first of January, 99.</p>
+<p>[Video description begins] <em> He highlights 01 Jan, 99 from the statement.</em> [Video description ends]</p>
+<p>Well, should this be 1999 or 2099? Now clearly, in this case, I want 1999. But you have to tell Oracle how to treat that 99. So what you can do is to replace the two Ys that we saw earlier with Rs, to force Oracle to round the year values. So you can see in my formatting statement, the Ys have been replaced with Rs.</p>
+<p>[Video description begins] <em> He points to the DD MON, RR from the statement.</em> [Video description ends]</p>
+<p>So again that&#39;s just how to treat this string of characters. This is a two digit day.</p>
+<p>[Video description begins] <em> He highlights 01 and DD from the statement.</em> [Video description ends]</p>
+<p>This is a three letter abbreviated month. This is a two digit year but I&#39;m telling it to round that year.</p>
+<p>[Video description begins] <em> He highlights Jan and MON from the statements.</em> [Video description ends]</p>
+<p>So when you use Rs in place of the Ys,</p>
+<p>[Video description begins] <em> He highlights the 99 and RR from the statement.</em> [Video description ends]</p>
+<p>then Oracle assumes that if the year ends with 50 through 99 that it is rounded down to 1950 to 1999. If it ends with 0 through 49, it is rounded up to 2000 to 2049, okay? So in other words, it will treat that 99 correctly. So if I execute this code, no records came back but that&#39;s not an error.</p>
+<p>[Video description begins] <em> He executes the SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO_DATE(&#39;01 Jan, 99&#39;, &#39;DD MON, RR&#39;); statement. The output is displayed in the output pane. A table is displayed including the column headers EMPLOYEE_ID, LAST_NAME, and HIRE_DATE. These column headers does not contain any values.</em> [Video description ends]</p>
+<p>There simply are no employees in this table who were hired prior to the first of January, 1999. They were all hired after 2000, okay? So again, this is not an error. But let&#39;s look at what happens if I change this to Ys.</p>
+<p>[Video description begins] <em> He alters the text RR to YY in the statement and then clicks the Run Statement button. The values gets displayed in the table in the output pane.</em> [Video description ends]</p>
+<p>Simply re-execute and every employee came back, okay? Again, there are 50 employees. So this first value is the year, and none of them were hired in the 90s, okay? So again, that was not an error. It simply means that none of them matched. But I&#39;m getting all of them back now because every employee was hired prior to January 1, 2099. That is what&#39;s happening with using YY. YY assumes the current century, so this is being treated as the first of January, 2099, okay? So, RR makes that assumption a little more correctly. If it ends in 99, it assumes that range.</p>
+<p>[Video description begins] <em> He alters the text YY to RR in the statement and then he highlights the year range 1950-1999 from the comment, Years ending with 50-99 are rounded to 1950-1999.</em> [Video description ends]</p>
+<p>If it ends in 0 to 49, it assumes this range. And again, it just treats those abbreviated values</p>
+<p>[Video description begins] <em> He highlights the year range 2000-2049 from the comment, Years ending with 0-49 are rounded to 2000-2049.</em> [Video description ends]</p>
+<p>appropriately and you get your results back. And again, take note that no records coming back is not an error.</p>
+<p>[Video description begins] <em> He again executes the SELECT EMPLOYEE_ID, LAST_NAME, HIRE_DATE FROM EMPLOYEES WHERE HIRE_DATE &lt;&#61; TO_DATE(&#39;01 Jan, 99&#39;, &#39;DD MON, RR&#39;); statement.</em> [Video description ends]</p>
+<p>If it&#39;s an error, it would say it&#39;s an error. This just says, there are no employees that match that criteria. But the use of RR can help you to assist Oracle, for lack of a better word, in guessing at what that value actually means.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: General Functions (it_dfosfd_04_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/9e408113-d849-4f74-9f8f-0f03edb7f3af/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9e408113-d849-4f74-9f8f-0f03edb7f3af/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe general functions when working with data and how they pertain to NULL values.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe general functions when working with data and how it pertains to NULL values</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: General Functions. The presenter is Aaron Sampson.</em> [Video description ends]
+<p>In this presentation, we&#39;ll introduce some functions that can be used when you are working with columns where you expect to find nulls. And nulls are fine, again, in terms of just entering a value or more to the point, not entering a value. But they can be problematic when you need to refer to those values, perhaps in a comparison or a calculation. Because a null, again, is nothing. And you can&#39;t compare something to nothing. You can&#39;t calculate using a something and a nothing.</p>
+<p>So these functions can be used to handle null values when you need to have something there. <br /><br />[Video description begins] <em>The General functions have the following functions pertain to using nulls and can be used with any data type. These are NVL (expr1, expr2), NVL2 (expr1, expr2, expr3), NULLIF (expr1, expr2), and COALESCE (expr1, expr2, ..., exprn).</em> [Video description ends]<br /><br />Now we&#39;ll see examples of each, but to quickly overview them, the NVL function, or null value, will examine the first expression.<br /><br />[Video description begins] <em>The expression is referred as expr in the examples.</em> [Video description ends]<br /><br />Now that can be a column from a table or any value that you pass in. Then expression two is what should be done if that first expression evaluates to null. So if, for example, I was needing to perform a calculation and I expect to find a null.</p>
+<p>Let&#39;s just go with something very simple, there is a 1 in one column and a null in another and I just want to add them together. Well, 1 &#43; null is null. You can&#39;t calculate with nothing. So instead of a null, change it to a 0. Then 1 &#43; 0 is still 1, you get an answer instead of a null. So again, examine the first and then here&#39;s what to do if that value is null. That&#39;s expression two.</p>
+<p>NVL2 is very similar. It examines expression 1, but then it allows you to specify what to do if that value is not null but then you can see a third expression shows up whereby we can specify what to do if it is null. So in some cases you still might want to make a change to the value based on it being not null or null. Or you can just leave it as it is, but it gives you that extra flexibility. Here is what to do if it is not null. And or here is what to do if it is null.</p>
+<p>Now NULLIF is used to compare two values to determine if they are the same. And if they are the same or equal, then it returns a null. If they are not the same, then it will return whatever the first expression is, okay? For example, in this case, you might be tracking how many people entered an event. Then you might also track how many people exited the event. And they should be the same. So if they were equal to each other it would return a null. And you would know that everyone that came in also went out.</p>
+<p>But if they were not equal, if somehow somebody snuck in, for example, then those two values would not be equal and it would return the first value. So you would know that that one is not equal to the other. COALESCE, again, is similar to the NVL and NVL2, but you can see it allows for multiple possibilities or scenarios.<br /><br />So it still examines the first expression, but then allows you to create various cases or scenarios based on whether or not that expression is null. So again, we&#39;ll see examples, but these are very useful when working with values where you expect to find nulls because a null is always the same as nothing. And for comparisons, calculations, you simply can&#39;t use nothing. So these functions allow you to change it into something.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: NVL and NVL2 Functions (it_dfosfd_04_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/ff3b4ab5-f485-4284-8cf9-251d6c749ca3/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ff3b4ab5-f485-4284-8cf9-251d6c749ca3/image001.jpg')();" /><div class="section_text">In this video, learn how to use the NVL and NVL2 functions when working with NULL values in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the NVL and NVL2 functions when working with NULL values in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: NVL and NVL2 Functions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll take a look at some alternative methods of handling null values in your results, by using the NVL and NVL2 functions. Now essentially, what this comes down to is that any query that you might run may contain null values. But you don&#39;t necessarily have to present them as such back to the user. So to demonstrate, let&#39;s take a look at the last name, the salary and</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected. It includes SELECT Last_Name, Salary, Commission_pct FROM EMPLOYEES; SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; and SELECT Last_name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39; Salary Only&#39; ) AS &#34;Income Type&#34; FROM EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>the commission percentage from the EMPLOYEES table. Just to see the data as it is.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_Name, Salary, Commission_pct FROM EMPLOYEES; statement. The output is displayed in the output pane in the form of a table. The table includes column headers LAST_NAME, SALARY, and COMMISSION_PCT.</em> [Video description ends]</p>
+<p>And we can see that there are many nulls coming back. But if we scroll down, there are some actual values as well.</p>
+<p>[Video description begins] <em> He scrolls down in the table and points to the null and some values under the COMMISSION_PCT column header.</em> [Video description ends]</p>
+<p>So that&#39;s fine, again, that&#39;s simply how the data exists in the table originally. But as mentioned, we don&#39;t have to present a null back to the end user. So this is where the NVL function can be used. And in a moment we&#39;ll take a look at NVL2, but our first example is using the NVL for null value to change the null to an actual value. So I&#39;m still selecting the Last_Name and the Salary. But then, I&#39;m using the NVL function against the commission percentage column. And again, any time you use a function, the function operates against a column or a value and closed in parenthesis. So we can see the parenthesis there. So this is the column it is evaluating, and essentially this is the value to replace it with.</p>
+<p>[Video description begins] <em> He highlights (Commission_pct, 0) from the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>If it comes back as a null. So instead of the word null in parentheses, I can actually present a 0 to the user.</p>
+<p>[Video description begins] <em> He points to the value (null) in the table and then he points to the 0 in the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>And you can, see that is separated by a comma. So, this is what to evaluate,</p>
+<p>[Video description begins] <em> He highlights Commission_pct in the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement and for alias he points to the keyword AS from the same statement.</em> [Video description ends]</p>
+<p>this is what to display, if a null comes back. And then again, when using any kind of function, it&#39;s a good idea to alias that column. Otherwise, the name of the column is this actual statement here. So, I&#39;m aliasing this as commission.</p>
+<p>[Video description begins] <em> He highlights NVL(Commission_pct, 0) in the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>And then the percentage symbol. So, let&#39;s take a look at this.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement and the output is displayed in the output pane. It includes a table including the column headers LAST_NAME, SALARY, and Commission %.</em> [Video description ends]</p>
+<p>And now we see the alias, Commission %, and we see a 0 instead of a null. And if we scroll down, where there were actual values, they remain the same. Because they were untouched by the function. Now, the next example is using NVL2 to convert to different values, depending on whether a null appears. Because as you can see, we do have nulls in our results sets, but we do have actual values as well. So NVL2, essentially accepts two parameters. So I&#39;m still selecting out the Last_Name and the Salary. And then I&#39;m going to select the Commission_pct as it is just so we can see it. Then we see NVL2, again still evaluating the Commission_pct column, but then we see two alternative values. Salary &#43; Comm comes back if it&#39;s not null. So this is what to present to the user if it&#39;s not a null. If it is a null, present this back to the user.</p>
+<p>[Video description begins] <em> He highlights Salary &#43; Comm and then Salary Only in the SELECT Last_name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39; Salary Only&#39; ) AS &#34;Income Type&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>And I&#39;m aliasing this as Income Type, okay?</p>
+<p>[Video description begins] <em> He points to the (Commission_pct, &#39;Salary &#43; Comm&#39;, &#39; Salary Only&#39;) which is aliasing as Income type.</em> [Video description ends]</p>
+<p>And that&#39;s just what I&#39;m calling it. So that if a null appears in the Commission_pct, then they get Salary Only, okay? Anyone who gets a commission, in other words, it is not null, gets Salary &#43; Comm. So let&#39;s take a look at these results.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39; Salary Only&#39; ) AS &#34;Income Type&#34; FROM EMPLOYEES; statement and the output is displayed in the output pane. It includes a table including the column headers LAST_NAME, SALARY, COMMISSION_PCT, and Income Type.</em> [Video description ends]</p>
+<p>And there we can see what it looks like. So when a null is returned, their income type is Salary Only. They do not earn commission. But if we scroll down, anyone who has a value gets Salary &#43; Comm, okay?</p>
+<p>[Video description begins] <em> He points to COMMISSION_PCT, and Income Type column values.</em> [Video description ends]</p>
+<p>So again, those are just alternative methods of handling nulls in your results set. You don&#39;t necessarily have to present a null back to the user. And you can present different results depending on whether or not a null appears, using NVL and NVL2 functions.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: NULLIF and COALESCE Functions (it_dfosfd_04_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/86127dd4-ec77-4820-aa45-19d013cc0c0d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/86127dd4-ec77-4820-aa45-19d013cc0c0d/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the NULLIF and COALESCE functions when working with NULL values in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the NULLIF and COALESCE functions when working with NULL values in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: NULLIF and COALESCE Functions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll see examples of using the NULLIF function to compare two values and</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected. It includes SELECT first_name, last_name, LENGTH(first_name) AS &#34;Letters in first name&#34;, LENGTH(last_name) AS &#34;Letters in last name&#34;, NULLIF (LENGTH(first_name), LENGTH(last_name)) AS &#34;Result&#34; FROM EMPLOYEES ORDER BY &#34;Result&#34; DESC; and SELECT Last_name AS &#34;Employee&#34;, Salary, Commission_pct, COALESCE ((salary&#43;(commission_pct*salary)), salary&#43;1000) AS &#34;New Salary&#34; FROM EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>the COALESCE function to create different scenarios based on whether or not we anticipate a null being returned. Now beginning with the NULLIF, again this is simply used to compare two values to see if they are equal, and if so, a null is returned. If they are not equal, then the first expression examined is returned. So recall from the earlier presentation, I mentioned you might track the number of people that enter an event versus the number of people who exit that event. And ideally, you would expect those two values to be the same. But if they aren&#39;t the same, then if you were to examine the number of people who went in first, then that would be the value that would be returned to you. So again, it doesn&#39;t really tell you what the offset is or the difference between them. It just simply says they were different, so here is the first value that you examined. So here is an example of that function, although it might not be the most practical example. But of course you can tweak this however you like. But I&#39;m just selecting out the first_name and the last_name from the employee&#39;s table and comparing the number of characters in each one. So this simply returns the names. Then I use this LENGTH function against the first_name to tell me how many characters there are.</p>
+<p>[Video description begins] <em> He highlights the LENGTH(first_name) from the SELECT first_name, last_name, LENGTH(first_name) AS &#34;Letters in first name&#34;, LENGTH(last_name) AS &#34;Letters in last name&#34;, NULLIF (LENGTH(first_name), LENGTH(last_name)) AS &#34;Result&#34; FROM EMPLOYEES ORDER BY &#34;Result&#34; DESC; statement.</em> [Video description ends]</p>
+<p>And that is simply aliased, AS &#34;Letters in first name&#34;. Then I use the exact same function against the last_name and</p>
+<p>[Video description begins] <em> He highlights the Length(last_name) from the SELECT first_name, last_name, LENGTH(first_name) AS &#34;Letters in first name&#34;, LENGTH(last_name) AS &#34;Letters in last name&#34;, NULLIF (LENGTH(first_name), LENGTH(last_name)) AS &#34;Result&#34; FROM EMPLOYEES ORDER BY &#34;Result&#34; DESC; statement.</em> [Video description ends]</p>
+<p>that is the aliased, AS &#34;Letters in last name&#34;. So we&#39;ll see the actual names then the number of characters in each one. So then the NULLIF function examines the LENGTH of the first_name, comma, the LENGTH of the last_name, and all of that goes in parentheses. And that is aliased, AS &#34;Result&#34;. So it&#39;s comparing the two lengths, and if they are the same, the result will be null. If they are different, I will simply see the number of characters in the first_name because that&#39;s the first one that is examined, okay? Now the ORDER BY here is ordering by the result in descending order just so that all of the nulls will appear at the top. So let&#39;s go ahead and execute, and we&#39;ll see what the results look like.</p>
+<p>[Video description begins] <em> He executes the SELECT first_name, last_name, LENGTH(first_name) AS &#34;Letters in first name&#34;, LENGTH (last_name) AS &#34;Letters in last name&#34;, NULLIF (LENGTH(first_name), LENGTH(last_name)) AS &#34;Result&#34; FROM EMPLOYEES ORDER BY &#34;Result&#34; DESC; statement. The output is displayed in the output pane. It includes a table including column headers FIRST_NAME, LAST_NAME, Letters in first name, Letters in last name, and Result.</em> [Video description ends]</p>
+<p>And there we have it. So John Chen has 4 letters in the first name, 4 letters in the last name. They are the same, a null is returned.</p>
+<p>[Video description begins] <em> He points to the values John, Chen, 4, 4, and null under the FIRST_NAME, LAST_NAME, Letters in first name, Letters in last name, and Result column headers respectively.</em> [Video description ends]</p>
+<p>And that of course is the exact same for every case where there are the same number of characters. Okay, but as we scroll down, we start to see differences. So clearly here, the first name is much longer than the second name, 11 versus 5. And again, it simply returns the first value examined. It&#39;s not telling me what the difference is, simply, here&#39;s the first value.</p>
+<p>[Video description begins] <em> He points to the values Jose Manuel, Urman, 11, 5, and 11 under the FIRST_NAME, LAST_NAME, Letters in first name, Letters in last name, and Result column headers respectively.</em> [Video description ends]</p>
+<p>So again, had that been my example of counting the number of people who came in versus the number who went out, I would simply see this is the number of people that came in. But I would know that that was different than the number who came out, okay? Now the next example is using COALESCE. And this allows me to create different scenarios based on whether an employee earns commission. If so, the New Salary, which I&#39;m creating, is their existing salary plus their commission. But for employees who do not receive a commission, they will receive just a flat $1000 bonus, okay? So I&#39;m just selecting out the employee&#39;s name here, then the salary and their commission percentage. So these are just the columns from the table.</p>
+<p>[Video description begins] <em> He points to the Last_name AS “Employee”, Salary, and Commission_pct as the column names from the SELECT Last_name AS &#34;Employee&#34;, Salary, Commission_pct, COALESCE ((salary&#43;(commission_pct*salary)), salary&#43;1000) AS &#34;New Salary&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>Then the COALESCE function basically says that if there is a commission then their new salary is their existing salary plus the commission times that salary, which of course is the percentage. So that gives them that new salary. But if it&#39;s null, in other words, they do not earn commission, then they just get their salary plus $1000. And again, that&#39;s aliased, AS &#34;New Salary&#34;. So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_name AS &#34;Employee&#34;, Salary, Commission_pct, COALESCE ((salary&#43;(commission_pct*salary)), salary&#43;1000) AS &#34;New Salary&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including the column headers Employee, SALARY, COMMISSION_PCT, and New Salary.</em> [Video description ends]</p>
+<p>And there we see it. So again, the commission percentage is null in this case. So the salary is 24000 plus the 1000, gives me 25000. 17000 plus 1000 more gives me 18000. And that is the case for every instance of a null. But if we find values where the percentage appears, then there is their existing salary, that is their percentage. This is the salary plus their percentage of that salary all added together.</p>
+<p>[Video description begins] <em> He points to the values under the SALARY, COMMISSION_PCT, and New Salary column headers where COMMISSION_PCT is either null or having some values.</em> [Video description ends]</p>
+<p>So again, we can create this different scenarios based on whether or not there is a null in the commission percentage. Now, I also want to stress that this, in and of itself, is not making a change. Okay, this is just a SELECT statement. So this is just what it would look like if I were to do that. The values of the table at the moment have not changed. I would need to run an update in order to actually change the value. So anytime you are using just a SELECT statement, you&#39;re just examining the possibilities, seeing what the results might look like, okay? So you would need an update to actually make the change. But you could certainly still do that based on the results of the COALESCE function. And again, COALESCE allows you to create multiple scenarios. So that if, maybe, there are differences based on the percentage itself, then you could create scenarios whereby they get an extra bonus if their commission is high enough, for example. But essentially, it&#39;s just dealing with the fact that they either earn a commission or they don&#39;t, at this point. So what should we do in each scenario? So those are some examples of using the NULLIF to compare values and using COALESCE to create different scenarios based on the presence of a null.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Conditional Expressions (it_dfosfd_04_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/6db723c6-1034-4e93-b119-2958e99c0ccf/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/6db723c6-1034-4e93-b119-2958e99c0ccf/image001.jpg')();" /><div class="section_text">Find out how to use the IF-THEN-ELSE logic in a SQL statement to describe conditional expressions.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">"describe conditional expressions to provide the use of the IF-THEN-ELSE logic in a SQL statement "</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Conditional Expressions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at using conditional expressions. Which allow you to implement what&#39;s known as IF-THEN-ELSE logic within a SQL statement. Now this is essentially different scenarios that you might encounter. So if it is this, then do this. If it&#39;s something else, then do something else. And you can create as many possible scenarios as you want. And then the else is kind of a catchall, if you will, whereby there could be results that are returned that don&#39;t match any of the scenarios that you&#39;ve defined. In those cases, the else will handle everything that doesn&#39;t match your scenario. So again, if it&#39;s scenario a, do this, if it&#39;s scenario b, do this, if it&#39;s scenario c, do this. And then for everything else, then do the else logic. Now we&#39;ll see two examples of implementing these in Oracle. The CASE expression and the DECODE function.</p>
+<p>And while they are quite similar, do take note that the CASE statement is an expression, so you have to define it as such whereby DECODE is a function. And, again, functions operate a little bit differently. They have different structure and different syntax. You probably can achieve the same results using either but it&#39;s your call, which ever one you prefer. Now, as I mentioned, we will see some examples. But in both cases, you can create these scenarios, so that if something is happening, this is what we do. If something else is happening, we do something else. And again, that else part of the logic is that final catchall or anything that does not match the scenarios that we&#39;ve defined.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: CASE Expression (it_dfosfd_04_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/1c87f563-27ef-426d-92eb-ea4c264c32e9/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1c87f563-27ef-426d-92eb-ea4c264c32e9/image001.jpg')();" /><div class="section_text">In this video, you will use the CASE expression to facilitate a conditional inquiry in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the CASE expression to facilitate a conditional inquiry in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: CASE Expression. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see an example of using a case statement to produce multiple new salaries. Based on the current position of any given employee. And as discussed earlier, the CASE statement allows you to create multiple different scenarios. And essentially can implement that IF, THEN, ELSE type of logic. So this particular example is just selecting out the last name of an employee.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab is selected in the content pane. It includes the SELECT last_name AS &#34;Employee&#34;, job_id, salary, CASE job_id When &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary ELSE salary END AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>Then their job ID and then their current salary. But then, we can use the CASE statement to examine the job ID. Okay, so CASE operates on the job_id column. WHEN the value is IT_PROG, THEN their salary is their existing salary times 1.1 or a 10% increase. WHEN it&#39;s the clerk, then it&#39;s 1.15 times the salary. And when it&#39;s a sales rep, it&#39;s 1.2 times the salary. Those are the three specific scenarios that I&#39;m passing in. The ELSE is for every other possibility. And in that case, there is no change to the salary. It just reports their current salary, but you could make a change there if you wanted to as well. You could multiply by any other percentage, but the ELSE is that catch-all. So that anything that does not fall within those three specifically defined scenarios will be affected as per whatever is in the ELSE line of code. And in this case I&#39;m saying, don&#39;t make any change, and that&#39;s perfectly fine. Now, do note that the CASE statement has to have a specific end. This is quite simply when you tell Oracle to stop examining, everything has been considered at this point, therefore, the CASE statement is ended. Then all of that, the CASE statement that is, is aliased as revised salary. And then just selected from the employee&#39;s table. Now you might note that I&#39;ve indented the CASE. And then the end matches the indent. And then all of the WHENs and the ELSE are indented as well. And that&#39;s just for enhanced readability so that you can see that here&#39;s the CASE, here&#39;s the END. Here are all the WHENs and the ELSEs, and they&#39;re just basically lining up for</p>
+<p>[Video description begins] <em> He highlights the CASE job_id When &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary ELSE salary END in the statement.</em> [Video description ends]</p>
+<p>enhanced readability. And again we can now execute the code, and we see the results.</p>
+<p>[Video description begins] <em> He executes the SELECT last_name AS &#34;Employee&#34;, job_id, salary, CASE job_id When &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary ELSE salary END AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including the column headers EMPLOYEE, JOB_ID, SALARY, and Revised Salary.</em> [Video description ends]</p>
+<p>So again, we see that if we&#39;ve got job titles or job IDs that do not fall within the CASEs, then there&#39;s no change. Okay, so these ones have not been affected at all.</p>
+<p>[Video description begins] <em> He highlights the values under the column headers JOB_ID and then the SALARY, and Revised Salary.</em> [Video description ends]</p>
+<p>There&#39;s the IT programmer and there we do see the 10% increase. So 9,000 to 9,900, 10% has been added.</p>
+<p>[Video description begins] <em> He highlights the values under the column headers JOB_ID, SALARY, and Revised Salary where JOB_ID is IT_PROG.</em> [Video description ends]</p>
+<p>And if we just scroll down and continue to find the values that match the CASEs, then we should see that same scenario. So there is a 15% increase.</p>
+<p>[Video description begins] <em> He scrolls down and highlights the values under the column headers JOB_ID, SALARY, and Revised Salary where JOB_ID is ST_CLERK.</em> [Video description ends]</p>
+<p>And if we find a sales rep, we should see a 20% increase and there it is.</p>
+<p>[Video description begins] <em> He highlights the values under the column headers JOB_ID, SALARY, and Revised Salary where JOB_ID is SA_REP.</em> [Video description ends]</p>
+<p>But everything else is unaffected, okay? That&#39;s essentially because of that ELSE statement right there.</p>
+<p>[Video description begins] <em> He points to the ELSE salary from the statement.</em> [Video description ends]</p>
+<p>So essentially, you have accounted for every possible record. These specific three job titles and then everything else.</p>
+<p>[Video description begins] <em> He again highlights When &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary and then ELSE salary from the statement.</em> [Video description ends]</p>
+<p>Okay, so again, that&#39;s an implementation of a CASE statement. And there&#39;s no real limit on the number of CASEs that you can define. It could be WHEN this, WHEN this, WHEN anything else, whenever you want. Okay, there&#39;s no limit to the number of WHENs. And then the ELSE can still be used as that catch-all for everything that falls outside of those. And essentially, that will implement the code that you want. But again, I reiterate, this in and of itself does not actually make the change. It would have to be an UPDATE statement as opposed to a SELECT statement. But still recommended to do a SELECT first just to verify that you are making the appropriate changes to the appropriate records. Once you verify that everything seems to be coming back correctly. Then you can implement this as an update statement to actually make the change.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Using the DECODE Function (it_dfosfd_04_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/c40c45bf-d187-45ea-8652-7c8707cad840/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c40c45bf-d187-45ea-8652-7c8707cad840/image001.jpg')();" /><div class="section_text">In this video, find out how to use the DECODE function to make conditional inquiry in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the DECODE function to facilitate conditional inquiry in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Using the DECODE Function. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, for our final demonstration, we&#39;ll see the decode function to also produce multiple new salaries based on the current position of any given employee. So in terms of the results, this actually produces the exact same results as the case statement.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. The HR tab includes SELECT last_name AS &#34;Employee&#34;, job_id, salary, DECODE(job_id, &#39;IT_PROG&#39;, 1.10 * salary, &#39;ST_CLERK&#39;, 1.15 * salary, &#39;SA_REP&#39;, 1.20 * salary, salary) AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>But do take note that this is actually a function. So the syntax is a little bit different, and in fact it is a little simpler. So the SELECT statement is exactly the same as in a case statement. It&#39;s just the last name of the employee, then the job id, then the salary. Then the DECODE function operates against the job id. So again, that&#39;s very similar to the case statement. But notice that I do not have to create multiple when statements and then results. I simply tell it what to do in the event that IT programmer is found in the job id, or CLERK is found in the id, or REP is found in the id, okay? So, again, the changes that I&#39;m implementing are the exact same. A 10% increase for the programmer, 15% increase for the CLERK, and the 20% increase for the REP, okay?</p>
+<p>[Video description begins] <em> He points to the &#39;IT_PROG&#39;, 1.10 * salary, &#39;ST_CLERK&#39;, 1.15 * salary, and &#39;SA_REP&#39;, 1.20 * salary, lines of statement.</em> [Video description ends]</p>
+<p>And otherwise, salary is simply implemented. So that equates to the else statement. But notice that I don&#39;t have to write any of that out. So I don&#39;t have multiple whens. I don&#39;t have multiple thens. And I don&#39;t have to define that else keyword. Otherwise, it really reads the same. And again, I have just aliased all of that as revised salary. And, of course, selecting from the employees table. So in terms of the results, they look exactly the same.</p>
+<p>[Video description begins] <em> He executes the SELECT last_name AS &#34;Employee&#34;, job_id, salary, DECODE(job_id, &#39;IT_PROG&#39;, 1.10 * salary, &#39;ST_CLERK&#39;, 1.15 * salary, &#39;SA_REP&#39;, 1.20 * salary, salary) AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement and a table gets displayed in the output pane. It includes Employee, JOB_ID, SALARY, and Revised Salary column headers.</em> [Video description ends]</p>
+<p>If they do not fall into one of those specific scenarios, nothing is affected at all. But if they do, then we do see the increase happening appropriately. Okay, so as mentioned, the results in this case are the same, but the implementation is a little simpler. I don&#39;t have those multiple whens and multiple thens, and I don&#39;t even need the word else in place. So it&#39;s a little more readable. It is simpler in its syntax. But at the end of the day, the results really are the same. Now, maybe you feel a case statement is actually a little more readable because of those words being there. You know, it does read a little more like a sentence, but this is quite simply an easier to implement piece of code. But it&#39;s your call. Ultimately, the results are the same, so whichever method you prefer is certainly fine. And, again, there really is no limit on the number of scenarios that you can have. So feel free to use which either method you prefer.</p></div></div></div><div class="section"><a name="section_12" /><h2 class="section_title">13. Video: Exercise: Apply Conversions  (it_dfosfd_04_enus_13)</h2><img src="https://cdn2.percipio.com/public/b/5308067f-8ed2-43a5-a57b-cffa83be7615/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5308067f-8ed2-43a5-a57b-cffa83be7615/image001.jpg')();" /><div class="section_text">Find out how to apply conversions and conditional functions.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">apply conversions and conditional functions</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Apply Conversions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>For our exercise this time, we&#39;ll ask you to describe the two types of conversion functions available in Oracle. Then to use the TO_CHAR function to convert a date to a character data type in a SQL statement. Then to use the NVL and NVL2 functions when working with NULL values in a SQL statement. And finally, to use the CASE expression to facilitate a conditional inquiry in a SQL statement. So again, what we&#39;d like you to do is take a few minutes and try these exercises on your own. Then we&#39;ll come back and review to see how you made out. So we&#39;ll see you shortly.</p>
+<p>[Video description begins] <em> Conversion Functions.</em> [Video description ends]</p>
+<p>All right, so our first task was to describe the two types of conversions available in Oracle. And they are implicit and explicit. Quite simply, an implicit conversion is performed by the Oracle Server itself and it happens automatically. So you don&#39;t need to specify anything in your SQL code. An explicit data type is performed by the user, and you explicitly state that you want to convert from this type to that type using the appropriate function. So again, a simple example of an implicit might be multiplying a currency value times an integer. The answer really should still come back as a currency. So Oracle can realize that and produce the desired result. But it&#39;s not guaranteed to work, so the explicit is handled by the user. So, in essence, it&#39;s up to you. If you feel that an implicit will work most of the time, that&#39;s perfectly fine, but the explicit gives you a little more control.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. It includes HR, HR~1, and HR~2 tabs in the content pane. The HR tab is selected. It includes SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES; and SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR((SALARY*12), &#39;$999,999,00&#39;) AS &#34;Salary&#34; FROM EMPLOYEES; statements and few lines of comments.</em> [Video description ends]</p>
+<p>Our next task was to use the TO_CHAR function to present data using a more character-based format. So in this possible solution, we can select out employee information, including their salary. And we can see that, in its native state, the salary is just an integer or a whole number.</p>
+<p>[Video description begins] <em> He executes the SELECT EMPLOYEE_ID, LAST_NAME, SALARY FROM EMPLOYEES; statement, and the output is displayed in the output pane. It includes a table including column headers EMPLOYEE_ID, LAST_NAME, and SALARY.</em> [Video description ends]</p>
+<p>But we can use the TO_CHAR function against the salary. And we can also multiply it by 12 to get an annual value. But the TO_CHAR function then allows us to supply a format. This will actually insert the $, then up to three digits, then a comma, then three more digits, then a decimal place, and then two decimals after the decimal. And then that can simply be aliased as salary. And we can see the results now actually look like a currency, as opposed to just an integer.</p>
+<p>[Video description begins] <em> He highlights TO_CHAR((SALARY*12), &#39;$999,999,00&#39;) AS &#34;Salary&#34; from the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR((SALARY*12), &#39;$999,999,00&#39;) AS &#34;Salary&#34; FROM EMPLOYEES; statement. He executes the SELECT EMPLOYEE_ID, LAST_NAME, TO_CHAR((SALARY*12), &#39;$999,999,00&#39;) AS &#34;Salary&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including column headers EMPLOYEE_ID, LAST_NAME, and SALARY.</em> [Video description ends]</p>
+<p>And again, there are several available formatting options here. The 9, again, represents any digit, a 0 forces a zero. The $ actually places the dollar sign into the value. L can be used for local currency symbols. The period, of course, is the decimal, and commas as separators. Our next task was using the NVL and NVL2 functions to handle null values in a result set.</p>
+<p>[Video description begins] <em> He selects the HR~1 tab. It includes a toolbox, two tabs Worksheet and Query Builder, and SELECT Last_Name, Salary, Commission_pct FROM EMPLOYEES; SELECT Last Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; and SELECT Last_Name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39;Salary Only&#39;) AS &#34;Income Type&#34; FROM EMPLOYEES; statements.</em> [Video description ends]</p>
+<p>So again, we can just select out some employee information in this possible solution, including the commission percentage. And we see that there are many nulls in the results set.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_Name, Salary, Commission_pct FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including column headers LAST_NAME, SALARY, and COMMISSION_PCT.</em> [Video description ends]</p>
+<p>So the NVL function allows us to operate on that column and simply change it to something else if it is null. So NVL will examine this column and then if a null appears, this is what we&#39;ll get instead of a null.</p>
+<p>[Video description begins] <em> He points to the NVL(Commission_pct, 0) from the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>So let&#39;s execute. And we no longer see nulls, we see 0, okay? Then NVL2 gives us an additional option. NVL2 still works on the commission percentage in this case, but now we can specify what to do in the event that it is not null, and what to do in the event that it is null.</p>
+<p>[Video description begins] <em> He highlights NVL2 and then Commission_pct and then Salary &#43; Comm and then Salary Only from the SELECT Last_Name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39;Salary Only&#39;) AS &#34;Income Type&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>So we have two possible choices here. And all I&#39;m doing is listing what their Income Type is. So I actually am still selecting the Commission_pct just so that, in fact, we can see where the nulls appear.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_Name, Salary, NVL(Commission_pct, 0) AS &#34;Commission %&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including column headers LAST_NAME, SALARY, and Commission %.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He executes the SELECT Last_Name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39;Salary Only&#39;) AS &#34;Income Type&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including column headers LAST_NAME, SALARY, COMMISSION_PCT, and Income Type.</em> [Video description ends]</p>
+<p>And there is the null.</p>
+<p>[Video description begins] <em> He highlights the value under the COMMISSION_PCT column header.</em> [Video description ends]</p>
+<p>So again, if it is null, it shows Salary Only.</p>
+<p>[Video description begins] <em> He highlights the values under the COMMISSION_PCT and Income Type column headers where COMMISSION_PCT is null and Income Type is Salary Only.</em> [Video description ends]</p>
+<p>That&#39;s this right here.</p>
+<p>[Video description begins] <em> He highlights Salary Only in the SELECT Last_Name, Salary, Commission_pct, NVL2(Commission_pct, &#39;Salary &#43; Comm&#39;, &#39;Salary Only&#39;) AS &#34;Income Type&#34; FROM EMPLOYEES; statement.</em> [Video description ends]</p>
+<p>If it is not null, then we get Salary &#43; Comm, as defined right there.</p>
+<p>[Video description begins] <em> He points to the values under the COMMISSION_PCT and Income Type column headers where COMMISSION_PCT has some value and Income Type is Salary &#43; Comm and then he points to the Salary &#43; Comm from the statement.</em> [Video description ends]</p>
+<p>So again, NVL2 gives you that additional scenario, what to do if it&#39;s not null, what to do if it is null. And finally, we asked about using the case statement.</p>
+<p>[Video description begins] <em> He selects the HR~2 tab. It includes SELECT last_name AS &#34;Employee&#34;, job_id, salary, CASE job_id WHEN &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary ELSE salary END AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement. The second section includes the output of the statements in the output pane.</em> [Video description ends]</p>
+<p>So in this possible solution, we can create various scenarios. We can tell the case statement to examine the job id value. When this value appears in the job id, then this is what to display.</p>
+<p>[Video description begins] <em> He highlights IT_PROG 1.10 * salary from the statement.</em> [Video description ends]</p>
+<p>And you can create as many WHEN scenarios as you like. Then the ELSE is every other possibility, the catch all.</p>
+<p>[Video description begins] <em> He highlights ELSE salary from the statement.</em> [Video description ends]</p>
+<p>Remember that for every case statement opening, you have to end it. And then this is just an alias again.</p>
+<p>[Video description begins] <em> He highlights AS &#34;Revised Salary&#34; from the statement.</em> [Video description ends]</p>
+<p>But this produces the results as per defined in the case statement.</p>
+<p>[Video description begins] <em> He executes the SELECT last_name AS &#34;Employee&#34;, job_id, salary, CASE job_id WHEN &#39;IT_PROG&#39; THEN 1.10 * salary WHEN &#39;ST_CLERK&#39; THEN 1.15 * salary WHEN &#39;SA_REP&#39; THEN 1.20 * salary ELSE salary END AS &#34;Revised Salary&#34; FROM EMPLOYEES; statement. The output is displayed in the output pane. It includes a table including column headers Employee, JOB_ID, SALARY, and Revised Salary.</em> [Video description ends]</p>
+<p>So for every other scenario, we simply see no change, okay? So AD_VP and AD_PRES here, no change.</p>
+<p>[Video description begins] <em> He points to the values under the column headers JOB_ID, SALARY, and Revised Salary.</em> [Video description ends]</p>
+<p>But where it&#39;s IT_PROG, we see the change, a 10% increase. And if we scroll down, we see the ST_Clerk, we see the appropriate change there. And the SA_REP, the appropriate change there as well.</p>
+<p>[Video description begins] <em> He highlights the values under the column headers JOB_ID, SALARY, and Revised Salary where JOB_ID is IT_PROG, ST_CLERK, and SA_REP.</em> [Video description ends]</p>
+<p>Okay, so hopefully you made out all right with those exercises. And, if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2022 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

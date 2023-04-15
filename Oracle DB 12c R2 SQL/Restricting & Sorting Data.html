@@ -1,0 +1,520 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Restricting & Sorting Data</h1><div class="section_text"><p>Database tables hold a large number of rows, which are often not sorted in any specific order. Learn how to selectively return only a subset of rows, sorted and customized.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Limiting Selected Rows and Using the WHERE Clause (it_dfosfd_11_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Character Strings and Dates (it_dfosfd_11_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Comparison Operators (it_dfosfd_11_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: BETWEEN and IN Operators (it_dfosfd_11_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: LIKE Operator and Combining Wildcard Characters (it_dfosfd_11_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: NULL and Logical Operator Conditions (it_dfosfd_11_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: AND, OR, and NOT Operators (it_dfosfd_11_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Rules of Precedence (it_dfosfd_11_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: ORDER BY Clause (it_dfosfd_11_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: SQL Row Limiting Clause (it_dfosfd_11_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Substitution Variables (it_dfosfd_11_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Exercise: Manipulating Data (it_dfosfd_11_enus_12)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Limiting Selected Rows and Using the WHERE Clause (it_dfosfd_11_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/e56540bb-c56c-4d2a-89c1-6f17654a41b7/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e56540bb-c56c-4d2a-89c1-6f17654a41b7/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe how to limit the rows selected in a query and how to use the WHERE clause in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the limiting of rows selected in a query and how to use the WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Limiting Selected Rows and Using the WHERE Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>When you are executing queries in Oracle, the default behavior of a SELECT statement all by itself is to return every row from a table. But in many cases, you might want to limit the rows by using a selection. So in this presentation we&#39;ll see how that can be done. In other words, I don&#39;t want every record, I only want some records.</p>
+<p>[Video description begins] <em> Limiting Rows by Using a Selection. A screenshot of a table is displayed. The table contains six rows and four columns. The column headers are EMPLOYEE_ID, LAST_NAME, JOB_ID, and DEPARTMENT_ID. Under the DEPARTMENT_ID, the value for the first three rows is 90 and for the last three rows is 60.</em> [Video description ends]</p>
+<p>So in this case we see an EMPLOYEES table with various employees in various departments. So in plain English, I want to retrieve all of the employees in just department 90. Anyone else, I&#39;m not concerned with them. So I retrieve just those records. So it is essentially a filter.</p>
+<p>[Video description begins] <em> Limiting Rows That Are Selected.</em> [Video description ends]</p>
+<p>So in terms of implementing that filter, you restrict the rows that are returned by using the WHERE clause. And you can see that you can create a logical expression, which is simply something that can be evaluated. And if the data matches the expression, the record is returned. If it does not match the expression, it is not returned. Now in terms of syntax, the WHERE clause always follows the FROM clause. So just make sure you specify from which table or tables you are selecting before you try to implement the WHERE clause.</p>
+<p>[Video description begins] <em> The command is SELECT *| { [DISTINCT] column [alias] ,...}, FROM table, [WHERE logical expression(s)];.</em> <em>Using the WHERE Clause. A screenshot of command is displayed: SELECT employee_id, last_name, job_id, department_id, FROM employees, WHERE department_id &#61; 90;.</em> [Video description ends]</p>
+<p>So here we see an actual example, and in terms of the SELECT statement itself and the columns that are selected. It doesn&#39;t matter which columns you select, it doesn&#39;t matter which column you use for the WHERE clause. In other words, you do not need to include the column in the SELECT list that is being evaluated in the WHERE clause. It&#39;s perfectly fine to do so, okay. In this example you can see department_id is being returned.</p>
+<p>And it&#39;s also the one being evaluated in the WHERE clause. But again, you would not have to actually select the department_id column. If I&#39;m creating this query, I know that I&#39;m only looking for people in department 90. Therefore, it&#39;s not all that useful for me to see department_id 90, 90, 90 several times. It&#39;s good for verification, but again it&#39;s not necessary, okay? The WHERE clause can act on any column in the table or tables.</p>
+<p>Again, make sure you specify the FROM clause first. But then WHERE department_id &#61; 90 is what&#39;s known as the expression, okay? It is evaluating the department_id column, and then 90 is the specific value that must be matched. Therefore every row that contains the value 90 will be returned. Every row that does not contain 90 will not be returned.</p>
+<p>Now the expressions can be just about anything, you can evaluate any column and of course the data type will vary. And what you are looking for will vary as well. So we&#39;ll see several examples of different types of expressions, but ultimately it is always something that can be evaluated. And matches get returned, and non-matches do not get returned. Hence, you have implemented your filter.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Character Strings and Dates (it_dfosfd_11_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/64e9f25e-1334-40b8-94f1-ff434af2a8cb/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/64e9f25e-1334-40b8-94f1-ff434af2a8cb/image001.jpg')();" /><div class="section_text">In this video, you will use character strings and dates in a WHERE clause in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use character strings and dates in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Character Strings and Dates. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration we&#39;ll see some initial examples of using a WHERE clause. Specifically passing in character strings and dates to a WHERE clause. Now, both are enclosed in single quotes,</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. It includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part contains the Start Page and HR tabs. The HR tab is selected. It is divided into two sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder tabs. The Worksheet tab is selected.</em> [Video description ends]</p>
+<p>and characters are case-sensitive by default, and dates are format sensitive. So in other words, if you pass in the wrong format, you won&#39;t get the correct records back. Now, we&#39;ll come to that in a moment, but our first example is just selecting out the last_name, the job_id, and the department_id. And again, the columns don&#39;t matter. You can select any number of columns with respect to what the WHERE clause is looking for.</p>
+<p>So I am looking for a last_name in this case but I would not need to include it in the SELECT list. And I&#39;ll show you that as well. FROM, of course, is still the table from which we are selecting, and that always precedes the WHERE clause. Then WHERE, and then in this case, this is my expression. last_name, the last name column, is equal to &#39;Whalen&#39;, and again it is actually case-sensitive. So let&#39;s go ahead and execute as is</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement and clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with the LAST_NAME, JOB_ID, and DEPARTMENT_ID columns with the values Whalen, AD_ASST, and 10, respectively.</em> [Video description ends]</p>
+<p>and there we do see the appropriate employee. Let&#39;s just change this to a lowercase w</p>
+<p>[Video description begins] <em> He alters uppercase w to lowercase in the word Whalen from the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement. </em>[Video description ends]</p>
+<p>and reselect, and notice the record goes away.</p>
+<p>[Video description begins] <em>He selects the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;whalen&#39;; statement and clicks the execute icon.</em> [Video description ends]</p>
+<p>So the value is case-sensitive. So you would need to be mindful of that.</p>
+<p>[Video description begins] <em> He alters lowercase w to uppercase in the word whalen from the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;whalen&#39;; statement.</em> [Video description ends]</p>
+<p>And as mentioned, I do not need to select the last_name column.</p>
+<p>[Video description begins] <em> He alters the SELECT last_name, job_id, department_id to SELECT job_id, department_id from the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement.</em> [Video description ends]</p>
+<p>I know that I&#39;m looking for the employee with the last name of Whalen. So when I execute,</p>
+<p>[Video description begins] <em> He selects the SELECT job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement and clicks the execute icon. The Query Result tab opens. A table is displayed. It contains JOB_ID and DEPARTMENT_ID columns with the values AD_ASST and 10, respectively.</em> [Video description ends]</p>
+<p>there is that person, okay? Now again, it&#39;s obviously fine to include it if you want to, if for nothing more than verification, but it&#39;s not necessary, okay? In our second example, we are looking for a date. Now, again the date format does matter. So if you are uncertain about the date column, then just select without the WHERE clause to see what the data looks like. Okay, I can highlight just the SELECT statement and the FROM statement and execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, hire_date, FROM EMPLOYEES from the SELECT last_name, job_id, hire_date, FROM EMPLOYEES, WHERE hire_date &#61; &#39;07-05-21&#39;; statement and clicks the execute icon. The Query Result tab opens. A table is displayed. It contains LAST_NAME, JOB_ID and HIRE_DATE columns and several rows.</em> [Video description ends]</p>
+<p>And I see all of my values, so now I know what kind of values I&#39;m looking for, so I just used this one right here, 07-05-21. So that is my hire_date, okay? And again, that goes in single quotes. So if we execute now, we get just that employee.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, hire_date, FROM EMPLOYEES, WHERE hire_date &#61; &#39;07-05-21&#39;; statement and clicks the execute icon. The Query Result tab opens. A table is displayed. It contains LAST_NAME, JOB_ID and HIRE_DATE columns with the values Ernest, IT_PROG, and 07-05-21, respectively.</em> [Video description ends]</p>
+<p>Now, had there been several employees that were hired on exactly the same day, they all would have been returned. But regardless, I do see exactly the record that I requested. Okay, so again, it doesn&#39;t hurt to just verify, select out everything if you have to.</p>
+<p>Find out what the actual values look like in the column before you pass in the criteria. But those are two fairly simple examples of just filtering records based on something that you are explicitly looking for. And you end up with the filtered results set where only the matching records are returned.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Comparison Operators (it_dfosfd_11_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/ef2f0835-2eb5-43df-811a-1c28c11783a1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ef2f0835-2eb5-43df-811a-1c28c11783a1/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use comparison operators in a WHERE clause in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the comparison operators in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Comparison Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration we&#39;ll see several examples of using comparison operators in a WHERE clause. And essentially this is how you build your expression. Once you put in the WHERE clause itself. The expression is almost always a column from the table, then the comparison operator, then the value that you want to compare against. So these are perhaps the most common comparison operators,</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>equals, which of course is just something equals something else. And that&#39;s known as the equality operator. You can also use greater than or less than, greater than or equal to, or less than or equal to. Then this is a non-equality operator, in other words this is not so it does not equal something.</p>
+<p>[Video description begins] <em> He highlights &lt;&gt;.</em> [Video description ends]</p>
+<p>BETWEEN... AND... allows you to create a range, we&#39;ll see that a little bit later. IN allows you to specify multiple values and we&#39;ll see that one later as well. LIKE is very similar to equals. We tend to think of equals being used for numeric comparisons, and LIKE for characters. But in fact equals can be used for characters. LIKE is typically used in combination with wildcard characters when you don&#39;t know exactly how something is spelled, for example.</p>
+<p>And IS NULL is actually looking for nulls. So our first example is just selecting out the last_name and the salary from the EMPLOYEES table, where the salary is less than or equal to 3000. So in this case, 3000 itself would be returned because it&#39;s less than or equal to. But if it was less than 3000 then 3000 would not be returned because 3000 is not less than 3000, okay? So let&#39;s go ahead and execute and we should see only values that are 3000 or lower.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, salary, FROM EMPLOYEES, WHERE salary &lt;&#61; 3000; statement and clicks the execute icon. A table with LAST_NAME and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So there is exactly 3000 there, everything else is below it, okay? The next example is last_name and department_id from the EMPLOYEES table, where department_id is greater than 50. So again, in this case 50 itself will not be returned, it has to be greater than 50. Let&#39;s execute</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, department_id, FROM EMPLOYEES, WHERE department_id &gt; 50; statement and clicks the execute icon. A table with LAST_NAME and DEPARTMENT_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>and nothing below 50 comes back. Next example, this is another way to create a range. So WHERE salary is greater than or equal to 2000, so inclusive of 2000, and salary is less than or equal to 5000. So that&#39;s actually another way that you can implement the BETWEEN comparison operator. But this will give us everything in between, inclusive of those two values.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, salary, FROM EMPLOYEES, WHERE salary &gt;&#61;2000 and salary &lt;&#61; 5000; statement and clicks the execute icon. A table with LAST_NAME and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, it was greater than or equal to 2000, less than or equal to 5000. So let&#39;s see if we have any that are exactly on those numbers. Maybe not but that&#39;s fine, doesn&#39;t matter if you actually got a perfect match, okay, because we said anything, in between these values. That worked fine, and finally, last_name and department_id, where the department_id is not equal to 50, so we&#39;ll see everything except for 50.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, department_id, FROM EMPLOYEES, WHERE department_id &lt;&gt; 50; statement and clicks the execute icon. A table with LAST_NAME and DEPARTMENT_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Execute, and we should not see 50. Okay, so we&#39;ll see several other examples as we go through more demonstrations. But becoming familiar with the comparison operators is very important when creating your WHERE clauses. So that you can effectively define the filters to locate just the desired records.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: BETWEEN and IN Operators (it_dfosfd_11_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/9d548232-a360-4a6b-bf33-fee8972fbe0b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9d548232-a360-4a6b-bf33-fee8972fbe0b/image001.jpg')();" /><div class="section_text">In this video, learn how to use the BETWEEN and IN operators in a WHERE clause of a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the BETWEEN and IN operators in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: BETWEEN and IN Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration we&#39;ll take a look at using the BETWEEN and comparison operators in a WHERE clause. And then we&#39;ll take a look at using the IN comparison operator. But beginning with the BETWEEN, and this is actually my preference when needing to define a range. Because it&#39;s a little more readable and in fact it&#39;s a little simpler.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>Notice that I can simply state the column I&#39;m comparing against one time, then create the expression, BETWEEN 3000 and 5000. To clarify, this is functionally equivalent to WHERE salary greater than or equal to 3000 and salary, the column name again, less than or equal to 5000. In other words you have to specify the column name twice if you use the greater than or equal to, and less than or equal to.</p>
+<p>You may have noticed that in the previous demonstration with the BETWEEN and operators, you only need to specify the salary one time, okay? Or I should say the column that you are using for your comparison. So let&#39;s go ahead and execute here. And BETWEEN, again, is inclusive of the values that you specify.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, salary, FROM EMPLOYEES, WHERE salary BETWEEN 3000 and 5000; statement and clicks the execute icon. A table with LAST_NAME and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So if we have one that is exactly 3000, it will come back. I don&#39;t know if we do but in fact there it is, okay? So exactly 3000 is included, exactly 5000 is included. So this is most commonly used with numeric values but it also works just fine for date values. So BETWEEN January 1st and December 31st is very common or seeing all of the records within any particular year.</p>
+<p>Now the IN operator is when you have more than one example, okay? So you can see in this case I&#39;m looking for the last_name, the job_id and the department_id from the EMPLOYEES table. But I&#39;m looking for three specific last names. So WHERE last_name IN, then within parentheses, specify the values that you want to see.</p>
+<p>Now each value must still be placed in single quotes for characters, okay? So &#39;Austin&#39;, &#39;King&#39;, &#39;Ernst&#39;, all of it within the parentheses, okay? But that allows me to search for multiple examples. And there I see my records.</p>
+<p>[Video description begins] <em> He selects the last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name IN(&#39;Austin&#39;, &#39;King&#39;, &#39;Ernest&#39;); statement and clicks the execute icon. A table with LAST_NAME, JOB_ID, and DEPARTMENT_ID column headers and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>There happen to be two people with the last name of King, okay? And then there are the other records. So that&#39;s very useful when there is simply more than one that you want to return. So again, BETWEEN and and, very useful for the range values and is inclusive of the values. And you only need to specify the column once. IN, when you have multiple values for which you want to locate the matching records.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: LIKE Operator and Combining Wildcard Characters (it_dfosfd_11_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/7ab0bf48-af22-4d62-b43c-94421430c1ae/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/7ab0bf48-af22-4d62-b43c-94421430c1ae/image001.jpg')();" /><div class="section_text">In this video, you will use the LIKE operator and combine wildcard characters in a WHERE clause of a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the LIKE operator and combine wildcard characters in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: LIKE Operators and Combining Wildcard Characters. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In our next example, we&#39;ll see how to use the LIKE comparison operator, typically in conjunction with wildcards. Now, you don&#39;t have to use wildcards but it&#39;s very common. The scenario here is effectively, I don&#39;t know how something is spelled. And it doesn&#39;t have to be spelling, it could be something like a serial number, and you just don&#39;t know all of the characters. So you can specify some of the known ones, and then some of the unknown ones to try to find the results that you want.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>So in our first example, I&#39;m just selecting the last_name and the job_id from EMPLOYEES. WHERE last_name LIKE, and again, in single quotes, K% symbol. You can use the % symbol to represent any number of unknown characters. So what I&#39;ll get back here is a list of employees whose last name starts with K. I have explicitly entered the K, then anything else that follows it, okay? So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, FROM EMPLOYEES, WHERE last_name LIKE &#39;K%&#39;; statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and six rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And there they are, okay? So the letter K is common to all of them. But then any number of unknown characters that may follow will all be returned, okay? And I could narrow this a little bit. You can see there are two Kings. So I could then say, well, what about Ki% symbol? Then only those two would come back.</p>
+<p>[Video description begins] <em> He alters WHERE last_name LIKE &#39;K%&#39;; to WHERE last_name LIKE &#39;Ki%&#39;; from the SELECT last_name, job_id, FROM EMPLOYEES, WHERE last_name LIKE &#39;K%&#39;; statement. He selects the statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and two rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So it depends on how many characters you know versus how many you don&#39;t know. The next wildcard is the underscore, and this one is used when you only need to represent a single unknown character, okay? So in this case, I know that there is an Employee with the last name of Le in this table. But maybe I&#39;m not sure if it&#39;s L-E-E or L-E-I, but it&#39;s only that one character after the E, okay? So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, FROM EMPLOYEES, WHERE last_name LIKE &#39;Le_&#39;; statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and one rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And sure enough, it&#39;s L-E-E. But had there been an L-E-I, that would have been returned as well. But, Leeman, for example, would not come back because that&#39;s more than one unknown character. And you can combine them. Maybe you know the first two. Then you don&#39;t know the next two or three, then you do know the next two, then you don&#39;t know the last one.</p>
+<p>So that can get a little bit complex but it does work just fine, okay? Now if you do know it exactly, you don&#39;t have to use the wildcard. So for example I can put LIKE &#39;King&#39;, and this will work, okay?</p>
+<p>[Video description begins] <em> He alters WHERE last_name LIKE &#39;Ki%&#39;; to WHERE last_name LIKE &#39;King&#39;; from the SELECT last_name, job_id, FROM EMPLOYEES, WHERE last_name LIKE &#39;Ki%&#39;; statement. He selects the statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and two rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>But that&#39;s the functional equivalent of just saying WHERE last_name equals King. So either is fine, but generally, LIKE is used when there are some unknown characters. Again, % symbol or an unknown number of unknown characters, underscore for a single unknown character.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: NULL and Logical Operator Conditions (it_dfosfd_11_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/3a7fee70-ea6f-40ed-aa68-106e3a59a97b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3a7fee70-ea6f-40ed-aa68-106e3a59a97b/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the NULL and logical operator conditions in a WHERE clause in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the NULL and logical operator conditions in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: NULL and Logical Operator Conditions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration we&#39;ll take a look at using the IS NULL logical operator to find values that simply have a null. Now, conversely, in some cases you might want to search for any value as long as there is something there. And this just reverses the logic and is the IS NOT NULL logical operator.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>But in terms of looking for nulls, recall that a null really is nothing in databases. So how do you then search for nothing? You can&#39;t give it an example, you can&#39;t say WHERE something equals nothing. So Oracle does take this into account, and has given us the IS NULL logical operator. And this quite literally will find any value that is null. Now in this case I&#39;m looking for the last_name and the job_id FROM the EMPLOYEES table, WHERE manager_id IS NULL.</p>
+<p>Now this is the self referencing relationship where a person&#39;s manager_id references back to the employee id who is essentially that person&#39;s boss. But there is one person who has no boss, the president, okay? So in that record, the manager_id would have a NULL. So we can search for exactly that. So let&#39;s go ahead and execute,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, FROM EMPLOYEES, WHERE manager_id IS NULL; statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>and sure enough, the president comes back with nothing listed as the manager_id. Now, we can include the manager_id in the SELECT list, but we don&#39;t have to. I know if this record came back,</p>
+<p>[Video description begins] <em> He alters SELECT last_name, job_id to SELECT last_name, job_id, manager_id from the SELECT last_name, job_id, FROM EMPLOYEES, WHERE manager_id IS NULL; statement.</em> [Video description ends]</p>
+<p>then the value is NULL. But let&#39;s go ahead and execute anyway, just to verify,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, manager_id, FROM EMPLOYEES, WHERE manager_id IS NULL; statement and clicks the execute icon. A table with LAST_NAME, JOB_ID, and MANAGER_ID column headers and one row appears in the Query Result tab. </em>[Video description ends]</p>
+<p>and sure enough, the (null) appears, okay?</p>
+<p>[Video description begins]<em> He points to the value (null) under the MANAGER_ID column header.</em> [Video description ends]</p>
+<p>Now, make sure that you always use this IS NULL operator. In other words, don&#39;t use a LIKE operator and say something LIKE (null) in brackets. This is just for us to see that this is null. There is actually nothing in the column, okay? So you don&#39;t search for something WHERE this equals anything or where it&#39;s LIKE something.</p>
+<p>Just use IS NULL. Two separate words, it&#39;s not case sensitive, okay, but it is two separate words. So again, you can reverse the logic by using IS NOT NULL. And this will find any value, it doesn&#39;t really care what it is. So again, you&#39;re not giving it a specific example, you&#39;re just saying as long as there is something there, then return the records. So this will return everyone except for the president, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, FROM EMPLOYEES, WHERE manager_id IS NOT NULL; statement and clicks the execute icon. A table with LAST_NAME and JOB_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And there we see everyone else. So all of the other employees, 106 of them, there are in fact 107 employees in total, all have someone acting as their manager, okay? So of course it depends on what you are looking for. There can be nulls in just about any kind of column, so you can always search out the nulls. Or if you want to reverse that logic and just search out any value, then you can use the IS NOT NULL.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: AND, OR, and NOT Operators (it_dfosfd_11_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/5bf82a4f-b725-4268-950b-e0e09da2aeb4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5bf82a4f-b725-4268-950b-e0e09da2aeb4/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the AND, OR, and NOT operators in a WHERE clause of a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the AND, OR, and NOT operators in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: AND, OR, and NOT Operators. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration we&#39;ll take a look at using the AND logical operator versus the OR logical operator. Now, in both cases, these deal with multiple pieces of criteria in the WHERE clause. But they can return significantly different results, so this is definitely something that you want to be careful with. So when it is the AND condition, again, we are specifying more than one piece of criteria.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>But AND requires that all conditions in the WHERE clause be met. So, in this case, I&#39;m just selecting out the first_name, the last_name, and the job_id from the EMPLOYEES table. And in my WHERE clause, you can see that first_name has to be equal to Steven, and last_name has to be equal to King. Both of these pieces of criteria must be met. So as long as there is a person with exactly this name, this full name in the table, then it will be returned. Now there does happen to be exactly one, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>But had I put in a different piece of criteria, let&#39;s just change this to Jones,</p>
+<p>[Video description begins] <em> He alters the WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; to WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;Jones&#39;; from the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; statement.</em> [Video description ends]</p>
+<p>now there has to be someone named Steven Jones in the table. Let&#39;s find out,</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;Jones&#39;; statement and clicks the execute icon.</em> [Video description ends]</p>
+<p>and there is not,</p>
+<p>[Video description begins] <em>He points at the table with FIRST_NAME, LAST_NAME, and JOB_ID column headers that appears in the Query Result tab. It has no output.</em> [Video description ends]</p>
+<p>okay? So again, both pieces of criteria have to be met. This is not an error this is simply saying there is no one named Steven Jones, okay?</p>
+<p>[Video description begins] <em> He alters WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;Jones&#39;; to WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; from the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;Jones&#39;; statement.</em> [Video description ends]</p>
+<p>So again, every piece of criteria must be met. And I should mention that it&#39;s not limited to just two, I could have as many AND conditions as I want. Now in contrast, the OR logical operator requires that any, one or more, conditions be met.</p>
+<p>Okay, so in this case now I&#39;m still selecting out the same columns, first_name, last_name and job_id from EMPLOYEES. Where the first_name is still Steven, or the job_id happens to be ST_CLERK, okay? So let&#39;s go back to the first one for a moment, and we can see that when we search for Steven King, the job is president, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and one row appears in the Query Result tab. He points at the value AD_PRES under the JOB_ID column header.</em> [Video description ends]</p>
+<p>So let&#39;s see now if we still get that same record back when we do the OR condition.</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; OR job_id &#61; &#39;ST_CLERK&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And in fact we still do, even though the job_id that I asked for was ST_CLERK, Steven still comes back, the president. But that&#39;s because it was an OR condition. The first name condition was satisfied. This person&#39;s first name is Steven, therefore they were returned.</p>
+<p>[Video description begins] <em> He points at the value Steven under the FIRST_NAME column header.</em> [Video description ends]</p>
+<p>Everyone else was returned because of the job_id or because of the first_name. So this one in fact does meet both of them, that&#39;s fine.</p>
+<p>[Video description begins] <em> He points at the fifth row of the table with values Steven, Markle, and ST_CLERK under the FIRST_NAME, LAST_NAME, and JOB_ID column headers, respectively.</em> [Video description ends]</p>
+<p>Steven Markle meets both pieces of criteria, but as long as one of them is met, then that record will still be returned. So I say that you need to be careful with this because if you confuse these you can get wildly different results back. When you are using AND conditions, in almost every case, you will get fewer and fewer records coming back with each additional AND. Because it must be this AND it must be that AND it must be that.</p>
+<p>So you almost always filter more and more records out. The OR logical operator is the exact opposite. If you say it has to be this OR this OR this OR this, then you almost always increase the number of records coming back. Because any of the conditions that are satisfied will result in more records, okay? And in this very simple example, my first statement returned a single record,</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>my second statement returned 21, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; OR job_id &#61; &#39;ST_CLERK&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, that&#39;s the nature of the OR condition, as long as any piece of criteria is satisfied, then it will come back. And again, you can have as many OR conditions as you want as well. And I should also mention, just to finish up, that multiple ORs essentially equate to using the IN operator. We saw that earlier where you can simply say where a particular value is IN. And then you can list out multiple values, that&#39;s the functional equivalent of multiple ORs, okay?</p>
+<p>But when you use the IN condition, it&#39;s only going to operate on a single column. So, for example, I could say WHERE first_name IN. And then I could list out three or four different first names, as long as any one of them was matched, they would come back. But in this case you can see I can specify different columns. So WHERE first_name &#61; &#39;Steven&#39; OR job_id, so that&#39;s a different column clearly.</p>
+<p>So that&#39;s typically where you would use multiple ORs as opposed to an IN. The IN would just allow you to pass in several values for the same column, ORs allow you to specify multiple different columns. But again, in virtually every case, multiple ORs, INs, all of those will return records as long as anything is satisfied. And you will almost always get more records back.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Rules of Precedence (it_dfosfd_11_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/7c6ee216-230d-42d9-810f-3c060577ccb0/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/7c6ee216-230d-42d9-810f-3c060577ccb0/image001.jpg')();" /><div class="section_text">In this video, you will learn about the rules of precedence in a WHERE clause in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define the rules of precedence in a WHERE clause in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Rules of Precedence. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Earlier we saw how you can use a logical AND operator and a logical OR operator to specify multiple pieces of criteria. But depending on which one you use you can get significantly different results back. But that said, you can use AND conditions and OR conditions in the same statement. So when you have both of them, then you need to be mindful of the default order of precedence or how the statement is processed now, I have that written out for you here.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>And you can see that initially Arithmetic operators are processed, then Concatenation operators, then Comparison conditions, then IS NULL or IS NOT NULL, LIKE then NOT LIKE, BETWEEN or NOT BETWEEN. NOT EQUAL TO, NOT and finally, AND, and then OR, so by default AND condition process before OR conditions. So again this can have quite a difference on the results that will be returned.</p>
+<p>So let&#39;s look at our first example here. I&#39;m looking for a department_id of 60, or a department_id of 80. And that is read first, but it&#39;s not processed first. AND processes before or. So my last line says AND salary &gt; 10000, okay? So in terms of recognizing the rules of precedence in this example the AND operator is processed before the or operator. We&#39;ll see 13 rows come back. But Notice in the results, there are salaries below 10,000. Okay, and that again is because this is processing first.</p>
+<p>So it&#39;s examining the results and saying okay, only those that are greater than 10000 can be returned. But then it says hang on a second. As long as the department is either 60 or 80 then, they can be returned as well, okay? So, this if you will overrides the $10000 limitation because this is processing first then it&#39;s saying, well as long as these are met then they can come back regardless of salary, okay. So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, department_id, salary, FROM EMPLOYEES, WHERE department_id &#61; 60 or department_id &#61; 80, AND salary &gt; 10000; statement and clicks the execute icon. A table with LAST_NAME, DEPARTMENT_ID, and SALARY column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>And we see exactly that. Notice salaries below 10,000.</p>
+<p>[Video description begins] <em> He points at the values 9000, 6000, 4800, and 4800 in the first four rows under the SALARY column header.</em> [Video description ends]</p>
+<p>They were returned because the or condition processed afterward. And it said as long as it&#39;s 60 or 80, then they are fine. Any one of the criteria can be met with or conditions. So again, with this processing after the salary, we get results that are below 10000, okay? Now all we have to do to change that if that was not what you wanted is use a set of parenthesis, okay?</p>
+<p>So just like mathematical operations anything listed in parenthesis, will process before anything else. So you can see in this example parenthesis override the default and we will see that the AND condition is applied after the or. This will be processed first, so people in department 60 or 80 will come back. Then of those filter out salaries below 10000. And we see 8 rows come back in this example. Let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, department_id, salary, FROM EMPLOYEES, WHERE (department_id &#61; 60 or department_id &#61; 80), AND salary &gt; 10000; statement and clicks the execute icon. A table with LAST_NAME, DEPARTMENT_ID, and SALARY column headers and eight rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>Sure enough eight rows, and there are no salaries that are below 10000. Now, also note that there are no departments of 60 in this case, but that&#39;s fine, it just means they didn&#39;t qualify. Back here, those who were in department 60 did not have a salary greater than 10000, okay,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, department_id, salary, FROM EMPLOYEES, WHERE department_id &#61; 60 or department_id &#61; 80, AND salary &gt; 10000; statement and clicks the execute icon. A table with LAST_NAME, DEPARTMENT_ID, and SALARY column headers and several rows is displayed in the Query Result tab. He points at the values in the first five rows under the DEPARTMENT_ID and SALARY column headers, respectively.</em> [Video description ends]</p>
+<p>none of them. So they are all filtered out in this example. So it&#39;s the simple parentheses that override the default order of precedence. And again, it simply means that this processes first then this one processes</p>
+<p>[Video description begins] <em> He highlights WHERE (department_id &#61; 60 or department_id &#61; 80) and AND salary &gt; 10000; from the SELECT last_name, department_id, salary, FROM EMPLOYEES, WHERE (department_id &#61; 60 or department_id &#61; 80), AND salary &gt; 10000; statement.</em> [Video description ends]</p>
+<p>so anything that is not greater than 10000 is ultimately removed, okay? But again, you can get significantly different results particularly in a production environment with real records. You know, this could result in thousands of records being returned or not being returned depending on how you assemble the statement. And it&#39;s a simple set of parenthesis, in this case, that makes all the difference. So always be mindful of that default order of precedence and when to override it with the parentheses.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: ORDER BY Clause (it_dfosfd_11_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/560b46b2-5a91-464f-8c71-fa56027a3bb6/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/560b46b2-5a91-464f-8c71-fa56027a3bb6/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the ORDER BY clause to sort the data returned by a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the ORDER BY clause to sort the data returned by a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: ORDER BY Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration we&#39;ll just take a closer look at using the ORDER BY clause to sort results. Now, we&#39;ve seen several examples where the ORDER BY has been used, but we&#39;ll take a closer look at some of the characteristics. Now, we&#39;ll begin with the simple ORDER BY on a single column,</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>and do recall that ORDER BY always appears at the end. So, assemble your entire SELECT statement, your FROM clause, any joins, your WHERE clauses, whatever you want. But always finish off with the ORDER BY clause, okay? And by default, it sorts in ascending order, or ASC.</p>
+<p>So if that&#39;s what you want, you don&#39;t have to specify anything. You can reverse that using DESC or descending. So let&#39;s go ahead and select out the last_name, the hire_date, and the salary from the EMPLOYEES table. Ordering by the last_name column, again by default in ascending order.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary, FROM EMPLOYEES, ORDER BY last_name; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and SALARY column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>And they are listed alphabetically by their last names. Okay, pretty simple, pretty standard. But you can sort by more than one column. When you specify multiple columns in an ORDER BY, it will always sort by the first column referenced. Then if there are duplicates in the first column, it will then move to the second. And sort them by whichever other column you specify, okay?</p>
+<p>So I&#39;m selecting out the same columns here, but I&#39;m ordering by the hire_date first in descending order, which puts the most recent at the top. So then if there are duplicates, if people were hired on the same day, it will then examine the salary and sort them, in this case, also in descending order. Let&#39;s take a look.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary, FROM EMPLOYEES, ORDER BY hire_date DESC, salary DESC; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and SALARY column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so here we see two people that were hired on the same day.</p>
+<p>[Video description begins] <em> He points at the value 08-04-21 in the first two rows under the HIRE_DATE column header.</em> [Video description ends]</p>
+<p>So where the duplicates occur, move to the salary column and sort just those two in descending order.</p>
+<p>[Video description begins] <em> He points at the values 6200 and 6100 in the first two rows under the SALARY column header.</em> [Video description ends]</p>
+<p>But it does not look like every value in the salary column is sorted, but that&#39;s because these are not duplicates, okay? And you can absolutely use a different sort order for each column, so if I change this to ascending</p>
+<p>[Video description begins] <em> He alters ORDER BY hire_date DESC, salary DESC; to ORDER BY hire_date DESC, salary ASC; in the SELECT last_name, hire_date, salary, FROM EMPLOYEES, ORDER BY hire_date DESC, salary DESC; statement.</em> [Video description ends]</p>
+<p>and re-execute, these two records will switch places.</p>
+<p>[Video description begins] <em> He points at the values 6200 and 6100 in the first two rows under the SALARY column header.</em> [Video description ends]</p>
+<p>Let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em>He selects the SELECT last_name, hire_date, salary, FROM EMPLOYEES, ORDER BY hire_date DESC, salary ASC; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and SALARY column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>And sure enough, they have changed their places.</p>
+<p>[Video description begins] <em> He points at the values 6100 and 6200 in the first two rows under the SALARY column header.</em> [Video description ends]</p>
+<p>Okay, and you can specify as many as you want. It simply comes down to the fact that there must be duplicates in the previous column before it will move to the next. Now, you can also sort by an alias, so in this case I&#39;m selecting out the last_name and the hire_date but salary*12 AS &#34;Annual Salary&#34;.</p>
+<p>And the double quotes are needed here because there is a space in the name. But I can reference that in my ORDER BY clause. You can see ORDER BY &#34;Annual Salary&#34;. And again, in ascending or descending order. That&#39;s your call,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>but it is now sorted by the Annual Salary in descending order. And finally, you can in fact also reference the ordinal position of the column. So rather than having to type both &#34;Annual Salary&#34; again I can simply list its position in the SELECT statement. So, it&#39;s the third column, last_name is the first column, hire_date is the second column, Annual Salary is the third column. So, ORDER BY 3, and this will yield the exact same results.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY 3 DESC; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, so a number of options are available to you, when you do need your results sorted.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: SQL Row Limiting Clause (it_dfosfd_11_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/9703c977-707c-4488-bb0e-36f30fc407ae/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9703c977-707c-4488-bb0e-36f30fc407ae/image001.jpg')();" /><div class="section_text">Find out how to use the ROW_LIMITING_CLAUSE to limit the number of rows returned by a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the ROW_LIMITING_CLAUSE to limit the number of rows returned by a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: SQL Row Limiting Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll see an option that is, effectively, related to the ORDER BY, and it&#39;s known as the FETCH FIRST or OFFSET option. Whereby you can limit the number of rows that are returned without using a WHERE clause. Now, I say it&#39;s related to the ORDER BY because it really doesn&#39;t make a lot of sense without the ORDER BY. And to demonstrate that, in this case</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>I&#39;m still selecting out my last_name, hire_date, and Annual Salary from the EMPLOYEES table. And I&#39;m ordering by the Annual Salary. Okay, so let&#39;s just execute that portion all by itself.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC from the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC, FETCH FIRST 5 ROWS ONLY; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and several rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>And it works just fine. My results are sorted. My highest salaried employees are at the top. But I get every record back, okay? All 107 employees. So I might not be interested in all 107. Maybe I just want the top five, for example. And this is very common in sales analysis. Show me the top ten selling regions or the top ten best products, things like that.</p>
+<p>So you can add-on this FETCH FIRST 5 ROWS ONLY;. So, again, this isn&#39;t really concerned with any kind of criteria, so it&#39;s not a WHERE clause, but it does still restrict which records come back, but it is quite literally just the first five. So that&#39;s why you typically want to use it in conjunction with the ORDER BY, so that it makes sense.</p>
+<p>And do take note, in the previous demonstration, I did mention that the ORDER BY always goes last. This is the one exception to that, but again, this is almost, if you will, an add-on to the ORDER BY, okay? So let me demonstrate the results if you don&#39;t order them. So I&#39;ll remove the ORDER BY section here, and execute, and you can see that I only get five records.</p>
+<p>[Video description begins] <em> He comments out the line ORDER BY &#34;Annual Salary&#34; DESC. He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, FETCH FIRST 5 ROWS ONLY; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and five rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>But look at the values, they&#39;re reasonably sorted, but this last one here, certainly that&#39;s not going to be in the top five. So let&#39;s put it back, the ORDER BY clause that is, and we&#39;ll take note of this employee named Ernst, at 72000. Okay,</p>
+<p>[Video description begins] <em> He uncomments the line ORDER BY &#34;Annual Salary&#34; DESC. He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC, FETCH FIRST 5 ROWS ONLY; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and five rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>you can see that person has disappeared. So again, these are the top five salaried employees. But again, it really only makes sense if you do that sort order first then you just say discard everything except for the first five, okay? Now you can also do what&#39;s called offsetting, which is to find the next top five after the first, okay? So this translates into return 6 through 10. So let&#39;s actually increase this to 10, up above here,</p>
+<p>[Video description begins] <em> He alters FETCH FIRST 5 ROWS ONLY; to FETCH FIRST 10 ROWS ONLY; from the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC, FETCH FIRST 5 ROWS ONLY; statement.</em> [Video description ends]</p>
+<p>just to see which records they are,</p>
+<p>[Video description begins] <em>He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC, FETCH FIRST 10 ROWS ONLY; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and 10 rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>okay? And we&#39;ll take note, number 6 is Hartstein at 156000, okay, then we see 6 through 10. So if I execute this one now, I should essentially see only 6 through 10, okay? The OFFSET 5 means disregard the first five, then fetch the next five. So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, hire_date, salary*12 AS &#34;Annual Salary&#34;, FROM EMPLOYEES, ORDER BY &#34;Annual Salary&#34; DESC, OFFSET 5 ROWS FETCH NEXT 5 ROWS ONLY; statement and clicks the execute icon. A table with LAST_NAME, HIRE_DATE, and Annual Salary column headers and 10 rows is displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>And sure enough, Hartstein is my first one, and then these are 6 through 10, okay? So again, it&#39;s just a way to limit the number of records that come back. It&#39;s no filter with respect to a WHERE clause, it&#39;s just filtering based on the ordinal position of the record. So again, even though I did say ORDER BY always goes last, this really is just an extension of the ORDER BY to fetch x number of rows, but really based on the sort order.</p>
+<p>And again, common examples are top ten sales, top ten sales people, top ten best-selling products, things along those lines. So you order by those columns first, then you use the FETCH FIRST option to simply specify how many you want. And that can be any number, okay? It&#39;s just that top ten, of course, is very common, or top five, but that is entirely up to you. And then if you want that next group, you can use the OFFSET option.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Substitution Variables (it_dfosfd_11_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/d8b9056e-91e1-4fd5-9634-98ea0cf6235d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d8b9056e-91e1-4fd5-9634-98ea0cf6235d/image001.jpg')();" /><div class="section_text">Find out how to use substitution variables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use substitution variables</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Substitution Variables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In all of our previous examples of using a WHERE clause, we have been specifically and statically supplying a value in terms of the criteria. For example, select all employees whose salary is greater than 10,000. That value of 10,000 is statically entered into the code and basically does not change.</p>
+<p>So if you want a different value, you have to go in and edit the code yourself. Now that&#39;s fine, but in some cases you want that criteria to be variable, to be able to be changed with each execution. So in this demonstration we&#39;ll see how to do exactly that, using what&#39;s known as</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>substitution variables to prompt the user for a value. So in our first example, I&#39;m just selecting out the employee_id, the last_name, and the salary FROM the EMPLOYEES table WHERE employee_id &#61;. And then this is normally where I might plug in a static value, but look what I have instead. Ampersand is the character used to define the variable.</p>
+<p>And then emp_id is just the name. You can call it whatever you want, but it should be fairly indicative of what you are looking for, okay? And this is just a note to specify what some valid values are. So anything greater than or equal to 100 should return records. So let&#39;s see what this looks like, let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE employee_id &#61; &amp;emp_id; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for emp_id text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>And you can see there&#39;s the prompt. So Enter value for emp_id, all right? Let&#39;s go with 150. Click on OK.</p>
+<p>[Video description begins] <em> A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And there is exactly that record.</p>
+<p>[Video description begins]<em> He points at the value 150 under the EMPLOYEE_ID column header.</em> [Video description ends]</p>
+<p>Reexecute the exact same code with no changes</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE employee_id &#61; &amp;emp_id; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens.</em> [Video description ends]</p>
+<p>and use a different value, let&#39;s go with 170, and there is that employee.</p>
+<p>[Video description begins] <em> A table with EMPLOYEE_ID, LAST_NAME, and SALARY column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>So we get variable criteria by using the substitution variable.</p>
+<p>[Video description begins] <em> He points at the value 170 under the EMPLOYEE_ID column header.</em> [Video description ends]</p>
+<p>Again, use the ampersand character, then call it whatever you like. Now, that&#39;s a numeric value and we can just enter in the number. But you can use a substitution variable for any data type. But if it&#39;s characters and dates, place the variable itself in single quotes. And remember that values are case sensitive and format sensitive.</p>
+<p>So you would need to know what you&#39;re looking for, okay? So in my first example, I am going to prompt the user for the job_id, okay? So that&#39;s my variable. So in single quotes, the ampersand, then, again, whatever you want to call it. And close off the single quote. And again, these are just some examples that we can use, IT programmer or finance account. So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE job_id &#61; &#39;&amp;job_id&#39;; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for job_id text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>There is the prompt, Enter value for job_id. And again, it is case sensitive. So upper case IT_PROG, okay, there they are.</p>
+<p>[Video description begins] <em> He types IT_PROG in the Enter value for job_id text box and clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, SALARY, and JOB_ID column headers and five rows appears in the Query Result tab. He points at the value IT_PROG displayed in all the five rows under the JOB_ID column header.</em> [Video description ends]</p>
+<p>Reexecute immediately,</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, salary, FROM EMPLOYEES, WHERE job_id &#61; &#39;&amp;job_id&#39;; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for job_id text box.</em> [Video description ends]</p>
+<p>put in a different value, FI_ACCOUNT, and there they are,</p>
+<p>[Video description begins] <em> He types FI_ACCOUNT in the Enter value for job_id text box and clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, SALARY, and JOB_ID column headers and five rows appears in the Query Result tab. He points at the value FI_ACCOUNT displayed in all the five rows under the JOB_ID column header.</em> [Video description ends]</p>
+<p>okay? Now for dates, same thing, in this case the substitution variable is hire_date. And the ampersand is right there. And again, all of that goes in single quotes. And again, here is just an example of a value that you can use, 02-06-07. So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, hire_date, FROM EMPLOYEES, WHERE hire_date &#61; &#39;&amp;hire_date&#39;; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for hire_date text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>And enter in 02-06-07. And there are those records.</p>
+<p>[Video description begins]<em> He types 02-06-07 in the Enter value for hire_date text box and clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, and HIRE_DATE column headers and four rows appears in the Query Result tab. He points at the value 02-06-07 displayed in all the four rows under the HIRE_DATE column header.</em> [Video description ends]</p>
+<p>So again, in all three cases, those are changeable without changing the code. Now, in the next example here, we&#39;ll see that you can also include the substitution variable in the SELECT list, as well, to prompt the users for extra columns to include. Optionally, you can include another substitution variable as a filter, or reference the first variable again in an ORDER BY.</p>
+<p>So what&#39;s happening here is I am selecting out the columns that I want but then I&#39;m prompting the user for an extra column. So again, a substitution variable. Then call this whatever you want. I&#39;m just saying extra column for the time being, from the same table. And then note that I can also prompt them for a filter condition.</p>
+<p>So ampersand filter_condition can also be stored as a variable. Now, we&#39;ll see that in a moment. Then I can ORDER BY the same column that I referenced in the SELECT statement, okay? So I&#39;m going to get three separate prompts for this one. It&#39;s going to ask me which extra column do I want. Then it&#39;s going to ask me for a filter condition.</p>
+<p>Then it&#39;s going to say ORDER BY which column, in my case the same one that I&#39;m adding which is going to be the Salary column, okay? That&#39;s the extra column and the one I want to ORDER BY. And then salary greater than 10,000 can be the condition, okay? And I&#39;m ordering in descending order here. So let&#39;s take a look at this one. And again, as mentioned, there will be three prompts. So execute,</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, hire_date, &amp;extra_column, FROM EMPLOYEES, WHERE &amp;filter_condition, ORDER BY &amp;extra_column DESC; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for extra_column text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>the first prompt is which extra column do I want? salary, this one is not case sensitive, okay?</p>
+<p>[Video description begins] <em> He types salary in the Enter value for extra_column text box and clicks the OK button. The Enter value for filter_condition text box appears.</em> [Video description ends]</p>
+<p>What is the condition? salary&gt;10000. So that is now being passed in to the substitution variable of the WHERE clause, okay?</p>
+<p>[Video description begins] <em> He types salary&gt;10000 in the Enter value for filter_condition text box and clicks the OK button. The Enter value for extra_column text box appears.</em> [Video description ends]</p>
+<p>ORDER BY which extra_column, salary and that&#39;s this one here. Click on OK,</p>
+<p>[Video description begins] <em> He types salary in the Enter value for extra_column text box and points at ORDER BY &amp;extra_column DESC; from the SELECT employee_id, last_name, hire_date, &amp;extra_column, FROM EMPLOYEES, WHERE &amp;filter_condition, ORDER BY &amp;extra_column DESC; statement. He clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, HIRE_DATE, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>and there they are, okay? So you can see that it is ordered in descending order by the salary</p>
+<p>[Video description begins] <em> He points at the values under the SALARY column header.</em> [Video description ends]</p>
+<p>and nothing at 10,000 or lower was returned. Okay? Now, this last example is essentially the same, but notice that there are two ampersands. And this is simply to prevent multiple prompts if I am referring to this column more than one time, okay? Now I&#39;m just using the name extra_column_name here because I&#39;ve already defined one called extra_column.</p>
+<p>So this is just to avoid a duplicate name. But by using the two ampersands, I won&#39;t get prompted twice, okay? So it will ask me for an extra column, then for a filter condition, but then look at the ORDER BY. In fact you can go with just a single ampersand down here, but I won&#39;t get prompted for this. It&#39;s saying use the same value that has already been entered, okay?</p>
+<p>And the value passed in will remain in the variable for the duration of the session. So I&#39;ll show you what that results in in a moment here, but we&#39;ll go with the same column Salary and the same condition, salary&gt;10000. But where we got three prompts before, watch what happens now.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, hire_date, &amp;&amp;extra_column_name, FROM EMPLOYEES, WHERE &amp;filter_condition, ORDER BY &amp;extra_column_name DESC; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for extra_column_name text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>It still wants the extra column, so that&#39;s salary. It still wants the condition,</p>
+<p>[Video description begins] <em> He types salary in the Enter value for extra_column_name text box and clicks the OK button. The Enter Substitution Variable dialog box with Enter value for filter_condition text box and OK and Cancel buttons appears.</em> [Video description ends]</p>
+<p>salary&gt;10000. But that will be the last prompt,</p>
+<p>[Video description begins] <em> He types salary&gt;10000 in the filter_condition text box and clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, HIRE_DATE, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>okay? See that the results came back, and it is still ordered by the SALARY column, still above 10000. So everything worked fine, but I only got two prompts. And now that I&#39;ve already defined extra_column_name as Salary, if I execute again it won&#39;t even prompt me for that, okay? That&#39;s what I mean by the value will remain in the variable for the duration of this session. So if I execute again, I&#39;ll only get prompted for the condition,</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, last_name, hire_date, &amp;&amp;extra_column_name, FROM EMPLOYEES, WHERE &amp;filter_condition, ORDER BY &amp;extra_column_name DESC; statement and clicks the execute icon. The Enter Substitution Variable dialog box opens. It contains Enter value for filter_condition text box and OK and Cancel buttons.</em> [Video description ends]</p>
+<p>okay, salary&gt;10000. And I could pass in a different value if I want, in fact let&#39;s go with that, let&#39;s go with 12000. Okay,</p>
+<p>[Video description begins] <em> He types salary&gt;12000 in the Enter value for filter_condition text box and clicks the OK button. A table with EMPLOYEE_ID, LAST_NAME, HIRE_DATE, and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>and there we see the results again. So I was not prompted for the extra_column_name at all, only the filter condition. Okay, so again these are very useful when you simply want to change up the criteria or even the columns that are used with each execution. Rather than having to statically code a value and then having to go back in and change it later.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Exercise: Manipulating Data (it_dfosfd_11_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/4a43d1d1-723b-4bcd-bf97-545d7f86410c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/4a43d1d1-723b-4bcd-bf97-545d7f86410c/image001.jpg')();" /><div class="section_text">Learn how to manipulate data using SQL.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">manipulate data using SQL </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Manipulating Data. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Okay, for our exercise this time we&#39;ll ask you to use character strings and dates in a WHERE clause. Then to use the BETWEEN and IN comparison operators in a WHERE clause, then to use the NULL logical operator in a WHERE clause. And finally to use the AND operator versus the OR operator to compare how they affect the results of a SELECT statement.</p>
+<p>So again what we&#39;d like you to do is to take a few minutes and try these exercises on your own. Then we&#39;ll come back to review to see how you made out. So we&#39;ll see you shortly. All right, to reveal our possible solutions for this exercise. First we asked about using character strings and dates in a WHERE clause.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected.</em> [Video description ends]</p>
+<p>And really the only thing you need to be mindful of here is that they both need single quotes around them. And that characters are case sensitive, and dates are format sensitive. So in our first example, I can select out records based on a person&#39;s last name and this certainly works.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement and clicks the execute icon. A table with JOB_ID and DEPARTMENT_ID column headers and one row appears in the Query Result tab </em>[Video description ends]</p>
+<p>But notice if I were to get the case wrong</p>
+<p>[Video description begins]<em> He alters uppercase w to lowercase in the word Whalen from the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;Whalen&#39;; statement.</em> [Video description ends]</p>
+<p>I won&#39;t get any records back,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;whalen&#39;; statement and clicks the execute icon. </em>[Video description ends]</p>
+<p>okay? So case sensitive, by default,</p>
+<p>[Video description begins] <em>He alters lowercase w to uppercase in the word whalen from the SELECT last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name &#61; &#39;whalen&#39;; statement.</em> [Video description ends]</p>
+<p>and dates are format sensitive. So if you aren&#39;t sure which format is being used, then you could just select out every record to find out. But ultimately the format does need to match,</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, hire_date, FROM EMPLOYEES, WHERE hire_date &#61; &#39;07-05-21&#39;; statement and clicks the execute icon. A table with LAST_NAME, JOB_ID and HIRE_DATE columns headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>and also needs to be in single quotes, okay? Then we asked about using the BETWEEN and the IN operators. And in our first example we are specifying a range, and this is what the BETWEEN clause allows you to do very easily. It is inclusive of the values you specify, so 3000 and 5000 in this case will be included. And you also do not have to specify the column name twice. This is the functional equivalent to a WHERE clause that states salary is greater than or equal to 3000.</p>
+<p>And salary, again, less than or equal to 5000. So you have to specify the name of the column two times, if you&#39;re using those numeric comparison operators. With the BETWEEN and AND statement, you only need to specify the column one time. So we can execute here and we get our results.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, salary, FROM EMPLOYEES, WHERE salary BETWEEN 3000 and 5000; statement and clicks the execute icon. A table with LAST_NAME and SALARY column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And again, remember that they are inclusive of those two values. So I do think there is one that is exactly 3000 right there.</p>
+<p>[Video description begins] <em> He points at the value 3000 under the SALARY column header.</em> [Video description ends]</p>
+<p>Then we asked about using the IN operator and this allows you to specify multiple values to be passed in to the WHERE clause. So if I want multiple last names to be searched for, I can simply use IN and then each value in single quotes, and separated by commas all in parentheses, okay? This equates to essentially multiple OR conditions, it could be Austin or King or Ernst but this again is certainly an easier way to express that. So now any or all of those will be returned, okay?</p>
+<p>[Video description begins] <em> He selects the last_name, job_id, department_id, FROM EMPLOYEES, WHERE last_name IN(&#39;Austin&#39;, &#39;King&#39;, &#39;Ernest&#39;); statement and clicks the execute icon. A table with LAST_NAME, JOB_ID, and DEPARTMENT_ID column headers and four rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Then we asked about using the NULL logical operator to locate NULL values. So anywhere that you have a NULL, simply specify WHERE, then the column you want to examine. And then IS NULL, okay, and it is two separate words, so we could just look for any value that contains a NULL.</p>
+<p>[Video description begins] <em> He selects the SELECT last_name, job_id, manager_id, FROM EMPLOYEES, WHERE manager_id IS NULL; statement and clicks the execute icon. A table with LAST_NAME, JOB_ID, and MANAGER_ID column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>Also recall you can reverse that by searching for IS NOT NULL. And finally, we asked to compare the use of AND versus OR. And when you specify an AND condition you are saying that all of the criteria must be met. So in this case, first_name must be Steven AND last_name must be King. If both are not satisfied, they will not be returned. So I get exactly that person,</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; AND last_name &#61; &#39;King&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and one row appears in the Query Result tab.</em> [Video description ends]</p>
+<p>okay? But with an OR condition, I can examine the first_name and say yes, it has to be Steven OR anyone who has the job_id of ST_CLERK, okay? So let&#39;s execute.</p>
+<p>[Video description begins] <em> He selects the SELECT first_name, last_name, job_id, FROM EMPLOYEES, WHERE first_name &#61; &#39;STEVEN&#39; OR job_id &#61; &#39;ST_CLERK&#39;; statement and clicks the execute icon. A table with FIRST_NAME, LAST_NAME, and JOB_ID column headers and several rows appears in the Query Result tab.</em> [Video description ends]</p>
+<p>And we certainly get Stevens coming back,</p>
+<p>[Video description begins]<em> He points at the value Steven under the FIRST_NAME column header.</em> [Video description ends]</p>
+<p>but we get this Steven coming back simply because it matched the first_name.</p>
+<p>[Video description begins] <em> He points at the fifth row of the table with values Steven, Markle, and ST_CLERK under the FIRST_NAME, LAST_NAME, and JOB_ID column headers, respectively.</em> [Video description ends]</p>
+<p>But it also happened to match ST_CLERK, but this Steven certainly did not match ST_CLERK. It came back simply because of one of the pieces of criteria being satisfied, and that is essentially what you get with an OR, okay? Any piece of criteria can be satisfied for the record to be returned.</p>
+<p>So with AND conditions, you will almost always get fewer records, because it must meet all of the criteria. With OR conditions you will almost always get more records because it can meet any of the criteria. So certainly always be mindful of the difference between the two when executing your queries. So hopefully you made out all right with those exercises and if so, we&#39;ll move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

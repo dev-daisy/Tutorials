@@ -1,0 +1,471 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Data Manipulation Language & Transaction Control Language</h1><div class="section_text"><p>Once an Oracle 12c relational database has been created with objects, the data in these objects needs to be managed. Discover how to insert, update, delete, and truncate rows.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Data Manipulation Language (it_dfosfd_02_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: INSERT Statement (it_dfosfd_02_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Inserting Rows with NULL Values (it_dfosfd_02_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Inserting Special Values (it_dfosfd_02_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: UPDATE Statement (it_dfosfd_02_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: TRUNCATE Statement (it_dfosfd_02_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Transactions (it_dfosfd_02_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: SAVEPOINT (it_dfosfd_02_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Statement-level Rollback  (it_dfosfd_02_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Read Consistency (it_dfosfd_02_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Manual Data Locking (it_dfosfd_02_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Exercise: Manipulate Data in a Table (it_dfosfd_02_enus_12)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Data Manipulation Language (it_dfosfd_02_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/89183f82-0606-48c0-b145-e386a17e69e5/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/89183f82-0606-48c0-b145-e386a17e69e5/image001.jpg')();" /><div class="section_text">In this video, you will learn how to define the Data Manipulation Language in Structured Query Language.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">define the Data Manipulation Language in SQL</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Data Manipulation Language. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation we&#39;ll take a look at a data manipulation language, or a DML statement, which is a core component of Oracle SQL. When you want to add, update, or delete a record in the database, you execute a DML statement. And a collection of DML statements that form a logical unit of work is known as a transaction. So, for example, consider a banking database. When a bank customer transfers money from a savings account to a checking account, the transaction might consist of three separate operations. Decreasing the balance in the savings account, increasing the balance in the checking account. And recording the fact that this transaction took place in what&#39;s known as a transaction log.</p>
+<p>The Oracle server has to guarantee that all three of those operations are performed to maintain everything in proper balance. And if something should prevent one of those statements in a transaction from executing, then all other statements have to be undone. In other words, you cannot increase the balance of the checking account without decreasing the balance of the savings account. So everything essentially has to be undone. So this just guarantees the consistency of the work that is performed in your database. But the individual statements, again, by themselves, are INSERT to add the new row, UPDATE to simply make a modification, or DELETE to remove the existing row. And collectively they form your data manipulation language statements.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: INSERT Statement (it_dfosfd_02_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/5aa3e1b1-0a5b-40c4-a235-6fa1594d0a8e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5aa3e1b1-0a5b-40c4-a235-6fa1594d0a8e/image001.jpg')();" /><div class="section_text">In this video, find out how to add rows to a table in the database by using the INSERT SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">add rows to a table in the database by using the INSERT SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: INSERT Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see how to use the INSERT INTO statement of Oracle to add a new record to a table. Now, we&#39;ll begin by selecting out all of the existing records just to see what any given record looks like. And we&#39;ll talk about the SELECT statement in an upcoming demonstration. But for the time being, you can see that I have already retrieved the existing records just so I can get an idea of what they look like.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. It is divided into four parts. The first part is the Connections pane. The second part is the Reports pane. The third part contains two tabs, Start Page and HR. The HR tab is selected and its content is displayed. The fourth part contains a table with four column headers: DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>So I&#39;ve issued this statement here, SELECT *,</p>
+<p>[Video description begins] <em> He highlights the statement: --View existing records in the department table, SELECT * FROM HR.DEPARTMENTS, ORDER BY Department_id DESC; in the HR tab.</em> [Video description ends]</p>
+<p>or all columns, from the HR.DEPARTMENTS table. And that&#39;s this table that you can see right here on the left.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENTS option in the Connections pane.</em> [Video description ends]</p>
+<p>ORDER BY Department_id sorts them in descending order so that I can see the most recent record at the top, and this is the most recent record.</p>
+<p>[Video description begins] <em> He points at values 270, Payroll, (null), and 1700 under the column headers: DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>And this just allows me to see that the ID increments by ten each time. So this allows me to ascertain what the next value should be. So I&#39;m going to use 280 since the last one was 270 and it is incrementing by ten. Then we see, of course, a DEPARTMENT_NAME, a MANAGER_ID, and a LOCATION_ID. And you can see that the MANAGER_ID will accept a null value, but we&#39;ll put one in anyway. And we&#39;ll talk about null values later on as well. So now I know what the record should look like. So let&#39;s take a look at the INSERT statement to Insert a new record. So it&#39;s INSERT INTO, followed by the name of the table. And you always specify the table with which you are working when you are issuing your DML statements, data manipulation language. So we INSERT INTO the table. And it&#39;s not a bad habit to get into, to reference the schema name dot table name.</p>
+<p>And that just avoids ambiguity in case there happen to be two tables with the same name but in different schemas, but it wouldn&#39;t actually be required. I could leave the HR off if I&#39;m confident that there is only one table named DEPARTMENTS. Then, in parentheses, you can see that all of the columns are listed as per what we see in the results. So DEPARTMENT_ID, then DEPARTMENT_NAME, then MANAGER_ID, then LOCATION_ID. So those are all of the columns into which we are inserting new values. And that&#39;s the next line, the values specifically are 280 for the DEPARTMENT_ID. IT Training, and you can see that since this is text based and it has a space, that goes in single quotation marks. That is the DEPARTMENT_NAME, 103 is the MANAGER_ID, and 1400 is the LOCATION_ID, okay? So that will create the new record. So let&#39;s go ahead and run that statement. And you can see that one row has been inserted. And we&#39;ll reissue the SELECT statement to verify that it has been inserted.</p>
+<p>[Video description begins] <em> He clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And there it is, DEPARTMENT_ID 280. IT Training managed by employee 103 in location 1400. So we have successfully entered that new record into the table. Now, it&#39;s not a bad idea to commit that statement, but we&#39;ll talk about that later as well. For the time being, this is fine. Now, I do also want to show you a shortcut. Can see this last statement here allows you to specify the INSERT</p>
+<p>[Video description begins] <em> He highlights the statement: --Shortcut: The columns list can be left out as long as you specify values for each column in the correct order in the HR tab.</em> [Video description ends]</p>
+<p>statement without actually referencing the names of the columns. So you can see the columns list can be left out as long as you specify values for each column in the correct order. So that&#39;s the syntax we have here. And I&#39;m just making up another department, one called User Training, with an ID of 290 and the same manager and the same location. But you can see that it&#39;s now INSERT INTO the name of the table, and then you go straight to the values. And as long as 290 matches up with the DEPARTMENT_ID and User Training matches up with the DEPARTMENT_NAME and 103 matches up with the MANAGER_ID and so forth, then this will actually work as well. So let&#39;s go ahead and execute this statement.</p>
+<p>[Video description begins] <em> He selects the INSERT INTO HR.DEPARTMENTS VALUES (290, &#39;User Training&#39;, 103, 1400); statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And we can see that that has been inserted. And let&#39;s re-select to verify.</p>
+<p>[Video description begins] <em> He highlights the statement: SELECT * FROM HR.DEPARTMENTS, ORDER BY Department_id DESC; in the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And sure enough, there is department 290, User Training, with the manager of 103 and the location of 1400. So, again, that&#39;s just a shortcut. It&#39;s certainly not necessary. It can save you a bit of typing, maybe a little bit of time. But it&#39;s not a bad idea to always explicitly state the columns, again, just to avoid possible confusion. But either option will work when inserting new records into a table.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Inserting Rows with NULL Values (it_dfosfd_02_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/1dd269ba-2f18-4160-a000-37fc2de266ea/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1dd269ba-2f18-4160-a000-37fc2de266ea/image001.jpg')();" /><div class="section_text">Learn how to insert rows with no values.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">insert rows with NULL values</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Inserting Rows with NULL Values. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in this demonstration, we&#39;ll take another look at using the INSERT INTO statement.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>But if we look at the original SELECT statement that was issued against our DEPARTMENTS table. We can see that the MANAGER_ID column contains several nulls. And that simply means that the department is not managed by any particular manager, and that&#39;s perfectly fine. In many cases, you will have tables where there is no appropriate value for any given column. For example, if you are tracking customer information, maybe you have a column for fax number. Well, not everybody has a fax number, so you simply leave it empty, you don&#39;t put in any value. And if we look at the structure of the DEPARTMENTS table, we can just select it from our browser here.</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS option from the Connections pane and the DEPARTMENTS tab opens in the third part of the window. The tab includes Columns, Data, Grants and Statistics buttons. The Columns button is selected and it contains a table with six column headers: COLUMN_NAME, DATA_TYPE, NULLABLE, DATA_DEFAULT, COLUMN_ID, and COMMENTS.</em> [Video description ends]</p>
+<p>We can see that there is a NULLABLE column here. And we are simply not allowed to leave the DEPARTMENT_ID or the DEPARTMENT_NAME as null. But the MANAGER_ID and in fact the LOCATION_ID can be left null. So again, that&#39;s up to you in terms of designing the tables. But if it will accept the null to insert the record with a null,</p>
+<p>[Video description begins] <em> He closes the DEPARTMENTS tab.</em> [Video description ends]</p>
+<p>you actually specify the keyword of null.</p>
+<p>[Video description begins] <em> He points at the HR tab.</em> [Video description ends]</p>
+<p>So our INSERT INTO statement is identical to our previous example. We INSERT INTO the HR.DEPARTMENTS table. Then in parenthesis, we still specify all of the columns, DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID. Then in our values list, again, each value corresponds with the column. So 300 now for this department, Research as its name, the keyword of null for the MANAGER_ID, since that is a nullable column. And then again, 1700 for the location. Okay, so let&#39;s go ahead and execute. To insert this new record that has been inserted, let&#39;s re-select.</p>
+<p>[Video description begins] <em> He selects the statement: INSERT INTO HR.DEPARTMENTS (DEPARTMENTS_ID, DEPARTMENT_NAME, MANAGER_ID, LOCATION_ID), VALUES (300, &#39;Research&#39;, null, 1700); from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And sure enough, there is our new record</p>
+<p>[Video description begins] <em> He selects the statement: SELECT * FROM HR.DEPARTMENTS, ORDER BY Department_id DESC; from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>with a null inserted into the MANAGER_ID column. And again, I just want to indicate here that you can</p>
+<p>[Video description begins] <em> He points at the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>also use the shortcut whereby you do not have to specify the columns, okay?</p>
+<p>[Video description begins] <em> He highlights the statement: INSERT INTO HR.DEPARTMENTS VALUES (300, &#39;Research&#39;, null, 1700); in the HR tab.</em> [Video description ends]</p>
+<p>But everything still has to match up. 300 is for the DEPARTMENT_ID, Research for the name, null for the MANAGER_ID, and 1700 in the correct order, so that would also work. I just won&#39;t bother executing it because it&#39;s the same ID. But I do want to also mention that you should be careful to not put the word null in single quotes. You can see what happens as soon as I put single quotes around that, it&#39;s no longer showing up in bold like the previous one was. This would actually attempt to insert the word null into a MANAGER_ID column, which is a number. So in fact, I can execute this, this will attempt to do exactly that. And watch what happens, it throws an error.</p>
+<p>[Video description begins] <em> He selects the statement: INSERT INTO HR.DEPARTMENTS VALUES (300, &#39;Research&#39;, &#39;null&#39;, 1700); in the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>You can see that it is attempting to put that word, null, into a number or numeric column. So simply avoid the single quotes when using the null keyword. It needs to be recognized by Oracle as that specific keyword so it insures an actual null will be inserted into your table. And again, there is the record right there with its appropriate null entry.</p>
+<p>[Video description begins] <em> He points at the values 300, Research, (null), and 1700 under the DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID,LOCATION_ID column headers.</em> [Video description ends]</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Inserting Special Values (it_dfosfd_02_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/fe74e847-aef2-4bf7-9195-f852a4577b90/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/fe74e847-aef2-4bf7-9195-f852a4577b90/image001.jpg')();" /><div class="section_text">In this video, you will learn how to insert a special value into a table.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">insert a special value in a table</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Inserting Special Values. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In some cases, when you are inserting a new record into a table, you don&#39;t necessarily have to specify a particular value for a particular column. Now, this does depend on the structure of the table. But in this demonstration, we&#39;ll take a look at using special values that can insert the value for you. So in this case, I&#39;m using the employees table.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>And I&#39;ve begun by just selecting out all existing employees and, again, ordering them by the EMPLOYEE_ID in descending order. So I see the most recent employee, essentially, or at least the last record that was created just so I can determine which ID to use.</p>
+<p>[Video description begins] <em> He highlights the ORDER BY EMPLOYEE_ID DESC; statement in the HR tab.</em> [Video description ends]</p>
+<p>So I&#39;m going to use ID 207 for my next record. But if we look at all of the columns here, we see that there is a HIRE_DATE column.</p>
+<p>[Video description begins] <em> He points at the table displayed in the fourth part of the window. The table includes several column headers such as EMPLOYEE_ID, FIRST_NAME, LAST_NAME, and EMAIL.</em> [Video description ends]</p>
+<p>When you have any kind of date-based column, often you can use a function to insert the value that you want. So the assumption here is that if I&#39;m creating a new employee record, then chances are this employee was hired today. Now, that may not be the case. You might be back entering the records, for example. But if it is today&#39;s date, then you can use a system function to insert that value for you. So our INSERT statement is, again, the same as our previous examples. It&#39;s a little longer because there are more columns, but it&#39;s still INSERT INTO the table HR.EMPLOYEES. Then, in parentheses, each column, EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER.</p>
+<p>There&#39;s the HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, and DEPARTMENT_ID. So those are all of the columns, in order. But then, if we look at the values, we see 207 for the ID. Sharon for the FIRST_NAME, Anderson for the LAST_NAME, SANDERSON for the EMAIL. There&#39;s just a made-up phone number. But when we get to the HIRE_DATE column, we can see the value is the SYSDATE function. So this inserts today&#39;s date automatically. So we don&#39;t have to worry about making sure the format is correct, or knowing how it should be entered. It will simply go in automatically. So that&#39;s our special value in this table. And then everything else are just the appropriate values for those columns. So this is the JOB_ID, the SALARY. I&#39;m using, again, our keyword of null to insert a null into the percentage for the commission. Then the MANAGER_ID and then the DEPARTMENT_ID. Okay, so let&#39;s go ahead and execute the INSERT statement.</p>
+<p>[Video description begins] <em> He selects the INSERT INTO HR.EMPLOYEES (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID, SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID), VALUES (207, &#39;Sharon&#39;, &#39;Anderson&#39;, &#39;SANDERSON&#39;, &#39;123.456.7890&#39;, &#39;SYSDATE&#39;, &#39;AC_MGR&#39;, 10000, null, 101, 110); statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And then let&#39;s again select out the records to verify.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.EMPLOYEES, ORDER BY EMPLOYEE_ID DESC; statement and clicks the RUN Statement button.</em> [Video description ends]</p>
+<p>And there is our new employee.</p>
+<p>[Video description begins] <em> He points at the first row of the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>And look at the HIRE_DATE. That is today&#39;s date, and it went in automatically in the correct format, and I didn&#39;t have to worry about any of that. So, again, that&#39;s an example of using a function to allow Oracle to insert the value that you want automatically and in the correct format.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: UPDATE Statement (it_dfosfd_02_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/9d71c8bf-c576-44fa-8a06-8330e7684336/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9d71c8bf-c576-44fa-8a06-8330e7684336/image001.jpg')();" /><div class="section_text">In this video, learn how to change data in a table using the UPDATE statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">change data in a table using the UPDATE statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: UPDATE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now once you&#39;ve inserted a record into a table, of course it&#39;s not at all uncommon that something might need to be changed. So in this demonstration, we&#39;ll take a look at implementing changes using the UPDATE statement. Now, I&#39;ve already selected out all of the existing records from my DEPARTMENTS table. And I have this new department of ID 300, with a name of Research.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. He points at the first row of the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>And I&#39;m simply going to change the name to Research and Development. So the UPDATE statement itself is to UPDATE the table. Remember that DML statements always operate against the table. Then we use the SET operator against the column that we want to change. And I&#39;m setting the value equal to, in this case, Research and Development. And since this is text, and there are spaces, we put that in single quotes. Now perhaps the most important aspect of using the UPDATE statement is to ensure that you affect the correct record. So this is the WHERE clause. And you can see in my description here, Be sure to specify a WHERE clause! Because again, the UPDATE statement itself operates against the entire table. So in other words, if I did not tell it which record to use, it would update every record.</p>
+<p>So, it&#39;s very common to use the unique identifier to ensure that you are working with the correct record. Now it&#39;s not necessary. You could reference another column. And in some cases maybe you are wanting to update multiple values in a given column, so you don&#39;t want to use the unique identifier. But it&#39;s very common to do so. This ensures that I update only DEPARTMENT_ID 300 and no other department. Okay, so again, it&#39;s very important to ensure that you are working with the correct records. Otherwise, you could end up making changes where you don&#39;t want changes.</p>
+<p>[Video description begins] <em> He selects the UPDATE HR.DEPARTMENTS, SET DEPARTMENT_NAME &#61; &#39;Research and Development&#39;, WHERE DEPARTMENT_ID &#61; 300; statement from the HR tab and clicks the Run Statement button. </em>[Video description ends]</p>
+<p>So let&#39;s go ahead and execute our UPDATE statement, that has been updated and then let&#39;s reselect to verify.</p>
+<p>[Video description begins]<em> He selects the SELECT * FROM HR.DEPARTMENTS, ORDER BY DEPARTMENT_id DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And sure enough, the name has been changed to Research and Development for just DEPARTMENT_ID 300. So again, UPDATE the table.</p>
+<p>[Video description begins] <em> He points at the first row of the table in the fourth part of the window.</em> [Video description ends]</p>
+<p>SET the column to the desired value. And be sure to specify a WHERE clause that will inform Oracle, this is the record to change.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: TRUNCATE Statement (it_dfosfd_02_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/9573f759-53b6-43d6-91aa-23dd7a9b656e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9573f759-53b6-43d6-91aa-23dd7a9b656e/image001.jpg')();" /><div class="section_text">Find out how to remove rows from a table using the DELETE and TRUNCATE statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">remove rows from a table using the DELETE and TRUNCATE statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: TRUNCATE Statement. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration we&#39;ll take a look at removing records from a table, using either the DELETE statement or the TRUNCATE TABLE statement. Now, before I get started, I&#39;d like to work with a copy of the table in this case, just so that I don&#39;t affect any of the original records. Now, this is just a sample database, so I&#39;m not really concerned about losing records. I just want to continue to have them available for future use. So it&#39;s not a bad idea to create a copy in the first place, particularly in a production environment while you are learning or testing, so that you don&#39;t affect your original data. So you can see that my code is referencing a table called DEPARTMENTS_COPY, which currently does not exist.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window. It is divided into three parts.</em> [Video description ends]</p>
+<p>But you can create it very easily by simply right-clicking the original table, in this case, DEPARTMENTS.</p>
+<p>[Video description begins] <em> He right-clicks the DEPARTMENTS option in the Connections pane.</em> [Video description ends]</p>
+<p>Then choosing the Table option, then choose Copy.</p>
+<p>[Video description begins] <em> The Copy dialog box opens. It contains two tabs, Prompts and SQL. The Prompts tab is selected. It includes Owner, Name, and New Table Name text boxes.</em> [Video description ends]</p>
+<p>Simply give the new table a name, which we&#39;ll call DEPARTMENTS_COPY. And you can see that I have a check box here to include the data so</p>
+<p>[Video description begins] <em> He selects the Include Data checkbox.</em> [Video description ends]</p>
+<p>that I have a complete, exact copy of the original. Click on Apply, and we have our copy.</p>
+<p>[Video description begins] <em> A Confirmation dialog box opens. It displays the message - Table &#39;DEPARTMENTS&#39; has been copied to DEPARTMENTS_COPY.</em> [Video description ends]</p>
+<p>Okay, so now I can work with this one without worrying about the original.</p>
+<p>[Video description begins] <em> He points at the DEPARTMENTS_COPY option that appears in the Connections pane.</em> [Video description ends]</p>
+<p>So let&#39;s just select all of the records out to verify that we do have records, and there they are.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY Department_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And these are the three records that I created earlier with the INSERT</p>
+<p>[Video description begins] <em> He points at the first three rows of the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>statement. So let&#39;s take a look at removing some of those. We&#39;ll begin by removing a single record using the DELETE statement. And since I want to specifically remove just that one record, you need to be sure to use a WHERE clause. Because again, if you did not specify a WHERE clause, it would remove every record. Now, we will see that in a moment, but for the time being, we can DELETE FROM, and again, remember that DML statements operate against the table, HR.DEPARTMENTS_COPY, WHERE the DEPARTMENT_ID &#61; 300. And again, the criteria does not necessarily have to be the DEPARTMENT_ID, the unique value. But it is very common, to ensure that this is the exact record that I want to delete, okay? So it&#39;s a fairly simple syntax, but let&#39;s go ahead and execute. And we should see 1 row deleted, let&#39;s re-select,</p>
+<p>[Video description begins] <em> He selects the DELETE FROM HR.DEPARTMENTS_COPY, WHERE DEPARTMENT_ID &#61; 300; statement from the HR tab and clicks the Run Statement command.</em> [Video description ends]</p>
+<p>and that record should be gone, and sure enough it is.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY Department_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Okay, we can Remove multiple records using the DELETE statement by simply adjusting the WHERE clause. Now, this entirely depends on what it is you want to remove, there are a number of different ways that you can specify the criteria. In my case, I want to remove DEPARTMENT_ID 280 and 290. So it just so happens that I can do something like this, WHERE DEPARTMENT_ID &gt;&#61; 280. But bear in mind, had I done that in the first place, it would have also removed 300. Again, not a huge deal in my case, but that&#39;s just one example. You could have also done something like WHERE DEPARTMENT_ID is between, it does accept that keyword of between, then value 1 and value 2. I could&#39;ve also said greater than or equal to 280, and DEPARTMENT_ID less than or equal to 290, that would also work. So there&#39;s a number of ways by which you can phrase that criteria. For the time being, this will work just fine in my case. So let&#39;s execute this one, and two rows were deleted.</p>
+<p>[Video description begins] <em> He selects the DELETE FROM HR.DEPARTMENTS_COPY, WHERE DEPARTMENT_ID &gt;&#61; 280; statement from the HR tab and clicks the Run Statement command.</em> [Video description ends]</p>
+<p>Let&#39;s re-select and now, all three should be gone, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY Department_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Now, if you do want to remove every record, which is fairly common when you are just testing. You can just issue the DELETE FROM statement against the table without a WHERE clause, okay? Simply remove the WHERE clause and this will remove all records from the table. So certainly be very careful with this in production. But when it&#39;s appropriate, you can certainly remove all records with that single statement.</p>
+<p>[Video description begins] <em> He selects the DELETE FROM HR.DEPARTMENTS_COPY; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>27 rows were deleted, and if we re-select now, no rows at all. The structure remains, okay? We have not deleted the table, only the records in the table. So the last option is functionally equivalent to deleting without a WHERE clause. TRUNCATE TABLE also removes all records, okay? So let&#39;s quickly regenerate a new copy, so let&#39;s drop this table entirely, we&#39;ll right-click and choose Table.</p>
+<p>[Video description begins] <em> He clicks the DEPARTMENTS_COPY option from the Connections pane and the DEPARTMENTS_COPY tab opens in the third part of the window.</em> [Video description ends]</p>
+<p>And dropping it removes everything, the records and the structure.</p>
+<p>[Video description begins] <em> The Drop dialog box opens. It contains two tabs, Prompts and SQL. The Prompts tabs is selected. It includes Owner and Name text boxes with the texts HR and DEPARTMENTS_COPY, respectively.</em> [Video description ends]</p>
+<p>So let&#39;s go ahead and Apply that. That has been dropped, and let&#39;s quickly regenerate a new copy.</p>
+<p>[Video description begins] <em> He right-clicks the DEPARTMENTS option from the Connections pane. Then, he selects the Table option from the menu and a flyout menu appears. He clicks the Copy option and the Copy dialog box opens.</em> [Video description ends]</p>
+<p>And again, we&#39;ll just call it DEPARTMENTS_COPY.</p>
+<p>[Video description begins] <em> He types DEPARTMENTS_COPY in the New Table Name text box</em>. [Video description ends]</p>
+<p>And we&#39;ll include the data and Apply that.</p>
+<p>[Video description begins]<em> He selects the Include Data checkbox. </em><em>A Confirmation dialog box opens. It displays the message - Table &#39;DEPARTMENTS&#39; has been copied to DEPARTMENTS_COPY.</em> [Video description ends]</p>
+<p>Okay, so the table is back, let&#39;s just verify again that we have all of our records.</p>
+<p>[Video description begins] <em> He closes the DEPARTMENTS tab. He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY Department_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>There they are, okay, so that, again, is a copy of the original,</p>
+<p>[Video description begins] <em> He points at the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>that&#39;s why 300, 290, and 280 are back again. So now let&#39;s execute TRUNCATE TABLE against the DEPARTMENTS_COPY table.</p>
+<p>[Video description begins] <em> He selects the TRUNCATE TABLE HR. DEPARTMENTS_COPY; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And we can see it has been truncated. Let&#39;s re-select and we can see all records have been removed.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY Department_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>So again, deleting without a WHERE clause is functionally equivalent to TRUNCATE TABLE. The difference is that DELETE FROM is a DML statement, data manipulation language. And as such, since I have not yet committed this statement, I could actually roll that back, I could undo it. TRUNCATE TABLE officially is a DDL statement, data definition language. It cannot be rolled back, okay? So that&#39;s the difference between the two. So if all you want to do is to remove the records, either one will work. Dropping the table deletes the table entirely, including its structure. But again, TRUNCATE TABLE is a DDL statement that cannot be rolled back. DELETE without a WHERE clause is a DML statement that can be rolled back. But at the end of the day, both of them will remove all records.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Transactions (it_dfosfd_02_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/273f0383-8af8-4473-9708-9b125718bac2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/273f0383-8af8-4473-9708-9b125718bac2/image001.jpg')();" /><div class="section_text">During this video, you will learn how to use the COMMIT and ROLLBACK statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the COMMIT and ROLLBACK statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Transactions. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration we&#39;ll take a look at the effects of the rollback and commit statements against the SQL statements that you issue in Oracle and effectively we&#39;re working with here are known as transactions. And a transaction in just about any database environment is essentially a unit of work that can be either committed, essentially meaning that it was successful. Or it can be undone, it can be rolled back, so that if a problem occurred, then the change that was made is simply discarded. And this allows you to keep your database in a very consistent state, so that if there are errors, they can simply be removed and you can try again. And any transaction is effectively defined as a unit of work that must either complete entirely or not at all. Because you don&#39;t want a transaction that&#39;s sort of half complete, if you will. Whereby certain records maybe were changed successfully, while other ones were not. So for this demonstration, I&#39;m again just working with my department&#39;s copy table.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>And you can see that initially we&#39;ll just select out all records, to verify that they exist, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button. A table gets displayed in the fourth part of the window. The table contains four column headers: DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>So we do have records in the table. So now I&#39;m going to issue a statement that will delete all records, okay? Right here, DELETE FROM DEPARTMENTS_COPY, we&#39;ll execute that, and we can see 30 rows were deleted. Let&#39;s go back and verify, and we should see no records, okay?</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>So all records have been removed. So if by chance we didn&#39;t mean to do that or some kind of error occurred, we can undo this operation. And this is the ROLLBACK statement. It quite simply will undo whatever was just done. So we&#39;ll talk more later about how you can control this in a little more detail. But for the time being, let&#39;s just view the results of a ROLLBACK statement. So we&#39;ll execute the ROLLBACK, and we can see the rollback is complete, but let&#39;s see what that did now. Let&#39;s reselect from the same table, and all of our records are back.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>All 30 rows have been restored. So again, this allows you to quite simply undo a change that maybe should not have been done. So let&#39;s try this again, let&#39;s delete all of those records from the table.</p>
+<p>[Video description begins] <em> He selects the DELETE FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And we can see 30 rows have been deleted again. So once again let&#39;s verify, we&#39;ll select all records, and they are all gone.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>So now let&#39;s say that this is exactly what we wanted. So we can Commit the delete operation with a COMMIT statement. So let&#39;s execute the COMMIT. And we see the COMMIT has completed. So I wouldn&#39;t expect to see any kind of change, but let&#39;s just re-select again. And we can see that the records are still gone.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>But now that I&#39;ve committed that, let&#39;s see what happens if we try to rollback the operation. So we&#39;ll execute another ROLLBACK, thinking okay, well maybe I can still restore those records. So let&#39;s go ahead, and we see that a rollback is complete, but there was nothing to ROLLBACK. Once we committed that previous statement, essentially that&#39;s it. So even though it says the rollback was complete, there was really nothing to do. So let&#39;s re-select, and sure enough, the records are gone,</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>because we committed the delete operation. So ROLLBACK, at this point, essentially has nothing to do. So when you are developing your code, you can include these in the logic, in the flow. So that if something goes wrong during the execution of a statement, you can say, let&#39;s roll that back. But if everything succeeds as planned, you can commit it, and that ensures that it is written to the database. And that it will remain consistent from that point forward.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: SAVEPOINT (it_dfosfd_02_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/01fb29eb-c223-4729-a42b-affe20818bb2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/01fb29eb-c223-4729-a42b-affe20818bb2/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the SAVEPOINT statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the SAVEPOINT statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: SAVEPOINT. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll take a closer look at controlling your transactions using what&#39;s known as savepoints. In an earlier demonstration, we saw how you can issue a ROLLBACK statement to essentially undo changes to the database. But a ROLLBACK all by itself is not selective. It rolls back all of the changes that you have made in that session up to that point. So in some cases, you might not want to do that. So again, in this demonstration we&#39;ll issue a statement that makes a change, but maybe we want to keep that change even if we do issue a ROLLBACK. So, again, I&#39;m working with my DEPARTMENTS_COPY table. And I&#39;ve regenerated a new, fresh copy, so</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>let&#39;s just select everything out and see where we&#39;re at here. And you can see that the most recent department is ID 300,</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement from the HR tab and clicks the Run Statement button. A table appears in the fourth part of the window. The table contains four column headers: DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>Research and Development, okay? So let&#39;s insert a new record into this table. That&#39;s my INSERT INTO statement. And I&#39;m using the shortcut here where I&#39;m only specifying the values. And I&#39;m creating a new department with an ID of 310, and it&#39;s called Quality Control. So let&#39;s go ahead and execute that INSERT statement,</p>
+<p>[Video description begins] <em> He selects the INSERT INTO DEPARTMENTS_COPY VALUES(310, &#39;Quality Control&#39;, null, null); statement from the HR tab and clicks the Run Statement button. </em>[Video description ends]</p>
+<p>and let&#39;s verify that the record now exists.</p>
+<p>[Video description begins]<em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Okay, so now we have our new department, 310, Quality Control. And we have the previous department of Research and Development with an ID of 300. So both of those records are there, okay? So essentially, what I want to do now is to protect that new record, if you will. And I can do that by creating a savepoint. So here you can see my description is to create a savepoint to protect that new record. And the syntax is simply, SAVEPOINT, and then this is just a name, whatever you want to call that point, so I&#39;m calling it after_insert. Okay, so let&#39;s execute that statement and our savepoint has been created.</p>
+<p>[Video description begins] <em> He selects the SAVEPOINT after_insert; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Okay, so that&#39;s a marked point in the transactions of this session. So now let&#39;s delete an existing record, that DEPARTMENT_ID of 300. We&#39;ll execute that.</p>
+<p>[Video description begins] <em> He selects the DELETE FROM DEPARTMENTS_COPY, WHERE DEPARTMENT_ID &#61; 300; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>One row has been deleted, and now let&#39;s do another SELECT. And now we should see that DEPARTMENT_ID 310 is there, but 300 is not. Let&#39;s execute. And that&#39;s exactly what we have.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>310 is there, 300 has been deleted, okay? So now let&#39;s imagine we&#39;ve made a mistake. We didn&#39;t mean to do that, something went wrong, whatever, it doesn&#39;t really matter, but I want to discard the DELETE operation. But if I were to just issue a ROLLBACK at this point, without a savepoint, it would discard both the DELETE operation and the earlier insert. But the insert was good, so I want to keep that insert. So again, look at the description of my code here, I want to Discard the delete operation without discarding the earlier insert. So I ROLLBACK TO the savepoint that I just created, as opposed to rolling all the way back to the start. So let&#39;s go ahead and ROLLBACK TO after_insert. Rollback complete. And now, we&#39;ll reselect, and essentially I should see that my DEPARTMENT_ID 300, which was just deleted, should be restored. But again, the INSERT operation that I did prior to that should also still be there. That was a valid command, I wanted that record in there, so let&#39;s go ahead and SELECT.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement from the HR tab and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>And sure enough, there they are, both intact.</p>
+<p>[Video description begins] <em> He points at the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>So I discarded the DELETE operation, but I did not discard the INSERT operation. So again, you can use your savepoints to mark certain points within your code to say that if an error occurs, or if we have to ROLLBACK, do not discard all of the operations that have completed up to that point. And that is essentially the purpose of a savepoint.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Statement-level Rollback  (it_dfosfd_02_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/275344ff-3113-498f-be53-aeb4c74bd775/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/275344ff-3113-498f-be53-aeb4c74bd775/image001.jpg')();" /><div class="section_text">Upon completion of this video, you will be able to describe a statement-level rollback.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe a statement level rollback </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Statement-level Rollback. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation, we&#39;ll take a look at a statement-level rollback. And this can allow you to control your statements a little more manually. So if a single DML statement fails during execution, only that statement is rolled back. You may be performing multiple commands in any given script, and this allows you to simply say that this command succeeded and it is fine. This one succeeded and it is fine. This one failed, let&#39;s just undo that one, not the entire script or transaction. So the Oracle server does implement implicit savepoints throughout transactions, but implicit means it is handled by Oracle itself. This allows you to, again, explicitly control where the savepoints are, so that all other changes that you have made are retained.</p>
+<p>So even if certain statements do fail, they can fail and be undone, but other changes that have already succeeded, essentially are retained. So the user should terminate transactions explicitly by executing either a COMMIT or a ROLLBACK. And a COMMIT says everything went fine. That change should be committed to the database. But a ROLLBACK essentially says something went wrong, or this did not complete successfully, therefore it should be undone. But not necessarily every transaction that has occurred up to that point. So again, it just gives you a little more control over how your statements are being committed or rolled back. So that everything is not necessarily undone.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Read Consistency (it_dfosfd_02_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/227990fe-ab0e-4cb5-94bb-3fc74b46c22a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/227990fe-ab0e-4cb5-94bb-3fc74b46c22a/image001.jpg')();" /><div class="section_text">In this video, you will learn how to ensure a consistent view of data at all times.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">guarantee consistent view of data at all times</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Read Consistency. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In most database environments, there are a number of users connected to the same database at the same time. And some users might be making changes or writing to the database, while others might just be selecting data or reading. So there needs to be a mechanism in place whereby all of these operations, all of these transactions that are happening, are not interfering with each other. So that if I&#39;m making a change, for example, that change is not seen by any other user until I&#39;m certain that the change is successful and that I want it to be committed to the database. But while it&#39;s in progress, for lack of a better word, I don&#39;t want users to see what&#39;s happening until everything has completed. So this is what&#39;s known as read consistency. And Oracle simply implements this automatically to always try to present users with a consistent view of the data at all times. So to set this up, I&#39;m again working with my DEPARTMENTS_COPY table.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>And we&#39;ll just select out the records to see the current state.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement and clicks the Run Statement button. A table gets displayed in the fourth part of the window. The table contains four column headers: DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID.</em> [Video description ends]</p>
+<p>And we can see that I have this department called Quality Control with ID 310. So I&#39;m going to make a change to this record. I&#39;m going to issue an UPDATE statement and change its name to Product Testing, okay? So I set the DEPARTMENT_NAME &#61; &#39;Product Testing&#39;, where the ID &#61; 310. So that, of course, represents a write operation to the database. So let&#39;s execute. And from my perspective in my connection in my session, that change has been implemented. In other words, if I reselect and execute, I can see that it now says Product Testing as the DEPARTMENT_NAME.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>So my update succeeded. That&#39;s perfectly fine, but I have another active connection here. You can see I&#39;ve created another one called MyConnection, and this was created as a different user, okay? So this represents concurrency. So from the perspective of this user, the change that I&#39;ve made, for all intents and purposes, has not yet completed. Because you can see that I have yet to issue a COMMIT statement. And as we discussed earlier, commits say that this change is good, write it to the database. But something could happen in the interim, the system might fail. Maybe I&#39;ve discovered an error in my update, and I might roll back this change. So until I commit this, this transaction is essentially in progress. So that is the perspective of this other user.</p>
+<p>[Video description begins] <em> He switches to the MyConnection tab.</em> [Video description ends]</p>
+<p>There&#39;s a transaction in progress. Well, I don&#39;t want to wait until that transaction completes for me to see the records. But what I should see is the unaffected record, in other words, again, from the perspective of this user, nothing has happened yet. The transaction is still in progress. So let&#39;s go ahead and select, as this other user, and we still see Quality Control, the original name.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Let&#39;s go back to the HR connection, and</p>
+<p>[Video description begins] <em> He points at the table that appears in the fourth part of the window. He switches to the HR tab.</em> [Video description ends]</p>
+<p>we see that it has updated to Product Testing.</p>
+<p>[Video description begins] <em> He points at the value of the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>But this user does not see that change, again,</p>
+<p>[Video description begins] <em> He switches to the MyConnection tab.</em> [Video description ends]</p>
+<p>it&#39;s because that change is still in progress. So let&#39;s go ahead and say that everything succeeded.</p>
+<p>[Video description begins] <em> He switches to the HR tab.</em> [Video description ends]</p>
+<p>And this is the way that I want things to be, I want that name changed. So let&#39;s COMMIT this, okay? COMMIT has completed, now that record has been changed for everyone. So let&#39;s go back to MyConnection, let&#39;s re-issue this exact same SELECT statement, and there we see it has now updated to Product Testing.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM HR.DEPARTMENTS_COPY, ORDER BY DEPARTMENT_ID DESC; statement and clicks the Run Statement button. He points at the value of the DEPARTMENT_NAME column.</em> [Video description ends]</p>
+<p>But again, the idea is that I don&#39;t want to wait for those other changes to occur just to see the records. I want to see them as they were, as I expect to see them, regardless of what might be happening to the record at this particular point in time. Until everything succeeds, until that change has been stamped as good, I want to see the original, unaffected records. Once everything has succeeded then sure, update everyone, update all connections, and we see the record as it should be. And that&#39;s the idea, again of read consistency, so that users do not see transactions that are in progress.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Manual Data Locking (it_dfosfd_02_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/0a96d914-4c3e-4196-8653-2454214e7193/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/0a96d914-4c3e-4196-8653-2454214e7193/image001.jpg')();" /><div class="section_text">Learn how and when to use the FOR UPDATE and LOCK IN SHARE MODE statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate when to use the FOR UPDATE and LOCK table statements</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Manual Data Locking. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>When making modifications to tables in Oracle, the database engine will acquire the necessary locks automatically, to ensure that my operations do not interfere with your operations and vice versa. But in many cases, there can be a very high degree of concurrency. A lot of people needing to operate against the same records at the same time. So the automatic locking mechanism does not always guarantee that you will get the appropriate lock at the appropriate level at the appropriate time. So in this demonstration we&#39;ll take a look at using the FOR UPDATE statement and the LOCK TABLE statement to essentially override or guarantee the level of locking that you need. Now, the first option is the FOR UPDATE statement to guarantee the locking of rows.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>Now, this is used in combination with a SELECT statement. So this all by itself does not make any modification. It&#39;s just a SELECT statement. So I&#39;m selecting out the employee_id, the salary, and the commission_pct from the Employees table where the Job_id is equal to SA_REP. And here is the FOR UPDATE statement. So really all this does is declare my intention to perform an update. But I might just want to examine this data set to ensure I&#39;m working with the correct records before I issue the modification statement, in this case, again, an update. And then I&#39;m just sorting by the employee_id. And really, that&#39;s just there to indicate that if you are using an ORDER BY, it still goes last. Okay, so let&#39;s go ahead and execute. And again, no changes have been made.</p>
+<p>[Video description begins] <em> He selects the SELECT employee_id, salary, commission_pct, FROM EMPLOYEES, WHERE job_id &#61; &#39;SA_REP&#39;, FOR UPDATE, ORDER BY employee_id; statement and clicks the Run Statement button. A table gets displayed in the fourth part of the window. The table contains three column headers: EMPLOYEE_ID, SALARY, and COMMISSION_PCT.</em> [Video description ends]</p>
+<p>I see my records, and again, really, I&#39;m just validating, okay, yes,</p>
+<p>[Video description begins] <em> He points at the table.</em> [Video description ends]</p>
+<p>these look like the correct records. So now I can perform my UPDATE operation after the SELECT. The lock is only released with either a ROLLBACK or a COMMIT, but I have guaranteed that I have acquired the appropriate lock on those rows to allow me to perform my update operation. Okay, now I won&#39;t bother making a change so let&#39;s just issue a ROLLBACK, okay.</p>
+<p>[Video description begins] <em> He selects the ROLLBACK statement and clicks the Run Statement Button.</em> [Video description ends]</p>
+<p>And that has completed, so essentially that lock has been released. Now, the other option is using the LOCK TABLE statement to lock the entire table, as opposed to a set of rows. This uses the syntax of simply LOCK TABLE name of table, but then, what level?</p>
+<p>[Video description begins] <em> He highlights LOCK TABLE EMPLOYEES statement.</em> [Video description ends]</p>
+<p>So in EXCLUSIVE MODE in this case, and you can see that there are several available modes. ROW SHARE, ROW EXCLUSIVE, SHARE UPDATE, SHARE, SHARE ROW EXCLUSIVE and EXCLUSIVE. Now ROW SHARE, operates at a row level within the table. So it permits concurrent access to the lock table, but prohibits users from locking the entire table for exclusive access, okay? ROW EXCLUSIVE is essentially the same as ROW SHARE, in terms of the levels. But it also prohibits locking in SHARE mode. So ROW EXCLUSIVE locks are automatically obtained when updating inserting or deleting normally, but again, this guarantees that you get this level. Now, SHARE UPDATE is synonymous with ROW SHARE, and it&#39;s really just there for backward compatibility, so those two are the same. SHARE will permit concurrent queries on the table but prohibits updates to the lock table. So a sharable lock essentially means that we can share this lock. I can read records, I can select them out from the table at the same time as you without interfering, okay? Selecting does not make any changes, but it does prohibit updates to this table. SHARE ROW EXCLUSIVE is used to look at the whole table.</p>
+<p>So again, I can select, and I can allow others to look at rows in the table. But it will prohibit other people from locking the table in a sharable mode or from updating rows that they might want to update. And EXCLUSIVE is the most exclusive. It will still permit queries, again, because they don&#39;t make any changes. But it will lock all other write operations. So inserts, updates, or deletes, all of those will be blocked by this level of locking. So that&#39;s the safest, if you will. But it could cause others to have to wait until this transaction finishes for them to be able to do anything. Now, on the topic of waiting, you can see there&#39;s a NOWAIT clause here. So again, the idea here is that I&#39;m trying to obtain a lock. Well, you might be trying to obtain the same lock. So if you have already obtained that lock and then I tried to obtain it, we can&#39;t both lock this same table unless they are sharable locks. But let&#39;s just imagine that you have already issued an EXCLUSIVE lock request. And now I&#39;m trying to do the same thing. If I did not include NOWAIT, then I would have to wait. So I&#39;m sitting here waiting for that lock to be released. NOWAIT says, well, there&#39;s already a lock, so just try again later, okay? So I will have to wait one way or another, but it will tell me. It will come back and say, there&#39;s already a lock in place, try again later, as opposed to just sitting there waiting for the lock to be released. So again, this all by itself will not make a change. I can execute, and all I get is a lock succeeded.</p>
+<p>[Video description begins] <em> He selects the LOCK TABLE EMPLOYEES, IN EXCLUSIVE MODE, NOWAIT; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>But now I perform my operations, whatever they are. And again, the lock is released with either a ROLLBACK or a COMMIT. So I go above my business, and I know that I have this table locked. So no one else will be able to interfere with my operations, okay? So that&#39;s the idea of using these two to really just manually control the level of locking, to guarantee that you get the correct level at the correct time.</p>
+<p>[Video description begins] <em> He selects the ROLLBACK statement and clicks the Run Statement Button.</em> [Video description ends]</p>
+<p>And this, again, helps to ensure data consistency, so that my operations do not interfere with yours and vice versa.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Exercise: Manipulate Data in a Table (it_dfosfd_02_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/aa72c00d-5eef-46fa-8708-fbbf043db8f7/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/aa72c00d-5eef-46fa-8708-fbbf043db8f7/image001.jpg')();" /><div class="section_text">Learn how to insert and update rows in a table.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">insert and update rows in a table</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Manipulate Data in a Table. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, time for some hands-on exercises now. So what we&#39;d like you to do is to attempt to insert a row with a NULL value, then to insert a special value in a table. Then to change data in a table using the UPDATE statement. Then to use the COMMIT and ROLLBACK statements. And finally, to use the SAVEPOINT statement. So what we&#39;d like you to do is to take a few minutes on your own and try these statements out. Then in a few minutes, we&#39;ll come back, and we&#39;ll review some solutions to see how you made out. So we&#39;ll see you in a few minutes.</p>
+<p>[Video description begins] <em> He opens the Oracle SQL Developer : HR window.</em> [Video description ends]</p>
+<p>Okay, so let&#39;s take a look now at some solutions for the tasks that we asked you to perform, beginning with inserting a row with a null. And for this, all you need to do is specify the keyword of null. So here is a sample INSERT statement, INSERT INTO the DEPARTMENTS table, then the list of columns, and in this case the MANAGER_ID will accept a null value. So we can specify in our VALUES list, an ID, a name, and simply use the keyword of null to actually insert a null, rather then specifying an empty space or just trying to skip past it. You actually just use the keyword of null, then a value for the location ID, and that will insert a record with a null value. So you could always just use that keyword. Then we asked about inserting special values. And in this case we can use a SYSDATE function to insert today&#39;s date for a column that essentially expects today&#39;s date. So, in this case, the INSERT INTO statement is to create a new employee. And again, the list of columns. But in this case, we have a column called HIRE_DATE. And we can simply use the SYSDATE function in this case, rather than specifying a manual date. This will simply insert today&#39;s date automatically. And that could just save you a bit of time, and it also ensures the correct format. Then we asked about updating a value. So again, the UPDATE statement always operates against the table.</p>
+<p>[Video description begins] <em> He opens the HR_1 tab.</em> [Video description ends]</p>
+<p>So we update the table, then we SET the column name to the desired value. But then it&#39;s very important that you specify a WHERE clause to identify exactly which record to update. If you did not include the WHERE clause, it would attempt to update every row. So again, you can use the unique identifier, which is very common. It&#39;s maybe not necessary, but this ensures that you are working with just that specific record. Then we asked about using COMMIT and ROLLBACK. So if you were to select all of the records out from a department copy table,</p>
+<p>[Video description begins] <em> He opens the HR_2 tab.</em> [Video description ends]</p>
+<p>in this case, we see that of course there are a lot of records.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>So if we were to delete all of those records and</p>
+<p>[Video description begins] <em> He selects the DELETE FROM DEPARTMENTS_COPY; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>not yet commit it, then we could undo that operation. We can see that 27 rows were deleted, but if we roll that back, all rows were now restored.</p>
+<p>[Video description begins] <em> He selects the ROLLBACK; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>All rows have now been restored. We can reselect, and we see all of the records there.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY statement and clicks the Run Statement button. He points at the table that appears in the fourth part of the window.</em> [Video description ends]</p>
+<p>But if we delete again, and then we COMMIT that,</p>
+<p>[Video description begins] <em> He selects the DELETE FROM DEPARTMENTS_COPY; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>then we cannot rollback any more.</p>
+<p>[Video description begins] <em> He selects the COMMIT; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>There&#39;s nothing to ROLLBACK now, so I can go ahead and choose the ROLLBACK, it&#39;ll tell me that the ROLLBACK is complete,</p>
+<p>[Video description begins] <em> He selects the ROLLBACK; statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>but if I select the records out, they are still gone.</p>
+<p>[Video description begins] <em> He selects the SELECT * FROM DEPARTMENTS_COPY statement and clicks the Run Statement button.</em> [Video description ends]</p>
+<p>Okay, so again, you can rollback as long as the operation has not yet been completed. And finally, we asked about using a savepoint.</p>
+<p>[Video description begins] <em> He opens the HR_3 tab.</em> [Video description ends]</p>
+<p>So if you were to insert a new record into a table, then create a SAVEPOINT, call it whatever you want, in this case I&#39;m just calling it after_insert to protect that new record, then if a record were to be deleted, you could discard the DELETE operation without discarding the earlier insert. So I&#39;m saying I didn&#39;t mean to delete that record, but I did mean to insert the new one. So rolling back to the savepoint discards the DELETE operation without discarding the earlier insert. So essentially, again, the savepoint protects that earlier statement. So hopefully you made out all right with those exercises, and if so, we&#39;re ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

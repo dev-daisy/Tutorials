@@ -1,0 +1,576 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Oracle Database 12c R2 SQL: Displaying Data from Multiple Tables</h1><div class="section_text"><p>Explore how to join tables together to view information across multiple tables and examine the more advanced features of the SELECT statements.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Obtaining Data from Multiple Tables (it_dfosfd_05_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Types of Joins (it_dfosfd_05_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Creating Natural Joins (it_dfosfd_05_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: USING Clause (it_dfosfd_05_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: ON Clause (it_dfosfd_05_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Self-Joins (it_dfosfd_05_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Nonequijoins (it_dfosfd_05_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: OUTER Joins (it_dfosfd_05_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Cartesian Product (it_dfosfd_05_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Cross Joins (it_dfosfd_05_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Exercise: Access Data from Tables (it_dfosfd_05_enus_11)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Obtaining Data from Multiple Tables (it_dfosfd_05_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/5b2c1d87-9a22-491b-89a1-f697aff0a469/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5b2c1d87-9a22-491b-89a1-f697aff0a469/image001.jpg')();" /><div class="section_text">In this video, learn how to get data from multiple tables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">obtain data from multiple tables</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Obtaining Data from Multiple Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this presentation we&#39;ll introduce using Joins. Which quite simply facilitates the ability to query information from more than one table within a single query.</p>
+<p>[Video description begins] <em> Why Join?</em> [Video description ends]</p>
+<p>So in this example, you can see that we have someone who needs to generate a report that displays the employee information and their jobs. But, of course, this information is stored in two different tables. So we see a simple application here, the HR Application, which includes the EMPLOYEE table and the JOBS table. So how do you get that information into a single result set? Well, you use the Join. And you can see that in both tables we have the job_id column, and that is essentially the bridge. That is what allows you to pull this information into a single result set. So we can see it in the bottom right that we have the EMPLOYEE_ID, the JOB_ID, and the JOB_TITLE.</p>
+<p>[Video description begins] <em> Obtaining Data from Multiple Tables. Three tables are given. The names of the first two tables are EMPLOYEES and JOBS, respectively. The third table is unnamed. The EMPLOYEES table includes the EMPLOYEE_ID and JOB_ID columns. The JOBS table includes the JOB_ID column. The EMPLOYEE_ID and JOB_ID columns in the EMPLOYEES table are highlighted in blue. The JOB_ID column in the JOBS table is highlighted in red. The third table contains the EMPLOYEE_ID, JOB_ID, and JOB_TITLE columns. The JOB_ID columns in the EMPLOYEES and JOBS tables are connected to the JOB_ID column of the third table.</em> [Video description ends]</p>
+<p>Now, the actual underlying table structure is what you see here. We have the EMPLOYEE_ID, which is the primary key of the EMPLOYEES table, and we have their first and last names. But then we see the JOB_ID. And again, this is the foreign key in the EMPLOYEES table. But JOB_ID, of course, is in the jobs table as the primary key. And each JOB_ID has a unique identifier. Again, that&#39;s the primary key in that table. But there can be multiple people with the same JOB_TITLE. So when we examine the actual values in the foreign key column, back in the EMPLOYEES table, again we see some duplicates. But that&#39;s fine, as long as it points back to a single unique JOB_ID, that is what allows you to pull that data into a single result set. So we can see that at the bottom, the EMPLOYEE_ID, the JOB_ID, and the JOB_TITLE. And if there are duplicates, well that&#39;s fine, but they are different employees. Note that employees 101 and 102 have the same position. Now, you have to tell Oracle how to do this. It&#39;s not just automatic based on the fact that there is a primary foreign key relationship. So in our upcoming demonstrations and in presentations, we&#39;ll see the different types of Joins. And, of course, how you assemble the syntax of a select statement to obtain data from multiple tables.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Types of Joins (it_dfosfd_05_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/757547d8-f860-4b11-88b2-551410bd143e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/757547d8-f860-4b11-88b2-551410bd143e/image001.jpg')();" /><div class="section_text">After completing this video, you will be able to list the various types of joins.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">list the various types of joins</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Types of Joins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this presentation, we&#39;ll take a closer look at some of the types of Joins that are available to use in Oracle. And at this point, we&#39;ll just introduce the concept of there being different types. We&#39;ll see examples of all of these a little bit later on.</p>
+<p>[Video description begins] <em> Types of Joins</em> [Video description ends]</p>
+<p>So with respect to the Joins that are compliant with the SQL:1999 standard, we find first the Natural join. Now, this is by far the most common and what you will undoubtedly find in most of your multitabled queries. And very quickly, this is simply based on the fact that there should be equal values in the two different tables. So recall the presentation that we just saw previous to this one. There was an employees table and a jobs table, and the job id column was common to both tables. A primary key in the jobs table was also the foreign key in the employees table. And any value that is listed in the foreign key column should point back to a matching value in the primary key column. So there are matching values in both tables. That again, is essentially how you join the two tables, that&#39;s the Natural join. Show me records where there is a match between those two columns that can then be refined with the USING clause, or the ON clause. And this is how you actually set up the relationship. You tell it which columns to use between the two tables. Now, the ON clause can also be used, you can see here, in a different manner known as OUTER JOINs and they have directional aspects, LEFT, RIGHT, or FULL. This allows you to specify that maybe, there might not be matching values.</p>
+<p>Again, recall the employees and the jobs. Well, you could have an employee who has not yet been assigned to a job. You could have a job title that is held by no one. So in those cases, there are no matching values in the two tables, and the OUTER JOINs allow you to find those as well. And then finally, the Cross join says show me every possibility. Doesn&#39;t really concern itself with whether or not there are matches, it&#39;s just every possible combination. A Cross join, always results in the number of records in one table, multiplied by the number of records in another table in every possible combination. So as a simple example, if I have ten employees, and ten job titles, then a Cross join would produce 100 records. And again, it&#39;s just to see what would it look like if there was a match for every single possible combination. So you&#39;d see employee number one and all ten titles for that employee. Then you&#39;d see employee number two and all ten titles for that employee. So it&#39;s typically just a what if scenario generally not used in practical applications.</p>
+<p>[Video description begins] <em> Joining Tables UsingSQL: 1999 Syntax. A code is displayed on the screen. The code is, code starts: SELECT table1.column, table2.column FROM table1 [NATURAL JOIN table2] | [JOIN table2 USING (column_name)] | [JOIN table2 ON (table1.column_name &#61; table2.column_name)] | [LEFT|RIGHT|FULL OUTER JOIN table2 ON (table1.column_name &#61; table2.column_name)] | [CROSS JOIN table2];. Code ends.</em> [Video description ends]</p>
+<p>So here is just a syntax example of creating a Join and this is taking into account several different types. So this would not be a single select statement with a single Join type. So don&#39;t worry too much about the syntax at this point in time again, we&#39;ll see examples later. But if we look at the SELECT statement, we see table1.column, table2.column. So it doesn&#39;t matter which columns you want, that&#39;s up to you. But notice that the FROM clause only lists table1 initially. Then, you join the other table, and this is where we see the USING and the ON clauses to refine what they actually look like in terms of the Join statement itself. And again, we&#39;ll see the examples and we&#39;ll clarify the differences. Then we see the LEFT, RIGHT, or FULL OUTER JOIN, again to join table2. So you typically would not see a Natural join and an OUTER JOIN in the same query. It&#39;s possible if you had three or four tables, but generally, you would only choose one type. And then again, you see the ON clause where it allows you to specify the join condition. Here is the column that is common to both tables.</p>
+<p>And again, most of the time, that is the primary key of one table equating to the foreign key of the other, but it doesn&#39;t have to be, okay? Again, you can create a join on any other column as long as it points back to a unique value. But most of the time, it&#39;s primary key to foreign key. And then a CROSS JOIN really doesn&#39;t need any specifications in terms of the JOIN clause because it&#39;s every possible combination. So you just join the second table with the CROSS JOIN. And again, it creates every possible combination of records between those two tables. So again, we&#39;ll see examples of each of these. But joins are the primary means by which you query values out from multiple tables into a single query.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Creating Natural Joins (it_dfosfd_05_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/e1c844d9-b224-407c-9129-187623b96d3f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e1c844d9-b224-407c-9129-187623b96d3f/image001.jpg')();" /><div class="section_text">In this video, you will learn how to use the NATURAL JOIN clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the NATURAL JOIN clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Creating Natural Joins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>All right, in this demonstration, we&#39;ll take a look at our first join type which is known as the Natural Join. Now, this is probably the simplest in terms of syntax but you do need a few requirements if you are going to use the Natural Join.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. It is divided into four parts. The first part is the menu bar. The second part is the toolbar. The third part is divided into two sections. The first section is the Connections pane. It contains the Connections parent node, which contains the HR subnode. The HR subnode includes the Tables (Filtered) and Views subnodes. The Tables (Filtered) subnode is expanded and it includes the COUNTRIES, DEPARTMENTS, EMPLOYEES, and JOBS tables as subnodes. The second section is the Reports pane. It contains the All Reports parent node. The fourth part contains the Start Page and HR tabs. The HR tab is selected. It is divided into three sections. The first section is the toolbar. It includes the execute icon. The second section contains the Worksheet and Query Builder text. The third section is the editor. It contains the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So before we look at the syntax itself, let&#39;s actually look at the tables. And in this case, I&#39;m selecting from the EMPLOYEES table. So if we look at the columns, we do see things like the employee name and</p>
+<p>[Video description begins] <em> He expands the EMPLOYEES table. It includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, and JOB_ID columns.</em> [Video description ends]</p>
+<p>their last name. And we do have the JOB_ID column right here. But we do not have the job title, and notice that I am selecting the Job_Title column.</p>
+<p>[Video description begins] <em> He highlights Job_Title in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Well, that column only exists in the JOBS table.</p>
+<p>[Video description begins] <em> He expands the JOBS table. It includes the JOB_ID and JOB_TITLE columns.</em> [Video description ends]</p>
+<p>There it is right there.</p>
+<p>[Video description begins] <em> He highlights the JOB_TITLE column.</em> [Video description ends]</p>
+<p>So I&#39;m selecting columns from two tables, but it&#39;s the JOB_ID where the relationship exists. JOB_ID is, of course, the primary key of the JOBS table but</p>
+<p>[Video description begins] <em> He highlights the JOB_ID column.</em> [Video description ends]</p>
+<p>it shows up in the EMPLOYEES table as a foreign key.</p>
+<p>[Video description begins] <em> He highlights the JOB_ID column given under the EMPLOYEES table.</em> [Video description ends]</p>
+<p>Well, that&#39;s the common column. So this is where you establish the Natural Join. So we do see now that I am selecting only from the EMPLOYEES table at least in terms of my FROM clause.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Then we NATURAL JOIN the JOBS table. Now, if you are going to use the Natural Join, then it does make the assumption that there is a column that is common to both tables. And that is exactly the case but it quite literally will make that assumption. So the column has to be in both tables, and note that it also has to have the same name and the same data type.</p>
+<p>[Video description begins] <em> He highlights the JOB_ID column given under the EMPLOYEES and JOBS tables.</em> [Video description ends]</p>
+<p>Because I&#39;m not exactly telling it which column is a join column. I&#39;m just saying join in the table.</p>
+<p>[Video description begins] <em> He highlights JOBS in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So that assumption is being made, okay? But it is otherwise a fairly simple syntax. SELECT out these columns from the EMPLOYEES table,</p>
+<p>[Video description begins] <em> He highlights Employee_ID, Last_name, Job_ID in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>this column from the JOBS table.</p>
+<p>[Video description begins] <em> He highlights Job_Title in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Again, from the EMPLOYEES table first, NATURAL JOIN JOBS and this of course is just to sort.</p>
+<p>[Video description begins] <em> He highlights ORDER BY Employee_ID; in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>But let&#39;s go ahead and execute. And we see our results.</p>
+<p>[Video description begins] <em> He clicks the execute icon. The Query Result tab opens. It is divided into two parts. The first part is the toolbar. The second part contains a table with the EMPLOYEE_ID, LAST_NAME, JOB_ID, and JOB_TITLE columns. These columns have certain values.</em> [Video description ends]</p>
+<p>So again, now I&#39;m getting the JOB_TITLE in my results set even though that exists in a separate table, okay? So again, that&#39;s the Natural Join, and you only need to reference the table that is being joined. You do not have to explicitly state a column on which the join condition exists.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: USING Clause (it_dfosfd_05_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/c952b2ba-a36a-4e4a-b511-de1811cc44ec/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c952b2ba-a36a-4e4a-b511-de1811cc44ec/image001.jpg')();" /><div class="section_text">Learn how to use the USING clause to specify columns used for an equijoin to retrieve records in a SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use the USING clause to specify columns used for an equijoin to retrieve records in a SQL statement </li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: USING Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In our next example of a Join, we&#39;ll see how you can be a little more specific, and/or refine the Join statement with a USING clause. Now in our previous example, the NATURAL JOIN, recall that there had to be columns that were common to both tables, the same name, and the same data type. And that was certainly fine. And in this example, that is still the case. Now, I&#39;m using different tables purely just to illustrate that you can create a JOIN on any two tables where you do have a common column.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The DEPARTMENTS and EMPLOYEES tables given under the Tables (Filtered) subnode are expanded. The DEPARTMENTS table includes the DEPARTMENT_ID and DEPARTMENT_NAME columns. The EMPLOYEES table includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, and JOB_ID columns. The HR tab is selected. The editor contains the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So in this case, I&#39;m just selecting out the employee information and their department. Though in the previous example it was their job, but in this case, it&#39;s the department that is common to both. And we have a DEPARTMENT_ID as a primary key in the DEPARTMENTS table. And the DEPARTMENT_ID is also in the EMPLOYEES table as a foreign key. So the relationship in itself is the same structure here. And again, we do have the same name and the same data type in both tables. But recall from the NATURAL JOIN, it essentially made an assumption, is the way that I put it, but it&#39;s not quite an assumption or a guess. With the NATURAL JOIN, in fact, what happens is that it will create the JOIN using any and all columns that exist in the two tables that have the same name and the same data type. Now we only have the one, so that&#39;s fine. But if by chance there was more than one, it would also use that to create the Join. So the USING clause again allows you to refine the Join and explicitly state, this is the column that I want to use to join the two tables.</p>
+<p>[Video description begins] <em> He highlights (Department_ID) in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So it should still be the same name, and the same data type, but again, the NATURAL JOIN will use all columns with the same name and the same data type. In this case, we can avoid ambiguity if there are multiple columns with the same name and the same data type. We explicitly state to join the second table using this particular column, DEPARTMENT_ID.</p>
+<p>[Video description begins] <em> He highlights (Department_ID) in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So otherwise, the syntax is not all that different. Again, it is just your SELECT statement. And we have columns coming from both tables, okay?</p>
+<p>[Video description begins] <em> He highlightsSELECT Employee_ID, Last_name, Location_ID, Department_ID in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>The DEPARTMENT_ID of course again, is the primary key of the DEPARTMENTS table. It is also the foreign key in the EMPLOYEES table. So DEPARTMENT_ID again exists in both. But LOCATION_ID only exists in the DEPARTMENTS table.</p>
+<p>[Video description begins] <em> He highlights the LOCATION_ID column given under the DEPARTMENTS table.</em> [Video description ends]</p>
+<p>And I have included it in my SELECT statement, okay?</p>
+<p>[Video description begins] <em> He highlights Location_ID in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>But again, I select initially from EMPLOYEES.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So LOCATION_ID is not in the EMPLOYEES table. Therefore, I JOIN the DEPARTMENTS table. And then here is my USING clause.</p>
+<p>[Video description begins] <em> He highlights USING (Department_ID) in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS USING (Department_ID) ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So again this just gives me that little extra bit of control to ensure that this is the column that I want to use in case there is more than one match between the two tables, okay? And note that it does go in parentheses as well. And again, this is just an ORDER BY to sort. Let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> A table appears in the Query Result tab. This table contains the EMPLOYEE_ID, LAST_NAME, LOCATION_ID, DEPARTMENT_ID columns. These columns have certain values.</em> [Video description ends]</p>
+<p>And we see our results. So now, I see the employee information along with location, and of course the department in which this particular employee works.</p>
+<p>[Video description begins] <em> He hovers the mouse pointer over the LOCATION_ID and DEPARTMENT_ID columns in the table displayed in the Query Result tab.</em> [Video description ends]</p>
+<p>So again, the idea behind the USING clause is to simply be a little more specific, to refine the JOIN statement by explicitly stating this is the column to use for the JOIN operation.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: ON Clause (it_dfosfd_05_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/c1de5cd7-1d09-44b8-87ce-10b3b4edb150/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/c1de5cd7-1d09-44b8-87ce-10b3b4edb150/image001.jpg')();" /><div class="section_text">Learn how to join tables using the ON clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">join tables with the ON clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: ON Clause. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now in our next type of Join, we&#39;ll see how you can use the ON clause to join the two tables.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The DEPARTMENTS and EMPLOYEES tables given under the Tables (Filtered) subnode are expanded. The DEPARTMENTS table includes the DEPARTMENT_ID and DEPARTMENT_NAME columns. The EMPLOYEES table includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, and JOB_ID columns. The HR tab is selected. The editor contains the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; SELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statements.</em> [Video description ends]</p>
+<p>And although it looks like there&#39;s a little more going on in the code here, this actually gives you the highest degree of control and flexibility with respect to the table structure and the nature of the Join that exist between them. Now in our previous demonstrations, we saw how you can create a Join with a Natural Join, which for all intents and purposes made an assumption. But again, it will create the Join using any and all columns that have the same name and same data type. Then we saw how you can refine that with a Using clause, where you can explicitly state use this column. But it still had to have the same name and same data type in both tables, it had to be common. In this case, we still have a common column.</p>
+<p>But in fact, the data types need to only be compatible, in other words, you could convert. But the names of the columns actually do not need to match, okay? Now I don&#39;t have that situation here, but I&#39;ll show you what I mean. But let&#39;s just take note here that the Join is created explicitly still using specific columns from each table. And the data types, again, need to be compatible, but you can use conversions, but they can have different names, okay? So again, I don&#39;t have that but to give you a quick idea of what I mean by that. In this example, I&#39;m still using the employees and their departments. And Department_ID is the common column. It appears in both tables. But if I wanted to, I could do something like this. In the EMPLOYEES table, I can actually call the column something else, just like Dept here, okay?</p>
+<p>[Video description begins] <em> He alters ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID to ON EMPLOYEES.Dept &#61; DEPARTMENTS.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So that&#39;s the foreign key, there it is. So again, I don&#39;t actually have this, I&#39;m just saying you could,</p>
+<p>[Video description begins] <em> He highlights the DEPARTMENT_ID column given under the EMPLOYEES table.</em> [Video description ends]</p>
+<p>I could call this Dept. And as long as I&#39;m specifically stating that EMPLOYEES.Dept, qualifying the table name first, has equal or matching values in DEPARTMENTS.Department_ID, then that&#39;s perfectly fine. You are telling Oracle, these are the two columns where the matching values can be found.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES.Dept &#61; DEPARTMENTS.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Dept &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So the name could be different. Another scenario, maybe you&#39;re tracking orders, so in the orders table, you might list the person who made the order, or I should say who sold the order. So you might enter Employee_ID. But that doesn&#39;t read all that well when you&#39;re looking at an order to just see Employee_ID. So you could call it something like sold by. And then you know that this is the sales rep who sold it. The value would still be the Employee_ID but you could call it something else, okay? So that&#39;s why you get a little more control, and a little more flexibility when using the ON clause. The column names can essentially be anything, the data types need only be compatible and you can create your joins using those columns. Now, there&#39;s one other aspect that is a little bit different here. So for starters, let me just correct my change here, and put it back to the actual name.</p>
+<p>[Video description begins] <em> He alters ON EMPLOYEES.Dept &#61; DEPARTMENTS.Department_ID to ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Dept &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Because I have actually stated this now, that the EMPLOYEES table, .Department_ID, is essentially the same as the DEPARTMENTS table .Department_ID. When I try to select the Department_ID, I now have to be specific because Department_ID exists in both tables. So I now have to tell Oracle which one I&#39;m looking for.</p>
+<p>[Video description begins] <em> He highlightsDepartment_ID and EMPLOYEES in SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>And really, it could be either, but in this case, I&#39;ve just chosen to go with the EMPLOYEES version of that value, okay? I could select it from the DEPARTMENTS table as well, because they are the same. But notice that the Department_ID column in the SELECT statement must now be qualified with the name of the table. Otherwise, it generates an ambiguity error. And in fact, I&#39;ll show you that before I even run the code. Let&#39;s remove the EMPLOYEES qualifier here.</p>
+<p>[Video description begins] <em> He alters EMPLOYEES.Department_ID to Department_ID in SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Let&#39;s highlight and execute,</p>
+<p>[Video description begins] <em> He highlights the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement. and executes it.</em> [Video description ends]</p>
+<p>and you can see I get an error, column ambiguously defined. This is the column right here because it&#39;s saying wait a second,</p>
+<p>[Video description begins] <em> He highlights Department_ID in SELECT Employee_ID, Last_name, Location_ID, Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>you just told me these two columns are the same.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Therefore, I don&#39;t know which one you want, okay? So I have to qualify it. So let&#39;s copy this, paste it back in, and let&#39;s re-execute,</p>
+<p>[Video description begins] <em> He alters Department_ID to EMPLOYEES.Department_ID in SELECT Employee_ID, Last_name, Location_ID, Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>and we get our results, okay?</p>
+<p>[Video description begins] <em> He highlights and executes the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement. A table appears in the Query Result tab. This table contains the EMPLOYEE_ID, LAST_NAME, LOCATION_ID, and DEPARTMENT_ID columns. These columns have certain values.</em> [Video description ends]</p>
+<p>Now, one other aspect is that you can see that I&#39;ve not only qualified the column name here, but also here and here.</p>
+<p>[Video description begins] <em> He first highlights EMPLOYEES in SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID. Then, he highlights EMPLOYEES and DEPARTMENTS in ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, EMPLOYEES.Department_ID FROM EMPLOYEES JOIN DEPARTMENTS ON EMPLOYEES.Department_ID &#61; DEPARTMENTS.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So that&#39;s a fair amount of code, it&#39;s a lot of typing, particularly if you start joining more than two tables. So something else that&#39;s very common and can be used to simplify your code is simply using aliases for the table names. The SELECT statement here is still the same in terms of the columns.</p>
+<p>[Video description begins] <em> He highlights SELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Employee_ID, LAST_NAME, LOCATION_ID, but then look at the DEPARTMENT_ID. It&#39;s just e.Department_ID. Now, I can&#39;t just pull that out of nothing. I have to tell Oracle that I mean employees when I insert the letter e. And that is right here in my FROM clause. So I still specify the EMPLOYEES table in the FROM clause but then this is the alias, simply the letter e. Then the same thing in the JOIN statement, JOIN DEPARTMENTS, then this is an alias. And I just use the letter d. Now, anywhere where I have to qualify the name of the EMPLOYEES table, I can just use the letter e and you see it here as well in the ON clause.</p>
+<p>[Video description begins] <em> He highlights e in SELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement. He highlights e in ON e.Department_ID &#61; d.Department_ID given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Anywhere that I need to reference the DEPARTMENTS table, I can just use</p>
+<p>[Video description begins] <em> He highlights DEPARTMENTS in JOIN DEPARTMENTS d given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>the letter d, and here it is here, okay?</p>
+<p>[Video description begins] <em> He highlights d in JOIN DEPARTMENTS d given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement. He highlights d in ON e.Department_ID &#61; d.Department_ID given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So this greatly simplifies the code. I don&#39;t have to type those names out over and over again for each time that I need to qualify the names and we will get the same results here, okay?</p>
+<p>[Video description begins] <em> He highlights theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement and executes it.</em> [Video description ends]</p>
+<p>Now, it seems a little bit strange that I can reference the alias in my first line of code before I have actually declared it.</p>
+<p>[Video description begins] <em> He highlights e in SELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement. He highlights EMPLOYEES e in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>But Oracle actually processes the FROM clause first when we are executing code.</p>
+<p>[Video description begins] <em> He highlights FROM EMPLOYEES e in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>This determines the tables that need to be involved, so it processes the FROM and the JOIN before it selects out the columns.</p>
+<p>[Video description begins] <em> He highlights DEPARTMENTS d in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>So even though we read SELECT first, Oracle processes this first.</p>
+<p>[Video description begins] <em> He highlights SELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement. He highlights FROM EMPLOYEES e JOIN DEPARTMENTS d in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>And that&#39;s the reason I can refer to it seemingly before it&#39;s been defined, okay? Now again, that&#39;s not required. But as you get a little more comfortable with your code and a little more familiar with using aliases, this certainly will make things a little bit easier. Particularly, in longer queries, because all you have to do now is use the letter e every time you reference the EMPLOYEES table.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in FROM EMPLOYEES e given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>And I should say that the alias can be anything, okay?</p>
+<p>[Video description begins] <em> He highlights e in FROM EMPLOYEES e given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>It doesn&#39;t matter, you can call it whatever you want. But that&#39;s a very common approach to just use the first letter.</p>
+<p>[Video description begins] <em> He highlights d in JOIN DEPARTMENTS d given in theSELECT Employee_ID, Last_name, Location_ID, e.DEPARTMENT_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>If the two tables began with the same letter, then you might want to include another one just to make sure that they, of course, are distinguishable. Okay, so again the ON clause allows you to be much more specific and gives you that little bit of extra control in terms of naming the columns in the first place. And aliasing can be used so that you can simply clean up the code a little bit and shorten the amount that you actually have to type out.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Self-Joins (it_dfosfd_05_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/b017356e-e58d-4236-b570-8e4839e97b1b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b017356e-e58d-4236-b570-8e4839e97b1b/image001.jpg')();" /><div class="section_text">Find out how to use self-joins by using the ON clause.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use self-joins using the ON clause</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Self-Joins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Our next join type is the self-join. And while this still uses the same type of structure in that it is a primary to foreign key relationship, it&#39;s the location of those two columns that differs. In all previous examples, the primary and foreign keys existed in separate tables. When you have a self-join, those two columns reside within the same table.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The EMPLOYEES table given under the Tables (Filtered) subnode is expanded. It includes the EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, HIRE_DATE, and JOB_ID columns. The HR tab is selected. The editor contains the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>Now this is one of the most common examples of that scenario, an employees table, because every employee has a unique EMPLOYEE_ID.</p>
+<p>[Video description begins] <em> He highlights the EMPLOYEE_ID column given under the EMPLOYEES table.</em> [Video description ends]</p>
+<p>Most of your employees have a manager, in other words, someone they report to.</p>
+<p>[Video description begins] <em> He highlights the MANAGER_ID column given under the EMPLOYEES table.</em> [Video description ends]</p>
+<p>But that person is, of course, also an employee. So they have their own EMPLOYEE_ID. So the value that you enter as the MANAGER_ID is the EMPLOYEE_ID of that person, okay? So the primary key is still the EMPLOYEE_ID. The foreign key is MANAGER_ID. And they, of course, both exist in the same table. And in fact this also illustrates something I mentioned in the previous demonstration. Whereby a foreign key does not have to have the same name as its associated primary key. And in fact, in this case, it can&#39;t have the same name. I could not create two columns in the same table with the same name. Though it has to be called something else. Now, there&#39;s something else that you have to include in your code here and it was also something that I mentioned in the previous demonstration. But it is the use of aliases. What happens when you create a self-join is that Oracle will, behind the scenes, actually create two copies of this table. As such, you have to use aliases, since the common column resides in the same table aliases MUST be used to distinguish one &#34;virtual table&#34; from the other, okay? Again, Oracle will do this automatically in the background. But you can see here that I&#39;m selecting out columns again from the same table in both cases.</p>
+<p>[Video description begins] <em> He highlights Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>But notice that I have aliased one virtual copy Worker</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES Worker in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>and another virtual copy Manager, okay?</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES Manager in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>And you have to do that. If I try to just say FROM EMPLOYEES, JOIN EMPLOYEES, it would generate an error. So my first virtual copy, I&#39;m simply calling it Worker. And again, you can alias it whatever you want,</p>
+<p>[Video description begins] <em> He highlights Worker in FROM EMPLOYEES Worker given in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>my second copy is aliased as Manager.</p>
+<p>[Video description begins] <em> He highlights Manager in JOIN EMPLOYEES Manager given in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>Now I can select out the Last_name column in both cases and avoid ambiguity.</p>
+<p>[Video description begins] <em> He highlights Worker.Last_name in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So this is the Worker.Last_name. This is the Manager.Last_name.</p>
+<p>[Video description begins] <em> He highlights Manager.Last_name in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>This, again, allows me to avoid ambiguity errors. If I just said select last name, it would say I don&#39;t know which one you are talking about. And I&#39;ve aliased that as well, so Worker.Last_name is aliased AS &#34;Worker&#34;. And Manager.Last_name is aliased AS &#34;Reports To&#34;. And I should mention again that AS is not necessary, I could just use the word Worker after the column. But I personally like to have it there. But interestingly enough, AS is not supported in the FROM or the JOIN statements. If I&#39;d tried to put AS &#34;Worker&#34; here, it would actually generate an error, okay?</p>
+<p>[Video description begins] <em> He places the cursor after FROM EMPLOYEES in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So in the SELECT statement AS is optional, but I just find it reads a little better, okay?</p>
+<p>[Video description begins] <em> He highlights Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So again, in both cases, I&#39;m just selecting up the Last_name. So I want to see the Last_name of the worker or the employee and then the associated last name of the person they report to. So again, the alias can be anything. So I select then FROM EMPLOYEES with the Worker alias. JOIN EMPLOYEES with the Manager alias. And then here is my ON condition. Worker.Manager_ID, okay? The foreign key should have equal values in Manager.Employee_ID. That is the employee ID of their boss, okay? And again, I&#39;m simply ordering by last name of the manager in this case. So that we&#39;ll see the same person over and over and over again managing these several employees. So let&#39;s go ahead and execute.</p>
+<p>[Video description begins] <em> A table gets displayed in the Query Result tab. It contains the Worker and Reports To columns. The Worker column includes the Smith and Hunold values. The Reports To column includes the Cambrult and De Haan values.</em> [Video description ends]</p>
+<p>And there we see are the results. So worker Smith reports to Cambrault. And then we see, so does Ozer, so does Kumar, so does Fox, so does Bloom. And essentially, this represents, if you will, the team under that person, okay? So again, always bear in mind with the self-join, you must use aliases. But otherwise, the relationship is still the same. It&#39;s still a foreign key relating back to a primary key. And that is my ON condition right there.</p>
+<p>[Video description begins] <em> He highlights ON (Worker.Manager_ID &#61; Manager.Employee_ID) in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>That allows you to implement the self-join.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Nonequijoins (it_dfosfd_05_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/2b844614-5ecf-4168-a71a-dc93d977dd0d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/2b844614-5ecf-4168-a71a-dc93d977dd0d/image001.jpg')();" /><div class="section_text">In this video, learn how to use a join condition containing a nonequijoin in an SQL statement.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use a join condition containing a nonequijoin in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Nonequijoins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In this demonstration, we&#39;ll see a little bit of a different join type. It&#39;s known as the Non-Equijoin. And to put that into context, all of the join types that we&#39;ve seen up to this point are essentially referred to as Equijoins. Because what we are saying is that between the columns that are being evaluated that make up the join, there should be matching or equal values. So, when an employee has a Department ID as a foreign key, there should be a matching value in a primary key column of some other table. So again, you&#39;re stating that you want to find the values that match. But that&#39;s not always the case. Sometimes, there are no values that match. Maybe some might. But more often than not, there are ones that simply do not match exactly.</p>
+<p>And I also mentioned earlier that most join conditions are established on a primary to foreign key relationship. That is certainly true, but it does not always have to be on a primary to foreign key. Essentially, any two columns can be used to create a join, as long as there are compatible data types. So the Non-Equijoin is essentially saying, I&#39;m looking for non-matches. There are no equal values between the two columns. Now to set this up, I&#39;ve created a new table called JOB_GRADES.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The JOB_GRADES table given under the Tables (Filtered) subnode is expanded. The JOB_GRADES table contains the GRADE_LEVEL, LOWEST_SAL, and HIGHEST_SAL columns. The HR tab is selected. The editor contains the SELECT * FROM JOB_GRADES; SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statements.</em> [Video description ends]</p>
+<p>And it&#39;s very simple. It just has a GRADE_LEVEL, then the lowest salary of that grade, and the highest salary of that grade. And let&#39;s take a look at the actual records. Okay, so grade A is the lowest.</p>
+<p>[Video description begins] <em> He highlights the SELECT * FROM JOB_GRADES; statement and executes it. A table gets displayed in the Query Result tab. It contains the GRADE_LEVEL, LOWEST_SAL, and HIGHEST_SAL columns. The GRADE_LEVEL column includes the A and B values. The LOWEST_SAL column includes the 1000 and 3000 values. The HIGHEST_SAL column includes the 2999 and 5999 values.</em> [Video description ends]</p>
+<p>It goes from 1000 to 2999. Grade B goes from 3000 to 5999, and it just keeps building up, though the further into the alphabet you go, the higher your salary, okay? But note, that there&#39;s nothing in this JOB_GRADES table that relates back to the employee. If we look at the EMPLOYEES table,</p>
+<p>[Video description begins] <em> He expands the EMPLOYEES table given under the Tables (Filtered) subnode.</em> [Video description ends]</p>
+<p>there is nothing in here that relates to the job grade.</p>
+<p>[Video description begins] <em> He hovers the mouse pointer over the columns given in the EMPLOYEES table.</em> [Video description ends]</p>
+<p>It does have their SALARY and the JOB_ID but that relates back to the jobs table. And in fact, even the JOBS table has no connection to this JOB_GRADES table.</p>
+<p>[Video description begins] <em> He expands the JOBS table given under the Tables (Filtered) subnode.</em> [Video description ends]</p>
+<p>So, note that there is no equality operator in the ON clause. In other words, an equal sign. Nor is there a Primary to Foreign Key relationship. So, these tables do not have equal or matching values in really any two columns, okay? So this is where we can establish a Non-Equijoin. So I&#39;m selecting out the last_name and the salary of the employee and</p>
+<p>[Video description begins] <em> He highlights last_name and salary in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>now let&#39;s note the aliases that have been used here. So, from the EMPLOYEES table aliased as e, then we join the JOB_GRADES table aliased as j. So the last_name is from the EMPLOYEES table, the salary is from the EMPLOYEES table. But again, there&#39;s no connection between the salary and</p>
+<p>[Video description begins] <em> He highlights last_name and salary in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>the job grade level, okay? So, the ON condition tells Oracle to examine the salary from the EMPLOYEES table, and if it falls between the lowest salary and</p>
+<p>[Video description begins] <em> He highlights e.salary in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement. He highlights lowest_sal in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>the highest salary of any particular grade, then return that grade.</p>
+<p>[Video description begins] <em> He highlights highest_sal in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement. He highlights grade_level in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>So again, no equal sign, and we did see between in an earlier example in a WHERE clause.</p>
+<p>[Video description begins] <em> He highlights BETWEEN in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>So this really isn&#39;t all that much different but it&#39;s not an equality operator. It can be anywhere between 1000 and 2999 to receive, or be reported as, I should say, grade level A. So, let&#39;s just go ahead and execute. And here we see the results.</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, SALARY, and GRADE_LEVEL columns. The LAST_NAME column includes the Olson and Markle values. The SALARY column includes the 2100 and 2200 values. The GRADE_LEVEL column contains the value, A.</em> [Video description ends]</p>
+<p>So recall that grade level A was from 1000 to 2999. So, there are the actual values from the EMPLOYEES tables.</p>
+<p>[Video description begins] <em> He selects the values in the SALARY column of the table in the Query Result tab.</em> [Video description ends]</p>
+<p>Okay, 1000 to 2999, none of those exactly match. Every one of them just falls somewhere in between but that&#39;s good enough for Oracle to say. All right, based on that, I can tell you that this is the grade level for that salary.</p>
+<p>[Video description begins] <em> He highlights j.grade_level in the SELECT e.last_name, e.salary, j.grade_level FROM EMPLOYEES e JOIN JOB_GRADES j ON e.salary BETWEEN j.lowest_sal AND j.highest_sal; statement.</em> [Video description ends]</p>
+<p>So now, I get a grade level for every employee, without any kind of relationship and without an exact match. And that is how you can implement a Non-Equijoin, to find the exactly that, those values that do not match on columns that are not primary and foreign keys.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: OUTER Joins (it_dfosfd_05_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/16a800d4-248d-441a-a490-636292222f26/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/16a800d4-248d-441a-a490-636292222f26/image001.jpg')();" /><div class="section_text">In this video, you will use a left, right, and full outer join in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">use a left, right, and full outer join in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: OUTER Joins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>In our previous demonstration we saw the use of a Non-Equijoin, which can allow us to find unmatched values on columns that have no relationship to each other. Now in this demonstration, we&#39;ll see something similar in that we are still looking for unmatched values, but there is still a relationship in place. Now this is what&#39;s known as an OUTER JOIN, and we&#39;ll come to that in a moment.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The fourth part contains the HR, HR~1 and HR~2 tabs. The HR tab is selected. The editor contains the SELECT * FROM Departments; SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statements.</em> [Video description ends]</p>
+<p>But to set things up, let&#39;s look at our DEPARTMENTS table, and how the employees relate to those departments. So initially, we&#39;ll simply select out all of the departments, okay?</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM Departments; statement. A table gets displayed in the Query Result tab. It contains the DEPARTMENT_ID, DEPARTMENT_NAME, MANAGER_ID, and LOCATION_ID columns. These columns have certain values.</em> [Video description ends]</p>
+<p>And we can see that if we look at the DEPARTMENT_ID and go through all of them, it goes up to around 250, I think, by default. Then there are a few that I added myself in some earlier demonstrations, and one that was just a test. So we see these higher numbers, but most of these departments</p>
+<p>[Video description begins] <em> He selects the 260, 270, and 350 values in the DEPARTMENT_ID column.</em> [Video description ends]</p>
+<p>actually do not contain any employees. And we can see that by executing what I&#39;ll refer to as a standard JOIN, okay? So using a standard JOIN, we can see which employees are in each department. And this is also known as an INNER JOIN. And do take note, this is important, that 107 records will be returned, okay? So I&#39;ll let you know that ahead of time. So what I&#39;m doing here is a standard JOIN that says show me the employee last_name, their department_id, and the department_name from the EMPLOYEES table joining in the DEPARTMENTS table.</p>
+<p>[Video description begins] <em> He highlights e.last_name, d.department_id, d.department_name in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. He highlights FROM EMPLOYEES e JOIN DEPARTMENTS d in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>And here is the JOIN condition, department_id from the EMPLOYEES table should</p>
+<p>[Video description begins] <em> He highlights e.department_id &#61; d.department_id; in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>have equal or matching values in the department_id of the DEPARTMENTS table. That is the standard primary to foreign key relationship. So we can go ahead and execute.</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns.</em> [Video description ends]</p>
+<p>And as mentioned, if I scroll to the bottom this is only displaying the first 50 rows. But if I go all the way to the bottom, 107 rows were returned. But look at the highest value, 110.</p>
+<p>[Video description begins] <em> He highlights 110 value in the DEPARTMENT_ID column.</em> [Video description ends]</p>
+<p>And I can scroll back, and there is nothing higher than 110 for the department_id. So all of those departments that were above 110, that we saw here just few seconds ago, are not coming back.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM Departments; statement.</em> [Video description ends]</p>
+<p>So what that means is that we have departments with no employees in them, at least as of yet, okay? So that&#39;s an example of an inequality. Even though I&#39;m saying find matching values, well, sometimes there aren&#39;t matches, but there is still the relationship.</p>
+<p>[Video description begins] <em> He highlights ON e.department_id &#61; d.department_id; in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>So when the relationship is in place but there are unmatched values, this is where you can use OUTER JOINs. So as mentioned, this standard JOIN, which is the same example that we&#39;ve seen earlier, is also referred to as an INNER JOIN. And essentially, it translates into show me the departments for the employees where those departments have employees. Or conversely, show me the employees and their departments where those employees have been assigned to a department. But you could have employees with no department, and you can also have departments with no employees. This is where the OUTER JOINs come into play. Now I&#39;ve got a few extra connections open here just so that we can keep things a little cleaner.</p>
+<p>[Video description begins] <em> He clicks the HR~1 tab. It contains the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statements.</em> [Video description ends]</p>
+<p>So in this case, we&#39;ll use OUTER JOINs to find employees not assigned to any department. Or the exact opposite, departments with no employees, or in fact both. So there are three types of OUTER JOINs. A LEFT OUTER JOIN, a RIGHT OUTER JOIN, and over on my final connection here, a FULL OUTER JOIN.</p>
+<p>[Video description begins] <em> He clicks the HR~2 tab. It contains the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e FULL OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>The code for all three of these is identical with the exception of LEFT,</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab. He highlights LEFT in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>versus RIGHT, versus FULL, okay?</p>
+<p>[Video description begins] <em> He highlights RIGHT in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. He switches to the HR~2 tab and highlights FULL in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e FULL OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. He switches to the HR~1 tab.</em> [Video description ends]</p>
+<p>So the idea behind the LEFT OUTER JOIN is you are quite literally referring to the table on the left side, for lack of a better word, which equates to the fact that we read from left to right. So you can see that I have selected FROM the EMPLOYEES table first. That is the left table.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>We are joining in the DEPARTMENTS table.</p>
+<p>[Video description begins] <em> He highlights DEPARTMENTS in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>That&#39;s the right table, okay? So that&#39;s why the JOIN type changes from LEFT to RIGHT, in this case. So the LEFT OUTER JOIN returns ALL records from the left table. Which again, reading left to right, means the EMPLOYEES table. That is on the left, if you will, okay? So it returns ALL employees, regardless of whether they have been assigned to a department, okay? And again, I&#39;ll tell you straight out that 108 records will be returned. Recall back here, it was 107.</p>
+<p>[Video description begins] <em> He switches to the HR tab.</em> [Video description ends]</p>
+<p>Let&#39;s just quickly verify that again.</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>107 records, okay? So if I&#39;m going to get 108 back, then this means there</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab.</em> [Video description ends]</p>
+<p>is an employee with no department and a null will appear, okay? Again, the code is identical with the exception of the JOIN type being a LEFT OUTER. Notice back in my original statement, it is simply JOIN, okay?</p>
+<p>[Video description begins] <em> He switches to the HR tab and highlights JOIN in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>So LEFT OUTER JOIN. Let&#39;s execute, and let&#39;s scroll down to the end.</p>
+<p>[Video description begins] <em> He switches to the HR~1 tab and executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns. These columns have certain values. He scrolls through the values in the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns in the table.</em> [Video description ends]</p>
+<p>108 records, and there is the employee with no department.</p>
+<p>[Video description begins] <em> He highlights the Grant, (null), and (null) values given in the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns, respectively, in the table.</em> [Video description ends]</p>
+<p>So again, nulls appear for the DEPARTMENT_ID, and the DEPARTMENT_NAME. This employee simply has not yet been assigned to a department. So we found the nonmatching record. Even though there&#39;s an equal sign here,</p>
+<p>[Video description begins] <em> He highlights &#61; in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>this is saying that there should be equal values. And I still want to see those, and I am. I&#39;m seeing all 107 plus this one where there&#39;s a null. But that&#39;s the idea of the LEFT OUTER JOIN, okay? Now I could filter out all of the other records if I wanted to by simply including a WHERE clause that said WHERE department_id is null. Then everyone else would disappear. But it depends on what you&#39;re looking for. But the idea here is that we have told it to return every record from the left table, regardless of whether or not there is a match. Now the RIGHT OUTER JOIN is the exact opposite. It returns ALL departments, regardless of whether they have any employees assigned to them. In this case, 124 records will be returned, meaning there are several departments with no employees. Again, the code is identical with the exception of it being now a RIGHT OUTER JOIN. Let&#39;s execute, and scroll to the bottom, 124.</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns. These columns have certain values.</em> [Video description ends]</p>
+<p>And here are all of those departments with no people in them. And you can see, now the null shows up under the LAST_NAME of the employee. Meaning, there&#39;s no one in these departments, okay? Now we still see the matching records. Again, we could include a WHERE clause, that would simply say, WHERE last_name is null. And then all of the ones that have a last name would disappear, and I would have found only the departments that are empty, okay? And finally, the FULL OUTER JOIN simply returns</p>
+<p>[Video description begins] <em> He switches to the HR~2 tab.</em> [Video description ends]</p>
+<p>all records from either side, okay? It is a combination of both. All employees, regardless of whether or not they have a department. And ALL departments, regardless of whether or not there is anyone in them. And in this case, we get 125 records returned. The 124 empty departments that we just saw, plus the 1 employee that has not yet been assigned to any department. So again, the only difference is now a FULL OUTER JOIN.</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e FULL OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns. These columns have certain values.</em> [Video description ends]</p>
+<p>Let&#39;s scroll to the bottom, and sure enough, 125. And again, we see nulls for the LAST_NAME for these departments that are empty. And then we&#39;ll see a null for the department for that person who has not yet been assigned, okay?</p>
+<p>[Video description begins] <em> He highlights the Grant, (null), and (null) values given in the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns, respectively, in the table.</em> [Video description ends]</p>
+<p>So again, that&#39;s the idea of the OUTER JOINs. You&#39;re still looking for unmatched values, but I also want the matching ones. So it&#39;s still an equality statement, but the OUTER JOINs say also bring back the records where there is no match.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Cartesian Product (it_dfosfd_05_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/f935ae14-d3cf-4171-ad81-243b9fa4a520/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f935ae14-d3cf-4171-ad81-243b9fa4a520/image001.jpg')();" /><div class="section_text">In this video, you will learn how to apply the generation of a Cartesian product returned by an SQL statement to your own data.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate the generation of a Cartesian product returned by a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Cartesian Product. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now, in this demonstration, we will just introduce what&#39;s known as a Cartesian Product, and talk about what that means in terms of the results. But we&#39;ll actually see how to create one in our next demonstration. But I do want to tell you that the Cartesian Product, typically is not something that you will use very often in production. You may use it frequently in testing or just to create What If scenarios. But it&#39;s generally not all that useful in a production environment. So before we talk about it in any greater detail, let&#39;s just see a possible scenario here and in this database,</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the SELECT * FROM COUNTRIES; SELECT * FROM REGIONS; statements.</em> [Video description ends]</p>
+<p>we do have a COUNTRIES table, that contains 25 countries. And we can go ahead and select and we see, there they are.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM COUNTRIES; statement. A table gets displayed in the Query Result tab. It contains the COUNTRY_ID, COUNTRY_NAME, and REGION_ID columns. These columns have certain values.</em> [Video description ends]</p>
+<p>Okay, and we can scroll all the way to the bottom and</p>
+<p>[Video description begins] <em> He scrolls through the COUNTRY_ID, COUNTRY_NAME, and REGION_ID columns of the table in the Query Result tab.</em> [Video description ends]</p>
+<p>verify that there are just 25 countries. Okay, very good. Now we also have REGIONS, and we can select the REGIONS and there are only four regions, Europe, Americas, Asia, and Middle East and Africa, okay?</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM REGIONS; statement. A new Query Result tab, named Query Result 1, opens. It contains a table. The table contains the REGION_ID and REGION_NAME columns. These columns have certain values.</em> [Video description ends]</p>
+<p>So that&#39;s just two separate tables, 25 records in one, 4 in the other. So a Cartesian Product would produce a result of every possible combination of the records in both tables. So if there are 25 countries and 4 regions, the result set will have 100 rows. It would show all records from table 1 in every possible combination with the records from table 2. So in other words, we would see those 25 countries in region 1. Then we&#39;d see those same 25 countries again in region 2. Those same 25 countries again in region 3 and those same 25 countries in region 4. So every Cartesian Product is always the number of records in table 1 times the number of records in table 2, okay. So again, in most practical scenarios, that doesn&#39;t really tell you much.</p>
+<p>Of course, we aren&#39;t going to see countries in different regions in the real world. But it does help you to create again just some possible What If scenarios. Maybe not countries and regions, but maybe you are selling products, and not every product sells in every region. So you could create a Cartesian Product that says, well, what would it look like if I sold every product in every region? And you can just get a basic idea of what that might look like and how many records might be involved. So that&#39;s typically where you find Cartesian Products useful, is just testing. What if this were the case? So as mentioned, we&#39;ll see an actual example of how you create one in our next demonstration.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Cross Joins (it_dfosfd_05_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/38f3b54b-5744-48a0-972d-7063fb2e7357/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/38f3b54b-5744-48a0-972d-7063fb2e7357/image001.jpg')();" /><div class="section_text">During this video, you will learn how to create cross joins in SQL statements.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create cross joins in a SQL statement</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Cross Joins. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Okay, so in our previous demonstration, we discussed what a Cartesian Product is. So in this demonstration, we&#39;ll see how you can actually create one and, essentially, interpret the results.</p>
+<p>[Video description begins] <em> The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the SELECT * FROM COUNTRIES; SELECT * FROM REGIONS; SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; SELECT * FROM LOCATIONS; SELECT * FROM REGIONS; SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statements.</em> [Video description ends]</p>
+<p>So using the example that we saw in the previous demonstration, we had 25 countries, okay?</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM COUNTRIES; statement. A table appears in the Query Result tab. It contains the COUNTRY_ID, COUNTRY_NAME, and REGION_ID columns.</em> [Video description ends]</p>
+<p>Then we also had 4 Regions,</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM REGIONS; statement given after the SELECT * FROM COUNTRIES; statement. A new Query Result tab, named Query Result 1 opens. It contains a table, which has the REGION_ID and REGION_NAME columns.</em> [Video description ends]</p>
+<p>so we can create a Cartesian Product by using a CROSS JOIN. This shows all countries in every possible region. Now, this doesn&#39;t make a lot of sense in terms of practical results, but we&#39;ll still see what it looks like. So we&#39;ll SELECT just the Country_name and just the Region_Name.</p>
+<p>[Video description begins] <em> He highlights Country_name in the SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; statement. He highlights Region_name in the SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>So I&#39;m still selecting columns from two different tables. Country_name is in the COUNTRIES table,</p>
+<p>[Video description begins] <em> He highlights COUNTRIES in the SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>Region_Name is in the REGIONS table, so we still have to use a JOIN.</p>
+<p>[Video description begins] <em> He highlights REGIONS in the SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>But we can see the type is simply a CROSS JOIN. There&#39;s no equality, there&#39;s no inequality. There&#39;s no on, there&#39;s no using. It is simply CROSS JOIN the second table, that&#39;s it. We&#39;ll go ahead and execute.</p>
+<p>[Video description begins] <em> He executes the SELECT Country_name, Region_Name FROM COUNTRIES CROSS JOIN REGIONS; statement. A new Query Result tab, named Query Result 2, opens. It contains a table, which has the COUNTRY_NAME and REGION_NAME columns. These columns have certain values.</em> [Video description ends]</p>
+<p>And now we can see we have our 25 different countries. Take note, Argentina is the first one.</p>
+<p>[Video description begins] <em> He highlights the Argentina value in the COUNTRY_NAME column.</em> [Video description ends]</p>
+<p>So if I scroll down to 25, we can see that 26 shows Argentina again. The whole set of 25 countries is repeating every 25th record. And that is because, again, we see all 25 in the single region of Europe. Regardless of where it actually is, okay? Then we see the same set of 25 countries in the next region. Then the same 25 countries in the next region, and finally, in the last region. So again, if there are 25 countries and 4 Regions, the record set is 100 rows. That&#39;s every possible combination, okay? Now, again, that&#39;s not all that practical, so let&#39;s just see another example here.</p>
+<p>[Video description begins] <em> He closes the Query Result, Query Result 1, and Query Result 2 tabs.</em> [Video description ends]</p>
+<p>And this isn&#39;t all that practical either, but we have 23 Regions, excuse me, Locations. And 4 Regions, my mistake. So let&#39;s SELECT out the LOCATIONS, and we see that there are 23.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM LOCATIONS; statement. A table gets displayed in the Query Result tab. This table includes the LOCATION_ID, STREET_ADDRESS, and CITY columns.</em> [Video description ends]</p>
+<p>So these are the places where we are doing business. And we know already that we have 4 Regions.</p>
+<p>[Video description begins] <em> He executes the SELECT * FROM REGIONS; statement given after the SELECT * FROM LOCATIONS; statement.</em> [Video description ends]</p>
+<p>So in terms of translating the Cartesian Product in the CROSS JOIN, it essentially would be this. What would it look like if we had locations in every region? Well, we can select out the Location_ID and the Region_Name.</p>
+<p>[Video description begins] <em> He highlights Location_ID in the SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>And again, Location_ID is in the LOCATIONS table,</p>
+<p>[Video description begins] <em> He highlights Location_ID in the SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>Region_Name is in the REGIONS table.</p>
+<p>[Video description begins] <em> He highlights LOCATIONS in the SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>So we still need to join them, but it is a CROSS JOIN.</p>
+<p>[Video description begins] <em> He highlights REGIONS in the SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statement. He highlights CROSS in the SELECT Location_ID, Region_Name FROM LOCATIONS CROSS JOIN REGIONS; statement.</em> [Video description ends]</p>
+<p>So we SELECT our columns FROM the LOCATIONS table first, we CROSS JOIN the REGIONS table. And when we execute, we see 92 rows, or times 23.</p>
+<p>[Video description begins] <em> A table gets displayed in the Query Result 2 tab. It contains the LOCATION_ID and REGION_NAME columns. These columns have certain values.</em> [Video description ends]</p>
+<p>This is what it would look like if you have locations in every region. Now, it&#39;s still not all that practical, because you see the same repeating location IDs in each region. So, you know, again, it&#39;s not a particularly practical result set, so there is LOCATION_ID 1000. And after 23 rows, we&#39;ll see it show up again. And then after another 23 rows, we&#39;ll see it show up again. But at least you know now, if you were to place a location in every region, you would have 92 locations. So you know not always the most practical result sets. But sometimes, you just want to see what things might look like in those what-if scenarios. So I don&#39;t think you&#39;ll find a lot of CROSS JOINs in production environments. But they are simple to create, simple to use. You just need to ensure that you&#39;re translating the results correctly. It doesn&#39;t really create any kind of relationship between the columns. It&#39;s just, here&#39;s every possible combination of all these records in one table with all of those records in another table.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Exercise: Access Data from Tables (it_dfosfd_05_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/5d1a3a7c-e832-44f0-8ec2-e655a3e44115/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5d1a3a7c-e832-44f0-8ec2-e655a3e44115/image001.jpg')();" /><div class="section_text">Learn how to access data from multiple tables.</div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">access data from multiple tables</li></ul><div class="section inner"><div class="section_text"><p>[Video description begins] <em> Topic title: Exercise: Access Data from Tables. The presenter is Aaron Sampson.</em> [Video description ends]</p>
+<p>Now for our exercise this time, we&#39;ll ask you to create several different join statements, including using the NATURAL JOIN clause. Then using the ON clause in a join. Then to use a self-join. And finally, to use left and right outer joins. So again, what we would like you to do is to take a few minutes on your own, try these exercises out. Then we&#39;ll come back to review and we&#39;ll see how you made out. So we&#39;ll see you shortly. Okay, so to review some possible solutions,</p>
+<p>[Video description begins] <em> Solution. The Oracle SQL Developer : HR window is open. The HR tab is selected. The editor contains the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statements.</em> [Video description ends]</p>
+<p>our first task was to create a join using the NATURAL JOIN statement. And in this case, we can just SELECT our columns FROM our initial table.</p>
+<p>[Video description begins] <em> He highlights Employee_ID, Last_name, Job_ID, Job_Title in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement. He highlights EMPLOYEES in the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>Then simply use the NATURAL JOIN clause to join in the second table, which in this case is the JOBS table. So we SELECT FROM EMPLOYEES, then JOIN JOBS and the ORDER BY is entirely optional in this case. So really that&#39;s all there is to the join. And recall that the NATURAL JOIN essentially assumes that there is a common column in both tables with the same name and the same data type. In this case, it is the Job_ID column that is common to both. It&#39;s the primary key of the JOBS table, but it&#39;s in the EMPLOYEES table as a foreign key. And also remember that a NATURAL JOIN will not just assume that there is one column that&#39;s common, it will in fact use every column that might happen to be common between those two tables. But as long as there is at least one, then the join will use that column and we see our results.</p>
+<p>[Video description begins] <em> He executes the SELECT Employee_ID, Last_name, Job_ID, Job_Title FROM EMPLOYEES NATURAL JOIN JOBS ORDER BY Employee_ID; statement. A table gets displayed in the Query Result tab. It includes the JOB_ID and JOB_TITLE columns.</em> [Video description ends]</p>
+<p>So there is the JOB_ID, but the JOB_TITLE came from the JOBS table, not the EMPLOYEES table, so it came from the joined table. Then we asked about joining two tables with an ON clause.</p>
+<p>[Video description begins] <em> He closes the Query Result tab.</em> [Video description ends]</p>
+<p>And this allows you to be much more explicit, so you get a little more control. And the data types between the two columns in this case only need to be compatible. The names, in fact, don&#39;t even need to match. Now in this case, again it is the Department_ID that is common to both tables.</p>
+<p>[Video description begins] <em> He highlights Department_ID in SELECT Employee_ID, Last_name, Location_ID, e.Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>It is the same name and it is the same data type, but it wouldn&#39;t have to be. But we can still get better control over the join statement by explicitly stating to use that column. Now, note also that we have the use of aliases here</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES e in the SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>with the two tables to simply shorten the code. So EMPLOYEES is aliased as e, DEPARTMENTS is aliased as d. And that allows us to then refer to those tables using just those aliases.</p>
+<p>[Video description begins] <em> He highlights e and d in ON e.Department_ID &#61; d.Department_ID given in the SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>But here is the ON clause that explicitly states,</p>
+<p>[Video description begins] <em> He highlights e.Department_ID &#61; d.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>employees .Department_ID should have equal values in departments .Department_ID. And again, since you have equated those two tables and those two columns, if you refer to the Department_ID column anywhere else, it does need to then be qualified. But again, the idea behind the ON clause is that little bit of extra control.</p>
+<p>[Video description begins] <em> He highlights ON e.Department_ID &#61; d.Department_ID in the SELECT Employee_ID, Last_name, Location_ID, e.Department_ID FROM EMPLOYEES e JOIN DEPARTMENTS d ON e.Department_ID &#61; d.Department_ID ORDER BY Employee_ID; statement.</em> [Video description ends]</p>
+<p>You can explicitly state this is the column to use for the join. Then we asked about left and right outer joins. Now the code is identical in both of these cases</p>
+<p>[Video description begins] <em> He highlights the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statements.</em> [Video description ends]</p>
+<p>with the exception of the direction. So the LEFT OUTER JOIN refers to the table that appears in the FROM clause as opposed to the table that is joined. So EMPLOYEES in this case is the left table, DEPARTMENTS as the joined table is the right table. So this translates into show me all employees regardless of whether or not they have been assigned to a department. The join statement is still the same. These two columns in each table are the ones that represent the relationship.</p>
+<p>[Video description begins] <em> He highlights e.department_id &#61; d.department_id; in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>So again, employees .department_id is matched in departments .department_id. There are many records where they do match. But I&#39;m also looking for the ones that don&#39;t match. So, again, if we were to execute this statement,</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e LEFT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. This table includes the LAST_NAME and DEPARTMENT_ID columns. These columns have certain values.</em> [Video description ends]</p>
+<p>we see all of the matching records, but I should also expect to see one that does not match, okay? And in this case, it was this final employee who has no department, so we see nulls.</p>
+<p>[Video description begins] <em> He highlights the Grant, (null), and (null) values in the table.</em> [Video description ends]</p>
+<p>So again, I want the matching values, that&#39;s the regular join, for lack of a better word, but I also want the unmatched values. And since I&#39;m seeing the employee, again, that is indicative of the left part of the outer join, show me all employees.</p>
+<p>[Video description begins] <em> He highlights the Grant value in the table.</em> [Video description ends]</p>
+<p>The RIGHT OUTER JOIN is the complete opposite, show me all departments</p>
+<p>[Video description begins] <em> He highlights RIGHT OUTER JOIN DEPARTMENTS d in the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement.</em> [Video description ends]</p>
+<p>regardless of whether or not there is an employee in that department. Otherwise, the code is the same. So if we were to execute this statement, we would see nulls for</p>
+<p>[Video description begins] <em> He executes the SELECT e.last_name, d.department_id, d.department_name FROM EMPLOYEES e RIGHT OUTER JOIN DEPARTMENTS d ON e.department_id &#61; d.department_id; statement. A table gets displayed in the Query Result tab. It contains the LAST_NAME, DEPARTMENT_ID, and DEPARTMENT_NAME columns. These columns include the (null), 160, and Benefits values, respectively.</em> [Video description ends]</p>
+<p>the employee not the department. So these departments are empty, okay?</p>
+<p>[Video description begins] <em> He highlights some department names in the DEPARTMENT_NAME column having (null) value in the LAST_NAME column in the table.</em> [Video description ends]</p>
+<p>But again, I&#39;m still seeing the matching values. So I do want the matching values but I also want the unmatched, and the left or right is simply from which table you want the unmatched values. And finally, the self-join. You need to remember in a self-join that Oracle essentially creates two virtual copies because you are working with the same table in this statement.</p>
+<p>[Video description begins] <em> He highlights EMPLOYEES in FROM EMPLOYEES Worker given in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So you are selecting from EMPLOYEES and joining EMPLOYEES. Therefore, they must be aliased so that Oracle can distinguish one from the other. And in both cases, I&#39;m selecting out the Last_name column.</p>
+<p>[Video description begins] <em> He highlights Last_name in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So I need to select it from, in this case, the Worker table</p>
+<p>[Video description begins] <em> He highlights Worker in Worker.Last_name given in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>and the Manager table, the two virtual copies of the table. And the self-join then represents the fact that every employee has their own unique ID but most of them have a Manager.</p>
+<p>[Video description begins] <em> He highlights (Worker.Manager_ID &#61; Manager.Employee_ID) in the SELECT Worker.Last_name AS &#34;Worker&#34;, Manager.Last_name AS &#34;Reports To&#34; FROM EMPLOYEES Worker JOIN EMPLOYEES Manager ON (Worker.Manager_ID &#61; Manager.Employee_ID) ORDER BY Manager.Last_name; statement.</em> [Video description ends]</p>
+<p>So the Worker.Manager_ID is the foreign key in this table and indicates who they report to. But then the Manager virtual table is simply the unique ID of that employee who is simply the boss of that particular employee. So we can execute this and we see all of the people</p>
+<p>[Video description begins] <em> A table gets displayed in the Query Result tab. It contains the Worker and Reports To columns. These columns include the Smit and Cambrault values, respectively.</em> [Video description ends]</p>
+<p>who are managed by this employee.</p>
+<p>[Video description begins] <em> He highlights some values in the Worker column. He highlights some values in the Reports To column.</em> [Video description ends]</p>
+<p>So again, the self-join must always use those aliases to distinguish between the virtual copies, but that is how you can implement all of those join types. So hopefully, you have made out all right with those exercises, and if so, we are ready to move on to our next course.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2023 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>
