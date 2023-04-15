@@ -1,0 +1,378 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Java Certified Foundations Associate: Development Environment</h1><div class="section_text">Java provides the right tools and features to allow you to be productive from the very start. In this Couse, you will learn about the features of the Java Development Kit and the Java Runtime Environment.
+
+First, you will learn about the Java Development Toolkit and the Java Runtime Environment. Next, you will learn about the features of the JDK such as the Java Compiler, the Java Interpreter, the Java Disassembler, the Java Debugger, the Java Head File Generator, the Java Documentation and the Java Archive. Finally, you will learn how to install the JDK, FRE, and the IntelliJ for Java Developers.
+
+This course is one of a collection of courses that prepares learners for Oracle’s 1Z0-811: Java Certified Foundations Associate certification.
+</div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Course Overview ( it_sdjcfa_02_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Java Development Toolkit ( it_sdjcfa_02_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Java Runtime Environment ( it_sdjcfa_02_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Java Compiler and Interpreter ( it_sdjcfa_02_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Java Disassembler and Debugger ( it_sdjcfa_02_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Java Documentation Tool ( it_sdjcfa_02_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Java Archive Format and Tool ( it_sdjcfa_02_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Java Development Toolkit Installation ( it_sdjcfa_02_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Java Runtime Environment Installation ( it_sdjcfa_02_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: IntelliJ for Java Developers ( it_sdjcfa_02_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Java Compiler and Interpreter ( it_sdjcfa_02_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Java Development Tools ( it_sdjcfa_02_enus_12)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_12">13. Video: JavaDoc Tool to Generate JavaDoc Pages ( it_sdjcfa_02_enus_13)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_13">14. Video: Course Summary ( it_sdjcfa_02_enus_14)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Course Overview ( it_sdjcfa_02_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/1d53532f-e898-4705-bdfa-d1a2ad1ae070/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1d53532f-e898-4705-bdfa-d1a2ad1ae070/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about your instructor and the course. In this course, you’ll learn about Java Virtual Machine and object-oriented programming concepts. Then, you’ll learn the features of Java, such as platform independence, security and robustness, architecture neutrality, and portability and performance.</p>
+<p>Finally, you will learn more about Java distributed applications, multi-threading, dynamic loading, and real-world application.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">discover the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Course Overview.</em> [Video description ends]
+<p>Hi, I&#39;m Steve Scott. [Video description begins] <em>Your host for this session is Steve Scott. He is an IT Consultant.</em> [Video description ends] I&#39;ve been a software developer and tech consultant for almost a quarter of a century. I&#39;ve traveled around the globe to serve clients, where I&#39;ve been responsible for building secure systems, hiring development teams and solving complex problems through technology.</p>
+<p>With my toolbox of languages, platforms, frameworks, and APIs, I round up my technical experience with an academic background in Mathematics and Computer Science. Oracle&#39;s 1Z0-811 Java Certified Foundations Associate certification is targeted to audiences seeking foundational knowledge of the Java programming language and concepts.</p>
+<p>Individuals tackling this certification will demonstrate they can write and execute a Java program, work with the Java Development Kit, JDK, and the Java Runtime Environment, JRE. In this course, I&#39;ll review the Java Virtual Machine and object-oriented programming concepts. Next, I&#39;ll discuss the features of Java, such as platform independence, security and robustness, architecture neutrality and portability and performance.</p>
+<p>Finally, I&#39;ll move to Java distributed applications, multi-threading, dynamic loading and real-world application.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Java Development Toolkit ( it_sdjcfa_02_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/8ac1e414-d81e-4d69-ba80-f56ea4b1c0c1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/8ac1e414-d81e-4d69-ba80-f56ea4b1c0c1/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about the features and components of the Java Development Kit. The Java Development Kit provides the tools to create Java programs. The JDK comprises the Java Runtime Environment, JRE, a standalone Java Virtual Machine, or JVM, containing the Java Standard Library and a configuration tool.</p>
+<p>You’ll also learn about the javac compiler, which is used to compile Java code to platform-neutral JVM bytecode.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Development Toolkit</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Development Toolkit. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present the features and components of the Java Development Kit. The Java Development Kit, JDK provides the tools to create Java programs. The JDK comprises the Java Runtime Environment, JRE, a standalone JVM containing the Java Standard Library and a configuration tool.</p>
+<p>The javac compiler used to compile Java code to platform-neutral JVM bytecode, and the Java Virtual Machine, JVM, containing the class loaders, the bytecode verifier, interpreter and the Just-in-Time compiler. Java is platform-independent and secure due to the JVM. The Java bytecode can be either interpreted or compiled to run natively. Bytecode interpreters will run Java bytecode on any machine that contains the interpreter.</p>
+<p>JVM&#39;s Just-in-Time compiler converts Java bytecode into native machine language. The JVM contains several key components: the class loader, which recognizes and loads code compiled into the Java class file format, the virtual machine architecture operates on basic values such as integers and floating point numbers and contains a garbage collector to manage cheap memory. Java bytecode is an abstract machine language that runs on the JVM and Java code is compiled into Java bytecode.</p>
+<p>JVM languages include any language that can compile to Java bytecode such as Clojure and Scala. The bytecode verifier checks and confirms all bytecode before it&#39;s executed on the JVM. Bytecode interpreters can run Java bytecode on any machine that contains an interpreter, and the Just-in-Time compiler will convert and translate Java bytecode into native machine language.</p>
+<p>Java is platform-independent due to the bytecode that&#39;s generated when Java is compiled. There are, however, limitations to this platform independence. Bytecode is portable and can run on any operating system that has a Java Virtual Machine installed. If there isn&#39;t a JVM installed on the OS or the OS doesn&#39;t support one or the processor architecture isn&#39;t supported, then the bytecode can&#39;t run. The Java Virtual Machine itself is platform-dependent.</p>
+<p>To run Java bytecode, a version of the JVM must be built for the target system. The Java Development Kit, JDK, contains several tools and components for developing Java applications. The Java disassembler tool, used to convert compiled class files back into human readable code. The Java head file generator tool is used to generate c headers and source files, which are used to call native methods from Java.</p>
+<p>And the Java debugger tool helps the developer determine the cause of a bug in an application. The built-in debugger, JDB, can be used to debug classes at the command line. The JDK contains documentation and tools for working with Java applets. Java documentation is used to document and maintain code.</p>
+<p>The JDK provides a tool called Javadoc that can be used to generate documentation for the public classes, private classes, nested classes, interfaces, constructors, methods and fields. And the Java applet viewer is a tool that can be used to view and test Java applets. Applets are small Java programs that are run inside a web browser through a Java plug-in. And that concludes this presentation on the Java Development Kit.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Java Runtime Environment ( it_sdjcfa_02_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/a188c2f7-8478-4da3-a60b-81106dcfd1a4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a188c2f7-8478-4da3-a60b-81106dcfd1a4/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about the features and components of the Java Runtime Environment, as well as its development components. You’ll discover the Java Runtime Environment consists of components that can be used to execute Java programs. You’ll learn the JVM contains several key components. You’ll also learn the Java class libraries consist of standard libraries such as java.Lang and the java.util.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Development Runtime (JRE)</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Runtime Environment. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video I&#39;ll present the features and components of the Java Runtime Environment, as well as its development components. Java Runtime Environment consists of components that can be used to execute Java programs. The JVM contains several key components. The Java class libraries consisting of standard libraries such as java.Lang and the java.util that are essential.</p>
+<p>The class loader is used to recognize and load code that compiles with the Java class file format. So the Java Virtual Machine, JVM, is built from several key components: Class loader, which recognizes and loads Java class files, the virtual machine architecture operates on basic values, such as integers and floating point numbers and contains a garbage collector to manage cheap memory. Java bytecode is a machine code targeted, not to specific processor architectures, but to Java&#39;s Virtual Machine, the JVM.</p>
+<p>Java source files are compiled to Java bytecode using the class file container format. And Java bytecode interpreters can run Java bytecode on any machine that runs the interpreter. The Just-in-Time compiler, meaning it&#39;s compiled on the fly, when it&#39;s loaded and not pre-compiled, will convert and translate Java bytecode into native machine language to run on its target platform.</p>
+<p>The class loader verifies and loads code in the Java class file format. The key steps that the class loader carries out are: loading, which is what you&#39;d expect. The loader finds and imports the binary data for a type. During the linking process, verification, preparation and resolution are performed. This is done to ensure correctness, allocate memory, initialize default values and convert symbolic references to direct references.</p>
+<p>Then the initialization phase invokes the Java code and class variables are initialized. The Java Standard Library and a configuration tool. Development toolkits provide libraries to create user interfaces and include the Java 2D Library, the Abstract Window Toolkit, A-W-T or AWT, and the swing library. Integration libraries are used to connect to different data sources including Java IDL, CORBA, the Java Database Connectivity API, JDBC, and the Java Naming and Directory Interface, JNDI.</p>
+<p>Java class libraries consists of libraries such as java.Lang and java.util, that provide a base-level functionality for Java applications. Development Toolkits provide libraries to create user interfaces such as Java&#39;s 2D library, Swing and AWT, where the Java 2D library is used for drawing two dimensional graphics and can be used for creating games and rich UI interfaces. The Abstract Window Toolkit, AWT, is used to create user interfaces using controls such as windows, buttons and form controls.</p>
+<p>And the Swing framework is used to create user interfaces and has a diverse set of custom widgets. Integration Libraries are used to connect to different data sources and include the Java IDL, CORBA, JDBC and JNDI. The Java Interface Definition Language is an implementation of the Common Object Request Broker Architecture CORBA specification. CORBA is a standard method for connecting and interacting with decoupled components that use remote service calls. The Java Database Connectivity API, JDBC, provides an interface for connecting to and working with databases.</p>
+<p>And the Java Naming and Directory Interface is an API for directory services and makes use of the Lightweight Directory Access Protocol or LDAP. What are some built-in packages or common features that we use or import into our applications? The java.applet package contains classes for creating applets. Java.awt contains classes for creating graphical user interfaces with menus and buttons. Java.io contains classes for supporting input-output operations, such as printing to the screen, a printer or a file storage system.</p>
+<p>And java.Lang contains classes that support the Java language, such as primitive data type wrappers, String and StringBuilder classes, and the math and system classes. Java.math package contains methods for arbitrary-precision, floating point and integer arithmetic. And java.net contains classes for network operations and communications. And Java.util contains classes for containers and collections like linked lists, dictionaries, date and time operations and other helper classes. And that concludes this presentation on the Java Runtime Environment.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Java Compiler and Interpreter ( it_sdjcfa_02_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/b0b23cd3-4d0a-4138-affd-83df573ee54e/image010.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b0b23cd3-4d0a-4138-affd-83df573ee54e/image010.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about the features and components of the Java compiler and interpreter. You’ll learn Java’s source code is compiled into bytecode that can be executed on any device or operating system that contains a Java Virtual Machine.</p>
+<p>You’ll discover there’s no need to change the source code or put in special preprocessor statements to handle different architectures. Java doesn&#39;t need to be written differently for different operating systems. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Compiler and Interpreter</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Compiler and Interpreter. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll describe the features and components of the Java compiler and interpreter. Java&#39;s tagline: Write once, run anywhere concisely captures the goal of Java. Java source code is compiled into bytecode that can be executed on any device or operating system that contains a Java Virtual Machine.</p>
+<p>There&#39;s no need to change the source code nor put in special preprocessor statements to handle different architectures. Java doesn&#39;t need to be written differently for different operating systems. You write it the same for everywhere. The javac compiler compiles the Java code into platform-neutral bytecode, and the Java Runtime Environment, JRE, contains a standalone JVM, Java Standard Library, and a configuration tool to run the portable code.</p>
+<p>Java bytecode is an abstract machine language that runs on the JVM. Java code is compiled into Java bytecode. Java files contain the Java source code for the Java application. The class files contain the compiled bytecode, which is then Just-in-Time compiled by the JVM to run on the target platform&#39;s architecture. The class files are what gets deployed. It&#39;s not a scripting language. You don&#39;t deploy the code itself. You don&#39;t deploy the Java files, just the class files. Java code should generate the same results on any operating system that it&#39;s run on.</p>
+<p>This is known as source code portability. During the compilation phase, the Java source code is compiled into bytecode. This is an intermediary language that&#39;s similar to assembly language, and during the interpretation phase, the cross loader will read the bytecode files, which then can be run through an interpreter or Just-in-Time compiler, to translate it into actual machine language. The bytecode verifier checks and confirms all bytecode before it&#39;s executed on the JVM, and performs the following checks: the bytecode is verified to ensure all branches are always jumping to valid memory locations.</p>
+<p>It ensures data is initialized and that references are always type-safe and it ensures access to package or package-private methods and data are strictly controlled. Java is considered a secure programming language because it does not permit explicit memory pointers and runs inside of the virtual machine sandbox. Components such as the class loader recognizes and loads code that compiles with the Java class file format.</p>
+<p>The bytecode verifier checks and confirms all bytecode before it&#39;s executed on the JVM, and its security manager provides further security features and mechanisms to ensure safe code. And that concludes this presentation on the Java compiler and interpreter.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Java Disassembler and Debugger ( it_sdjcfa_02_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/884b4b4e-1092-45b8-a7dc-9d5c616bbb5a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/884b4b4e-1092-45b8-a7dc-9d5c616bbb5a/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about the features and components of the Java interpreter. You’ll learn some tools can be used to understand the inner workings of a compiled Java application and debug a Java application. The Java disassembler is used to convert compiled class files into human-readable code. You’ll learn decompilers can be used to convert compiled class files back into Java source code. The debugger helps determine the causes of bugs.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Disassembler and the Java Debugger</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Disassembler and Debugger. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll describe the features and components of the Java interpreter. Some tools can be used to understand the inner workings of a compiled Java application and debug a Java application. First is the Java disassembler. These tools are used to convert compiled class files into human readable code.</p>
+<p>A decompiler can be used to convert the compiled class file back into Java source code. The Java debugger helps the developer determine the cause of a bug in an application. The built-in debugger, JDB, can be used to debug classes at the command line as well as other debuggers that are implemented for Java. There are several options for decompiling Java class files back into Java source code.</p>
+<p>Some of the options are as follows: command line tools were the original method for decompiling class files. Java bytecode can also be decompiled on remote servers. The IntelliJ IDEA development platform uses the fernflower decompiler as the default tool, and Eclipse uses a plug-in called the Enhanced Class Decompiler or ECD which provides five separate compilers to the developer. Java debugger tools help the developer determine the cause of a bug in an application.</p>
+<p>IDEs or integrated development environments such as IntelliJ, Eclipse and NetBeanes have built-in debugging tools that can be used to isolate issues with Java applications. Standalone debuggers such as Jikes, Java platform debugger and JProbe are tools used specifically for debugging Java applications and the built-in debugger, JDB, can be used to debug classes at the command line. The Java debugger, JDB, is a part of the JDK, and can be used for debugging Java applications.</p>
+<p>The three components of the JDB are as follows: The Java Virtual Machine Tool Interface, or JVMTI is implemented by the JVM and provides a method to inspect and debug the state of a running Java application. The Java Debug Wiring Protocol, or JDWP, provides a format for sending debug requests to the JVM tool interface. And the debugger interface, or JDI, is a high-level interface for connecting to the virtual machine for debugging purposes.</p>
+<p>The JDB or Java debugger tool can be used to debug Java code from the command line or be used as an interactive tool. From the command line, the JDB can be used to attach to a running virtual machine or run the application on a Java hotspot client or server.</p>
+<p>The Java debugger can be run interactively, using sessions, commands can be issued inside the session to debug a running Java application and breakpoints can be set within a Java program, and can specify a class name, a line number or a specific method or variable name.</p>
+<p>During the debugging of a Java program, the code can be stepped over line by line, using the step command to step to the next line of code, but step over function calls without going into them, the list command to display the current line of code and the cont command to continue running the application, as well as printing the contents of any variable in the current scope. And that concludes this presentation on the Java interpreter.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Java Documentation Tool ( it_sdjcfa_02_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/e51e3e19-533f-4d7d-a7b9-4f9ebfbeb1d6/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e51e3e19-533f-4d7d-a7b9-4f9ebfbeb1d6/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn about the features and components of the Java Documentation tools. You’ll learn Java Documentation helps new and existing developers understand the available classes and methods that exist in Java applications.</p>
+<p>You’ll learn about a tool called javadoc that can be used to generate documentation for public classes, private classes, nested classes, interfaces, constructors, methods, and fields. Special tags can be added to comment statements that are read by javadoc tools.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Documentation tool</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Documentation Tool. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present the features and components of the Java Documentation tools. Java Documentation helps new and existing developers understand the available classes and methods that exist in a Java application. This documentation can also be used by non-technical staff as well, to understand the Java application.</p>
+<p>The JDK provides a tool called javadoc that can be used to generate documentation for the public classes, private classes, nested classes, interfaces, constructors, methods and fields. Special tags can be added to comment statements that are read by the javadoc tool and included in the generated documentation. Javadoc can be run on single source files or on entire Java packages.</p>
+<p>Javadoc comments add special symbols to the comments blocks that can be processed by the javadoc tool and used to generate HTML documentation. There are several javadoc tags that can be added to the comment blocks. The main ones demonstrated here are the author, used to add the name of the author of the code, the version, used to add the version of the code, &#64;since specifies which version of the code you added to this method or class.</p>
+<p>&#64;deprecated can be added to indicate this class or method should no longer be used, &#64;return adds a return section, with a description describing the return value of the method, and docRoot adds the relative path to the generated document&#39;s root directory. Some more of the special tags that are added are the &#64;author, used to specify the name of the author or authors of the code, {&#64;docRoot} surrounded in braces represents the relative path to the document&#39;s root directory.</p>
+<p>&#64;version specifies the version of the software, and there could only be one version declaration per class or interface. And the &#64;since tag indicates the initial availability of this functionality. The &#64;see tag references other elements, so it&#39;s a reference tag. &#64;param is used to describe a parameter of a method. &#64;return is used to document the return value. &#64;deprecated is used to describe a method that is no longer used or should no longer be used, or will go out of use or be removed in the future.</p>
+<p>&#64;exception describes the exception type that the method may throw. &#64;throws is also used to describe an exception that a method may throw. {&#64;inheritDoc} tag uses or inherits the description of a method being overwritten so you can inherit documents from a paired class. And &#64;value is used to indicate the value of a #STATIC_FIELD.</p>
+<p>The &#64;link tag or reference is used to add an inline link that provides a link to the documentation for a package, class, or member name. &#64;linkplain provides the same functionality as the &#64;link tag except the label uses plain text. &#64;code is used for formatting a block of text using the code font. So it&#39;s a code literal.</p>
+<p>And the &#64;literal tag is used to indicate text that&#39;s not HTML markup or nested tags, and the text should be interpreted literally. And some more javadoc tags are the: &#64;serial tag, used to indicate a default serializable field. &#64;serialData used to indicate the data written to the right external or right object methods. And &#64;serialField literal is used to document the object string field component.</p>
+<p>Now, not all of the tags here are required. It&#39;s a lot to take in all at once. But these are some of the javadoc essential capabilities to comprehensively document your source code. And that concludes this presentation on Java Documentation Tool.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Java Archive Format and Tool ( it_sdjcfa_02_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/93d873d4-9da2-4627-8aec-37ed1fe340f2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/93d873d4-9da2-4627-8aec-37ed1fe340f2/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn about the features and components of the Java Archive. The Java Archive File is a collection of files that may or may not be compressed and end with the .JAR file extension. You’ll learn it contains a manifest file, a MANIFEST.MF, and is located in the meta-inf directory. You’ll discover this file contains a list of key value pairs that are grouped into sections.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features and components of the Java Archive format and tool</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Archive Format and Tool. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present the features and components of the Java Archive. The Java Archive File is a collection of files that may or may not be compressed and ends with the .JAR file extension. It contains a manifest file, a MANIFEST.MF, and is located in the meta-inf directory.</p>
+<p>This file contains a list of key value pairs that are grouped into sections. The key value pairs consist of headers and attributes. JAR can also use the ZIP format to compress the Java Archive File and decrease the size of the file to make it easier to transmit and deploy.</p>
+<p>Using Java Archive Files provides the following benefits: JAR files can be digitally signed, which will allow the people that use the package to verify the authenticity of the package before granting the package security privileges. JAR files can be compressed to take up less space and faster download times. JAR files can contain versioning and vendor information regarding the files contained in the package, and JAR files are portable and can be used by any Java Runtime Environment.</p>
+<p>The manifest file contains metadata for the package. It&#39;s always called MANIFEST.MF and it&#39;s located in the meta-inf directory, it contains a list of key-value pairs grouped into sections, consisting of headers and attributes. And it&#39;s created automatically when a JAR file is created. And it&#39;s also possible to create a custom manifest file that is used instead when creating the JAR file. The manifest file has some common headers to provide general information.</p>
+<p>The Manifest-Version tag is used to indicate the version of the manifest file specification. The Multi-Release tag indicates that the package can be run on multiple releases of Java if the value is set to true. The Created-By tag can be used to describe the version of the tool and information on the vendor that created the manifest file. The Built-By tag is a custom header providing the name of the user that created the manifest file.</p>
+<p>Packages can be sealed, which increases the security of the package, Classes can only be loaded into the same package if they&#39;re signed by the same entities. Sealing a package prevents malicious code from being added to the package that would then have access to package-protected classes and methods. Packages need to be named in order to be made sealable. Unnamed packages are not sealable. So this provides a layer of verification and authenticity when dealing with code. And that concludes this presentation on the Java Archive.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Java Development Toolkit Installation ( it_sdjcfa_02_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/39185820-30d7-45ff-9f5e-7d849de0aa7f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/39185820-30d7-45ff-9f5e-7d849de0aa7f/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The demo will show you how to download and install the Java development toolkit. You’ll learn this series was built for JDK 1.8 compatibility. You’ll open your browser to openjdk.java.net. You’ll discover this is the open-source implementation of the Java Platform, Standard Edition. You’ll download and install JDK 8.</p>
+<p>At the end of the demo, you’ll be ready to start compiling Java code into class files.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate how to download and install the Java Development Toolkit</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Development Toolkit Installation. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to download and install the Java development toolkit. This series has been built for JDK 1.8 compatibility. Ever since being released in 2014, Java version 1.8 or sometimes called Java SE 8, is still the baseline version today. It&#39;s actively supported with updates and security fixes and backwards compatible with newer versions.</p>
+<p>So if you&#39;ve come to this course with a later version, that&#39;s OK too. It will still work because of this backwards compatibility. So I have my web browser open to openjdk.java.net. So this is the open source implementation of the Java Platform, Standard Edition. I&#39;m going to browse to the download and &#34;install&#34; section and look for the version I want to install. In this case, JDK 8. I&#39;m running on an Ubuntu system and the instructions for the Debian or Ubuntu or any of the variants is to use apt-get.</p>
+<p>So I&#39;ll have to type sudo apt-get install openjdk-8- and in this case I want -jdk or the Java Development Kit. So I&#39;ll switch over to my terminal window, run sudo apt-get install openjdk-8-jdk. After the install completes, I like to verify that the correct version is installed when I run javac. So javac, short for Java compile, -version. And it shows me I have 1.8.0_275 installed. And I&#39;ll type ls in my current folder under documents, java-02-11 I&#39;ve a file called HelloWorld.java.</p>
+<p>So this is a simple HelloWorld Java example source. I&#39;m not going to get into the source code, you can probably guess what it&#39;s going to do. But what I&#39;d like to do is type javac HelloWorld.java to make sure it compiles correctly. And there&#39;s no messages, so it does, and if I type ls I see the compiled HelloWorld.class contained in the folder. And now we&#39;re ready to start compiling Java code into class files, and I&#39;ll get into the code details throughout this course. And that concludes this demonstration of Java Development toolkit installation.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Java Runtime Environment Installation ( it_sdjcfa_02_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/2b37df66-5f9d-40dd-898e-68b59e78ddcb/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/2b37df66-5f9d-40dd-898e-68b59e78ddcb/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The demo will show you how to download and install the Java Runtime Environment, or JRE. You’ll learn that once Java code has been compiled using the JDK, it can be distributed anywhere the Runtime Environment exists. First, you’ll learn to install and download pre-built openjdk packages, which can either be the JRE or the JDK.</p>
+<p>You’ll then learn how to run a program using the JRE.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate how to download and install the Java Runtime Environment (JRE)</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Runtime Environment Installation. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to download and install the Java Runtime Environment, the JRE. On systems we deploy our Java class files to or the Java archive files to, we don&#39;t need the Java Development Kit, the JDK. It&#39;s not needed to run the program. Only the Runtime Environment is needed, the JRE.</p>
+<p>After Java code has been compiled using the JDK, it can be distributed anywhere the Runtime Environment exists. We get the Runtime Environment from the same place we get the Development Kit from, from the openjdk.java.net website. So the instructions are here in the &#34;install&#34; page. Select install and it shows how to download and install pre-built openjdk packages, which can either be the JRE or the JDK.</p>
+<p>And in this case I&#39;m looking at the JRE for JDK version 8. Since I&#39;m running Ubuntu, I want to use the command line that&#39;s specified here. So it&#39;s sudo apt-get install openjdk-8-jre. So I&#39;ll &#34;Copy&#34; it. I&#39;ll switch over to my terminal window and paste in the command. So in this case, it tells me openjdk-8-jre is already the newest version.</p>
+<p>When you install the JDK, it automatically installs the JRE. But if you install the JRE, it doesn&#39;t install the JDK. I can check the version I&#39;m running by typing java, so running the Java program itself; is running the JRE, so java -version gives me the Runtime Environment version, and it&#39;s showing that it&#39;s 1.8.0_275.</p>
+<p>So it&#39;s running the latest 1.8 version. To run a program using the JRE, I can type java and then the name of the class. In my current folder, I have a class file called HelloWorld.class. So to run it, I just run java HelloWorld and it prints the result Hello, World! If I look in my current folder with ls, there is a HelloWorld.java and a HelloWorld.class. So running java HelloWorld will look for the corresponding class file, in this case the HelloWorld.class.</p>
+<p>I don&#39;t need to run java HelloWorld.class so I don&#39;t specify the extension to the file itself and I can&#39;t run java HelloWorld.java. It doesn&#39;t make sense. Because the Java extension specifies the source file that needs to be compiled. So your developing machines need both the JDK and the JRE but the systems that run the compile Java code compiled into the class files or archive files only need the JRE. And that concludes this demonstration of Java Runtime Environment installation.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: IntelliJ for Java Developers ( it_sdjcfa_02_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/46850758-064f-4f64-b21f-5d3c377f4a1e/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/46850758-064f-4f64-b21f-5d3c377f4a1e/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The demo will show you how to download, install, and configure the IntelliJ IDEA Development Tools for Java. You’ll open your web browser to the jetbrains.com website and select the &#34;Developer Tools&#34; option. Then, you’ll select &#34;IntelliJ IDEA&#34; from the menu. Then you’ll download and install.</p>
+<p>Next, you’ll learn how to launch IntelliJ and then create a shortcut for it. You’ll learn there are plugins you can choose. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">demonstrate how to download, install and configure the IntelliJ for Java Developers</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: IntelliJ for Java Developers. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to download, install and configure the IntelliJ IDEA Development Tools for Java. This is the IDE that I&#39;ll be using to carry out Java demonstrations throughout this course. It is by no means required. Other IDEs, even text editors and running the Java tools from the command line also work. There are no shortage of development approaches, but in the end, Java code is still Java code and the code you write in one environment will work fine in another.</p>
+<p>I have my web browser open to the jetbrains.com website. I&#39;m going to select the &#34;Developer Tools&#34; option and select &#34;IntelliJ IDEA&#34; from the menu. Select &#34;Download&#34;. And although you can install the Community version and use for free, it&#39;s an open-source edition, I do recommend at least trying the Free 30-day trial of the Ultimate edition, which I&#39;ve done here. [Video description begins] <em>The host clicks on the &#34;Download&#34; button under Ultimate.</em> [Video description ends] So it&#39;s going to ask me to save the download, but I&#39;ve already downloaded and saved this file, so I&#39;ll switch over to my terminal window and I&#39;m already in my Downloads folder.</p>
+<p>I&#39;m going to run tar -x for extract z for zipped and f for force of ideaIU-2020.3.tar.gz. And then I can look in the folder idea-IU-203.5981.155/ and I see all the files are here. Now I don&#39;t want to install it here, I want to put it into its final location, which I&#39;m going to put in my Home folder.</p>
+<p>So I&#39;ll type mv for move idea-IU and I just hit Tab to complete the path and I&#39;m going to move this to ../idea-IU. And now I&#39;ll cd ../idea-IU I&#39;ll type ls and I&#39;ve all the files here. Where I&#39;d like to start is in the bin folder, so I&#39;ll cd into bin, ls and I see all of the programs and scripts that are available in my IntelliJ install. The important one is idea.sh. And this will launch IntelliJ. But I don&#39;t want to just come to the command line and type it every time.</p>
+<p>So I&#39;m going to create a shortcut for it in my panel. [Video description begins] <em>The host right clicks on the top of the window and then clicks on &#34;Add to Panel...&#34;.</em> [Video description ends] Now, depending on the operating system or flavor of Linux, or desktop environment, adding this shortcut may be a little bit different. In general, the same process applies everywhere. So I&#39;m going to create an Application Launcher, press &#34;Add&#34;, the Name of the application is going to be IntelliJ, the Command I&#39;m going to select &#34;Browse...&#34; go into my &#34;Home&#34; folder, &#34;idea-IU&#34;, &#34;bin&#34;, and I&#39;m going to select &#34;idea.sh&#34;.</p>
+<p>And there&#39;s also an icon here I can select. I&#39;m going to select that. I&#39;ll go back into my &#34;Home&#34; folder, &#34;idea-IU&#34;, &#34;bin&#34;, and I&#39;m going to select the idea.svg to represent it as an icon. And now I can hit &#34;OK&#34;. I&#39;ll close the tool to add to the panel. Now I&#39;ll go up, it auto-hides the top panel, but here I have the IJ icon for IntelliJ and I can just click it and it will launch IntelliJ for me.</p>
+<p>So I&#39;ve run it for the first time, it asks me to accept the user agreement, which I will. And I can put in my IntelliJ license, if I&#39;ve purchased one, or I can select &#34;Evaluate for free&#34;, Evaluation is free for 30 days and I just click &#34;Evaluate&#34;. And now I&#39;m at a welcome screen where I can select a project, I can create a New Project, I can perform some customizations, I can change the IDE font and the Editor sizes. I like to boost it up a little bit for visibility. So I&#39;ve set the IDE font to 16 and the Editor font to 14.</p>
+<p>There&#39;s also Plugins I can select, and the Learn IntelliJ IDEA. So I&#39;ll go back to &#34;Projects&#34; and select a &#34;New Project&#34; and it gives me some options on what I&#39;d like to use for this project. I can select a Java project and I can add Libraries and Frameworks for Groovy, Kotlin and SQL Support. There&#39;s also projects for Maven, Gradle, Java FX, Android and the IntelliJ Platform Plugin. So there&#39;s a number of options I can select. I&#39;m going to leave it at Java.</p>
+<p>The important part here is selecting the Java versions. So it&#39;s selected 1.8 Java, which I have installed, but I can also select to Download a JDK or Add a different JDK instead of using the one that&#39;s detected locally. I could select &#34;Download JDK...&#34; and download a different JRE in JDK if I need a different option. So there&#39;s Java versions all the way from 1.8 to 15. The different Vendors of JDKs, so there&#39;s the OpenJDK from Oracle, and some other ones that are hosted or distributed by third parties.</p>
+<p>Now, I&#39;m going to hit &#34;Cancel&#34;, I&#39;m going to leave it at 1.8, select &#34;Next&#34;, and I can select to Create a project from a template if I want to create a Command Line App, and select &#34;Next&#34;. And I can call this Project name, I&#39;ll just call it FirstProject. I can have a Base package and com.example is perfectly valid. And now I&#39;m ready to get started with IntelliJ and building my first application. And that concludes this demonstration of installing IntelliJ IDEA development tools for Java.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Java Compiler and Interpreter ( it_sdjcfa_02_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/5dcbc24a-fd5b-4976-b9e0-946042b73d5f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5dcbc24a-fd5b-4976-b9e0-946042b73d5f/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The demo will show you how to compile and execute a simple Java application from the command line. You’ll open the folder labeled IdeaProjects/JavaDocDemo. You’ll find that inside there are two folders: a source folder, src, and an output folder called out.</p>
+<p>You’ll take a look at the source files, Greet.java and Main.java. You’ll learn how to compile a folder and rerun javac on a source example. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">compile and execute simple Java applications from the command line</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Compiler and Interpreter. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video I&#39;ll demonstrate how to compile and execute a simple Java application from the command line. So I&#39;m in this folder: IdeaProjects/JavaDocDemo. I&#39;m going to cover the details of the source files in this demo, in the video titled Javadoc later in this course. I&#39;ll type ls to see what&#39;s in this folder. So there&#39;s two folders: a source folder, src and an output folder called out.</p>
+<p>If I look in source, I&#39;m going to use ls src/com/example/. This is where my source files are. Greet.java and Main.java. The Main.java can&#39;t be compiled by itself. I can type javac src/com/example/Main.java. It tells me it can&#39;t find the symbol. So Greet has to be compiled first or together with Main, and Main.java needs to know where it can find the Greet class file. So I can type javac src/com/example/Greet.java.</p>
+<p>Now I can compile it on its own. I&#39;ll arrow up a couple of times and rerun javac on source example com Main.java, and it still can&#39;t find the symbol. Why not? Well, it&#39;s looking in my current folder and in a class path, and it can&#39;t find the class for Greet.java. So inside of src/com/example, there&#39;s a Greet.class. Now what I&#39;m going to do is remove it because I don&#39;t want it there. I want to put it somewhere separate, so I&#39;ll delete using rm the Greet.class from that folder.</p>
+<p>So where I want to put it is in the out folder. [Video description begins] <em>The host types ls and hits Enter.</em> [Video description ends] So I&#39;ll put it to the output so I can type javac -d out so that&#39;s the directory or destination folder, src/com/example/Greet.java and src/com/example/Main.java. So it&#39;s going to compile those two files and put the results in out. Now, inside of out where it puts it is in the com folder, so ls out/com/example/ we have Greet.class and Main.class that were just compiled.</p>
+<p>The production folder is something put there by the IDE when these files were created, and has nothing to do with the javac we just compiled now. So what do we do when we want to run it? Well, if I type java com.example.Main it won&#39;t be able to find where that Main is. I need to specify a class path. So java -classpath out. So I only need the top level root directory of where the package begins.</p>
+<p>So out and then space com.example.Main. And it prints Hello, World! And that&#39;s exactly the output of this application. I can also debug it using jdb and the same thing -classpath out com.example.Main.</p>
+<p>So instead of running Java, I can run jdb and it will do the same thing, but it will put me into a jdb, a debugging session and I can type run, and run the code from the debugging session and it gives me the result Hello, World! So whatever IDE you&#39;re working in, under the hood, the IDE is building a javac command out of your source files, but you&#39;re not completely tied to an IDE and you can even use a text editor to edit your Java files and compile them from scratch using javac although I recommend not typing out the full names every time you want to compile something, but create a shell script or make files to do so. And that concludes this demonstration of the Java compiler and interpreter.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Java Development Tools ( it_sdjcfa_02_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/43f7d470-a637-4187-81ba-d318f1e2ef3d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/43f7d470-a637-4187-81ba-d318f1e2ef3d/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The demo will show you how to create, compile and run a simple Java application using IntelliJ. You’ll see that once you’ve launched IntelliJ you’ll see there are no projects open. You’ll select from the options to select New Project or open a recent one. Next, you’ll select the New Project and choose Java.</p>
+<p>Next, you’ll learn to create a project from a template. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create, compile and run a simple Java application using IntelliJ</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Development Tools. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create, compile and run a simple Java application using IntelliJ. So once I&#39;ve launched IntelliJ and if I have no projects open, I&#39;m presented with the dialogue that gives me the option to select New Project or open a recent one or some other one that I can browse for. So I&#39;ll select &#34;New Project&#34; and there&#39;s some options, I can use Groovy or Kotlin with JVM. IntelliJ provides that.</p>
+<p>But what I&#39;d like to do is select Java. The SDK I want is version 1.8, the one I have installed. And I&#39;m not going to select a library to use, I&#39;m just going to select &#34;Next&#34;. We can create a project from a template or an empty one. I&#39;m going to create a project from a template and choose Command Line App, which is the only one I have here at the moment. [Video description begins] <em>The host clicks on &#34;Next&#34; in the bottom right of the dialogue.</em> [Video description ends] And I can give the project a name, so I&#39;ll call this CreateCompileRunDemo.</p>
+<p>I can select a Base package for this, and I&#39;ll leave this as com.example and select &#34;Finish&#34;. IntelliJ gives me a file Main.java with the blueprint for an entry point into an application, with a class called Main and the standard public static void main(String[] args) entry point function to our application, where we can start writing code.</p>
+<p>Also in the side panel there&#39;s a Project explorer inside of IntelliJ. So if I expand it and expand to the source, the src folder, I can see com.example and Main. So any source files get added to the project and I can open them up and edit them right here in IntelliJ as part of my project. To build the program, I can go to the &#34;Build&#34; menu and say &#34;Build Project&#34; and it will give me any errors or problems compiling, in this case, it says No problems.</p>
+<p>If I put something, let&#39;s say a partial statement, I&#39;ll just type in: int i without any semicolon, IntelliJ actually compiles it live or at least checks the code for errors. And it&#39;s telling me that there&#39;s a semicolon expected and Variable &#39;i&#39; is never used. So the red circle with the exclamation mark are errors and the triangle with the exclamation mark are warnings.</p>
+<p>So I&#39;ll remove that. And what I&#39;m going to do is just type System.out.println and of course this example application has to be a Hello, World! So it&#39;s a Hello, World! application, and I&#39;ll save it. I can select Build and Build Project, but if I just go to the Run menu, I can select Run &#39;Main&#39; or from the toolbar I can click the Run icon, and each one of these has a tooltip that says Run &#39;Main&#39; Shift&#43;F10.</p>
+<p>So I can select it from the menu, the toolbar or type the shortcut Shift&#43;F10, and I typed Shift F10 and that will compile and run the program and bring me to the output. And the output shows Hello, World! and then Process finished with exit code 0 exit code 0 meaning success. And that concludes this demonstration of the Java Development Tools using IntelliJ.</p></div></div></div><div class="section"><a name="section_12" /><h2 class="section_title">13. Video: JavaDoc Tool to Generate JavaDoc Pages ( it_sdjcfa_02_enus_13)</h2><img src="https://cdn2.percipio.com/public/b/a14dda87-1d83-4cfb-bca4-b043ee1760ff/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a14dda87-1d83-4cfb-bca4-b043ee1760ff/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. The instructor will demonstrate how to use the javadoc syntax and tool from the IntelliJ IDE to generate HTML documentation. You’ll follow the syntax covered in the video titled Java Documentation.</p>
+<p>You’ll start with the example file Greet.java, which is part of the package com.example. You’ll learn how to generate JavaDoc pages from here. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">write comments that can be used by the JavaDoc tool to genereate JavaDoc pages</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: JavaDoc Tool to Generate JavaDoc Pages. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate the javadoc syntax and tool from the IntelliJ IDE, to generate HTML documentation, following the syntax covered in the video titled Java Documentation. So let&#39;s start with this example file Greet.java, and it&#39;s part of the package com.example. I start with the first javadoc comment block. So I&#39;ve /** and then on each line I have some description or some tag associated with javadoc.</p>
+<p>So I describe this as Generic greeting example, &#64;author is Steve &#64;version 1.0, &#64;since 2021-01-20. Then inside of public class Greet I have another comment block describing a static variable. public static final String greeting &#61; &#34;Hello&#34;; So it comments it as: the default greeting if &#34;&#34;, the empty string, is supplied. And then I have a method called sayGreeting, and above this sayGreeting method, above its declaration, I have a javadoc comment.</p>
+<p>So it just says (Java)Doc comment for main and I can put in sayGreeting, so this describes the method, and then &#64;param greeting, so &#64;param is the parameter for the method, so the first one is greeting. This is the salutation, for example &#39;Hi&#39; or &#39;Hello&#39;. &#64;param recipient for the second parameter, the receiver of the message so for example &#39;World&#39;, &#39;Steve&#39; or &#39;Jane&#39;, so we can greet saying Hello World, and then &#64;return describes the return value.</p>
+<p>This is the full greeting to the recipient, for example, &#39;Hello, World!&#39; with the comma space and exclamation mark added. So sayGreeting takes the greeting and recipient arguments, and it declares its String message. If the (greeting.isEmpty()), that&#39;s true, then no greeting was supplied and I use the default one. So message is equal to Greet.greeting &#43; or concatenate comma space and then &#43; to concatenate the recipient.</p>
+<p>And then I concatenate the exclamation mark. So just the exclamation mark in double quotes, else message &#61; greeting, so that&#39;s the argument greeting, comma space recipient, exclamation mark. And then System.out.println(message). So message doesn&#39;t actually get returned, it just gets printed. So I can change the comment and remove the return because there is no return value.</p>
+<p>And take this full greeting to the recipient, and put that above in the comment, and say it Prints full greeting to the recipient, for example &#39;Hello, World!&#39; and I clean up the bottom a little.</p>
+<p>So I&#39;ll save this, and now in &#34;Main.java&#34; I have Greet g &#61; new Greet(); and then g.sayGreeting with the empty String comma &#34;World&#34;. So if I Run from the toolbar, it will build the program, execute and print Hello, World!</p>
+<p>Process finished with exit code 0. So I know the program is fine and what I&#39;d like to do is go to &#34;Tools&#34; and select &#34;Generate JavaDoc...&#34; and I&#39;m going to generate it for the Whole project.</p>
+<p>And the only thing we really need to change or specify is the Output directory. So without it we can&#39;t even generate the JavaDoc, so it&#39;s going to go in home/steve/Documents, select &#34;OK&#34;, I&#39;ll select &#64;author and &#64;version from the options and &#34;OK&#34;.</p>
+<p>And it generates the documentation and puts me into my web browser with the javadoc.</p>
+<p>So com.example is the Package, Class Summary is Greet and Main, and Greet, which I described as Generic greeting example, I can select it and then it has all the documentation: Since, Version, Author. So it has all the same information that was in the javadoc comments, has a Constructor, which I didn&#39;t supply, but it puts one in my default, and it&#39;s uncommented.</p>
+<p>And if I go down to Methods and find my sayGreeting it shows the declaration and then (Java)Doc comment for sayGreeting Prints full greeting to the recipient.</p>
+<p>I can select it and go down to the full description, the Method Detail and it shows the Parameters, greeting - the salutation, for example &#39;Hi&#39; and &#39;Hello&#39; and recipient - the receiver, for example &#39;World&#39;, &#39;Steve&#39; and &#39;Jane&#39; as examples. And that concludes this demonstration of javadoc.</p></div></div></div><div class="section"><a name="section_13" /><h2 class="section_title">14. Video: Course Summary ( it_sdjcfa_02_enus_14)</h2><img src="https://cdn2.percipio.com/public/b/049bee2e-987a-4b57-ba3f-b4a1ecd9ce21/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/049bee2e-987a-4b57-ba3f-b4a1ecd9ce21/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll summarize what you’ve learned in the course. You’ve learned the features of the Java Development Kit, JDK, and the Java Runtime Environment, JRE.</p>
+<p>You learned the features and components of the Java Compiler, Interpreter, Assembler and Debugger. You also discovered the features and components of the Java Head File Generator, Documentation tool and Archive format, and archive tool. </p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">summarize the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Course Summary.</em> [Video description ends]
+<p>In this course, we&#39;ve examined the features of the Java Development Kit, JDK, and the Java Runtime Environment, JRE.</p>
+<p>We did this by exploring the Java Development Toolkit and Java Runtime Environment, features and components of the Java Compiler, Interpreter, Assembler and Debugger. Features and components of the Java Head File Generator, Documentation tool and Archive format and archive tool. Downloading and Installing the Java Development Toolkit and the Java Runtime Environment, and downloading, installing and configuring the IntelliJ IDE.</p>
+<p>In our next course, we&#39;ll move on to examine the importance and benefits of writing clean code and methods and tools for commenting and writing clean code.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2022 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

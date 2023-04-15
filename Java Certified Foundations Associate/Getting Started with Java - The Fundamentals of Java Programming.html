@@ -1,0 +1,340 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Getting Started with Java: The Fundamentals of Java Programming</h1><div class="section_text">This course serves as a theoretical introduction to the Java programming language - a class-based, object-oriented, and platform-independent language. Use this course to discover what these qualities mean when using Java to develop programs.
+
+Explore some of the significant features of Java. Get a glimpse into the Java ecosystem and the phases involved in translating Java code to a machine-executed form. In doing this, you&#39;ll examine concepts such as compilers, Java bytecode, and the Java Virtual Machine. 
+
+Delve into some of the other properties of the language, such as using the just-in-time compiler and the automatic garbage collector. 
+
+Finally, learn about the vast array of fields in which Java programming can be applied. At the end of this course, you&#39;ll have a solid foundational comprehension of the characteristics and use cases of the Java programming language.</div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Course Overview (it_jpgsjadj_01_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: How Java Works (it_jpgsjadj_01_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Running Java Programs (it_jpgsjadj_01_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: The JVM and the Java Ecosystem (it_jpgsjadj_01_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Properties of Java (it_jpgsjadj_01_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Java's Class Library and Garbage Collector (it_jpgsjadj_01_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Applications of Java (it_jpgsjadj_01_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Course Summary (it_jpgsjadj_01_enus_08)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Course Overview (it_jpgsjadj_01_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/9c666b07-1799-4af2-b02a-fbd5e93788b4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9c666b07-1799-4af2-b02a-fbd5e93788b4/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about your instructor and this course. In the course, you’ll learn some of the significant features of Java. Java is a class-based object-oriented language that’s platform-independent. You’ll also learn about the Java ecosystem and the phases involved to translate Java code into a form that can be executed by a machine. This includes concepts like compilers, Java Bytecode, and the Java Virtual Machine.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">discover the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Course Overview</em> [Video description ends]
+<p>Hi, and Welcome to this course, the Fundamentals of Java Programming. My name is Kishan Iyer, and I will be your instructor for this course.<br /><br />[Video description begins] <em>Your host for this session is Kishan Iyer. He is a software engineer and a big data expert.</em> [Video description ends] <br /><br />A little about myself first. I have a master&#39;s degree in Computer Science from Columbia University, and have previously worked in companies such as Deutsche Bank and Web MD in New York. I presently work for Loonycorn, a studio for high quality video content. Java is a programming language which has been around seemingly forever. But there is a very good reason for this.</p>
+<p>It is a very mature language, has a wide range of features, and is constantly being updated. Furthermore, Java can be used in pretty much any field, from big data and machine learning to web and mobile app development. What this means is that knowing Java programming is a crucial skill for any programmer, and this learning path introduces you to this language. This course serves as a theoretical introduction to the Java programming language.</p>
+<p>It assumes some idea of basic programming but requires no prior Java experience. You will begin by exploring some of the significant features of Java. For instance, that it is a class-based object-oriented language which is platform independent, and what that means when developing programs. You will also get a glimpse into the Java ecosystem and the phases involved to translate Java code into a form which can be executed by a machine. This includes concepts such as compilers, Java Bytecode, and the Java Virtual Machine.</p>
+<p>You will then delve into some of the other properties of the language such as the use of the Just-in-time compiler and the Automatic Garbage Collector. Finally, you will learn a wide array of fields in which Java programming can be applied. Once you finish this course, you will have a clear idea of the nature of Java as a programming language and the different pieces which come together to run a Java program. This will set you up to get hands on with Java, and move on to courses where you get to write, compile, and run Java code.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: How Java Works (it_jpgsjadj_01_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/5997dd41-b7f2-4e81-96ef-e54b9a6158ea/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/5997dd41-b7f2-4e81-96ef-e54b9a6158ea/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about the Java programming language. You’ll learn the mechanics involved in writing a Java program and then getting it to run on a machine. A programming language provides you with the means to write a set of instructions in order to carry out a task. A programming language provides you with the tools you need to give instructions to a machine.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">recall what's meant when we say that Java is object-oriented and platform-independent</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: How Java Works. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>We will now start off on a journey towards learning the Java programming language, which is of course one of the most popular programming languages and also very, very powerful. However, before we dive into too many of the details, it helps to understand how exactly the Java programming language works. More specifically, what are the mechanics involved in writing a Java program and then getting it to run on a machine. First, though, let&#39;s take a look at what exactly a programming language is? Well, it is assumed that you already have some prior programming experience. In which case, you will know that a programming language provides you with the means to write a set of instructions in order to carry out a task. Just as we as humans use any language to communicate and also to give instructions to one another, a programming language provides us with the tools which we need to give instructions to a machine.</p>
+<p>Just like with any regular language, a programming language can be thought of as a formal language, which has its own vocabulary as well as syntax. So it&#39;s not just the words which are significance, but also how we arrange them in order to form a complete instruction. All right then, just to summarize, we have words that is a vocabulary as well as syntax in order to convey instructions, and all of these instructions put together can be used to implement algorithms. Now, let&#39;s just take a real life example where we need to prepare a cup of coffee. There are of course many different ways to prepare coffee and you can think of each recipe or technique as its own algorithm for coffee preparation. Each recipe of course, can be broken down into a set of instructions. For example, let it simmer for 10 minutes and each instruction in turn can be broken down into words and they also have some meaningful arrangement which represents the syntax.</p>
+<p>So now that we have an idea of what a programming language is? What exactly is Java? Well, one definition for this is that it is an object-oriented, class based programming language, which is designed to have as few implementation dependencies as is possible. So what exactly does this really mean? For that, we&#39;ll need to break down this definition into its components. First of all, let&#39;s focus on the fact that it is an object-oriented language. What this means in the context of a programming language is that each entity when using the language is represented in the form of an object, which includes its own fields and methods.</p>
+<p>As an example, consider you&#39;re building an application for an insurance company, which of course needs to work with a number of different customers, and also their insurance plans. In such a case, an individual customer can be represented by means of an object. So let&#39;s just say there is a customer called Ben. Well, there will be an object to represent Ben and this object will include a number of different fields which describe this customer. We&#39;ve already discussed the name, but it could also include a customer ID, a date of birth, and anything else which is useful in order to describe and work with a customer.</p>
+<p>In programming languages, these fields are also referred to as attributes or properties of the object. An object will contain not just fields, but also methods, which are essentially functions which allow us to operate on those objects. So continuing with our example, let&#39;s just say for each customer of the insurance company, we store the date of birth with which we can calculate their age. We may know what car they drive and other information about the customer and we can have a method in order to calculate the premium which that customer needs to pay. The reason we will have a method or a function to perform this calculation rather than a field is because the premium is not likely to be static. That is, it can change regularly, whereas fields can be used to store values which don&#39;t change often. Usually, if you would like to access the fields of an object, either to view their values or even to modify them, the access is granted by means of the methods of the objects. So just to quickly summarize, in an object-oriented language an entity such as a customer of an insurance company can be defined by means of an object and an object is essentially a combination of fields which describe that object and methods or functions which allow operations on the object.</p>
+<p>That said, however, most object-oriented programming languages are, in fact, class-based. That is, different types of entities are defined by means of something called a class. This brings us to the second component of the definition which we saw earlier for the Java programming language, that it is a class-based language. So let&#39;s zoom in on this particular concept. So a class-based language is a specific type of object-oriented programming language and this uses a construct called classes in order to define a set of objects. Tying this concept to our example of an insurance company&#39;s customer, we talked about a specific customer called Ben, who can be represented by means of an object.</p>
+<p>However, a class is something a little more generic. This is something which can be used to define all customers of the insurance company. So it is by means of a class that we describe that a customer for the insurance company should contain specific fields. Let&#39;s just say a name, an ID, a date of birth, and so on and that effectively serves as a template from which we can create specific instances of that class, which is an object. So a class describes what a customer looks like and an object represents specific customers. Let&#39;s just say, Alice, Bob, and so on, each with their own names, dates of birth, etc.</p>
+<p>The benefits of using a class based approach is that they allow us to wrap up a number of fields as well as methods associated with a type of object into a single unit. This wrapping up of fields and methods is something termed as encapsulation in many class-based languages. Significantly the use of classes also allows for the concept of inheritance. I won&#39;t go too much into the details here, but as an example, consider again that we have the insurance company with customers. However, there may be specific types of customers. For example, there may be customers who have purchased a car insurance plan and others who have purchased a life insurance plan. Inheritance allows for a generic customer to be defined and then specific customers for car and life insurance to be built upon that.</p>
+<p>Let&#39;s move along then to the next component of Java programming language definition, specifically that it is meant to have as few implementation dependencies as possible. So what exactly is meant by that? Well, another way to phrase it is that Java is meant to be platform-independent. This means that you should be able to write a Java program and it should run on any operating system. Whether you run it on Windows, Linux, or macOS, writing a single program should suffice and you should not have to write separate programs for each platform you intend to run it on.</p>
+<p>If you have studied operating systems however, you will recognize that each of them have their own set of system calls and how they interact with the underlying hardware. So how can it be possible for a single Java program to run on each of these rather different operating systems? Well for that Java has something called a Java Virtual Machine. So programs don&#39;t run directly on the operating system but within this virtual machine, which is also called a JVM, and it is the JVM which talks to the operating system.</p>
+<p>The Oracle Corporation, which is a company which maintains the Java programming language has built JVMs for most commonly used platforms. So there is a JVM for Windows which knows how exactly to talk to a Windows operating system. There is one for Linux, which knows what Linux system calls need to be made. Which means that as programmers, all we need to do is to write a Java program which can run on a JVM. It is the JVM which will ensure that the underlying platform can be talked to.</p>
+<p>So with that, you now have a fairly high level understanding of what the Java programming language is, and how exactly it can run on multiple platforms. In the next video, we will zoom in on the platform independent part of the Java programming language and visualize how exactly this is achieved.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Running Java Programs (it_jpgsjadj_01_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/521d74bf-13e4-4e10-9804-3468584cd42a/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/521d74bf-13e4-4e10-9804-3468584cd42a/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. You’ll learn how a Java Virtual Machine or JVM ensures you only need to write a single program. This program can run on any platform, whether Linux, Windows, macOS, etc. Following along, you’ll see how this is done. Onscreen, you’ll see you have a Java program, and you want this to run on any combination of operating system and hardware.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe how the JVM is used to execute your Java source code</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Running Java Programs. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>In the previous video, we discussed that the Java programming language is an object-oriented and class-based language, and that the Java Virtual Machine or JVM ensures that you only need to write a single program and that it can run on any platform, whether Linux, Windows, macOS, and so on. Let&#39;s now see exactly how this is achieved. So at the top, we have a Java program, and we want this to run on any combination of operating system and hardware. That is, whether your machine runs an Intel microprocessor or one developed by AMD, your program should just run and you should not have to develop a separate program for each different configuration of the hardware.</p>
+<p>Thankfully, this is not something you need to worry about, and this is mainly thanks to the operating system which serves as an intermediary between any software which runs on the OS and the underlying hardware. If you have studied assembly language, you will know that different processors may have their own set of instructions. However, the translation into those instructions is something which is handled by the OS. So while we&#39;re not directly concerned with the hardware, what about the operating system then? Again, each operating system has its own set of system calls which means that our Java program will eventually need to be translated to those calls.</p>
+<p>So how exactly can we ensure that our program makes the right calls depending on the operating system which it runs on? Well, it should be obvious to you that this will involve way too much effort for Java programmers if they need to build a separate program for each platform. In which case, they need to be experts not just a Java programming, but also specific operating systems on which their programs will be executed. Well, the solution to this problem is in fact a rather common one in any kind of software development. Specifically, we can add in a new layer in the interaction between a Java program and the underlying operating system, which will mean that our program is not tightly coupled with a platform which it runs on and that layer in the interaction is the Java virtual machine. So just like an operating system ensures that we don&#39;t need to directly talk to the underlying hardware, the Java virtual machine make sure that we don&#39;t need to talk to the OS either.</p>
+<p>So all we as Java programmers need to do is to write a single program which is understood by the Java virtual machine. The JVM in turn translates a program to a form which is understood by the underlying operating system, which in turn translates this eventually to machine language which can be executed on the underlying hardware. So when it comes to the Java virtual machine as I had mentioned earlier, there are different JVMs which are available for different operating systems. Each of these is capable of talking to that specific OS in question and more importantly, the JVM is something which has been built and is maintained by the Oracle Corporation. So all you need to do is to download and install it on any system on which you wish to run your Java program and what this boils down to is that you as a Java developer only need to focus on writing a Java program.</p>
+<p>Following that, you can simply run it on any JVM no matter what the underlying operating system or hardware configuration on which it is executed. This is in fact still a somewhat high-level view of the JVM, and we will look at it in a little more detail in just a little bit. Before we get to that, however, let&#39;s familiarize ourselves with some Java terminology. First of all, there is the Java source code. In fact, this is what we as Java developers will be working on most of the time. The source code is the Java program or set of instructions which are written by the application developer. However, for this to be executed inside a Java virtual machine, we&#39;ll first need to feed our source code into something called a Java compiler. So the source code cannot be run directly on the JVM.</p>
+<p>We first send the source code to a Java compiler which in turn translates it to something called Java Bytecode. It is the bytecode which can be executed in the JVM. So these are terms which you will come across frequently when writing Java programs and in that case, it is important for us to familiarize ourselves with the file formats we&#39;ll be working with. When it comes to Java source code, that is the programs which we write, the file extension in use is .java. So these are the Java programs written in the Java programming language, and then we of course feed them into the Java compiler and this is what transforms the .java file into bytecode. The bytecode itself is a separate file which has the extension of .class. The bytecode itself is in fact somewhat similar to assembly language in that it has its own instruction set and these instructions do seem similar to assembly language, just in case you ever worked with that.</p>
+<p>However, the translation of source code to bytecode is something which we once again don&#39;t need to concern ourselves with. This is handled by the Java compiler which is part of the installation of the Java Development Kit which we will need to install before we write any Java program.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: The JVM and the Java Ecosystem (it_jpgsjadj_01_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/55d05f33-43d5-4434-9feb-9b1f0d8b7a19/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/55d05f33-43d5-4434-9feb-9b1f0d8b7a19/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll watch a demo. You’ll learn about the workings of the JVM to better understand how to build and then run Java programs. You’ll focus on the translation from a Java program to something which gets executed on the JVM. For this, you’ll see there are a new set of transformations needed. As touched upon earlier, when you write a Java program, you save it as a file with the .java extension.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">identify the purpose of the JVM and some of the important components in the Java ecosystem</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: The JVM and the Java Ecosystem. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>So far in this course, we have discussed the fact that it is the Java Virtual Machine or JVM which allows Java programs to run in a platform-independent manner. We will now zoom in on the workings of the JVM in order to get a better understanding of how we can build and then run Java programs. In the previous video, we saw that in order to run a Java program, there are in fact a number of different layers which come into the picture. We write the program in the form of a .java file. Eventually, that gets executed on a Java virtual machine and that ensures that our program is able to communicate with the underlying operating system, which in turn ensures that the program can run on the hardware.</p>
+<p>So of course, there are many different layers here. But we will now, in fact, focus on this particular translation from a Java program to something which gets executed on the JVM and for that, well, there is a new set of transformations which we can examine. As touched upon earlier, when we write a Java program, we save it down as a file with the .java extension. That file cannot be executed directly by the Java virtual machine and instead it is first fed into a Java compiler. It is the compiler which takes in the .java file and then produces as an output a .class file.</p>
+<p>This process of converting a .java file into a .class file is termed as compiling a Java program and this phase is also commonly referred to as the build phase or building of a program or application. This .class file is one which contains Java bytecode and it is that bytecode which is capable of running inside a Java virtual machine. While you need not concern yourself with this transformation, on a day-to-day basis, when coding Java programs, it is important for you to recognize that to get programs to run, there are in fact a number of different transformations which take place under the hood. So while we now have an understanding of the translations required in order to run a Java program, well, let&#39;s take a closer look at the JVM itself.</p>
+<p>We already know that this is what is capable of running Java bytecode. However, in our discussion so far, we have only covered the fact that it is a program written in the Java programming language which can be compiled into Java bytecode using a Java compiler. However, this is only part of the picture. There are, in fact, a number of different programming languages which can be compiled into executable bytecode. For example, beyond Java, there is also Groovy which is a scripting language, Scala, which is often used in big data, and the language Kotlin, which is the recommended language for Android development. All of these and a handful of other languages as well eventually compiled into Java bytecode and can be run on a Java virtual machine.</p>
+<p>All of these languages are in fact quite similar to Java in terms of syntax and features and if you know Java, then learning any of these other languages is very simple. Another significant feature of the Java virtual machine, of course, is that it ensures interoperability of our programs. That is, our programs can execute on a variety of platforms, in fact, for any platform for which there is a JVM available. Let&#39;s move along then from the Java virtual machine to the broader Java ecosystem. When looking at any documentation related to Java online, you are likely to come across many different terms and this can be rather confusing, and it&#39;s better for us to understand the different components involved in the Java ecosystem.</p>
+<p>Of course, we are already familiar with the JVM which runs Java bytecode but beyond that, there is also something called the Java runtime environment. This is in fact a superset of the JVM. A Java runtime environment or JRE includes a JVM plus a few Java libraries, which are in fact a collection of Java classes and methods which are very useful in performing some basic operations. For example, there is a math library which includes built-in functions which allow us to perform basic math operations, such as calculating square root, calculating the log of a number, and so on. So any machine with a Java runtime environment can run Java programs.</p>
+<p>However, if you are a developer of Java applications, you will require the Java development kit. You can think of this as a superset of the JRE. So the JRE allows us to run Java programs. But in order for us to write them, and then produce bytecode which can then be run, we will require a Java compiler as well. So the JDK includes that. But in order to help with the development or writing of Java programs, there are a variety of other tools which are also part of the JDK package. This includes a debugger which allows us to get to the source of any errors in our Java programs by allowing us to run them one step at a time. So now that you have an idea of the JVM and the Java ecosystem, in the next video, we&#39;ll take a closer look at some of the other significant properties of the Java language.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Properties of Java (it_jpgsjadj_01_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/e6958b0c-007a-44a2-a72e-ef1cbe5f2f7b/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e6958b0c-007a-44a2-a72e-ef1cbe5f2f7b/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll review the properties of Java. You’ll also learn some of the properties of the Java programming language. First, you’ll revisit some of the terms you’ve encountered before. You know that a programming language is effectively a means to supply a set of instructions to carry out a task. A programming language is one that has its own set of rules that can be used to define instructions used to implement algorithms.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">recognize how programming is affected by the static typing requirement in Java and the effects of its just-in-time compiler</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Properties of Java. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>If you have experience with any programming language other than Java, once you begin writing Java programs, it is likely that you will encounter some of the quirks of this language, which you should be aware of. So with that, let&#39;s now dive in, to some of the significant properties or features of the Java programming language. Before we get into that, let&#39;s quickly revisit some of the terms which he had encountered before. For example, we saw that a programming language is effectively a means for us to supply a set of instructions in order to carry out a task. Much like any regular language, which is spoken by human beings, a programming language is also one which has its own set of rules, such as a vocabulary and a syntax, which can be used to define instructions and a combination of instructions can be used to implement algorithms. Which are in fact a larger task which we need a programming language to implement.</p>
+<p>And then, we dived into the Java programming language which we define as an object-oriented and class-based language and that it has been designed to have as few dependencies on the underlying implementation as possible and we saw that much of this is achieved by means of the Java Virtual Machine. However, beyond these properties of the language, there are a handful of others which we should be mindful of, and these are the properties which we will now explore. First of all, Java is a programming language which is statically typed. This will become very significant, especially for those who come from a background in Python or other languages which are not statically typed and we will soon take a look at what exactly this means. Java is also something which typically is just-in-time compiled.</p>
+<p>Again, this is something we will look at in more detail later on. Furthermore, this programming language includes a variety of built-in libraries. This means that without having to download and install any additional tools, it is possible for us to perform a variety of tasks using some of the built-in tools which are already part of the Java programming language. Another feature which makes Java rather easy to use and frees a lot of burden from the point of view of the developer is that it has a built-in garbage collector. This means that a programmer need not concern themselves with allocating resources and then freeing them up once they&#39;re no longer required, and we soon examine the pros and cons of this approach.</p>
+<p>Beyond that, we have already touched upon the fact that Java in fact is related to a number of other programming languages, such as Groovy and Scala, which are languages which eventually get executed on a JVM. Let&#39;s now focus on each of these features in a little more depth one at a time, starting with the fact that Java is a language which is statically typed. So what exactly do we mean when we say that a language is statically typed? Well, essentially any variable which we declare in our program needs to be bound to a specific type of value and this type cannot really change unless we reassign the type for that variable. For instance, we may declare a variable called X and set it to a type of integer and when we compile a program, well, the Java compiler will ensure that every single variable has been assigned a type.</p>
+<p>If you simply declare a variable X without setting a type the compiler will complain, and you will not be able to proceed with compiling and then running the program. Why exactly is this approach adopted? Well, you can think of this as a safety measure. For example, a compiler will also check that any operations which are carried out on variables are valid for the type which is specified for that variable.</p>
+<p>For instance, division operations between integers will be permitted. However, division operations between string values or text will not be allowed. All of this ensures that any bugs which might occur while running the program are caught before we ever get to that stage. In fact, the static typing can significantly reduce a lot of the bugs which might occur in a program. While this is a significant benefit of such an approach, you will also recognize that having to explicitly bind a particular variable to a type can slow down a programmer.</p>
+<p>On the flip side, of course, getting a programmer to think about what operation they&#39;re performing on a variable may be the best way to prevent unnecessary bugs. So clearly there are pros as well as cons to static typing. Some examples of statically typed languages include Java. Of course, C and C&#43;&#43; are also languages where you need to bind variables to a specific type. So if you have worked with either of those programming languages before, this feature of Java will not really be anything new.</p>
+<p>The opposite of statically typed languages are dynamically typed languages. This is where you can simply begin working with variables without ever setting a type for them and Python and JavaScript a significant examples of such dynamically type languages. So if you do have a background in either of these and any of the other dynamic languages, well, Java may take some getting used to. One thing to keep in mind is that the terms strongly typed and weakly typed are often used to describe statically and dynamically typed languages respectively.</p>
+<p>Moving along then to the other feature of the Java programming language, which is that it is usually just-in-time compiled. Now there is some ambiguity around the term compile in this case, since we have already discussed a Java Compiler before, and a just-in-time compilation is a little different. To understand exactly where the differences arise, let&#39;s quickly take a look at what the Java Compiler does. So we have already talked about the fact that this is what translates Java source code, that is a .java file, into executable bytecode that is a class file and having mentioned a compiler, it is important to know that Java is a language which is compiled rather than interpreted.</p>
+<p>What this means is that you write a Java program in its entirety, and this is something which is compiled as a whole. That is, all of it is transformed into executable bytecode. This is as opposed to languages which are interpreted, such as Python for example, where statements are executed one at a time. So this is not what happens with Java. So while a Java program is compiled and not interpreted, the bytecode, which is executed in the JVM is, in fact, interpreted.</p>
+<p>We have already discussed the fact that in order to run a Java program on a machine, there are, in fact, a variety of transformations. The Java compiler converts a .java file into a .class file, that is something which is executed inside the JVM. But even for that to happen, some transformations take place so that eventually what we run on the hardware is machine language. So a compile phase is involved when transforming a Java program into bytecode. However, the transformation of bytecode into machine code eventually is a little different and this is where a just-in-time compiler enters the picture.</p>
+<p>So a Java program is first converted into bytecode before it is executed. In the case of bytecode, well, the just-in-time compiler, only converts it into machine instructions, while it is being run. In other words, this transformation of bytecode to machine instructions happens just in time. We have already discussed the fact that it is the presence of bytecode, which enables Java&#39;s interoperability. Once you have bytecode, it can be executed on any JVM on any platform. However, we also touched upon the fact that the bytecode itself cannot be run directly on a machine, and it needs to be translated into machine code. It is this translation of bytecode to machine code which is done while the program is being run.</p>
+<p>So why exactly wait this long for this transformation to happen? Well, this translation just in time allows for some flexibility. It is possible that you may write a Java program and that same program maybe run several years into the future. In that period, they may have been many advances in hardware, as well as the operating system and performing this translation just in time allows for any advancements in the OS as well as underlying machinery to be exploited, even if they occurred well after your programmers actually developed by you. So really, the biggest beneficiaries of the just-in-time compile process are older programs, which can reap the benefits of any improvements in the just-in-time compile process. If you&#39;re not quite satisfied with the just-in-time compile, well, there are also some ahead of time compilers which are available for Java. So these may deliver some improve performance given that they don&#39;t have to perform translations on the fly. In most cases however, the just-in-time compile works just fine.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Java's Class Library and Garbage Collector (it_jpgsjadj_01_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/61524e7d-924e-4e2d-965b-1972fa446657/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/61524e7d-924e-4e2d-965b-1972fa446657/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about Java libraries. You’ll remember the Java Runtime Environment includes a Java Virtual Machine. It also includes a built-in library, which can be useful to Java developers. This is the Java Class Library, also known as JCL. Essentially, a library is a collection of commonly used programming resources. A Java library allows any Java developer to use its resources.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the workings of Java's automatic garbage collector</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java&#39;s Class Library and Garbage Collector. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>In the previous video, we started off exploring some of the significant features or properties of the Java programming language. We covered what it means when we say that a language is statically typed and the just-in-time compile process which is employed to execute Java programs. We will now delve a little further into the topic of Java libraries. Just a little earlier in this course, we touched upon the fact that the Java Runtime Environment includes a Java Virtual Machine and in addition to that, it also includes a built-in library, which can be very useful for any Java developer. This is the Java Class Library, also known as JCL. Before we delve into this, let&#39;s take a quick look at what a library is. Essentially, it is a collection of commonly used programming resources.</p>
+<p>This may seem a little abstract right now, so let&#39;s get a little more specific. So just as a library for books contains many different books covering a wide range of topics, and any member of a library can borrow any book they want. Well, a Java library allows any Java developer to use its resources. To give an example of the resources, well, there is something called a package called java.lang.</p>
+<p>Where a package can be thought of as a collection of classes and other resources and the java.lang package includes some very basic classes and interfaces which can be used by a program. For example, the base object class, and also the thread class if you&#39;re building a multi-thread program will be available inside java.lang. Don&#39;t worry if you&#39;re unfamiliar with classes and interfaces, these are topics you will get to cover later on. There is also a package in the Java class library called java.math. This is one which includes a number of different functions to perform basic math operations.</p>
+<p>If you need to calculate the log of a number, either the natural log or the log to the base 10. Well, the java.math package includes functions for that, and also a number of functions for other basic math operations. Like calculating trigonometric values. Another commonly used package in the JCL is java.text. This is specifically to do with formatting, text, dates, and so on and if you&#39;d like to connect your Java application with SQL databases, there is the java.sql library.</p>
+<p>This includes a number of different functions as well as classes, which will help you with connecting to a database, running queries against the SQL database and then retrieving, and then working with the values which are returned from it and importantly, all of this is available straight out of the box. You don&#39;t need to install anything new. All you need to know is how exactly to use them. Moving along then, to Java&#39;s automatic garbage collector. What this particular tool does is to periodically clean up unused objects in your program.</p>
+<p>If you have any prior programming experience, you will know that you may create some objects or variables somewhere in the middle of a program, and then beyond that, you don&#39;t really need it. Well, what about the resources which are consumed by those objects? Wouldn&#39;t it make sense to free up those resources and make them available to other objects which might be required by your program as well as others on your system? Well, the answer is yes, and this is precisely what Java&#39;s garbage collector does.</p>
+<p>So this is an independent process which scans the heap memory and then is able to identify objects which are no longer needed by a program. Such objects are categorized as unused objects, and in the context of the Java garbage collector, an unused object is one which is no longer referenced by any part of a running program. So, if you&#39;re halfway through running your program, and in the half which still needs to be run, there are no more references to certain objects which are created in the first half. These are marked as unreferenced objects and the garbage collector will delete them and while doing so, will free up the resources such as memory and processor time which is consumed by them.</p>
+<p>This has the effect of having programs run more efficiently since they&#39;ll have more resources to work with. Significantly, it prevents programmers from explicitly having to free up their resources once they&#39;re no longer required. C programmers will be aware that in order to allocate resources for a particular object, we need to call the malloc function, and once that object is no longer needed we need to call the free function. All of this is not required in Java since the garbage collector takes care of it for us.</p>
+<p>That said however, the garbage collection does add some additional overhead. That is, since it is a separate process which runs in the background it does consume some resources of its own and in many instances, it is not as efficient as having developers explicitly allocate and free up resources. That said however, more often than not, the pros of having automatic garbage collection outweigh the costs associated with it. So from automatic garbage collection, we turn our attention to the fact that Java has a number of related programming languages.</p>
+<p>Many of these can be categorized as JVM languages, that is languages which have compilers, which eventually translate their source code into JVM bytecode. So these can run on the same JVM as Java programs. So a question you might ask is, why is this really important in the context of Java programming? Well, each of these languages have their own set of features and have their own benefits in certain circumstances. However, their syntax and overall structure of the language happens to be very similar to Java.</p>
+<p>For example, Groovy is a scripting language and can also be employed for dynamic programming. Scala is a functional programming language, and finds significant use in the big data space. Kotlin, as we have discussed, is commonly used to develop Android applications, and is in fact the recommended language for Android apps. There is also a language called Clojure which is a JVM language.</p>
+<p>This is a dynamic language, and it&#39;s related to the Lisp language from the past. Other than the fact that these languages and a handful of others can eventually be compiled into JVM bytecode and run on a JVM. One thing which is common to all of these is the fact that knowing Java makes it very easy to pick up any of these languages. In fact, I have had experiences in the past where I had to pick up Groovy and Scala in a matter of days and I was able to do that comfortably thanks to my past experience with Java.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Applications of Java (it_jpgsjadj_01_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/1e77603f-6e94-4cf2-8990-70c7877ce9e4/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/1e77603f-6e94-4cf2-8990-70c7877ce9e4/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll learn more about some of the applications or use cases of Java. First, you’ll learn the benefits of programming in Java. Programs in Java are easy to write, compile, debug, and run, especially since you can run them on any platform which has the JVM. Additionally, programs in Java offer code-reusability. You can define an entity using a class and then create multiple objects based on that class.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">enumerate the various use cases of Java in different fields of computer science</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Applications of Java. Your host for this session is Kishan Iyer.</em> [Video description ends]
+<p>So now that you have some idea of Java programming and the properties of the language. Well, let&#39;s take a closer look at some of the applications or use cases of Java. That is, we will be delving into the world of Java programming. Before we dive into that, let&#39;s take a quick look at some of the benefits of programming in Java. Well, relatively speaking, programs in this language are easy to write, compile, debug in case you run into any issues, and also to run, especially since you can run them on any platform which has the JVM. Another feature which applies to any object-oriented language, especially one which is class-based is the notion of code-reusability.</p>
+<p>That is, you can define an entity using a class and then simply create multiple objects based on that single class. The fact that Java programs run on a JVM makes them platform-independent. So you only need to write one program regardless of where it is run eventually. The automatic garbage collection feature allows developers to focus on the business logic of their programs.</p>
+<p>Rather than having to worry about explicitly allocating resources and then deallocating them once they&#39;re no longer required and as you start to build more and more complex applications, it is likely that you will need to implement a multi-threaded solution. That is, you can set up multiple threads to work on independent tasks in a concurrent manner and Java makes this very easy. All of the said, however, it is also good to keep in mind some of the limitations of this programming language. In many instances, the performance may not match languages which compile into native machine code very easily.</p>
+<p>Like C/C&#43;&#43;, which is why we still see that many high-performance applications still make use of these programming languages, even though they are decades old. Furthermore, you could make the case that the static typing for Java slows down a programmer, and can also be a little too rigid. All of this said however, Java is a language that has been around for a long, long time, and it is constantly being developed and improved. What you may think of as a limitation today, may be something which is addressed in a future release of Java, in which case, it won&#39;t be a limitation anymore.</p>
+<p>In fact, even in my own career as a Java programmer, I have seen a wide variety of improvements. All right then, so we now know that Java as a programming language, have a wide variety of benefits. But where exactly can we use it? That is, what are some of the applications of Java? Well, one very common use case is in the field of web programming. There are Java Server Pages, servlets, and struts, all of which are features which allow us to build robust web applications. Furthermore, Java is also widely adopted for scientific applications. For example, it is widely used in the field of natural language processing and even complex math operations can be performed using Java and then there is the field of big data.</p>
+<p>This is one area where Java finds significant use. For example, the very popular Hadoop platform is something which is written in the Java programming language, as are a variety of other big data tools and most big data platforms have some libraries in Java. If you are in the field of developing graphical user interfaces, well, Java is something you should definitely consider with frameworks such as Swing or JavaFX building, GUIs becomes a lot easier. We&#39;re not quite done with the applications of Java though, since another significant field where Java is a language of choice is mobile application development.</p>
+<p>Java was the first official language for Android applications and while that mantle has now been taken over by Kotlin, we have already discussed that it is quite similar to Java and in fact, Java is still supported as a language for Android apps and then there is game development. An example is the Java based jMonkeyEngine which is a game engine very popular when building 3D games.</p>
+<p>Java is also very popular in the field of distributed computing, with libraries such as JDBC, which allows Java applications to connect to databases and the message passing interface, it becomes very easy to communicate with other machines in a cluster and then there is the world of ETL platforms. Where ETL is short for extract, transform, and load and generally speaking, this is where data is taken from one source and then loaded into another source after performing a number of different transformations and as you might expect, there are a number of different Java-based ETL tools out in the market.</p>
+<p>So with that, we have discussed a number of different fields in which Java programming is widely adopted. But now let&#39;s zoom in on some of these in a little more detail. Starting with the use of Java in web application development. There are many facets to a web application and servlets are a Java component, which allows us to very easily define responses to HTTP requests. Beyond that, we have Java Server Pages also known as JSP. These are effectively a combination of HTML and Java rolled into one which greatly simplify things when it comes to building dynamic websites and then there is the Spring framework.</p>
+<p>This makes things very easy when it comes to building complex web applications. And given the number of features in this framework, we can take a look at it in a little more detail. So to start off, this is something which is meant to simplify server side development. Just in case you&#39;re unfamiliar with what clients and servers are, a client is an application which submits a request for some task to be done, and this request is submitted to another application called a server.</p>
+<p>It is servers which can be built using Spring. How exactly does Spring help with that? Well, processing such a request may require a lot of setup work and this setup work is often very repetitive. Code which is written over and over again in many parts of your application is called boiler-plate code and the Spring framework pretty much eliminates the need for it in many places. Another significant feature of the Spring framework is that it makes things very easy when it comes to building REST APIs. These are effectively the means with which to respond to incoming HTTP web requests.</p>
+<p>Furthermore, an application of any level of complexity is likely to have interactions with other external tools and services. For example, if your web application needs to communicate with a database, well, the Spring framework makes things very easy in that regard and includes interfaces which can communicate with both relational and NoSQL databases. This framework can also streamline access to cloud-based services, especially for the most popular ones and it also enables connections to MapReduce frameworks for big data operations.</p>
+<p>And speaking of big data, this is also an area where Java is very very popular. As I had already mentioned, the widely used Apache Hadoop is written in the Java programming language and other tools in the Hadoop ecosystem, such as HBase are also written in Java, and they also include libraries to integrate with Java applications. Another popular big data tool is Apache Spark, and though this is written in the Scala programming language, it does include libraries for Java. Then there is Apache Kafka, which is very popular as a messaging framework and also to transmit data in real time. This is written in both Java and Scala, and includes libraries for Java. And finally, let&#39;s take a quick look at Java in the world of mobile application development.</p>
+<p>As I had touched upon before, Java was originally Google&#39;s preferred language for Android applications, and is in fact still supported by Google. At the time of this recording however, the preferred language for application development for Android apps is Kotlin and this is, of course, a JVM language whose syntax is quite similar to Java and in fact, if you understand the core concepts of Java, picking up Kotlin will be very simple. In fact, Kotlin is fully interoperable with Java. So it is possible to have snippets of Java code inside your Kotlin programs. What all of this boils down to is that Java is a very useful programming language to know, and arguably the most important programming language to know inside and out.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Course Summary (it_jpgsjadj_01_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/ddc25eb0-e458-4e7d-a781-846e43a4fc81/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/ddc25eb0-e458-4e7d-a781-846e43a4fc81/image001.jpg')();" /><div class="section_text"><p>In this video, you’ll summarize what you’ve learned in this course. You learned the significant features of Java. You learned it’s a class-based, object-oriented language that’s platform-independent. You also looked at the Java ecosystem and the phases involved in translating Java code into a form that can be executed by a machine. You delved into some properties of the language, like static typing, using the just-in-time compiler, and the automatic garbage collector.</p></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">summarize the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Course Summary</em> [Video description ends]
+<p>This course serves as a theoretical introduction to the Java programming language. You started off by exploring some of the significant features of Java. For instance, that it is a class-based, object-oriented language, which is platform independent and what that means when it comes to developing Java programs. You also got a glimpse into the Java ecosystem, and the phases involved to translate Java code into a form which can be executed by a machine. This included concepts such as source code, compilers, Java bytecode, and the Java virtual machine.</p>
+<p>You then delved into some of the other properties of the language. Such as static typing, the use of the just-in-time compiler, and the automatic garbage collector. Finally, you got to learn of the wide array of fields in which Java programming can be applied, from Android app development and web programming, to big data and machine learning.</p>
+<p>Now that you have completed this course, you have a clear idea of the nature of Java as a programming language and the different pieces which come together to run a Java program. While this has laid the theoretical foundation for you to understand Java, you are now ready to get hands on, and move on to courses where you get to write, compile, and run Java code. That is what is covered next in this learning path.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2022 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>

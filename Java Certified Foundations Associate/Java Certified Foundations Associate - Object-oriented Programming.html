@@ -1,0 +1,392 @@
+<!doctype html><html lang="en"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta http-equiv="content-style-type" content="text/css2"><title>Course Transcript</title><link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"><style>:root {
+    --title-text: #243038;
+    --toc-link: #0073C4;
+    --section-title-text: #243038;
+    --section-title-border: #bababa;
+    --grid-caption-text: #164794;
+    --grid-border: #c0c0c0;
+    --grid-hdr-text: #973131;
+    --grid-hdr-background: #f7f7f7;
+    --missing-data: #767676;
+    --text-color: #343434;
+    --lightbox-border: #a0a0a0;
+
+    --bold-font-weight: 700;
+
+    font-family: Lato;
+}
+
+.report {
+    margin: 24px;
+}
+
+.container {
+    position: relative;
+}
+
+#lb-curtain {
+    background-color: white;
+    opacity: 1.0;
+}
+
+#lb-overlay {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    right: 20px;
+    background-color: white;
+    border: solid 1px var(--lightbox-border);
+    visibility: hidden;
+}
+
+.lb-header, .lb-footer {
+    height: 40px;
+    line-height: 40px;
+}
+
+.lb-header {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+#lb-image-container {
+    margin: 0 40px;
+}
+
+#lb-image {
+    width: 100%;
+}
+
+.report_title {
+    font-size: 22px;
+    font-weight: var(--bold-font-weight);
+    color: var(--title-text);
+}
+
+.toc_link {
+    font-size: 14px;
+    color: var(--toc-link);
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+.section {
+    margin-top: 40px;
+    margin-left: 16px;
+}
+
+.section.inner {
+    margin-top: 20px;
+}
+
+.section.inline {
+    margin-top: 20px;
+    margin-left: 0;
+}
+
+.section_title {
+    font-size: 18px;
+    font-weight: var(--bold-font-weight);
+    width: 100%;
+    color: var(--section-title-text);
+}
+
+h2.section_title {
+    border-bottom-color: var(--section-title-border);
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+}
+
+h3.section_title {
+    margin: 8px 0;
+}
+
+h3.list_title {
+    margin: 8px 0;
+    font-size: 14px;
+    color: var(--title-text);
+}
+
+.section_text {
+    font-size: 14px;
+    color: var(--text-color);
+    margin: 12px 0;
+    width: 90%;
+}
+
+.section_link {
+    font-size: 14px;
+    margin: 12px 0;
+    width: 90%;
+}
+
+.grid {
+    border-collapse: collapse;
+}
+.grid_caption {
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    color: var(--grid-caption-text);
+    margin: 12px 0;
+    text-align: left;
+    white-space: nowrap;
+}
+.grid_hdr_row {
+
+}
+.grid_col {
+    font-size: 13px;
+    color: var(--text-color);
+    border-collapse: collapse;
+    padding: 2px;
+    text-align: left;
+    vertical-align: top;
+}
+.grid_col_hdr, .grid_row_hdr {
+    font-size: 12px;
+    font-weight: var(--bold-font-weight);
+    white-space: nowrap;
+}
+.grid_row_hdr {
+
+}
+
+.empty_grid {
+    border-collapse: collapse;
+    border-color: var(--grid-border);
+    border-style: solid;
+    border-width: 2px;
+    padding: 4px;
+    text-align: center;
+}
+
+.htmlbox {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    padding: 8px;
+}
+
+.list {
+    font-size: 14px;
+    font-style: italic;
+}
+
+.missing_data {
+    color: var(--missing-data);
+    font-size: 14px;
+    font-weight: var(--bold-font-weight);
+    font-style: italic;
+}
+
+.copyright-container {
+    margin-top: 24px;
+    text-align: center;
+}
+.copyright-text {
+    color: var(--text-color);
+    font-size: 12px;
+}
+
+/* Transcript Questions CSS */
+
+.question {
+    border: solid 1px var(--grid-border);
+    box-shadow: 1px 1px 4px var(--grid-border);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+}
+
+.question_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.question_details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.question_images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 16px;
+}
+
+.question_image {
+    margin-bottom: 8px;
+}
+
+.question_title {
+    font-weight: var(--bold-font-weight);
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+.question_label, .question_stem {
+    font-weight: var(--bold-font-weight);
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.question_data_row {
+    display: flex;
+}
+
+.question_data_col1 {
+    padding: 8px;
+    white-space: nowrap;
+}
+
+.question_data_col2 {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+.question_answer_key {
+    margin-top: 8px;
+    border-bottom-color: var(--grid-border);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+}
+
+.feedback {
+    font-style: italic;
+}
+</style></head><body class="report"><div class="container"><div class="content" id="lb-curtain"><h1 class="report_title">Java Certified Foundations Associate: Object-oriented Programming</h1><div class="section_text"><p>Object-oriented programming(OOP) is a programming method based on the concepts of &#39;objects&#39; that contain properties and methods. Objects can inherit their structure from other classes and interfaces, which allows for code reuse. In this course, you&#39;ll learn about the features of object-oriented programming.</p>
+<p>First, you&#39;ll learn about the basics of object-oriented programming and how it relates to Java, including the concepts of Java objects, classes, and interfaces. Next, you&#39;ll examine OOP concepts such as inheritance, polymorphism, abstract classes, encapsulation, and inner classes.</p>
+<p>This course is one of a collection of courses that prepares learners for Oracle&#39;s 1Z0-811: Java Certified Foundations Associate certification.</p></div><div class="section"><h2 class="section_title">Table of Contents</h2><div class="toc"><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_0">1. Video: Course Overview (it_sdjcfa_04_enus_01)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_1">2. Video: Java Object-oriented Programming (it_sdjcfa_04_enus_02)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_2">3. Video: Java Objects, Classes, and Interfaces (it_sdjcfa_04_enus_03)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_3">4. Video: Programming Java Objects (it_sdjcfa_04_enus_04)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_4">5. Video: Java Inheritance (it_sdjcfa_04_enus_05)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_5">6. Video: Programming Java Inheritance (it_sdjcfa_04_enus_06)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_6">7. Video: Java Polymorphism  (it_sdjcfa_04_enus_07)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_7">8. Video: Programming Java Polymorphism  (it_sdjcfa_04_enus_08)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_8">9. Video: Java Abstract Classes (it_sdjcfa_04_enus_09)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_9">10. Video: Programming Java Abstract Classes (it_sdjcfa_04_enus_10)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_10">11. Video: Java Encapsulation (it_sdjcfa_04_enus_11)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_11">12. Video: Programming Java Encapsulation (it_sdjcfa_04_enus_12)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_12">13. Video: Programming Java Inner Classes (it_sdjcfa_04_enus_13)</a></p><p class="toc_link">&nbsp;&nbsp;&nbsp;&nbsp;<a href="#section_13">14. Video: Course Summary (it_sdjcfa_04_enus_14)</a></p></div></div><div class="section"><a name="section_0" /><h2 class="section_title">1. Video: Course Overview (it_sdjcfa_04_enus_01)</h2><img src="https://cdn2.percipio.com/public/b/e19a00e5-72e1-44a8-b285-f4f31575af9f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e19a00e5-72e1-44a8-b285-f4f31575af9f/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">discover the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Course Overview.</em> [Video description ends]
+<p>Hi, I&#39;m Steve Scott. I&#39;ve been a software developer and tech consultant for almost a quarter of a century. I&#39;ve traveled around the globe to serve clients, [Video description begins] <em>Your host for this session is Steve Scott. He is an IT Consultant.</em> [Video description ends] where I&#39;ve been responsible for building secure systems, hiring development teams, and solving complex problems through technology.</p>
+<p>With my toolbox of languages, platforms, frameworks, and APIs I round up my technical experience with an academic background in Mathematics and Computer Science. Oracle&#39;s 1Z0-811: Java Certified Foundations Associate certification is targeted to audiences seeking foundational knowledge of the Java programming language and concepts. Individuals tackling the certification will demonstrate they can write and execute a Java program, work with the Java Development Kit (JDK) and the Java Runtime Environment (JRE).</p>
+<p>In this course, I will Discuss the basics of Java Object-oriented Programming, Java Objects, Classes and Interfaces. Next, I&#39;ll dive into the concepts of Object-oriented programming such as Inheritance, Polymorphism, Abstract Classes, Encapsulation, and working with Inner Classes.</p></div></div></div><div class="section"><a name="section_1" /><h2 class="section_title">2. Video: Java Object-oriented Programming (it_sdjcfa_04_enus_02)</h2><img src="https://cdn2.percipio.com/public/b/343f33e5-e174-417a-b303-f9be17a709b1/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/343f33e5-e174-417a-b303-f9be17a709b1/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the key components of object-oriented programming and how OOP relates to Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Object-oriented Programming. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present some of the key components of Java Object-oriented Programming and how it relates to Java. So Java is built around Object-oriented programming. As a programming paradigm, objects are entities that have both state and behaviors and represent physical or conceptual things, such as a cat, a chair, or a container to hold other objects.</p>
+<p>Classes are the blueprints of the objects created in memory that are instantiated or inherited from. Inheritance refers to the ability of an object to obtain the properties and behaviors of a parent object. For example, a dog Class inherits the characteristics of a mammal Class. In Java, we define classes that inherit from other classes. This encourages code re-use, modularization, and logical abstractions.</p>
+<p>What are some of the components that make up Java Object-oriented Programming? The first is Polymorphism. This occurs when objects inherit a method from a parent class and gets overwritten or overloaded with its own specific behavior. An example of this is a cat class and a dog class. They both inherit a speak method from a parent class. This speak method for the cat can be overwritten to display meow. And the speak method for the dog class can be bark.</p>
+<p>The next is Abstraction. This refers to hiding the implementation details from the user and only providing functionality, and it&#39;s achieved by using the abstract classes and interfaces. Encapsulation is also known as data hiding. And it refers to classes providing access controls to the data inside of them so it can limit outside access from other classes. What are some of the behaviors and aspects of Java Object-oriented Programming that deal with how objects interact in ways other than direct Inheritance or abstraction?</p>
+<p>The first is Coupling, which refers to the number of dependencies associated between multiple classes. Interfaces can be used to establish re-Coupling. Cohesion refers to how relevant the data and methods are within a class. For example, the Java.io classes only have methods for performing input and output, but is considered highly cohesive.</p>
+<p>Association describes the relation between objects and could be one of the following: a one to one relationship, a one to many, a many to one relationship, and a many to many. From that we get Aggregation. which is a type of association that refers to a HAS-A relationship where a Class has an Instance of an Object, i.e. a person has an address. If that person moves, someone else can take that address. They exist independently. This is an important distinction relating to Aggregation.</p>
+<p>Composition refers to a relationship where the Association is a part of relationship. It&#39;s a strong form of Association where the child entity or component cannot exist independently of the parent entity. What are some characteristics of Java Object-oriented Programming? Well, Java is considered to be a Secure programming language because it does not permit arbitrary memory pointers and runs inside of a virtual machine sandbox. Components such as the ClassLoader, bytecode verifier, and the security manager provide further security features and mechanisms to ensure safe code.</p>
+<p>Java is considered a Robust programming language since it provides strong memory management, the absence of memory pointers, automatic garbage collection, and exception handling and type-checking mechanisms. Java is considered Architecture neutral since there are no implementation-dependent features such as the size of primitive data types like an int, which can be different on different architectures and operating systems.</p>
+<p>Some more Java Object-oriented Programming Characteristics are the Java programming language is Simple. It&#39;s easy to learn and it&#39;s easy to get started due to its consistent object-oriented style, Java is compiled into bytecode rather than machine code, which runs on a Java virtual machine in a Java runtime environment on whatever local machine it&#39;s run on for code portability.</p>
+<p>Java virtual machines can run on multiple operating systems and environments, which allows Java to be Platform independent. A few more important features before we finish up this presentation, Java supports Multithreaded processes and uses a common memory area, with support for synchronized updates to critical sections between threads.</p>
+<p>Java supports the creation of Distributed applications and allows for the use of remote method invocation, RMI. Java is a Dynamic programming language and supports loading classes on demand, dynamic compilation and automatic garbage collection. And that concludes this presentation on Java Object-oriented Programming.</p></div></div></div><div class="section"><a name="section_2" /><h2 class="section_title">3. Video: Java Objects, Classes, and Interfaces (it_sdjcfa_04_enus_03)</h2><img src="https://cdn2.percipio.com/public/b/a78c13d2-c289-42ee-a775-82bc480f1b68/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/a78c13d2-c289-42ee-a775-82bc480f1b68/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features of Java objects, classes, and interfaces</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Objects, Classes, and Interfaces. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present some of the features of Java Objects, Classes, and Interfaces. Java is based on Objects which are defined by Classes and Interfaces. And Objects are entities in memory that have both state and behavior. Classes are blueprints of objects that can be both regular classes or abstract classes, which cannot be instantiated directly as an object.</p>
+<p>Interfaces are similar to an abstract class and do not contain any code just descriptions of methods and features that must be implemented by classes that implement the interface. Classes can inherit more than one interface. Objects are entities in memory that have both state and behavior. Objects use their member variables to maintain State. For example, a cat may have a color, a name, and an eye color, a height and weight, as variables that describe the State of a cat.</p>
+<p>Objects can perform Behaviors on the data contained within it or perform actions. For example, a cat object may be able to have methods to walk and speak defined by the class blueprint. Internally, Java Objects have a unique Object Identity, which is used to internally identify it by the Java Virtual Machine or JVM. Java Classes are defined by their Attributes, which are variables belonging to the class.</p>
+<p>Attributes can be primitive types like int, long, and double, as well as other objects and Methods, which are the actions that can be performed by the class and can make changes to the classes attributes. Abstract Classes are a particular class type that cannot be instantiated. Abstract Classes are a type of Restricted class, meaning they can only be inherited by other classes. They cannot be used to create objects, though they can be used to reference objects that are inherited by the same Abstract Class type.</p>
+<p>Abstract methods contain a signature of a method such as the name of the method, the return type and parameters being passed to the method but do not contain a method body on their own. The code body of an Abstract method must be written in the classes that inherit from it. Abstract Classes can define Regular methods that have a code body. And these methods can be overwritten by the classes that inherit it. Interfaces are similar to Abstract Classes, but do not and cannot contain any code implementations.</p>
+<p>They also cannot be instantiated by themselves to create objects. Interfaces are the Blueprint of a class and contain the signature of a method such as the return type, method name, and the name and data types of any parameters. Interfaces are completely abstract or purely abstract. Interfaces can be inherited by a class and a class can inherit more than one interface.</p>
+<p>And in Java when a class inherits from an interface, we say that it implements the interface. And that concludes this presentation on Java Objects, Classes, and Interfaces.</p></div></div></div><div class="section"><a name="section_3" /><h2 class="section_title">4. Video: Programming Java Objects (it_sdjcfa_04_enus_04)</h2><img src="https://cdn2.percipio.com/public/b/3937dcd8-168d-4d8b-8b4b-b9b4d9b3531c/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/3937dcd8-168d-4d8b-8b4b-b9b4d9b3531c/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and run objects in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Objects. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run objects in Java. Well, to create and run objects in Java we need to have a class with which to create the objects from. So I have opened in IntelliJ HelloYou.java a file I&#39;ve created with a class called HelloYou. It starts out with the typical package declaration with package com.example. And I&#39;d like to call it com.example for the sake of these demonstrations.</p>
+<p>But we don&#39;t need to worry too much about it here because both classes we have, this HelloYou and Greet, are both inside of com.example. [Video description begins] <em>The two class tabs are located on the navigation bar over the editor.</em> [Video description ends] The important part here is I have a public class HelloYou. And this class will consist of the usual attributes and methods that belong to a Java class. So I start by declaring the attributes inside of the class. And in this case there is only one attribute, private String you; and then I have two methods public HelloYou.</p>
+<p>So since this method matches the name of the class, it&#39;s the constructor. So when we create HelloYou, it will call this method with the parameter String recipient. And then inside of this function, this constructor, I set you the member variable. So the attribute of this HelloYou class, I set it &#61; recipient, the parameter. The other method on line 11 is public void printHello(). And what this does is print using System.out.println of Hello, space, so we have a String &#43; you &#43; the String with an &#34;!&#34;</p>
+<p>So it&#39;s fairly straightforward. It has very basic behavior with the constructor and a single method. And since the member you is declared as private, nobody outside of this class can access it. So it can only be set inside of the class HelloYou. Now I&#39;ll switch over to my other file, Greet.java, which has the entry point for my application. So it&#39;s also in package com.example. It&#39;s declared as public class Greet.</p>
+<p>And it defines a single function, the main entry point, public static void main(String[] args). And then inside I create a HelloYou object called helloThere. So HelloYou is the class, and helloThere is the object which we&#39;re going to instantiate. And we instantiate it by setting it &#61; new HelloYou. And then in parentheses we pass the arguments that get past the constructor. And in this case I put in the string &#34;There&#34; so the recipient is &#34;There&#34;.</p>
+<p>So the result will be Hello There. And then on line 7, I take the helloThere variable .printHello(); So I call its member method, which will print the result. I create a second object on line 9 using the HelloYou class, and the object is called helloBob and I instantiate it with &#61; new HelloYou and the argument &#34;Bob&#34;. So the string &#34;Bob&#34;.</p>
+<p>And then on line 10 I call helloBob.printHello(); Now I&#39;ll use Shift F10 to compile and run the program. [Video description begins] <em>The Run tool window opens at the bottom of the screen.</em> [Video description ends] And then in the result we have printed Hello, space There! And then on the next line Hello, space Bob! both of these printed by the printHello function inside of the HelloYou class. And that concludes this demonstration of Programming Java Objects.</p></div></div></div><div class="section"><a name="section_4" /><h2 class="section_title">5. Video: Java Inheritance (it_sdjcfa_04_enus_05)</h2><img src="https://cdn2.percipio.com/public/b/33803b28-3b79-4e9a-bfe9-7f6bcb42ced2/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/33803b28-3b79-4e9a-bfe9-7f6bcb42ced2/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features of Java inheritance</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Inheritance. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present some of the features and ideas of Java Inheritance. Inheritance is the ability of an object to obtain the properties and behaviors of a parent object. In practical terms, a Java Class contains attributes and methods. The class that inherits it gets the attributes and methods, plus it adds its own and can modify the methods if need be.</p>
+<p>Thinking of a real-world object, we can think in terms of classifications, categories, and types of objects. An engine, for example, that drives locomotion, is implemented in different types of objects. Examples are a steam engine, an internal combustion engine, and an induction motor, which can be seen as classes that inherit from an engine. However, Java doesn&#39;t support multiple inheritance from classes.</p>
+<p>So I can&#39;t create a hybrid engine. In Java I can&#39;t inherit both from the internal combustion engine and the induction motor at the same time. Although I can have a car class that has multiple engines as attributes, but that&#39;s a separate discussion. Interfaces are a type of class that define how a class should behave.</p>
+<p>Methods are defined but not implemented. Interfaces can be inherited from classes, and a class can inherit from more than one interface we call Interface inheritance implementation. The extends keyword is used in a class declaration to indicate the class inherits from it. For example, steam engine extends engine. There&#39;s common Terminology for discussing Java Inheritance. The Class or Classes are groups of objects with common properties and logical entities that describe a blueprint that objects can be instantiated from.</p>
+<p>The primary components of a class are attributes and methods. A Superclass refers to the class that it&#39;s extended from also called the base, or parent class. A Subclass is a class that Inherits from other classes. It&#39;s also sometimes called the child, derived, or extended class. Reusability refers to a Class being able to make use of the fields and methods they inherit from a Superclass. Logical separation and layout of entities is one goal of object-oriented programming in Java.</p>
+<p>But Reusability is a concrete benefit to Class Inheritance. There are three different Inheritance Types in Java. The first is Single inheritance. It&#39;s when a Class extends another Class. The base Class or Superclass can be an abstract class or a regular class. Multilevel inheritance is a chain of inheritance with each subclass gaining the methods and fields of its parent classes. Hierarchical inheritance refers to multiple classes inherited from a Superclass.</p>
+<p>For example, an engine class can be extended to an internal combustion engine class and an electrical motor class. The internal combustion engine class can in turn be extended to a spark ignition class, or petrol class, or a diesel engine class. The electrical motor can be extended to an AC class, or a DC class. We end up with a hierarchy of inheritance, not just with a parent class, but now we get grandparent classes. And the overall inheritance could be described as a hierarchical tree.</p>
+<p>Java has two types of Inheritance that can only be implemented using interfaces. Multiple inheritance refers to subclasses inheriting from more than one Superclass. Java only allows the class to extend a single class. However, a class can implement many interfaces at the same time. Extending from a class and inheriting interfaces together is called Hybrid inheritance. What are some considerations for inheritance in Java? An object class is the Superclass of all objects and does not have a Superclass itself.</p>
+<p>The Object spelled with an uppercase O from the Java.lang package, is the base class of all base classes. You don&#39;t have to extend from it explicitly. It&#39;s always there by default. A Superclass can have multiple subclasses. However, a subclass can only inherit from a single Superclass. This is the direct result of being able to only specify one class in the extents clause when declaring a class. Constructors are not inherited from a Superclass, but they can be invoked from the subclass. You can call your parents constructor if you need to.</p>
+<p>We also have to consider access modifiers Declaring class members as Private, so they aren&#39;t accessed directly by subclasses, but can still be accessed using getters and setters from the Superclass. We can also declare members Final, which means they cannot be inherited and changed by the subclass. And that concludes this presentation on Java Inheritance.</p></div></div></div><div class="section"><a name="section_5" /><h2 class="section_title">6. Video: Programming Java Inheritance (it_sdjcfa_04_enus_06)</h2><img src="https://cdn2.percipio.com/public/b/2ba28a67-e909-4626-a659-a4b96c007431/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/2ba28a67-e909-4626-a659-a4b96c007431/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and run classes that use inheritance in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Inheritance. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run classes that use inheritance in Java. In this example, I&#39;m simulating writing to a LogFile. So I&#39;ve created the structure with a LogFile base class and an HTTPLogFile class that inherits from this LogFile class. And I also have a main class with the main function as the entry point into the application. [Video description begins] <em>The three class tabs are featured on the navigation bar over the editor.</em> [Video description ends]</p>
+<p>So I&#39;ll start by explaining the code in LogFile, move on to the implementation in HTTPLogFile and demonstrate how it comes together in the main function where we create and run the classes. So, in LogFile.java, I have package com.example. So all of these classes I create are in this com.example package. And then on line 3, I declare my public class LogFile. LogFile matching the name of the Java file LogFile.java and then in the body of the LogFile class, I have the attributes declared as private.</p>
+<p>So private String fileName &#61; so I set a default log file name to &#34;logfile.log&#34;. And then private String filePath &#61; &#34;/var/log/&#34;. So standard log file location on most Unix or Linux systems. Then on line 7, I declare my constructor for the class public LogFile() which takes no arguments so there&#39;s no parameters declared. And then what this does this print using System.out.println and the string &#34;default constructor&#34; to show if this default constructor is called.</p>
+<p>And then on line 11 I declare a second constructor, but this one declares two parameters. So I have public LogFile with String fileName and String filePath as its parameters. Inside of this log file constructor I call system.out.println of the string &#34;parameterized constructor&#34; to show that this particular constructor is being called. I set this.fileName &#61; fileName and this.filePath &#61; filePath so I change the values of the local attributes.</p>
+<p>And then on line 17 I have a function called writeLog. And it&#39;s declared as public void writeLog. And it takes the String line to simulate a log line being written to a log file. Now I&#39;m not actually going to carry out this log writing for the sake of this example. So we&#39;re not really writing to a file, we&#39;re just printing to the standard output, so we can follow what&#39;s happening in the code. [Video description begins] <em>The host types /* Not really writing to a file--printing to standard output */ on line 19.</em> [Video description ends] So on line 20, I have System.out.println.</p>
+<p>I take the filePath String and then I concatenate so I have &#43; fileName &#43; a string with space, hyphen, space and then &#43; line, the actual line of the LogFile. So this is for demonstration only so we can see [Video description begins] <em>The host types /* for demonstration only */ on line 20.</em> [Video description ends] the results or see some activity happening when we run the program. Now the HTTPLogFile is where we see the inheritance happening. [Video description begins] <em>The host switches to the class tab HTTPLogFile.java.</em> [Video description ends] So this is also in the package com.example, and this is declared on line 3 as public class HTTPLogFile extends LogFile.</p>
+<p>So it&#39;s a particular implementation or a particular type of log file and it&#39;s extending the LogFile it came from. And since it&#39;s an HTTPLogFile, it will have its own attributes. Like I have on line 4 where I declare private String siteName. So there&#39;s a website name like example.com. And this is particular to HTTP log files that wouldn&#39;t necessarily appear in other log files. And because HTTPLogFile extends LogFile, it gets all of its public and protected members if there were any. [Video description begins] <em>The host switches to the class tab LogFile.java.</em> [Video description ends] So it can call the LogFile&#39;s constructors and it gets a writeLog function inherited from LogFile.</p>
+<p>But since fileName and filePath are private, it doesn&#39;t have direct access to them. So inside of HTTPLogFile on line 6, I declare HTTPLogFile&#39;s own constructor. So public HTTPLogFile and it declares a single parameter String siteName. And then it calls super. So super is the way of calling the Superclass, the super constructor.</p>
+<p>So the parents constructor, so LogFile&#39;s constructor is called using super, and then in parentheses, I specify the parameters to the LogFile constructor and in this case, the fileName is going to be the siteName &#43; &#34;.log&#34;. So it&#39;s adding the String .log to the siteName and that&#39;s going to be the LogFile name and the filePath is going to stay at &#34;/var/log/&#34; which I pass as the second argument.</p>
+<p>Now in the main function in Main.java, I declare a public class Main and I have the usual main entry point into the application. And in it on line 6 I have LogFile log &#61; new HTTPLogFile and I specify the siteName, the string example.com. And then on line 8 I try to do something that&#39;s not allowed. System.out.println of log.fileName but fileName is a private member so I cannot access it. So this action is actually not allowed and IntelliJ already flags it as a problem.</p>
+<p>It shows the error has private access in com.example.LogFile on line 8. [Video description begins] <em>The error appears as a red round sign with an exclamation mark at the top right corner of the editor. Next to it, the number 1 indicates the amount of errors. By clicking on it, the host opens the Run tool window at the bottom of the screen, which features the error.</em> [Video description ends] So we can&#39;t access the fileName directly. So I&#39;ll comment that line out using an end of line comment, save it, and then on line 9 I have log.writeLog with the string index.html space, hyphen, space 200 to simulate, an OK message from the web server that it&#39;s logging from and some IP address that it&#39;s communicating with 192.168.2.1.</p>
+<p>Now, this is all simulated for the sake of this example, just to show how these things get built up. So now I&#39;ll press Shift F10 to compile and run the code. And in the result window I get parameterized constructor. This is the string printed by the parameterized constructor in the log file. So it&#39;s the second constructor being called. The default constructor doesn&#39;t get called at all. And that&#39;s OK. It doesn&#39;t need to get called. And then the log line gets printed /var/log/example.com.log - index.html - 200 OK 192.168.2.1 and that&#39;s the expected result.</p>
+<p>There&#39;s a small change I&#39;d like to make. On line 6, I have LogFile log &#61; new HTTPLogFile. Now the interesting thing is that a base class LogFile called log can reference an instance created by new HTTPLogFile, but the reverse is not true. So I could do HTTPLogFile log and that&#39;ll work fine, but I can&#39;t do HTTPLogFile log &#61; new LogFile. [Video description begins] <em>A new red round sign indicating error appears at the top right corner of the editor. There is also a red light bulb with an exclamation mark on the left side of line 6.</em> [Video description ends] So the HTTPLogFile is a particular type of log file and it can&#39;t refer back to its parent, its Superclass.</p>
+<p>But the reverse is true. I can have the Superclass, the base class refer to an HTTP log file and I could also create a log file. [Video description begins] <em>The red round sign and the light bulb disappear.</em> [Video description ends] Since LogFile is not abstract, I can have LogFile log &#61; new LogFile and carry out the same operations. And in this case, if I run it as is now, it&#39;ll work fine. But the file name will be the default file name.</p>
+<p>So if I compile and run in this case in the output I get default constructor and /var/log/logfile.log is the log file path and name in this case. And then the line itself is the same. And that concludes this demonstration of programming with Java Inheritance.</p></div></div></div><div class="section"><a name="section_6" /><h2 class="section_title">7. Video: Java Polymorphism  (it_sdjcfa_04_enus_07)</h2><img src="https://cdn2.percipio.com/public/b/e3597099-efee-4f49-b07f-094fdb810349/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/e3597099-efee-4f49-b07f-094fdb810349/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features of Java polymorphism</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Polymorphism. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present some of the important features of Java Polymorphism. One of the general forms of Java polymorphism, well, the first is Method overloading where the parameters are different compared to the Classes or Superclasses implementation. And then Method overriding.</p>
+<p>This is the main approach to polymorphism where the name and parameters of the inherited method are the same as its Superclass. But the implementation, the method body is different and particular to the subclass. Method overloading has three main considerations. The different number of parameters, removing parameters or adding them, having different data types specified in the parameters, and having a different data type sequence, so the order in which the type parameters appear changes.</p>
+<p>What does this method overloading look like in practice? Well, in this example, there&#39;s a Math class that has two methods with the exact same name, the Sum method. But the parameters are different. When the math class is instantiated, the Sum method that is called is dependent on the type and number of parameters passed into the method. Now, in both cases, they accept integers. But one, some method accepts two integers, A and B, and the other one accepts three integers, A, B, and C.</p>
+<p>So in the main method we create the Math object, Math obj &#61; new Math(); and then obj.Sum is called with 1 and 2 as its arguments which would produce 3. And the second example has 1, 2, and 3. So it calls the second variant of Sum which produces the answer 6. What I would call the main or general form of polymorphism is when a subclass overrides a method that&#39;s implemented in the superclass, called Method Overriding.</p>
+<p>In this case, the parameter list in the subclass&#39;s method matches the declaration of the superclass&#39;s method in number of parameters, types, and in type sequence. It overrides the method but does not overload it. The Access modifier of the Overriding Method cannot be more restrictive than the method in the Superclass. For example, if the method in the Superclass is public, then the subclass method must also be public. If methods are declared as private, static, or final, they cannot be overridden.</p>
+<p>What are some of the other details we need to know about Java&#39;s Method Overriding? The Super keyword can be used to call the method of a Superclass. This could also be used to call the constructor method of a Superclass. This helps greatly in code re-use. A subclass can add functionality to a method without having to copy and paste the Superclass&#39;s implementation. Instead, you can just call the Superclass&#39;s implementation and then continue on with code in the subclass to implement its own additional details.</p>
+<p>Dynamic binding means binding overridden methods at runtime. When a regular class inherits from an interface or extends an abstract class, then it must override all of the abstract methods. However, if an abstract class inherits from an abstract class, it&#39;s not necessary to implement everything. Let&#39;s look at an example of how this works. In this example, there&#39;s a Superclass called Bird that has a Move method with a default behavior for Bird, which is to fly.</p>
+<p>So it prints &#34;Bird is flying&#34;. However, there is a Penguin class that extends Bird and overrides the Move method since the Penguin moves differently than the typical bird. When the Penguin class is instantiated and the Move method is called the sentence &#34;Penguin is walking&#34; is displayed. The Penguin class overrides the default Move method in the Superclass. This is also sometimes called upcasting and the output here is &#34;Penguin is walking&#34;.</p>
+<p>However, polymorphism doesn&#39;t work on attributes only on member methods. In this example, an Animal class is created with a data member called numberOfLegs, which has a default value of 4. Then I declare an Octopus class extends Animal.</p>
+<p>And it also has a data member called numberOfLegs that has a default value of 8. When the Octopus class is instantiated and cast to type Animal, the value for numberOfLegs is 4. So the output in this case is 4 and not 8 because polymorphism only considers member methods. And that concludes this presentation on Java polymorphism.</p></div></div></div><div class="section"><a name="section_7" /><h2 class="section_title">8. Video: Programming Java Polymorphism  (it_sdjcfa_04_enus_08)</h2><img src="https://cdn2.percipio.com/public/b/b9db64ea-9cb6-4f68-a0f5-03239d73fa53/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/b9db64ea-9cb6-4f68-a0f5-03239d73fa53/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and run classes that use polymorphism in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Polymorphism. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor. On the navigation bar over the editor, there are four class tabs: Main.java, Path.java, CirclePath.java and RectanglePath.java from left to right.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run classes that use polymorphism in Java. I&#39;m going to demonstrate method overriding from an abstract class. When a method is declared as abstract, it must be implemented in the subclass unless that subclass is also abstract.</p>
+<p>Now, in this case, I have an abstract class and an abstract method in it, and I&#39;m going to use two different classes that inherit and implement their own functions. Let&#39;s have a look at this Path.java file. I start with package com.example; where all of the classes that belong to this example are in com.example.</p>
+<p>Then on line 3 I declare an abstract class as public abstract class Path and Path is going to declare public abstract double distance(); so there&#39;s a distance function that returns it double that must get implemented by the classes that extend to Path. The first one I&#39;m going to look at is CirclePath. So CirclePath is declared in line 3 with public class CirclePath extends Path.</p>
+<p>And it has a single attribute, private double radius, the constructor as public CirclePath that takes a radius as an argument and sets this.radius &#61; the radius passed into the constructor. Then on line 10, I have an annotation. So annotations are for informing the compiler or other tools the intent of the function, in this case &#64;Override, says that this function is overriding, it&#39;s a method override from its superclass.</p>
+<p>So public double distance and it doesn&#39;t declare any parameters and it can&#39;t. So if I tried to put a parameter in, it&#39;s going to complain because I&#39;m not overriding the method correctly. [Video description begins] <em>A red round sign with an exclamation mark indicating error appears at the top right corner of the editor.</em> [Video description ends] So I can&#39;t overload the method. I can only override it. And then this function returns the distance of the Path around the circumference of the circle.</p>
+<p>So it returns 2.0 * radius * Math.PI. My next implementation is in RectanglePath. So it declares it as public class RectanglePath extends Path. So this is going to be the distance around the perimeter of a rectangle specified by width and height. So I have private double width, height. The constructor is public RectanglePath with double width a double height as its parameters, and that sets this.width &#61; width and this.height &#61; height in the constructor.</p>
+<p>And on line 11, I have my &#64;Override annotation and then public double distance which returns 2.0 * (width &#43; height), the formula for the perimeter. Then I&#39;ll put in a trailing comment /* perimeter */ just to make it obvious what I&#39;m calculating. Now I&#39;ll switch over to the Main class.</p>
+<p>In the main function on line 6, I have Path rectPath &#61; new RectanglePath and the width argument is 3.0 and the height is 4.0. And then I call System.out.println with the string Rectangular path and in parentheses perimeter, and then I concatenate rectPath.distance. And in this case, rectPath is of type Path.</p>
+<p>So I&#39;m using the abstract base class to refer to an object created by the subclass RectanglePath. And then on line 9 I do the same thing with CirclePath. I declare an object of type Path called circPath &#61; new CirclePath and the radius I specify is 5.0. And then on line 10, I call System.out.println with the string Circular path and in parentheses circumference.</p>
+<p>And I concatenate the call to circPath.distance. And now I&#39;ll use Shift F10 to build and run the program. [Video description begins] <em>The run tool window opens at the bottom of the screen.</em> [Video description ends] And in the result, I get a Rectangular path, the perimeter is 14.0 and the Circular path, the circumference is 31.4159 and it goes out to a number of decimal places.</p>
+<p>So the key takeaway here is that when you have an abstract method in an abstract class and you extend that class, you must implement the method. And that concludes this demonstration of Programming with Java Polymorphism.</p></div></div></div><div class="section"><a name="section_8" /><h2 class="section_title">9. Video: Java Abstract Classes (it_sdjcfa_04_enus_09)</h2><img src="https://cdn2.percipio.com/public/b/f4923cf1-4e34-43b2-a42d-2d3e5a2f9968/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/f4923cf1-4e34-43b2-a42d-2d3e5a2f9968/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features of Java abstract classes</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Abstract Classes. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll present the main features of Java Abstract Classes. In terms of syntax, Abstract Classes are similar to regular classes but cannot be instantiated by themselves. Abstract Classes are Restricted and can only be inherited from by other classes. You can declare a class that extends an Abstract Class, but they cannot be used to create objects by themselves.</p>
+<p>Abstract methods contain a signature of a method such as the name of the method, the return type, and its parameters. When the Abstract Class is extended, the method body must be implemented by the subclass. Abstract Classes can have their own Regular methods that have implementation code, and these methods can be overridden by the classes that extend it. Java Abstract Classes have some fundamental rules of operation.</p>
+<p>The Abstract keyword must precede the class keyword to declare it as abstract Methods in an Abstract Class can either be abstract or non abstract. Methods are regular by default and need the Abstract keyword to declare them as abstract. Abstract Classes cannot be instantiated as objects on their own. The subclass that extends it can be instantiated as long as it&#39;s not abstract itself. Now, a few more rules of Abstract Classes are that abstract classes can contain constructors, which is automatically invoked when the subclass is instantiated Abstract Classes can contain Static methods.</p>
+<p>However, a method cannot be marked as both Abstract and Static at the same time. And Abstract methods can&#39;t contain methods that have the Final keyword. A method cannot be marked as both Final and abstract at the same time, and the Final method cannot be overridden in the subclass since it&#39;s marked as Final. So let&#39;s have a look at a couple of examples.</p>
+<p>The first one we have is an abstract Bird class with the Move method both declared as abstract so it cannot be instantiated into an object by itself. Then the Penguin class, which extends Bird, has a Move method. And in this case, the Move method is required to have an implementation. And here this Method calls System.out.println with the string &#34;Penguin is walking&#34;. In the main method a new Penguin object is created. However, we could not do new Bird in the same way.</p>
+<p>And if you tried, the compiler would complain with an error because Bird is abstract. And then on line 12 when the Move method is called the output would be Penguin is walking, if we were to run this code. In this example, I have another Bird class declared as abstract, but in this case, the Move method is not abstract and it has an implementation. This class Duck extends Bird and gets the Move method as it&#39;s implemented in Bird, and it does not need to be defined inside of Duck.</p>
+<p>It can be re-defined if need be, but it&#39;s not forced like in the abstract case. Then in the the main method a new Duck object is created and the Move method is called calling Birds move. In this case, the output would be Bird is flying if this program were executed. And that concludes this presentation on Java Abstract Classes.</p></div></div></div><div class="section"><a name="section_9" /><h2 class="section_title">10. Video: Programming Java Abstract Classes (it_sdjcfa_04_enus_10)</h2><img src="https://cdn2.percipio.com/public/b/9c23be4e-9f32-4f4d-be8e-1b91be4a3347/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/9c23be4e-9f32-4f4d-be8e-1b91be4a3347/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and use abstract classes in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Abstract Classes. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor. On the navigation bar over the editor, there are four class tabs: Document.java, TextDocument.java, HTMLDocument.java and Main.java from left to right.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run classes that use Abstract Classes in Java. For this example, I&#39;m starting in an abstract class defined in this Document.java. And all of these classes are part of the package com.example and then on line 3 of this file, I declare public abstract class Document. So this can&#39;t be instantiated on its own. Objects can only be created through the subclasses that inherit from Document.</p>
+<p>Now, Document contains two private members: private String contents and private String fileName. Because they&#39;re private, the classes that will extend from Document won&#39;t have direct access to contents and fileName.</p>
+<p>So I&#39;ve created getters and setters for these two variables. So I have getContents which returns String and it returns the contents variable and then setContents which takes a String as an argument and sets this.contents &#61; contents. And I do the same with fileName. I have a getter public String getFileName that returns fileName and public void setFileName that takes the fileName as an argument and sets this.fileName &#61; fileName.</p>
+<p>And then I declare an abstract method. So on line 23 I have abstract public void displayContents. So the idea here is we have a Document, it has a fileName and some contents, some contents of the file that are particular to the file type and a function to display the contents of the file. Now this is somewhat of a manufactured example to demonstrate how we can extend from an abstract class and implement an abstract method and access attributes that are in the base class, even though it&#39;s abstract.</p>
+<p>So the first implementation is TextDocument.java. So this declares a public class TextDocument which extends Document. It has a constructor public TextDocument with no arguments and it calls this.setFileName with the string &#34;untitled.txt&#34;. Now, if I had tried to say this.fileName directly and set that &#61; &#34;untitled.txt&#34; to try and set the fileName through the member variable directly the member variable from Document.java, it would give me an error.</p>
+<p>Because &#39;fileName&#39; has private access in &#39;com.example.Document&#39;. So we can&#39;t access it directly. [Video description begins] <em>A red round sign with an exclamation mark indicating error appears at the top right corner of the editor.</em> [Video description ends] We can only access it through the setter. And because Document is abstract and it has an abstract method displayContents, we must implement it. If I comment out the displayContents function, I&#39;m going to get an error.</p>
+<p>So public class TextDocument extends Document is highlighted in red and if I select the current file, the errors, &#39;TextDocument&#39; must either be declared abstract or implement abstract method &#39;displayContents()&#39;. [Video description begins] <em>As the host clicks on the red round sign, the run tool window opens at the bottom of the screen, featuring the error.</em> [Video description ends] The only way to extend an abstract class with an abstract method is either by implementing it or declaring the current class to be abstract as well. But in this case, I do want to implement displayContents.</p>
+<p>And once I uncomment that code and have my implementation of displayContents, everything is fine again. And what this function does, is call System.out.println of getContents. So it just outputs the contents of the string from the contents member variable from Document.java.</p>
+<p>Now HTMLDocument has a little bit more going on. It&#39;s declared as public class HTMLDocument extends Document and it declares its own member variable private String header like the header of an HTML page, and public Document, the constructor, declares no parameters and it sets a default file name with this.setFileName to index.html.</p>
+<p>On line 10 I have the &#64;Override annotation, which is an optional requirement. So I can put the &#64;Override in or like in TextDocument I can leave it out and it works just fine. And then I have public void displayContents System.out.println with an html tag in string. The next line it prints the head tag. Then there&#39;s a println of the header.</p>
+<p>So the header is a special section of an HTMLDocument that contains information such as the title and other meta information for the page. Then I print the closing tag for the head, the opening tag for the body and then inside the body. I print the call to getContents, which calls getContents from Document and gets the contents variable.</p>
+<p>And then I print the closing tag for the body and the closing tag for the html. And there&#39;s a getter and setter in this case for the header. So I have public String getHeader() to return header and public void setHeader that takes the String header as an argument and sets this.header &#61; header. Now let&#39;s have a look inside the Main class and inside the main function.</p>
+<p>So, on line 6 I have Document htmlDoc &#61; new HTMLDocument(). I call htmlDoc.setContents with the &lt;p&gt; tag with the string: This is in the HTMLDocument. And then I closed the &lt;p&gt; tag. And I call htmlDoc.displayContents(). And then I do the same thing with TextDocument on line 10. I have Document txtDoc &#61; new TextDocument(). Then I call txtDoc.setContents with the string:</p>
+<p>This is in the text document. And then I call txtDoc.displayContents(). Now with Shift F10 I can build and run the code and we can see the results. [Video description begins] <em>The results appear in the Run tool window at the bottom of the screen.</em> [Video description ends] So if I scroll up in the results I get some HTML information and when I get to the header it shows null because I didn&#39;t set anything.</p>
+<p>Now it might be OK to have this text here, but it&#39;s a good idea to set a default value for a member variable inside of a class. Then I close head and then open body and then the &lt;p&gt; tag inside the body is This is in the HTML Document. And then I close the body tag and html tag everything that appeared in the displayContents of the HTMLDocument. And then in the TextDocument, all it displays is the text that was set in the contents. This is in the text document. And that concludes this demonstration of programming with Java Abstract Classes.</p></div></div></div><div class="section"><a name="section_10" /><h2 class="section_title">11. Video: Java Encapsulation (it_sdjcfa_04_enus_11)</h2><img src="https://cdn2.percipio.com/public/b/cc2eaef5-ec81-4743-beef-fbcbd46f5d3d/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/cc2eaef5-ec81-4743-beef-fbcbd46f5d3d/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">describe the features of Java encapsulation</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Java Encapsulation. Your host for this session is Steve Scott.</em> [Video description ends]
+<p>In this video, I&#39;ll describe the main features of Java Encapsulation. Encapsulation is also known as data hiding and refers to classes providing access to the data inside of them through methods. I remember this definition by thinking of the word capsule and encapsulate to mean hiding something in a capsule. So Encapsulation in Java involves wrapping the data and code together in a Single unit into a capsule.</p>
+<p>If all the data members, all of the member variables are attributes of a class are declared as private and the only way to get access to or modify it is through class methods, such as getter and setter methods, we say that the class is Fully encapsulated. What tools do we have in the Java language to control encapsulation?</p>
+<p>The keywords for Encapsulation are called Access Modifiers. A private access modifier is the most restrictive type. When used with an attribute or method, then it can only be accessed by a member method within the same class. Subclasses do not have access. Protected access modifiers allow the class, attribute, or method to be accessed by all classes in the same package and by all subclasses that inherit from this class. A public access modifier is the least restrictive and means the class attribute or method is available by all other classes.</p>
+<p>These are optional keywords. Classes, attributes, and methods can have no modifiers specified. In this case, these members are private by default. It&#39;s important to remember that private is the default Access Modifier. One of the more common Java design patterns for encapsulation is called the getter and setter methods. An attribute is created with a private Access Modifier, which hides the attribute from other classes.</p>
+<p>Then a public setter method is created to be used to modify the attribute and a public getter method is created to read the value of the attribute. When all attributes are encapsulated this way. It makes it fully encapsulated by design. Let&#39;s look at an example. So, we have a class Duck and it has a private String name. So it&#39;s a hidden value.</p>
+<p>It has a public String getName, which returns a name, and a public void setName method that takes a new name and modifies or replaces name with the new one that&#39;s passed in as an argument. And then in the public method, here we have Duck line 14, we have the Duck class with an instance called duck in lower case &#61; new Duck().</p>
+<p>We call duck.setName to &#34;Daffy&#34; and then System.out.println has to use getName to get the property from duck, to get its name. So in this case, duck is fully encapsulated. Using encapsulation in Java has several advantages. We get data hiding, classes that access the hidden data do not need to worry about where or how the data is stored.</p>
+<p>They just need to use the getter and setter methods to retrieve the data that&#39;s hidden. Variables in a class can be set up to be read-only or write only. If there&#39;s only a setter method, then the variable becomes write-only. If there&#39;s only a getter method, then the hidden variable becomes read-only. Encapsulation allows classes to be easily re-used without having to worry about the code inside the class.</p>
+<p>Often the interaction bits of a class can change in name or type without having to change the public methods of the class. Encapsulation also makes it easy for Unit testing. You don&#39;t have to worry about accessing every attribute, just the public methods to get full coverage. And that concludes this presentation on Java Encapsulation.</p></div></div></div><div class="section"><a name="section_11" /><h2 class="section_title">12. Video: Programming Java Encapsulation (it_sdjcfa_04_enus_12)</h2><img src="https://cdn2.percipio.com/public/b/4bd22ef4-b4c3-4896-83a7-f8edc7442370/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/4bd22ef4-b4c3-4896-83a7-f8edc7442370/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and run classes that use encapsulation in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Encapsulation. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor. On the navigation bar over the editor, there are two class tabs: Greet.java and Main.java from left to right.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run classes that use Encapsulation in Java. Another word for Encapsulation is data hiding. It&#39;s a layer of separation between our attributes and the outside world. In this example, I&#39;ve created a class called Greet inside of Greet.java, which starts with package com.example to put it in this package.</p>
+<p>And then on line 3, I have public class Greet. And inside of this class, the first thing I do is create my data members, my attributes: private String greeting and private String recipient, which means nobody from the outside world has direct access to these private members and can only access it through the member methods.</p>
+<p>One way of accomplishing what we call full encapsulation, where all of our data members are declared private like we have here, is by using getter and setter methods and other helper methods. Next, this Greet class has a single constructor public Greet that doesn&#39;t take any arguments. All it does is set our greeting and recipient member variables to their default values. On line 8 I&#39;ve greeting &#61; &#34;Hello&#34; and recipient &#61; &#34;World&#34;.</p>
+<p>Then I have a number of methods. The first is printGreeting. So public void printGreeting() is how it&#39;s declared and all it does is call System.out.println with greeting followed by a comma and a space followed by recipient and then it concatenates the exclamation mark at the end. Then I have a number of setters and getters. I have a combined setter that sets both greeting and recipient and it&#39;s declared as public void setGreetingRecipient then takes two arguments String greeting and String recipient.</p>
+<p>I set this.greeting &#61; greeting and this.recepient &#61; recipient inside the body of the function. And then we have a number of getters and setters. So, getGreeting returns greeting, then setGreeting is public void setGreeting(String greeting) and it sets this.greeting &#61; greeting. And then I have a getter for recipient declared public String getRecipient() and return recipient in its body.</p>
+<p>And then on line 33 public void setRecipient takes a String recipient as an argument and sets this.recipient &#61; recipient. Now that&#39;s a lot of typing if you were to type out all the getters and setters or a given class, especially if it has a lot of attributes. One thing that IDEs like IntelliJ do, is that if you select one of the members, let&#39;s say, greeting, where it&#39;s declared right click and say Generate it gives you options to create Getter and Setter methods. [Video description begins] <em>After the host right clicks on greeting, a dropdown menu opens. The option “Generate” is in the middle of the menu. After clicking on it, a new dropdown menu opens. The option “Getter and Setter” is the fourth from top.</em> [Video description ends]</p>
+<p>And that&#39;s what I&#39;ve done here, to generate the code below. So it&#39;s much easier, much quicker to auto-generate the code, if you can, than to have to type out every getter and setter. Now I&#39;ll switch over to Main.java and inside of the main function in the entry point to the application I start by creating an instance of Greet, with Greet message &#61; new Greet(); and then I call message.printGreeting(); which will print the default greeting, so the default values for greeting and recipient.</p>
+<p>Then on line 9 I test message.setGreeting and I change the greeting to &#34;Hi&#34;. I call message.printGreeting again to see the change. On a line 12 I change the recipient by calling the recipient setter message.setRecipient with string Steve, and then message.printGreeting(); to see the change. And then finally I check the combined setter with message.setGreetingRecipient and I pass in &#34;Goodbye&#34;, and recipient &#34;Mallory&#34;.</p>
+<p>And then on line 16 I call message.printGreeting(); now I&#39;ll use Shift F10 to build and run the code and we&#39;ll examine the results. [Video description begins] <em>The results appear in the run tool window at the bottom of the screen.</em> [Video description ends] So the first printGreeting is Hello, World! Then I set the greeting to Hi and re-print it, which gives me Hi, World! Then Hi, Steve! And finally Goodbye, Mallory! as expected. And that concludes this demonstration of Java Encapsulation Programming.</p></div></div></div><div class="section"><a name="section_12" /><h2 class="section_title">13. Video: Programming Java Inner Classes (it_sdjcfa_04_enus_13)</h2><img src="https://cdn2.percipio.com/public/b/8c9dbd81-46f8-49cf-8b66-5deee3e0910f/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/8c9dbd81-46f8-49cf-8b66-5deee3e0910f/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">create and use inner classes in Java</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic title: Programming Java Inner Classes. Your host for this session is Steve Scott.</em> [Video description ends] [Video description begins] <em>IntelliJ is open. On the left side of the screen, the Project tool window is featured, while the main field on the right side is the editor. On the navigation bar over the editor, there are two class tabs: Main.java and Outer.java from left to right.</em> [Video description ends]
+<p>In this video, I&#39;ll demonstrate how to create and run classes that use Inner Classes in Java. So I have an example here called Outer for the Outer Class. So in Outer.java, I have a package com.example and I define a class public class Outer. So this is obviously the Outer class.</p>
+<p>And just inside of it I have a class defined public class Inner. So inside of the body of the Outer class, we define a class and that class belongs to and is defined within that Outer class. And everything inside in the Inner class looks like a regular class definition, but its access modifiers have an additional layer of control. So if the Inner class is defined as private, it changes it dramatically. [Video description begins] <em>The indication “1 related problem” appears over line 4.</em> [Video description ends]</p>
+<p>But if I want some access from the outside into the Inner class, I need to declare it public. When defining an Inner class, it usually means that the Outer and Inner classes are tightly coupled and their objects depend on one another.</p>
+<p>So here&#39;s how I define the Inner class. So I have public class Inner, and then it has an attribute private final String message; it has a constructor, public Inner, which takes a String message as a parameter and then it sets this.message &#61; message; it also defines a toString method with public String toString and returns &#34;Message from the inside: &#34; &#43; message; so that defines the whole Inner class.</p>
+<p>The Outer class has a couple of helper functions to let us interact with the Inner class. And these helper functions are essential if the Inner class is private. So the only way to get access would be through public methods inside of the Outer class.</p>
+<p>So on line 15, I have public String getInnerMessage and it takes a String message. So it creates an Inner class object, Inner in &#61; new Inner with message passed to the constructor and then it returns in.toString(). The next function is public Inner. So it returns an object of Inner type getInner and it takes String message because the Inner class requires the String message to be passed to actually instantiate the object.</p>
+<p>And this returns an instance of new Inner with the argument message. Now let&#39;s see how this gets invoked from the Main method. So in the main function in Main.java, I have Outer out &#61; new Outer(); so I create an instance of the outer class and then I have System.out.println of out.getInnerMessage with the string passed Hi, Steve! On line 9 I access the Inner class directly and I get an instance of it by calling getInner.</p>
+<p>So I have Outer.Inner in. So this is an object of type Inner &#61; out.getInner of &#34;Hello, World!&#34; And on line 10, I do System.out.println of in and accessing in this way is fine because by default, passing it to the println statement, will call in toString method by default.</p>
+<p>And then on line 12, I have a comment /* This can only be done if Inner is &#39;static&#39; */ because on line 13 I have Outer.Inner in2 &#61; new Outer.Inner with the string &#34;Test&#34;. [Video description begins] <em>A red round sign with an exclamation mark indicating error appears at the top right corner of the editor.</em> [Video description ends] But because Inner is defined within Outer, it can only be accessed if there&#39;s an actual Outer object. The only way we can create a new instance of Inner which goes through Outer is if we have Inner defined as public static class Inner. And if I save it and go back now this line is fine.</p>
+<p>Static allows for the instantiating of the object from the Inner class directly. However, if you need this behavior, then you should really look at whether the Inner class needs to be in Inner class or whether it can exist separately on its own. So it&#39;s probably not a good practice to access Inner Classes this way.</p>
+<p>So I&#39;m going to comment out line 13 and save it and go back to Outer.java and remove the static modifier on our class Inner. So it works as it did when I started the video. Now, if I go back to Main, I&#39;m going to type Shift F10 to run the program and in the result I get the first message Message from the inside: Hi, Steve! and Message from the inside: Hello, World! [Video description begins] <em>The results appear in the run tool window at the bottom of the screen.</em> [Video description ends] So it behaved as expected. And that concludes this demonstration of Java Inner Class Programming.</p></div></div></div><div class="section"><a name="section_13" /><h2 class="section_title">14. Video: Course Summary (it_sdjcfa_04_enus_14)</h2><img src="https://cdn2.percipio.com/public/b/d5fd32e5-7976-4518-baf6-71654b5112ae/image001.jpg" alt="" width="300" onclick="(()=>document.getElementById('lb-image').src = 'https://cdn2.percipio.com/public/b/d5fd32e5-7976-4518-baf6-71654b5112ae/image001.jpg')();" /><div class="section_text"></div><h3 class="list_title">Objectives</h3><ul class="list"><li class="list_item">summarize the key concepts covered in this course</li></ul><div class="section inner"><div class="section_text">[Video description begins] <em>Topic Title: Course Summary.</em> [Video description ends]
+<p>In this course, we&#39;ve examined the features of Object-oriented Programming in Java.</p>
+<p>We did this by exploring Features of Java objects, classes and interfaces, Creating and running objects in Java, Features of Java inheritance and programming, Features of Java polymorphism and programming, as well as Java abstract classes, features and how to program, Java encapsulation features and how to program, Creating and running inner classes in Java.</p>
+<p>In our next course, we&#39;ll move on to cover the importance of design patterns, as well as types of patterns such as behavioral, creational, and structural design patterns.</p></div></div></div><div class="copyright-container"><span class="copyright-text">© 2022 Skillsoft Ireland Limited - All rights reserved.</span></div></div><div id="lb-overlay"><div class="lb-header"><button onclick="(()=>{const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'hidden';const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 1.0;curtain.style.backgroundColor = 'white';curtain.style.pointerEvents = 'auto';})();">X</button></div><div id="lb-image-container"><img id="lb-image" alt onload="(()=>{const curtain = document.getElementById('lb-curtain');curtain.style.opacity = 0.5;curtain.style.backgroundColor = 'grey';curtain.style.pointerEvents = 'none';const overlay = document.getElementById('lb-overlay');overlay.style.visibility = 'visible';window.scrollTo(0, 0);})();"/></div><div class="lb-footer" /></div></div></body></html>
