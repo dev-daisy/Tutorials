@@ -1,0 +1,126 @@
+ https://www.linkedin.com/learning/learning-java-11?contextUrn=urn%3Ali%3AlearningCollection%3A7070013699528245248&u=83641554
+
+ First, in Java, we can create classes to organize our code.
+ Classes help with organizing code into small tasks that are easier to understand.
+
+ In our previous example, we used a triangle class to organize data related to a
+ triangle as well as how we can calculate things from triangle data.
+ ex:
+ public class ClassTriangle { }
+
+
+ A class contains attributes(properties) and behavior(methods)
+A behavior is a function located inside a class that can perform a particular action.
+
+
+ Every class also contains a constructor,
+ which is a specific type of method that allows us to create instances of the class.
+ Accepts dynamic values
+ A constructor is used to create instances of the class that it is located in.
+ A constructor has the same name as the class and has no return type; it will have `public` access.
+ ex :
+	public ClassTriangle(double base, double height,
+    double sideLenOne, double sideLenTwo,
+    double sideLenThree) {
+
+    	// The `this` keyword allows you to access the attributes inside the class.
+    	// when you need to make a distinction between an attribute variable and a parameter
+	    this.base = base;
+	    this.height = height;
+	    this.sideLenOne = sideLenOne;
+	    this.sideLenTwo = sideLenTwo;
+	    this.sideLenThree = sideLenThree;
+    }
+
+
+ Ultimately, a class is just a blueprint,
+ and we have to use the constructor in order to create triangles in our code.
+ An object declaration specifies the class name, the variable name,
+ the `new` keyword, and the argument list for the constructor.
+ To create an instance:
+ 	ClassTriangle triangleA = new ClassTriangle(15, 8, 15, 8, 17);
+
+
+ Some of these attributes are associated with each individual instance,
+ and we call these instance variables.
+ These were the height, base, and side length attributes in our example.
+ An attribute variable is accessible to every function and constructor inside the class.
+ ex:
+ 	double base;
+	double height;
+	double sideLenOne;
+	double sideLenTwo;
+	double sideLenThree;
+
+
+ These attributes are accessed with the instance itself,
+ and we use the dot operator on the instance to access instance variables.
+ ex:
+ 	System.out.println(triangleA.sideLenThree);
+    System.out.println(triangleB.base);
+
+
+ Along with instance variables, each instance has instance functions or non-static methods.
+ ex:
+   	public double findArea() {
+        return (this.base * this.height) / 2;
+    }
+    //A variable with a data type of `double` needs to be declared to hold the return value from the instance method.
+    double triangleArea = mytriangle.findArea();
+
+    charAt is an instance variable
+    char studentLastInitial = studentLastName.charAt(0);
+
+
+ Similarly, these are accessed using the instance with the dot operator and parentheses.
+ ex:
+ 	double triangleBArea = triangleB.findArea();
+    System.out.println(triangleBArea);
+
+
+ We also have class variables and class methods.
+ These variables and methods are static and we access them using the class name with the dot operator.
+ To use static class variables and methods, we do not need to create an instance, we can just use the class name.
+ ex class variable:
+ 	in ClassTriangle class
+ 	static int numOfSides = 3;
+
+ 	accessing it in Classes class
+ 	System.out.println(ClassTriangle.numOfSides);
+ 	//For static variables, you can type the class name followed by a period (dot) to access it.
+
+
+ex class methods:
+	Math.pow(5,8);
+	Math.abs(-100);
+	System.out.println("This is a test");
+	// This is a class method since the `new` keyword is not needed to call the method.
+
+
+
+NOTE:
+Class method:
+You can use a static method immediately without the need to create an object instance first.
+A class method is static and does not require an instance to be created first to use it.
+
+Instance method:
+An instance method requires using the new keyword.
+An instance method must create an object instance first so that the method can be accessed/used
+
+
+QA:
+Q: You have a class that has a function to calculate the area of a rectangle. Which other component is needed to complete the class?
+A: Add two properties to represent the two side lengths of the rectangle.
+   A rectangle can be described using the length of two sides, so these would be the properties of a rectangle class.
+
+Q: What would be considered a behavior found in a user-defined class?
+A: calculatePerimeter
+   A behavior is a function located inside a class that can perform a particular action.
+
+Q: How is an IDE helpful when working with instances of classes?
+A: An IDE allows you to step through the code and see the values that are assigned to each attribute.
+
+
+
+This new vocabulary can sometimes be overwhelming, but when you are debugging, Google searching, and trying to figure out how to fix your code, these words often come up.
+ Understanding these concepts is a big hurdle in Java, and once you get it, everything starts to make more sense.

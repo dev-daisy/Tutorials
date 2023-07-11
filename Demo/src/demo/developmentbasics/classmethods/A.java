@@ -1,5 +1,7 @@
 package demo.developmentbasics.classmethods;
 
+import demo.commonsteps.CommonSteps;
+
 public class A {
 
 	// public mean in order to use this method, need to create an object out of class A
@@ -11,7 +13,7 @@ public class A {
 	// It is called parameters if defined in the method
 	// no limit of parameters
 	public void printThis(String toPrint) {
-		System.out.println(toPrint);
+		CommonSteps.printString(toPrint);
 	}
 
 	// advantage in java, can reuse the code by passing different parameters
@@ -31,6 +33,6 @@ public class A {
 	// static method is void because not returning anything
 	// because the method is static, no need for an object instance to call this method
 	static void staticPrint(String toPrint1){
-		System.out.println(toPrint1);
+		CommonSteps.printString(toPrint1);
 	}
 }
