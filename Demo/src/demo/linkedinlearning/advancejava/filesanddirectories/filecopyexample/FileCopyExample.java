@@ -20,8 +20,8 @@ public class FileCopyExample {
      */
     public static void main(String[] args) {
 
-        Path source = Paths.get("C:\\Users\\Bethan Palmer\\Desktop\\example.txt");
-        Path dest = Paths.get("C:\\Users\\Bethan Palmer\\Desktop\\new.txt");
+        Path source = Paths.get("C:\\Users\\da.rota\\Downloads\\eclipse_workspace\\Demo\\example.txt");
+        Path dest = Paths.get("C:\\Users\\da.rota\\Downloads\\eclipse_workspace\\Demo\\new.txt");
         try {
             Files.copy(source, dest, REPLACE_EXISTING);
         } catch (IOException ex) {
