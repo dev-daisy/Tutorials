@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Functions {
 
-	// a function must have a return date type
-	// a function is a series of finite steps that accomplish some tak
+	// a function must have a return data type
+	// a function is a series of finite steps that accomplish some task
 	// functions help developers organize their code in a meaningful way
 	// functions helps us define a single task once, so that it can be used all throughout our program.
 	// functions make it easier to change what our code is doing
