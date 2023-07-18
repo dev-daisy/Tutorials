@@ -35,7 +35,7 @@ https://www.linkedin.com/learning/advanced-java-programming-2/understanding-modu
 	- Reading console input ith a scanner
 	- Reading files with BufferedReader
 	- Using try-with-resources with I/O
-8. orking with Files and Directories
+8. Working with Files and Directories
 	- Creating new file
 	- Working with directories in Java
 	- Using the Path class in Java
