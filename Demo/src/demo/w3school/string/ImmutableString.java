@@ -1,6 +1,7 @@
 package demo.w3school.string;
 
 public class ImmutableString {
+
 	public static void main(String args[]){
 
 		// Here Sachin is not changed but a new object is created with Sachin Tendulkar.
@@ -12,5 +13,6 @@ public class ImmutableString {
 	   s="Sachin";
 	   s=s.concat(" Tendulkar");
 	   System.out.println(s);
+
 	}
 }
