@@ -26,5 +26,11 @@ public class AssignmentOperator {
 		//x=x+y;//Compile time error because 10+10=20 now int
 		x=(short) (x+y);
 		System.out.println(x);
+		
+		x = 10;
+		x =+ 2;
+		x += 2;
+		System.out.println(x);
+		
 	}
 }

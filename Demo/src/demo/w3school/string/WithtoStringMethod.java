@@ -16,8 +16,8 @@ class WithtoStringMethod {
 	 }
 
 	 public static void main(String args[]){
-		 WithtoStringMethod s1=new WithtoStringMethod(101,"Raj","lucknow");
-		 WithtoStringMethod s2=new WithtoStringMethod(102,"Vijay","ghaziabad");
+		 WithtoStringMethod s1=new WithtoStringMethod(101,"Hello"," World");
+		 WithtoStringMethod s2=new WithtoStringMethod(102,"Hi! ","Welcome.");
 
 	   System.out.println(s1);//compiler writes here s1.toString()
 	   System.out.println(s2);//compiler writes here s2.toString()

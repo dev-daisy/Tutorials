@@ -20,5 +20,7 @@ public class MyMethod {
 
 	 		// To call a method in Java, write the method's name followed by two parentheses () and a semicolon;
 	 		myMethod();
+
+
 	 	}
 }

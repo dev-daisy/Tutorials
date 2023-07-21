@@ -12,8 +12,8 @@ class NotoStringMethod {
 	 }
 
 	 public static void main(String args[]){
-	   NotoStringMethod s1=new NotoStringMethod(101,"Raj","lucknow");
-	   NotoStringMethod s2=new NotoStringMethod(102,"Vijay","ghaziabad");
+	   NotoStringMethod s1=new NotoStringMethod(101,"Hello"," World!");
+	   NotoStringMethod s2=new NotoStringMethod(102,"Hi!"," How are you?");
 
 	   System.out.println(s1);//compiler writes here s1.toString()
 	   System.out.println(s2);//compiler writes here s2.toString()
